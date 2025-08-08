@@ -51,17 +51,25 @@
   const abrir = document.getElementById("abrirModal");
   const cerrar = document.getElementById("cerrarModal");
 
-  abrir.addEventListener("click", function (e) {
-    e.preventDefault(); // evitar redirección
-    modal.style.display = "flex";
-  });
+  if (abrir) {
+    abrir.addEventListener("click", function (e) {
+      e.preventDefault(); // evitar redirección
+      if (modal) {
+        modal.style.display = "flex";
+      }
+    });
+  }
 
-  cerrar.addEventListener("click", function () {
-    modal.style.display = "none";
-  });
+  if (cerrar) {
+    cerrar.addEventListener("click", function () {
+      if (modal) {
+        modal.style.display = "none";
+      }
+    });
+  }
 
   window.addEventListener("click", function (e) {
-    if (e.target === modal) {
+    if (modal && e.target === modal) {
       modal.style.display = "none";
     }
   });

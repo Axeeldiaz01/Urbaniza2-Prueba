@@ -33,27 +33,67 @@
     </div>
   </header>
 
-  <div class="anuncio">
-    <div class="anuncio-contenido">
-      <div class="anuncio-img">
-        <img src="img/chorrillos1.jpeg" class="slider-img active" />
-        <img src="img/chorrillos2.jpeg" class="slider-img" />
-        <img src="img/chorrillos3.jpeg" class="slider-img" />
+  <!-- HERO SLIDER SECTION -->
+  <section class="hero-slider">
+    <div class="slider-container">
+      <!-- Slides -->
+      <div class="slide active" style="background-image: url('img/slider1.jpg');">
+        <div class="slide-overlay"></div>
       </div>
-      <div class="anuncio-texto">
-        <h1>🌄 ¡Haz realidad tu sueño de tener un terreno propio!</h1>
-        <p>En <strong>Urbaniza2 Inmobiliaria</strong> te ofrecemos terrenos estratégicos en 
-          <strong>Chorrillos, Chancay y Végueta</strong>, con precios accesibles, trato personalizado 
-          y asesoría legal garantizada.</p>
-        <div class="botones">
-          <a href="/terrenos.html#chorrillos" class="btn">Ver Proyecto</a>
-          <a href="https://wa.me/51982664102" class="btn btn-secundario">Contáctanos Hoy!</a>
+      <div class="slide" style="background-image: url('img/slider2.jpg');">
+        <div class="slide-overlay"></div>
+      </div>
+      <div class="slide" style="background-image: url('img/slider3.jpg');">
+        <div class="slide-overlay"></div>
+      </div>
+      
+      <!-- Contenido superpuesto -->
+      <div class="hero-content">
+        <div class="container">
+          <div class="hero-text">
+            <h1 class="hero-title">🌄 ¡Haz realidad tu sueño de tener un terreno propio!</h1>
+            <p class="hero-description">
+              En <strong>Urbaniza2 Inmobiliaria</strong> te ofrecemos terrenos estratégicos en 
+              <strong>Chorrillos, Chancay y Végueta</strong>, con precios accesibles, trato personalizado 
+              y asesoría legal garantizada.
+            </p>
+            <div class="hero-buttons">
+              <a href="/terrenos.html#chorrillos" class="btn btn-primary">Ver Proyectos</a>
+              <a href="https://wa.me/51982664102" class="btn btn-secondary">Contáctanos Hoy!</a>
+            </div>
+          </div>
         </div>
       </div>
+      
+      <!-- Controles del slider -->
+      <div class="slider-controls">
+        <button class="slider-btn prev-btn" id="prevBtn">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="slider-btn next-btn" id="nextBtn">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+      
+      <!-- Indicadores -->
+      <div class="slider-indicators">
+        <span class="indicator active" data-slide="0"></span>
+        <span class="indicator" data-slide="1"></span>
+        <span class="indicator" data-slide="2"></span>
+      </div>
     </div>
-    <p class="anuncio-p">Ahora disponible: <strong>Terreno en la Quinta Zona - Urbanización La Campiña, Chorrillos</strong>.
-      ¡Ubicación ideal para vivir o invertir!</p>
-  </div>
+    
+    <!-- Anuncio inferior -->
+    <div class="hero-announcement">
+      <div class="container">
+        <p class="announcement-text">
+          <i class="fas fa-star"></i>
+          Ahora disponible: <strong>Terreno en la Quinta Zona - Urbanización La Campiña, Chorrillos</strong>.
+          ¡Ubicación ideal para vivir o invertir!
+        </p>
+      </div>
+    </div>
+  </section>
 
   <main class="container">
     <section>
