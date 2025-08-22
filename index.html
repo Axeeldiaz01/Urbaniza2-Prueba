@@ -51,7 +51,7 @@
       <div class="hero-content">
         <div class="container">
           <div class="hero-text">
-            <h1 class="hero-title">🌄 ¡Haz realidad tu sueño de tener un terreno propio!</h1>
+            <h1 class="hero-title">¡Haz realidad tu sueño de tener un terreno propio!</h1>
             <p class="hero-description">
               En <strong>Urbaniza2 Inmobiliaria</strong> te ofrecemos terrenos estratégicos en 
               <strong>Chorrillos, Chancay y Végueta</strong>, con precios accesibles, trato personalizado 
@@ -95,113 +95,87 @@
     </div>
   </section>
 
-  <main class="container">
-    <section>
-      <h2>Bienvenidos a Urbaniza2 Inmobiliaria</h2>
-      <p>Transformamos tus sueños en realidad. Te acompañamos en cada paso para encontrar el terreno, casa o inversión ideal para ti y tu familia.</p>
-      <p>Contamos con experiencia, confianza y un equipo dispuesto a ayudarte. ¡Tu futuro empieza hoy!</p>
-    </section>
-
-    <section>
-      <h2>¿Qué ofrecemos?</h2>
-      <ul>
-        <li>Venta de terrenos con documentos en regla</li>
-        <li>Facilidades de pago y asesoría</li>
-        <li>Proyectos de inversión inmobiliaria</li>
-      </ul>
-    </section>
-
-    <div class="carrusel-terrenos">
-      <button class="carrusel-btn anterior">&#10094;</button>
-      <div class="carrusel-imagenes">
-        <div class="slide activo">
-          <img src="img/saber.jpeg" alt="saber">
-        </div>
-        <div class="slide">
-          <img src="img/4razones.jpeg" alt="4 razones">
-        </div>
-        <div class="slide">
-          <img src="img/finanzas.jpeg" alt="finanzas">
-        </div>
-        <div class="slide">
-          <img src="img/aspectos sociales.jpeg" alt="aspectos sociales">
-        </div>
-        <div class="slide">
-          <img src="img/investigacion.jpeg" alt="investigacion">
-        </div>
-        <div class="slide">
-          <img src="img/consultas.jpeg" alt="consultas">
-        </div>
-      </div>
-      <button class="carrusel-btn siguiente">&#10095;</button>
-    </div>
-
-    <!-- CALCULADORA DE FINANCIAMIENTO -->
-    <section class="calculadora-section">
-      <h2><i class="fas fa-calculator"></i> Calculadora de Financiamiento</h2>
-      <p>Simula tu plan de pago y descubre cuánto puedes invertir</p>
-      <div class="calculadora-container">
-        <div class="calculadora-inputs">
-          <div class="input-group">
-            <label for="precio-terreno">Precio del Terreno (S/)</label>
-            <input type="number" id="precio-terreno" placeholder="150000" min="0">
+  <main>
+    <!-- SECCIÓN SERVICIOS -->
+    <section class="services-section">
+      <div class="container">
+        <h2 class="section-title text-center">¿Qué ofrecemos?</h2>
+        <p class="section-subtitle text-center">Servicios integrales para tu inversión inmobiliaria</p>
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-file-contract"></i>
+            </div>
+            <h3>Documentos en Regla</h3>
+            <p>Venta de terrenos con toda la documentación legal al día y garantizada.</p>
           </div>
-          <div class="input-group">
-            <label for="cuota-inicial">Cuota Inicial (%)</label>
-            <input type="range" id="cuota-inicial" min="10" max="50" value="20">
-            <span id="cuota-inicial-valor">S/ 30,000</span>
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-handshake"></i>
+            </div>
+            <h3>Facilidades de Pago</h3>
+            <p>Planes de financiamiento flexibles adaptados a tu presupuesto y necesidades.</p>
           </div>
-          <div class="input-group">
-            <label for="plazo-pago">Plazo de Pago (años)</label>
-            <select id="plazo-pago">
-              <option value="3">3 año</option>
-              <option value="4" selected>4 años</option>
-              <option value="5">5 años</option>
-              <option value="6">6 años</option>
-              <option value="7">7 años</option>
-              <option value="8">8 años</option>
-              <option value="9">9 años</option>
-              <option value="10">10 años</option>
-            </select>
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h3>Proyectos de Inversión</h3>
+            <p>Oportunidades de inversión inmobiliaria con alta rentabilidad y crecimiento.</p>
           </div>
-          <div class="input-group">
-            <label for="tasa-interes">Tasa de Interés Anual (%)</label>
-            <select id="tasa-interes">
-              <option value="8">8% - Promocional</option>
-              <option value="10" selected>10% - Estándar</option>
-              <option value="12">12% - Premium</option>
-              <option value="15">15% - Especial</option>
-            </select>
-          </div>
-          <button id="btn-calcular" class="btn-calcular">Calcular</button>
-        </div>
-        <div class="calculadora-resultados">
-          <h3>Resultados del Financiamiento</h3>
-          <div class="resultado-item">
-            <span>Cuota Inicial:</span>
-            <span id="cuota-inicial-resultado">S/ 0</span>
-          </div>
-          <div class="resultado-item">
-            <span>Monto a Financiar:</span>
-            <span id="monto-financiar">S/ 0</span>
-          </div>
-          <div class="resultado-item">
-            <span>Cuota Mensual:</span>
-            <span id="cuota-mensual">S/ 0</span>
-          </div>
-          <div class="resultado-item">
-            <span>Interés Total:</span>
-            <span id="interes-total">S/ 0</span>
-          </div>
-          <div class="resultado-item total">
-            <span>Total a Pagar:</span>
-            <span id="total-pagar">S/ 0</span>
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-user-tie"></i>
+            </div>
+            <h3>Asesoría Especializada</h3>
+            <p>Acompañamiento profesional en todo el proceso de compra y venta.</p>
           </div>
         </div>
       </div>
+    </section>
+
+    <!-- SECCIÓN INFORMACIÓN EDUCATIVA -->
+    <section class="info-section">
+      <div class="container">
+        <h2 class="section-title text-center">Guía para Compradores</h2>
+        <p class="section-subtitle text-center">Todo lo que necesitas saber antes de invertir</p>
+        <div class="carrusel-terrenos">
+          <button class="carrusel-btn anterior" aria-label="Anterior">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <div class="carrusel-imagenes">
+            <div class="slide">
+              <img src="img/saber.jpeg" alt="Qué saber antes de comprar un terreno">
+              <div class="slide-caption">
+                <h3>¿Qué Saber?</h3>
+                <p>Aspectos importantes antes de comprar</p>
+              </div>
+            </div>
+            <div class="slide">
+              <img src="img/4razones.jpeg" alt="4 razones para invertir">
+              <div class="slide-caption">
+                <h3>4 Razones</h3>
+                <p>Por qué invertir en terrenos</p>
+              </div>
+            </div>
+            <div class="slide">
+              <img src="img/finanzas.jpeg" alt="Aspectos financieros">
+              <div class="slide-caption">
+                <h3>Finanzas</h3>
+                <p>Planifica tu inversión correctamente</p>
+              </div>
+            </div>
+
+
+          </div>
+          <button class="carrusel-btn siguiente" aria-label="Siguiente">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
     </section>
 
     <!-- SISTEMA DE FAVORITOS -->
+    <div class="container">
     <section class="favoritos-section">
       <div class="favoritos-header">
         <h2><i class="fas fa-heart"></i> Mis Terrenos Favoritos</h2>
@@ -215,73 +189,15 @@
         </div>
       </div>
       
-      <div class="terrenos-destacados">
-        <h3>Terrenos Destacados</h3>
-        <div class="terrenos-grid">
-          <div class="terreno-card" data-id="1" data-precio="120000" data-ubicacion="Chorrillos" data-area="200">
-            <img src="img/chorrillos1.jpeg" alt="Terreno Chorrillos">
-            <div class="terreno-info">
-              <h4>Terreno en Chorrillos</h4>
-              <p class="precio">S/ 120,000</p>
-              <p class="ubicacion"><i class="fas fa-map-marker-alt"></i> Chorrillos, Lima</p>
-              <p class="area"><i class="fas fa-ruler-combined"></i> 200 m²</p>
-              <div class="terreno-actions">
-                <button class="btn-favorito" data-id="1">
-                  <i class="far fa-heart"></i>
-                </button>
-                <button class="btn-comparar-item" data-id="1">
-                  <i class="fas fa-balance-scale"></i>
-                </button>
-                <a href="terrenos.html#chorrillos" class="btn-ver-mas">Ver Más</a>
-              </div>
-            </div>
-          </div>
-          
-          <div class="terreno-card" data-id="2" data-precio="95000" data-ubicacion="Chancay" data-area="180">
-            <img src="img/chancay.jpg" alt="Terreno Chancay">
-            <div class="terreno-info">
-              <h4>Terreno en Chancay</h4>
-              <p class="precio">S/ 95,000</p>
-              <p class="ubicacion"><i class="fas fa-map-marker-alt"></i> Chancay, Lima</p>
-              <p class="area"><i class="fas fa-ruler-combined"></i> 180 m²</p>
-              <div class="terreno-actions">
-                <button class="btn-favorito" data-id="2">
-                  <i class="far fa-heart"></i>
-                </button>
-                <button class="btn-comparar-item" data-id="2">
-                  <i class="fas fa-balance-scale"></i>
-                </button>
-                <a href="terrenos.html#chancay" class="btn-ver-mas">Ver Más</a>
-              </div>
-            </div>
-          </div>
-          
-          <div class="terreno-card" data-id="3" data-precio="85000" data-ubicacion="Végueta" data-area="220">
-            <img src="img/vegueta.jpg" alt="Terreno Végueta">
-            <div class="terreno-info">
-              <h4>Terreno en Végueta</h4>
-              <p class="precio">S/ 85,000</p>
-              <p class="ubicacion"><i class="fas fa-map-marker-alt"></i> Végueta, Lima</p>
-              <p class="area"><i class="fas fa-ruler-combined"></i> 220 m²</p>
-              <div class="terreno-actions">
-                <button class="btn-favorito" data-id="3">
-                  <i class="far fa-heart"></i>
-                </button>
-                <button class="btn-comparar-item" data-id="3">
-                  <i class="fas fa-balance-scale"></i>
-                </button>
-                <a href="terrenos.html#vegueta" class="btn-ver-mas">Ver Más</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+
     </section>
 
 
 
 
+
     <a class="scrollToHome" href="#" style="display: inline;"><i class="fa fa-angle-up"></i></a>
+    </div>
   </main>
 
 
@@ -301,6 +217,12 @@
         <i class="fab fa-instagram"></i>
       </a>
     </div>
+    <!-- Enlace discreto para administradores -->
+    <div class="admin-access" style="margin-top: 10px;">
+      <a href="http://localhost:8080/index.php" target="_blank" style="color: #666; font-size: 12px; text-decoration: none; opacity: 0.7;" title="Acceso Administrativo">
+        <i class="fas fa-cog" style="margin-right: 5px;"></i>Admin
+      </a>
+    </div>
   </footer>
   <a href="https://wa.me/51982664102" 
      class="whatsapp-float" 
@@ -310,6 +232,65 @@
       <path d="M12.004 2.002C6.475 2.002 2 6.477 2 12.007c0 1.994.522 3.853 1.516 5.513L2 22l4.605-1.505A9.944 9.944 0 0012.004 22c5.528 0 10.002-4.475 10.002-9.993 0-5.53-4.474-10.005-10.002-10.005zm.007 18.002c-1.612 0-3.185-.437-4.564-1.263l-.328-.195-2.733.893.9-2.66-.212-.34a7.935 7.935 0 01-1.2-4.177c0-4.415 3.59-8.006 8.004-8.006 4.415 0 8.004 3.59 8.004 8.006 0 4.413-3.59 7.992-8.004 7.992zm4.507-5.994c-.246-.123-1.457-.72-1.683-.8-.226-.08-.392-.123-.558.124-.165.246-.64.8-.785.965-.145.165-.29.185-.536.062-.246-.123-1.04-.383-1.98-1.22-.732-.652-1.226-1.46-1.37-1.705-.145-.247-.015-.38.109-.502.112-.111.246-.29.37-.435.124-.144.165-.247.248-.412.083-.165.042-.31-.02-.435-.062-.123-.558-1.35-.764-1.845-.202-.485-.407-.42-.558-.427-.145-.006-.31-.007-.476-.007-.165 0-.435.062-.663.31-.227.248-.866.845-.866 2.06 0 1.215.886 2.39 1.008 2.554.124.165 1.742 2.658 4.225 3.724.59.254 1.05.405 1.408.519.592.188 1.132.162 1.56.098.476-.07 1.457-.595 1.663-1.173.205-.577.205-1.07.145-1.173-.062-.104-.227-.165-.476-.288z"/>
     </svg>
   </a>
+</footer>
+
+  <!-- MODAL FAVORITOS -->
+  <div id="modal-favoritos" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2><i class="fas fa-heart"></i> Mis Terrenos Favoritos</h2>
+        <span class="close" onclick="cerrarModalFavoritos()">&times;</span>
+      </div>
+      <div class="modal-body">
+        <div id="lista-favoritos">
+          <p class="no-favoritos">No tienes terrenos favoritos guardados</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL COMPARACIÓN -->
+  <div id="modal-comparacion" class="modal">
+    <div class="modal-content modal-large">
+      <div class="modal-header">
+        <h2><i class="fas fa-balance-scale"></i> Comparar Terrenos</h2>
+        <span class="close" onclick="cerrarModalComparacion()">&times;</span>
+      </div>
+      <div class="modal-body">
+        <div id="tabla-comparacion">
+          <p class="no-comparacion">Selecciona al menos 2 terrenos para comparar</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL DETALLES TERRENO -->
+  <div id="modal-detalles" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="detalle-titulo">Detalles del Terreno</h2>
+        <span class="close" onclick="cerrarModalDetalles()">&times;</span>
+      </div>
+      <div class="modal-body">
+        <div class="detalle-contenido">
+          <div class="detalle-imagen">
+            <img id="detalle-img" src="" alt="Terreno">
+          </div>
+          <div class="detalle-info">
+            <div class="detalle-precio" id="detalle-precio"></div>
+            <div class="detalle-ubicacion" id="detalle-ubicacion"></div>
+            <div class="detalle-area" id="detalle-area"></div>
+            <div class="detalle-descripcion" id="detalle-descripcion"></div>
+            <div class="detalle-acciones">
+              <button class="btn-contactar" onclick="contactarWhatsApp()">Contactar por WhatsApp</button>
+              <button class="btn-favorito-modal" id="btn-favorito-modal" onclick="toggleFavoritoModal()">Agregar a Favoritos</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="js/script.js"></script>
   <script src="js/funcionalidades.js"></script>
 </body>

@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
       modalImg.src = img.src;
       captionText.textContent = img.alt;
     }
-  }
+  };
 
   // Cerrar modal al hacer click en la "x"
   const cerrarBtn = document.querySelector(".cerrar");
@@ -75,63 +75,122 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  /*funconalidad de buscardor*/
+  /*funcionalidad de buscador*/
+  // Función para realizar la búsqueda
+  function realizarBusqueda() {
+    const tipoElement = document.getElementById('tipo-inmueble');
+    const textoElement = document.getElementById('texto-busqueda');
+    const monedaElement = document.getElementById('moneda');
+    const desdeElement = document.getElementById('precio-desde');
+    const hastaElement = document.getElementById('precio-hasta');
+    const retirarPrecioElement = document.getElementById('retirar-precio');
+
+    if (!tipoElement || !textoElement || !monedaElement || !desdeElement || !hastaElement || !retirarPrecioElement) {
+      return;
+    }
+
+    const tipo = tipoElement.value.toLowerCase();
+    const texto = textoElement.value.toLowerCase().trim();
+    const moneda = monedaElement.value;
+    const desde = parseFloat(desdeElement.value) || 0;
+    const hasta = parseFloat(hastaElement.value) || Infinity;
+    const retirarPrecio = retirarPrecioElement.checked;
+
+    let firstVisible = null;
+    let totalVisible = 0;
+
+    document.querySelectorAll('.galeria .card').forEach(card => {
+      const cardTipo = (card.getAttribute('data-tipo') || '').toLowerCase();
+      const cardUbicacion = (card.getAttribute('data-ubicacion') || '').toLowerCase();
+      const cardPrecio = parseFloat(card.getAttribute('data-precio')) || 0;
+      const cardMoneda = card.getAttribute('data-moneda') || '';
+
+      let visible = true;
+
+      // Filtro por tipo
+      if (tipo && cardTipo !== tipo) visible = false;
+      
+      // Filtro por texto (buscar en ubicación y nombre)
+      if (texto && !cardUbicacion.includes(texto)) visible = false;
+      
+      // Filtro por precio
+      if (!retirarPrecio && cardMoneda === moneda) {
+        if (cardPrecio < desde || cardPrecio > hasta) visible = false;
+      }
+
+      card.style.display = visible ? '' : 'none';
+
+      if (visible) {
+        totalVisible++;
+        if (!firstVisible) {
+          firstVisible = card;
+        }
+      }
+      
+      // Quitar resaltado anterior
+      card.classList.remove('resaltado-busqueda');
+    });
+
+    // Mostrar mensaje si no hay resultados
+    mostrarResultadosBusqueda(totalVisible);
+
+    // Hacer scroll y resaltar la primera tarjeta visible
+    if (firstVisible) {
+      firstVisible.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      firstVisible.classList.add('resaltado-busqueda');
+      setTimeout(() => {
+        firstVisible.classList.remove('resaltado-busqueda');
+      }, 2000);
+    }
+  }
+
+  // Función para mostrar resultados de búsqueda
+  function mostrarResultadosBusqueda(total) {
+    // Remover mensaje anterior si existe
+    const mensajeAnterior = document.querySelector('.mensaje-busqueda');
+    if (mensajeAnterior) {
+      mensajeAnterior.remove();
+    }
+
+    const galeria = document.querySelector('.galeria');
+    if (galeria && total === 0) {
+      const mensaje = document.createElement('div');
+      mensaje.className = 'mensaje-busqueda';
+      mensaje.innerHTML = `
+        <div style="text-align: center; padding: 40px; color: #666;">
+          <i class="fas fa-search" style="font-size: 3rem; margin-bottom: 20px; opacity: 0.5;"></i>
+          <h3>No se encontraron terrenos</h3>
+          <p>Intenta ajustar los filtros de búsqueda</p>
+        </div>
+      `;
+      galeria.appendChild(mensaje);
+    }
+  }
+
   const formBuscador = document.getElementById('form-buscador');
   if (formBuscador) {
     formBuscador.addEventListener('submit', function(e) {
       e.preventDefault();
+      realizarBusqueda();
+    });
+  }
 
-      const tipoElement = document.getElementById('tipo-inmueble');
-      const textoElement = document.getElementById('texto-busqueda');
-      const monedaElement = document.getElementById('moneda');
-      const desdeElement = document.getElementById('precio-desde');
-      const hastaElement = document.getElementById('precio-hasta');
-      const retirarPrecioElement = document.getElementById('retirar-precio');
+  // Escuchar cuando se cargan los terrenos dinámicos
+  document.addEventListener('terrenosCargados', function() {
+    console.log('Terrenos dinámicos cargados, buscador listo');
+  });
 
-      if (!tipoElement || !textoElement || !monedaElement || !desdeElement || !hastaElement || !retirarPrecioElement) {
-        return;
-      }
-
-      const tipo = tipoElement.value.toLowerCase();
-      const texto = textoElement.value.toLowerCase();
-      const moneda = monedaElement.value;
-      const desde = parseFloat(desdeElement.value) || 0;
-      const hasta = parseFloat(hastaElement.value) || Infinity;
-      const retirarPrecio = retirarPrecioElement.checked;
-
-      let firstVisible = null;
-
-      document.querySelectorAll('.galeria .card').forEach(card => {
-        const cardTipo = (card.getAttribute('data-tipo') || '').toLowerCase();
-        const cardUbicacion = (card.getAttribute('data-ubicacion') || '').toLowerCase();
-        const cardPrecio = parseFloat(card.getAttribute('data-precio')) || 0;
-        const cardMoneda = card.getAttribute('data-moneda') || '';
-
-        let visible = true;
-
-        if (tipo && cardTipo !== tipo) visible = false;
-        if (texto && !cardUbicacion.includes(texto)) visible = false;
-        if (!retirarPrecio && cardMoneda === moneda) {
-          if (cardPrecio < desde || cardPrecio > hasta) visible = false;
+  // Búsqueda en tiempo real (opcional)
+  const inputBusqueda = document.getElementById('texto-busqueda');
+  if (inputBusqueda) {
+    let timeoutBusqueda;
+    inputBusqueda.addEventListener('input', function() {
+      clearTimeout(timeoutBusqueda);
+      timeoutBusqueda = setTimeout(() => {
+        if (this.value.length >= 2 || this.value.length === 0) {
+          realizarBusqueda();
         }
-
-        card.style.display = visible ? '' : 'none';
-
-        if (visible && !firstVisible) {
-          firstVisible = card;
-        }
-        // Quitar resaltado anterior
-        card.classList.remove('resaltado-busqueda');
-      });
-
-      // Hacer scroll y resaltar la primera tarjeta visible
-      if (firstVisible) {
-        firstVisible.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        firstVisible.classList.add('resaltado-busqueda');
-        setTimeout(() => {
-          firstVisible.classList.remove('resaltado-busqueda');
-        }, 2000);
-      }
+      }, 500);
     });
   }
 

@@ -232,16 +232,11 @@ function initializeEnhancedForm() {
 
   // Envío del formulario
   if (formulario) {
-    formulario.addEventListener('submit', function(e) {
+    formulario.addEventListener('submit', async function(e) {
       e.preventDefault();
       
       if (validateStep(3)) {
-        // Simular envío exitoso
-        showSuccessMessage();
-        setTimeout(() => {
-          modalFormulario.style.display = 'none';
-          resetForm();
-        }, 3000);
+        await submitForm();
       }
     });
   }
@@ -500,6 +495,54 @@ function updateSummary() {
   `;
 }
 
+// Enviar formulario a la API local
+async function submitForm() {
+  const modalFormulario = document.getElementById('modal-formulario-mejorado');
+  const btnEnviar = document.getElementById('btn-enviar');
+  
+  // Mostrar estado de carga
+  btnEnviar.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+  btnEnviar.disabled = true;
+  
+  try {
+    const formData = {
+      nombre: document.getElementById('nombre').value,
+      email: document.getElementById('email').value,
+      telefono: document.getElementById('telefono').value,
+      tipo_consulta: document.getElementById('tipo-consulta').value,
+      mensaje: document.getElementById('mensaje').value,
+      presupuesto: document.getElementById('presupuesto').value,
+      ubicacion_interes: document.getElementById('ubicacion-interes').value
+    };
+    
+    const response = await fetch('http://localhost:8080/api/consultas.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData)
+    });
+    
+    const result = await response.json();
+    
+    if (result.success) {
+      showSuccessMessage();
+      setTimeout(() => {
+        modalFormulario.style.display = 'none';
+        resetForm();
+      }, 3000);
+    } else {
+      showErrorMessage(result.message || 'Error al enviar la consulta');
+    }
+  } catch (error) {
+    console.error('Error:', error);
+    showErrorMessage('Error de conexión. Por favor, intenta nuevamente.');
+  } finally {
+    btnEnviar.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar Consulta';
+    btnEnviar.disabled = false;
+  }
+}
+
 // Mostrar mensaje de éxito
 function showSuccessMessage() {
   const formulario = document.getElementById('formulario-contacto-mejorado');
@@ -518,6 +561,29 @@ function showSuccessMessage() {
       </p>
     </div>
   `;
+}
+
+// Mostrar mensaje de error
+function showErrorMessage(message) {
+  const formulario = document.getElementById('formulario-contacto-mejorado');
+  const errorDiv = document.createElement('div');
+  errorDiv.style.cssText = `
+    background: #e74c3c;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    margin: 20px 0;
+    text-align: center;
+  `;
+  errorDiv.innerHTML = `
+    <i class="fas fa-exclamation-triangle"></i> ${message}
+  `;
+  
+  formulario.insertBefore(errorDiv, formulario.firstChild);
+  
+  setTimeout(() => {
+    errorDiv.remove();
+  }, 5000);
 }
 
 // Resetear formulario
