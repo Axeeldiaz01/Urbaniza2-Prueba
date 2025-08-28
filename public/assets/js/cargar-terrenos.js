@@ -61,7 +61,7 @@ function crearTarjetaTerreno(terreno) {
     card.setAttribute('data-moneda', 'S/'); // Asumiendo soles peruanos
     
     // Construir la ruta de la imagen
-    const imagenSrc = terreno.imagen ? `uploads/${terreno.imagen}` : 'img/default-terreno.svg';
+    const imagenSrc = terreno.imagen ? `uploads/${terreno.imagen}` : 'assets/img/default-terreno.svg';
     
     card.innerHTML = `
         <img src="${imagenSrc}" alt="${terreno.nombre}" onclick="ampliarImagen(this)" onerror="this.src='assets/img/default-terreno.svg'">
@@ -71,7 +71,7 @@ function crearTarjetaTerreno(terreno) {
         <p>${terreno.descripcion}</p>
         <p class="precio">S/ ${formatearPrecio(terreno.precio)}</p>
         <div class="card-actions">
-            <button class="btn-comprar" data-ubicacion="${terreno.nombre}" data-precio="${terreno.precio}" data-area="${terreno.area} m²" data-terreno-id="${terreno.id}">
+            <button class="btn-comprar" data-precio="${terreno.precio}" data-ubicacion="${terreno.ubicacion}" data-area="${terreno.area} m²" data-terreno-id="${terreno.id}">
                 <i class="fas fa-shopping-cart"></i> Comprar
             </button>
         </div>

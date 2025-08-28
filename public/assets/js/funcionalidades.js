@@ -1,5 +1,7 @@
 // CALCULADORA DE FINANCIAMIENTO
 document.addEventListener('DOMContentLoaded', function() {
+    // Inicializar carrusel
+    initializeCarousel();
     // Elementos de la calculadora
     const precioInput = document.getElementById('precio-terreno');
     const cuotaInicialSlider = document.getElementById('cuota-inicial');
@@ -84,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function actualizarContadorFavoritos() {
         const contador = document.querySelector('.btn-favoritos');
         if (contador) {
-            contador.innerHTML = `<i class="fas fa-heart"></i> Ver Favoritos (<span id="contador-favoritos">${favoritos.length}</span>)`;
+            contador.textContent = `❤️ Favoritos (${favoritos.length})`;
         }
     }
 
@@ -92,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function actualizarBotonComparar() {
         const btnComparar = document.querySelector('.btn-comparar');
         if (btnComparar) {
-            btnComparar.innerHTML = `<i class="fas fa-balance-scale"></i> Comparar (<span id="contador-comparar">${comparacion.length}</span>)`;
+            btnComparar.textContent = `⚖️ Comparar (${comparacion.length})`;
             btnComparar.disabled = comparacion.length < 2;
         }
     }
@@ -110,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function() {
         actualizarBotonesFavoritos();
     }
 
-    // Agregar/quitar de comparaciÃ³n
+    // Agregar/quitar de comparación
     function toggleComparacion(id) {
         const index = comparacion.indexOf(id);
         if (index > -1) {
@@ -134,10 +136,10 @@ document.addEventListener('DOMContentLoaded', function() {
             const id = btn.dataset.id;
             if (favoritos.includes(id)) {
                 btn.classList.add('active');
-                btn.innerHTML = '<i class="fas fa-heart"></i>';
+                btn.textContent = '❤️';
             } else {
                 btn.classList.remove('active');
-                btn.innerHTML = '<i class="far fa-heart"></i>';
+                btn.textContent = '🤍';
             }
         });
     }
@@ -148,15 +150,15 @@ document.addEventListener('DOMContentLoaded', function() {
             const id = btn.dataset.id;
             if (comparacion.includes(id)) {
                 btn.classList.add('active');
-                btn.innerHTML = '<i class="fas fa-check"></i>';
+                btn.textContent = '✓ Comparar';
             } else {
                 btn.classList.remove('active');
-                btn.innerHTML = '<i class="fas fa-balance-scale"></i>';
+                btn.textContent = '⚖️ Comparar';
             }
         });
     }
 
-    // Event listeners para favoritos y comparaciÃ³n
+    // Event listeners para favoritos y comparación
     document.addEventListener('click', function(e) {
         if (e.target.classList.contains('btn-favorito')) {
             e.preventDefault();
@@ -175,8 +177,7 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('No tienes terrenos favoritos guardados');
             return;
         }
-        // Aquí podrías abrir un modal o redirigir a una página de favoritos
-        alert(`Tienes ${favoritos.length} terrenos en favoritos`);
+        mostrarModalFavoritos();
     });
 
     // Comparar terrenos
@@ -185,8 +186,24 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('Selecciona al menos 2 terrenos para comparar');
             return;
         }
-        // Aquí podrías abrir un modal de comparación
-        alert(`Comparando ${comparacion.length} terrenos`);
+        mostrarModalComparacion();
+    });
+
+    // Event listener para "Ver Más"
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('btn-ver-mas')) {
+            e.preventDefault();
+            const card = e.target.closest('.terreno-card');
+            if (card) {
+                const id = card.dataset.id;
+                const precio = card.dataset.precio;
+                const ubicacion = card.dataset.ubicacion;
+                const area = card.dataset.area;
+                const img = card.querySelector('img').src;
+                const titulo = card.querySelector('h4').textContent;
+                mostrarModalDetalles(id, titulo, precio, ubicacion, area, img);
+            }
+        }
     });
 
 
@@ -201,9 +218,229 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Inicializar formulario mejorado
     initializeEnhancedForm();
+});
+
+// ===== FUNCIONES PARA MODALES =====
+
+// Modal de Favoritos
+function mostrarModalFavoritos() {
+    const modal = document.getElementById('modal-favoritos');
+    const listaFavoritos = document.getElementById('lista-favoritos');
     
-    // Inicializar botones de comprar
-    initializeComprarButtons();
+    if (favoritos.length === 0) {
+        listaFavoritos.innerHTML = '<p class="no-favoritos">No tienes terrenos favoritos guardados</p>';
+    } else {
+        let html = '';
+        favoritos.forEach(id => {
+            const terreno = obtenerDatosTerreno(id);
+            if (terreno) {
+                html += `
+                    <div class="lista-favoritos-item">
+                        <img src="${terreno.img}" alt="${terreno.titulo}" class="favorito-img">
+                        <div class="favorito-info">
+                            <h4>${terreno.titulo}</h4>
+                            <div class="favorito-precio">S/ ${formatearPrecio(terreno.precio)}</div>
+                            <div class="favorito-ubicacion"><i class="fas fa-map-marker-alt"></i> ${terreno.ubicacion}</div>
+                        </div>
+                        <div class="favorito-acciones">
+                            <button class="btn-eliminar-favorito" onclick="eliminarFavorito('${id}')">
+                                <i class="fas fa-trash"></i> Eliminar
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }
+        });
+        listaFavoritos.innerHTML = html;
+    }
+    
+    modal.style.display = 'block';
+}
+
+function cerrarModalFavoritos() {
+    document.getElementById('modal-favoritos').style.display = 'none';
+}
+
+function eliminarFavorito(id) {
+    toggleFavorito(id);
+    mostrarModalFavoritos(); // Actualizar la lista
+}
+
+// Modal de Comparación
+function mostrarModalComparacion() {
+    const modal = document.getElementById('modal-comparacion');
+    const tablaComparacion = document.getElementById('tabla-comparacion');
+    
+    if (comparacion.length < 2) {
+        tablaComparacion.innerHTML = '<p class="no-comparacion">Selecciona al menos 2 terrenos para comparar</p>';
+    } else {
+        let html = `
+            <table>
+                <thead>
+                    <tr>
+                        <th>Característica</th>
+        `;
+        
+        // Agregar columnas para cada terreno
+        comparacion.forEach(id => {
+            const terreno = obtenerDatosTerreno(id);
+            if (terreno) {
+                html += `<th>${terreno.titulo}</th>`;
+            }
+        });
+        
+        html += `
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Imagen</strong></td>
+        `;
+        
+        // Agregar imágenes
+        comparacion.forEach(id => {
+            const terreno = obtenerDatosTerreno(id);
+            if (terreno) {
+                html += `<td><img src="${terreno.img}" alt="${terreno.titulo}" class="comparacion-img"></td>`;
+            }
+        });
+        
+        html += `
+                    </tr>
+                    <tr>
+                        <td><strong>Precio</strong></td>
+        `;
+        
+        // Agregar precios
+        comparacion.forEach(id => {
+            const terreno = obtenerDatosTerreno(id);
+            if (terreno) {
+                html += `<td class="comparacion-precio">S/ ${formatearPrecio(terreno.precio)}</td>`;
+            }
+        });
+        
+        html += `
+                    </tr>
+                    <tr>
+                        <td><strong>Ubicación</strong></td>
+        `;
+        
+        // Agregar ubicaciones
+        comparacion.forEach(id => {
+            const terreno = obtenerDatosTerreno(id);
+            if (terreno) {
+                html += `<td>${terreno.ubicacion}</td>`;
+            }
+        });
+        
+        html += `
+                    </tr>
+                    <tr>
+                        <td><strong>Área</strong></td>
+        `;
+        
+        // Agregar áreas
+        comparacion.forEach(id => {
+            const terreno = obtenerDatosTerreno(id);
+            if (terreno) {
+                html += `<td>${terreno.area}</td>`;
+            }
+        });
+        
+        html += `
+                    </tr>
+                </tbody>
+            </table>
+        `;
+        
+        tablaComparacion.innerHTML = html;
+    }
+    
+    modal.style.display = 'block';
+}
+
+function cerrarModalComparacion() {
+    document.getElementById('modal-comparacion').style.display = 'none';
+}
+
+// Modal de Detalles
+let terrenoActual = null;
+
+function mostrarModalDetalles(id, titulo, precio, ubicacion, area, img) {
+    terrenoActual = id;
+    const modal = document.getElementById('modal-detalles');
+    
+    document.getElementById('detalle-titulo').textContent = titulo;
+    document.getElementById('detalle-precio').textContent = `S/ ${formatearPrecio(precio)}`;
+    document.getElementById('detalle-ubicacion').innerHTML = `<i class="fas fa-map-marker-alt"></i> ${ubicacion}`;
+    document.getElementById('detalle-area').innerHTML = `<i class="fas fa-ruler-combined"></i> ${area}`;
+    document.getElementById('detalle-img').src = img;
+    document.getElementById('detalle-descripcion').textContent = 'Excelente oportunidad de inversión en una ubicación privilegiada.';
+    
+    // Actualizar botón de favorito
+    const btnFavorito = document.getElementById('btn-favorito-modal');
+    if (favoritos.includes(id)) {
+        btnFavorito.classList.add('active');
+        btnFavorito.innerHTML = '<i class="fas fa-heart"></i> Quitar de Favoritos';
+    } else {
+        btnFavorito.classList.remove('active');
+        btnFavorito.innerHTML = '<i class="far fa-heart"></i> Agregar a Favoritos';
+    }
+    
+    modal.style.display = 'block';
+}
+
+function cerrarModalDetalles() {
+    document.getElementById('modal-detalles').style.display = 'none';
+    terrenoActual = null;
+}
+
+function toggleFavoritoModal() {
+    if (terrenoActual) {
+        toggleFavorito(terrenoActual);
+        // Actualizar botón
+        const btnFavorito = document.getElementById('btn-favorito-modal');
+        if (favoritos.includes(terrenoActual)) {
+            btnFavorito.classList.add('active');
+            btnFavorito.innerHTML = '<i class="fas fa-heart"></i> Quitar de Favoritos';
+        } else {
+            btnFavorito.classList.remove('active');
+            btnFavorito.innerHTML = '<i class="far fa-heart"></i> Agregar a Favoritos';
+        }
+    }
+}
+
+function contactarWhatsApp() {
+    if (terrenoActual) {
+        const terreno = obtenerDatosTerreno(terrenoActual);
+        if (terreno) {
+            const mensaje = `Hola, estoy interesado en el terreno: ${terreno.titulo} - S/ ${formatearPrecio(terreno.precio)} en ${terreno.ubicacion}`;
+            const url = `https://wa.me/51982664102?text=${encodeURIComponent(mensaje)}`;
+            window.open(url, '_blank');
+        }
+    }
+}
+
+// Función auxiliar para obtener datos del terreno
+function obtenerDatosTerreno(id) {
+    const card = document.querySelector(`[data-id="${id}"]`);
+    if (!card) return null;
+    
+    return {
+        id: id,
+        titulo: card.querySelector('h4')?.textContent || 'Terreno',
+        precio: card.dataset.precio || '0',
+        ubicacion: card.dataset.ubicacion || 'No especificado',
+        area: card.dataset.area || 'No especificado',
+        img: card.querySelector('img')?.src || ''
+    };
+}
+
+// Cerrar modales al hacer clic fuera
+window.addEventListener('click', function(e) {
+    if (e.target.classList.contains('modal')) {
+        e.target.style.display = 'none';
+    }
 });
 
 // ===== FUNCIONALIDAD DEL FORMULARIO DE CONTACTO MEJORADO =====
@@ -242,20 +479,20 @@ function initializeEnhancedForm() {
         }
     });
 
-    // Inicializar validaciÃ³n en tiempo real
+    // Inicializar validación en tiempo real
     initializeRealTimeValidation();
     
-    // Inicializar navegaciÃ³n del formulario
+    // Inicializar navegación del formulario
     initializeFormNavigation();
     
     // Generar captcha inicial
     generateCaptcha();
 }
 
-// FunciÃ³n para abrir WhatsApp
+// Función para abrir WhatsApp
 function abrirWhatsApp() {
-    const numero = "51987654321"; // Reemplaza con tu nÃºmero real
-    const mensaje = "Hola, estoy interesado en sus terrenos. Â¿PodrÃ­an brindarme mÃ¡s informaciÃ³n?";
+    const numero = "51987654321"; // Reemplaza con tu número real
+    const mensaje = "Hola, estoy interesado en sus terrenos. ¿Podrían brindarme más información?";
     const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
     window.open(url, '_blank');
 }
@@ -281,7 +518,7 @@ function cerrarModal(modal) {
     modal.style.display = 'none';
 }
 
-// Funciones de navegaciÃ³n del formulario
+// Funciones de navegación del formulario
 function initializeFormNavigation() {
     const prevBtn = document.getElementById('prevStep');
     const nextBtn = document.getElementById('nextStep');
@@ -325,10 +562,10 @@ function showStep(step) {
     // Actualizar indicador de progreso
     updateProgressIndicator(step);
 
-    // Actualizar botones de navegaciÃ³n
+    // Actualizar botones de navegación
     updateNavigationButtons(step);
 
-    // Si es el Ãºltimo paso, mostrar resumen
+    // Si es el último paso, mostrar resumen
     if (step === totalSteps) {
         updateFormSummary();
     }
@@ -367,7 +604,7 @@ function updateNavigationButtons(step) {
     }
 }
 
-// ValidaciÃ³n en tiempo real
+// Validación en tiempo real
 function initializeRealTimeValidation() {
     const inputs = document.querySelectorAll('.enhanced-form input, .enhanced-form select, .enhanced-form textarea');
     
@@ -426,7 +663,7 @@ function validateField(field) {
     field.classList.remove('valid', 'invalid');
     field.classList.add(isValid ? 'valid' : 'invalid');
 
-    // Mostrar mensaje de validaciÃ³n
+    // Mostrar mensaje de validación
     const messageElement = field.parentNode.querySelector('.validation-message');
     if (messageElement) {
         messageElement.textContent = message;
@@ -464,7 +701,7 @@ function updateCharCounter(textarea) {
     }
 }
 
-// ValidaciÃ³n de pasos
+// Validación de pasos
 function validateCurrentStep() {
     const currentStepElement = document.getElementById(`step${currentStep}`);
     if (!currentStepElement) return false;
@@ -478,7 +715,7 @@ function validateCurrentStep() {
         }
     });
 
-    // ValidaciÃ³n especÃ­fica para el paso 3 (captcha y consentimientos)
+    // Validación específica para el paso 3 (captcha y consentimientos)
     if (currentStep === 3) {
         const captchaValid = validateCaptcha();
         const consentValid = validateConsents();
@@ -569,36 +806,36 @@ function updateFormSummary() {
         <h4><i class="fas fa-clipboard-list"></i> Resumen de su consulta</h4>
         <p><strong>Nombre:</strong> ${formData.nombre || 'No especificado'}</p>
         <p><strong>Email:</strong> ${formData.email || 'No especificado'}</p>
-        <p><strong>TelÃ©fono:</strong> ${formData.telefono || 'No especificado'}</p>
+        <p><strong>Teléfono:</strong> ${formData.telefono || 'No especificado'}</p>
         <p><strong>Tipo de consulta:</strong> ${formData.tipoConsulta || 'No especificado'}</p>
         <p><strong>Presupuesto estimado:</strong> ${formData.presupuesto || 'No especificado'}</p>
-        <p><strong>UbicaciÃ³n de interÃ©s:</strong> ${formData.ubicacion || 'No especificado'}</p>
+        <p><strong>Ubicación de interés:</strong> ${formData.ubicacion || 'No especificado'}</p>
         <p><strong>Mensaje:</strong> ${formData.mensaje ? formData.mensaje.substring(0, 100) + '...' : 'No especificado'}</p>
     `;
     
     summaryElement.innerHTML = summaryHTML;
 }
 
-// EnvÃ­o del formulario
+// Envío del formulario
 function submitForm() {
     if (!validateCurrentStep()) {
         alert('Por favor, complete todos los campos requeridos correctamente.');
         return;
     }
 
-    // Guardar datos del Ãºltimo paso
+    // Guardar datos del último paso
     saveCurrentStepData();
     
-    // Simular envÃ­o (aquÃ­ integrarÃ­as con tu backend)
+    // Simular envío (aquí integrarías con tu backend)
     const submitBtn = document.getElementById('submitForm');
     const originalText = submitBtn.innerHTML;
     
     submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
     submitBtn.disabled = true;
     
-    // Simular delay de envÃ­o
+    // Simular delay de envío
     setTimeout(() => {
-        alert('Â¡Gracias por contactarnos! Hemos recibido su consulta y nos pondremos en contacto con usted pronto.');
+        alert('¡Gracias por contactarnos! Hemos recibido su consulta y nos pondremos en contacto con usted pronto.');
         
         // Cerrar modal
         const modal = document.getElementById('modalContacto');
@@ -609,7 +846,7 @@ function submitForm() {
         // Resetear formulario
         resetForm();
         
-        // Restaurar botÃ³n
+        // Restaurar botón
         submitBtn.innerHTML = originalText;
         submitBtn.disabled = false;
         
@@ -626,13 +863,13 @@ function resetForm() {
         form.reset();
     }
     
-    // Limpiar clases de validaciÃ³n
+    // Limpiar clases de validación
     const fields = document.querySelectorAll('.enhanced-form input, .enhanced-form select, .enhanced-form textarea');
     fields.forEach(field => {
         field.classList.remove('valid', 'invalid');
     });
     
-    // Limpiar mensajes de validaciÃ³n
+    // Limpiar mensajes de validación
     const messages = document.querySelectorAll('.validation-message');
     messages.forEach(message => {
         message.textContent = '';
@@ -645,37 +882,120 @@ function resetForm() {
     showStep(1);
 }
 
-// FUNCIONALIDAD DE COMPRA
-function iniciarCompra(ubicacion, precio, area, terrenoId = 1) {
-    mostrarModalCompra(precio, ubicacion, area, terrenoId);
+// CARRUSEL DE GUÍA PARA COMPRADORES
+let currentSlide = 0;
+let slideInterval;
+
+function initializeCarousel() {
+    const carousel = document.querySelector('.carrusel-terrenos');
+    if (!carousel) return;
+    
+    const slides = carousel.querySelectorAll('.slide');
+    const prevBtn = carousel.querySelector('.anterior');
+    const nextBtn = carousel.querySelector('.siguiente');
+    
+    if (slides.length === 0) return;
+    
+    // Limpiar clases activo existentes
+    slides.forEach(slide => slide.classList.remove('activo'));
+    
+    // Mostrar primer slide
+    slides[0].classList.add('activo');
+    
+    // Auto-play del carrusel
+    function startAutoPlay() {
+        slideInterval = setInterval(() => {
+            nextSlide();
+        }, 5000); // Cambiar cada 5 segundos
+    }
+    
+    function stopAutoPlay() {
+        clearInterval(slideInterval);
+    }
+    
+    function showSlide(index) {
+        slides.forEach(slide => slide.classList.remove('activo'));
+        slides[index].classList.add('activo');
+        currentSlide = index;
+    }
+    
+    function nextSlide() {
+        const nextIndex = (currentSlide + 1) % slides.length;
+        showSlide(nextIndex);
+    }
+    
+    function prevSlide() {
+        const prevIndex = (currentSlide - 1 + slides.length) % slides.length;
+        showSlide(prevIndex);
+    }
+    
+    // Event listeners para botones de navegación
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            stopAutoPlay();
+            nextSlide();
+            startAutoPlay();
+        });
+    }
+    
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            stopAutoPlay();
+            prevSlide();
+            startAutoPlay();
+        });
+    }
+    
+    // Pausar auto-play al hacer hover
+    if (carousel) {
+        carousel.addEventListener('mouseenter', stopAutoPlay);
+        carousel.addEventListener('mouseleave', startAutoPlay);
+    }
+    
+    // Iniciar auto-play
+    startAutoPlay();
 }
 
-function mostrarModalCompra(precio, ubicacion, area, terrenoId = 1) {
-    // Crear modal
-    const modal = document.createElement('div');
-    modal.className = 'modal-compra';
+// Carrusel inicializado en el evento DOMContentLoaded principal
+
+// Funcionalidad para botones de comprar
+// Función para iniciar compra (llamada desde los botones HTML)
+function iniciarCompra(precio, ubicacion, area) {
+    mostrarModalCompra(precio, ubicacion, area);
+}
+
+function initializeComprarButtons() {
+    const botonesComprar = document.querySelectorAll('.btn-comprar');
     
-    // Formatear precio
+    botonesComprar.forEach(boton => {
+        boton.addEventListener('click', function() {
+            const precio = this.getAttribute('data-precio');
+            const ubicacion = this.getAttribute('data-ubicacion');
+            const area = this.getAttribute('data-area');
+            
+            mostrarModalCompra(precio, ubicacion, area);
+        });
+    });
+}
+
+function mostrarModalCompra(precio, ubicacion, area) {
+    // Formatear el precio
     const precioFormateado = new Intl.NumberFormat('es-PE', {
         style: 'currency',
         currency: 'PEN'
     }).format(precio);
     
-    // Formatear área
+    // Formatear el área
     let areaFormateada;
-    if (typeof area === 'string' && area.includes('Hectáreas')) {
-        areaFormateada = area;
-    } else if (typeof area === 'string' && area.includes('m²')) {
-        areaFormateada = area;
+    if (area >= 10000) {
+        areaFormateada = (area / 10000).toFixed(1) + ' Hectáreas';
     } else {
-        const areaNum = parseFloat(area);
-        if (areaNum >= 10000) {
-            areaFormateada = (areaNum / 10000).toFixed(1) + ' Hectáreas';
-        } else {
-            areaFormateada = areaNum + ' m²';
-        }
+        areaFormateada = area + ' m²';
     }
     
+    // Crear modal de confirmación con formulario
+    const modal = document.createElement('div');
+    modal.className = 'modal-compra';
     modal.innerHTML = `
         <div class="modal-compra-content">
             <div class="modal-compra-header">
@@ -732,7 +1052,7 @@ function mostrarModalCompra(precio, ubicacion, area, terrenoId = 1) {
                     <button type="button" class="btn-cancelar" onclick="document.querySelector('.modal-compra').remove()">
                         Cancelar
                     </button>
-                    <button type="button" class="btn-enviar-compra" onclick="procesarSolicitudCompra(${precio}, '${ubicacion}', '${area}', 'whatsapp', ${terrenoId})">
+                    <button type="button" class="btn-enviar-compra" onclick="procesarSolicitudCompra('${precio}', '${ubicacion}', '${area}', 'whatsapp')">
                         Enviar y Contactar por WhatsApp
                     </button>
                 </div>
@@ -740,10 +1060,10 @@ function mostrarModalCompra(precio, ubicacion, area, terrenoId = 1) {
         </div>
     `;
     
-    // Agregar modal al body
     document.body.appendChild(modal);
+    modal.style.display = 'block';
     
-    // Agregar event listeners
+    // Cerrar modal
     const closeBtn = modal.querySelector('.close-compra');
     closeBtn.addEventListener('click', () => {
         document.body.removeChild(modal);
@@ -758,7 +1078,7 @@ function mostrarModalCompra(precio, ubicacion, area, terrenoId = 1) {
 }
 
 // Función para procesar la solicitud de compra
-function procesarSolicitudCompra(precio, ubicacion, area, accion, terrenoId = 1) {
+function procesarSolicitudCompra(precio, ubicacion, area, accion) {
     // Obtener datos del formulario
     const nombre = document.getElementById('nombre').value.trim();
     const email = document.getElementById('email').value.trim();
@@ -779,6 +1099,10 @@ function procesarSolicitudCompra(precio, ubicacion, area, accion, terrenoId = 1)
         return;
     }
     
+    // Obtener el ID del terreno desde el botón que activó el modal
+    const btnComprar = document.querySelector('.btn-comprar[data-precio="' + precio + '"][data-ubicacion="' + ubicacion + '"][data-area="' + area + '"]');
+    const terrenoId = btnComprar ? btnComprar.getAttribute('data-terreno-id') || 1 : 1;
+    
     // Preparar datos para enviar al servidor
     const datosCompra = {
         terreno_id: terrenoId,
@@ -793,13 +1117,13 @@ function procesarSolicitudCompra(precio, ubicacion, area, accion, terrenoId = 1)
     };
     
     // Mostrar indicador de carga
-    const btnWhatsApp = document.querySelector('.btn-enviar-compra');
+    const btnWhatsApp = document.querySelector('.btn-whatsapp-compra');
     const textoOriginal = btnWhatsApp.innerHTML;
     btnWhatsApp.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
     btnWhatsApp.disabled = true;
     
     // Enviar datos al servidor
-    fetch('../Admin/api/compras.php', {
+    fetch('Admin/api/compras.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -820,17 +1144,10 @@ function procesarSolicitudCompra(precio, ubicacion, area, accion, terrenoId = 1)
                 }).format(precio);
                 
                 let areaFormateada;
-                if (typeof area === 'string' && area.includes('Hectáreas')) {
-                    areaFormateada = area;
-                } else if (typeof area === 'string' && area.includes('m²')) {
-                    areaFormateada = area;
+                if (area >= 10000) {
+                    areaFormateada = (area / 10000).toFixed(1) + ' Hectáreas';
                 } else {
-                    const areaNum = parseFloat(area);
-                    if (areaNum >= 10000) {
-                        areaFormateada = (areaNum / 10000).toFixed(1) + ' Hectáreas';
-                    } else {
-                        areaFormateada = areaNum + ' m²';
-                    }
+                    areaFormateada = area + ' m²';
                 }
                 
                 const mensajeWhatsApp = `¡Hola! He enviado una solicitud de compra para el terreno en ${ubicacion}.\n\n` +
@@ -881,25 +1198,14 @@ function irACalculadora() {
         document.body.removeChild(modal);
     }
     
-    // Ir a la sección de calculadora
-    const calculadoraSection = document.querySelector('.calculadora-section');
-    if (calculadoraSection) {
-        calculadoraSection.scrollIntoView({ behavior: 'smooth' });
+    // Scroll a la calculadora
+    const calculadora = document.querySelector('.calculadora-section');
+    if (calculadora) {
+        calculadora.scrollIntoView({ behavior: 'smooth' });
     }
 }
 
-// Función para inicializar botones de comprar
-function initializeComprarButtons() {
-    const botonesComprar = document.querySelectorAll('.btn-comprar');
-    
-    botonesComprar.forEach(boton => {
-        boton.addEventListener('click', function() {
-            const precio = this.getAttribute('data-precio');
-            const ubicacion = this.getAttribute('data-ubicacion');
-            const area = this.getAttribute('data-area');
-            const terrenoId = this.getAttribute('data-terreno-id') || 1;
-            
-            iniciarCompra(ubicacion, precio, area, terrenoId);
-        });
-    });
-}
+// Inicializar botones de comprar cuando se carga la página
+document.addEventListener('DOMContentLoaded', function() {
+    initializeComprarButtons();
+});

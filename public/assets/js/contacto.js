@@ -200,7 +200,7 @@ function initializeEnhancedForm() {
     });
   }
 
-  // Formateo de telÃ©fono
+  // Formateo de teléfono
   const telefonoInput = document.getElementById('telefono');
   if (telefonoInput) {
     telefonoInput.addEventListener('input', function() {
@@ -212,7 +212,7 @@ function initializeEnhancedForm() {
     });
   }
 
-  // Modal de polÃ­tica de privacidad
+  // Modal de política de privacidad
   const verPolitica = document.getElementById('ver-politica-privacidad');
   const modalPolitica = document.getElementById('modal-politica-privacidad');
   const cerrarPolitica = document.getElementById('cerrar-politica-privacidad');
@@ -230,7 +230,7 @@ function initializeEnhancedForm() {
     });
   }
 
-  // EnvÃ­o del formulario
+  // Envío del formulario
   if (formulario) {
     formulario.addEventListener('submit', async function(e) {
       e.preventDefault();
@@ -242,7 +242,7 @@ function initializeEnhancedForm() {
   }
 }
 
-// NavegaciÃ³n entre pasos
+// Navegación entre pasos
 function nextStep() {
   if (validateStep(currentStep)) {
     if (currentStep < totalSteps) {
@@ -263,7 +263,7 @@ function prevStep() {
   }
 }
 
-// Actualizar visualizaciÃ³n del paso
+// Actualizar visualización del paso
 function updateStepDisplay() {
   // Actualizar indicador de progreso
   document.querySelectorAll('.step').forEach((step, index) => {
@@ -283,31 +283,27 @@ function updateStepDisplay() {
     }
   });
 
-  // Actualizar botones de navegaciÃ³n
+  // Actualizar botones de navegación
   const btnAnterior = document.getElementById('btn-anterior');
   const btnSiguiente = document.getElementById('btn-siguiente');
   const btnEnviar = document.getElementById('btn-enviar');
 
-  if (btnAnterior) {
-    if (currentStep === 1) {
-      btnAnterior.style.display = 'none';
-    } else {
-      btnAnterior.style.display = 'inline-flex';
-    }
+  if (currentStep === 1) {
+    btnAnterior.style.display = 'none';
+  } else {
+    btnAnterior.style.display = 'inline-flex';
   }
 
-  if (btnSiguiente && btnEnviar) {
-    if (currentStep === totalSteps) {
-      btnSiguiente.style.display = 'none';
-      btnEnviar.style.display = 'inline-flex';
-    } else {
-      btnSiguiente.style.display = 'inline-flex';
-      btnEnviar.style.display = 'none';
-    }
+  if (currentStep === totalSteps) {
+    btnSiguiente.style.display = 'none';
+    btnEnviar.style.display = 'inline-flex';
+  } else {
+    btnSiguiente.style.display = 'inline-flex';
+    btnEnviar.style.display = 'none';
   }
 }
 
-// ValidaciÃ³n en tiempo real
+// Validación en tiempo real
 function setupRealTimeValidation() {
   const nombre = document.getElementById('nombre');
   const email = document.getElementById('email');
@@ -350,7 +346,7 @@ function validateField(fieldName) {
       if (field.value.trim().length < 2) {
         isValid = false;
         message = 'El nombre debe tener al menos 2 caracteres';
-      } else if (!/^[a-zA-ZÃ¡Ã©Ã­Ã³ÃºÃÃ‰ÃÃ“ÃšÃ±Ã‘\s]+$/.test(field.value.trim())) {
+      } else if (!/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/.test(field.value.trim())) {
         isValid = false;
         message = 'El nombre solo puede contener letras y espacios';
       } else {
@@ -401,7 +397,7 @@ function validateField(fieldName) {
   return isValid;
 }
 
-// Limpiar validaciÃ³n
+// Limpiar validación
 function clearValidation(fieldName) {
   const field = document.getElementById(fieldName);
   const validation = document.getElementById(fieldName + '-validation');
@@ -468,7 +464,7 @@ function generateCaptcha() {
   
   const captchaQuestion = document.getElementById('captcha-question');
   if (captchaQuestion) {
-    captchaQuestion.textContent = `Â¿CuÃ¡nto es ${num1} + ${num2}?`;
+    captchaQuestion.textContent = `¿Cuánto es ${num1} + ${num2}?`;
   }
 }
 
@@ -620,4 +616,3 @@ function resetForm() {
   
   generateCaptcha();
 }
-

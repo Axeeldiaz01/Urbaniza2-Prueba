@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400">
+  <defs>
+    <linearGradient id="cityGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Fondo -->
+  <rect width="800" height="400" fill="url(#cityGradient)"/>
+  
+  <!-- Skyline de ciudad planificada -->
+  <g>
+    <!-- Edificios de diferentes alturas -->
+    <rect x="50" y="250" width="60" height="150" fill="#34495e"/>
+    <rect x="120" y="200" width="50" height="200" fill="#2c3e50"/>
+    <rect x="180" y="180" width="70" height="220" fill="#34495e"/>
+    <rect x="260" y="220" width="55" height="180" fill="#2c3e50"/>
+    <rect x="325" y="160" width="65" height="240" fill="#34495e"/>
+    <rect x="400" y="190" width="60" height="210" fill="#2c3e50"/>
+    <rect x="470" y="170" width="75" height="230" fill="#34495e"/>
+    <rect x="555" y="210" width="50" height="190" fill="#2c3e50"/>
+    <rect x="615" y="240" width="65" height="160" fill="#34495e"/>
+    <rect x="690" y="260" width="55" height="140" fill="#2c3e50"/>
+    
+    <!-- Ventanas iluminadas -->
+    <g fill="#f39c12">
+      <!-- Edificio 1 -->
+      <rect x="60" y="270" width="8" height="12"/>
+      <rect x="75" y="270" width="8" height="12"/>
+      <rect x="90" y="270" width="8" height="12"/>
+      <rect x="60" y="300" width="8" height="12"/>
+      <rect x="90" y="300" width="8" height="12"/>
+      
+      <!-- Edificio 2 -->
+      <rect x="130" y="220" width="8" height="12"/>
+      <rect x="145" y="220" width="8" height="12"/>
+      <rect x="130" y="250" width="8" height="12"/>
+      <rect x="155" y="250" width="8" height="12"/>
+      
+      <!-- Más ventanas en otros edificios -->
+      <rect x="190" y="200" width="8" height="12"/>
+      <rect x="210" y="200" width="8" height="12"/>
+      <rect x="230" y="200" width="8" height="12"/>
+      <rect x="340" y="180" width="8" height="12"/>
+      <rect x="360" y="180" width="8" height="12"/>
+      <rect x="480" y="190" width="8" height="12"/>
+      <rect x="500" y="190" width="8" height="12"/>
+    </g>
+  </g>
+  
+  <!-- Áreas verdes planificadas -->
+  <g fill="#27ae60">
+    <!-- Parques -->
+    <ellipse cx="150" cy="380" rx="40" ry="15"/>
+    <ellipse cx="350" cy="380" rx="50" ry="15"/>
+    <ellipse cx="600" cy="380" rx="45" ry="15"/>
+    
+    <!-- Árboles -->
+    <circle cx="130" cy="370" r="8"/>
+    <circle cx="170" cy="370" r="8"/>
+    <circle cx="330" cy="370" r="8"/>
+    <circle cx="370" cy="370" r="8"/>
+    <circle cx="580" cy="370" r="8"/>
+    <circle cx="620" cy="370" r="8"/>
+  </g>
+  
+  <!-- Vías de transporte -->
+  <g>
+    <!-- Carreteras principales -->
+    <rect x="0" y="350" width="800" height="8" fill="#7f8c8d"/>
+    <rect x="0" y="354" width="800" height="2" fill="#ecf0f1" opacity="0.5"/>
+    
+    <!-- Ciclovías -->
+    <rect x="0" y="340" width="800" height="4" fill="#e74c3c"/>
+  </g>
+  
+  <!-- Iconos de planificación -->
+  <g>
+    <!-- Icono de plano/blueprint -->
+    <rect x="50" y="50" width="120" height="80" fill="#3498db" opacity="0.8" rx="5"/>
+    <g stroke="#FFFFFF" stroke-width="2" fill="none">
+      <rect x="60" y="70" width="30" height="20"/>
+      <rect x="100" y="70" width="25" height="15"/>
+      <rect x="60" y="100" width="40" height="15"/>
+      <rect x="110" y="95" width="20" height="25"/>
+    </g>
+    
+    <!-- Icono de sostenibilidad -->
+    <circle cx="700" cy="80" r="30" fill="#27ae60" opacity="0.8"/>
+    <path d="M 690 80 Q 700 65 710 80 Q 700 95 690 80" fill="#FFFFFF"/>
+    
+    <!-- Icono de transporte -->
+    <rect x="350" y="50" width="100" height="40" fill="#e67e22" opacity="0.8" rx="20"/>
+    <circle cx="370" cy="85" r="8" fill="#2c3e50"/>
+    <circle cx="430" cy="85" r="8" fill="#2c3e50"/>
+    <rect x="360" y="60" width="80" height="15" fill="#FFFFFF" rx="3"/>
+  </g>
+  
+  <!-- Texto principal -->
+  <text x="400" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#FFFFFF">
+    Planificación Urbana Moderna
+  </text>
+  
+  <!-- Etiquetas de zonas -->
+  <g font-family="Arial, sans-serif" font-size="12" fill="#FFFFFF">
+    <text x="80" y="145" text-anchor="middle">Zona Residencial</text>
+    <text x="350" y="145" text-anchor="middle">Zona Comercial</text>
+    <text x="620" y="145" text-anchor="middle">Zona Mixta</text>
+  </g>
+</svg>

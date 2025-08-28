@@ -1,196 +1,3 @@
-// ===== FUNCIONES GLOBALES DEL MODAL DE COMPRA =====
-
-// Función para iniciar el proceso de compra (función global)
-function iniciarCompra(nombre, precio, area) {
-  // Crear y mostrar modal de compra
-  mostrarModalCompra(nombre, precio, area);
-}
-
-// Función para mostrar el modal de compra
-function mostrarModalCompra(nombre, precio, area) {
-  // Crear el modal si no existe
-  let modal = document.getElementById('modal-compra');
-  if (!modal) {
-    modal = crearModalCompra();
-    document.body.appendChild(modal);
-  }
-  
-  // Actualizar información del terreno
-  document.getElementById('compra-nombre').textContent = nombre;
-  document.getElementById('compra-precio').textContent = `S/ ${formatearPrecio(precio)}`;
-  document.getElementById('compra-area').textContent = area;
-  
-  // Mostrar el modal
-  modal.style.display = 'block';
-}
-
-// Función para crear el modal de compra
-function crearModalCompra() {
-  const modal = document.createElement('div');
-  modal.id = 'modal-compra';
-  modal.className = 'modal-compra';
-  
-  modal.innerHTML = `
-    <div class="modal-compra-content">
-      <div class="modal-compra-header">
-        <h2><i class="fas fa-shopping-cart"></i> Solicitar Compra de Terreno</h2>
-        <span class="close-compra" onclick="cerrarModalCompra()">&times;</span>
-      </div>
-      <div class="modal-compra-body">
-        <div class="terreno-seleccionado">
-          <h3>Terreno Seleccionado:</h3>
-          <div class="terreno-info">
-            <p><strong>Ubicación:</strong> <span id="compra-nombre"></span></p>
-            <p><strong>Precio:</strong> <span id="compra-precio"></span></p>
-            <p><strong>Área:</strong> <span id="compra-area"></span></p>
-          </div>
-        </div>
-        
-        <form id="form-compra" class="form-compra">
-          <div class="form-group">
-            <label for="compra-cliente-nombre">Nombre Completo *</label>
-            <input type="text" id="compra-cliente-nombre" name="nombre" required>
-          </div>
-          
-          <div class="form-group">
-            <label for="compra-cliente-email">Correo Electrónico *</label>
-            <input type="email" id="compra-cliente-email" name="email" required>
-          </div>
-          
-          <div class="form-group">
-            <label for="compra-cliente-telefono">Teléfono *</label>
-            <input type="tel" id="compra-cliente-telefono" name="telefono" required>
-          </div>
-          
-          <div class="form-group">
-            <label for="compra-tipo-pago">Tipo de Pago *</label>
-            <select id="compra-tipo-pago" name="tipo_pago" required>
-              <option value="">Seleccionar...</option>
-              <option value="contado">Al Contado</option>
-              <option value="financiado">Financiado</option>
-              <option value="credito">Crédito Hipotecario</option>
-            </select>
-          </div>
-          
-          <div class="form-group">
-            <label for="compra-mensaje">Mensaje Adicional</label>
-            <textarea id="compra-mensaje" name="mensaje" rows="4" placeholder="Comentarios adicionales sobre su interés en el terreno..."></textarea>
-          </div>
-          
-          <div class="form-actions">
-            <button type="button" class="btn-cancelar" onclick="cerrarModalCompra()">Cancelar</button>
-            <button type="submit" class="btn-enviar-compra">
-              <i class="fas fa-paper-plane"></i> Enviar Solicitud
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
-  `;
-  
-  // Agregar event listener para el formulario
-  const form = modal.querySelector('#form-compra');
-  if (form) {
-    form.addEventListener('submit', enviarSolicitudCompra);
-  }
-  
-  // Cerrar modal al hacer clic fuera
-  modal.addEventListener('click', function(e) {
-    if (e.target === modal) {
-      cerrarModalCompra();
-    }
-  });
-  
-  return modal;
-}
-
-// Función para cerrar el modal de compra
-function cerrarModalCompra() {
-  const modal = document.getElementById('modal-compra');
-  if (modal) {
-    modal.style.display = 'none';
-    // Limpiar formulario
-    const form = modal.querySelector('#form-compra');
-    if (form) {
-      form.reset();
-    }
-  }
-}
-
-// Función para enviar solicitud de compra
-function enviarSolicitudCompra(e) {
-  e.preventDefault();
-  
-  const formData = new FormData(e.target);
-  const datos = {
-    terreno_id: 1, // Por ahora usamos un ID fijo, luego se puede mejorar
-    nombre: formData.get('nombre'),
-    email: formData.get('email'),
-    telefono: formData.get('telefono'),
-    tipo_pago: formData.get('tipo_pago'),
-    mensaje: formData.get('mensaje')
-  };
-  
-  // Mostrar mensaje de carga
-  mostrarMensajeCarga();
-  
-  // Enviar datos al servidor
-  fetch('http://localhost:8080/api/compras.php', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(datos)
-  })
-  .then(response => response.json())
-  .then(data => {
-    ocultarMensajeCarga();
-    if (data.success) {
-      mostrarMensajeExito('¡Solicitud enviada exitosamente! Nos pondremos en contacto contigo pronto.');
-      cerrarModalCompra();
-    } else {
-      mostrarMensajeError(data.error || 'Error al enviar la solicitud. Por favor, intente nuevamente.');
-    }
-  })
-  .catch(error => {
-    console.error('Error:', error);
-    ocultarMensajeCarga();
-    mostrarMensajeError('Error de conexión. Por favor, intente nuevamente.');
-  });
-}
-
-// Funciones auxiliares para mensajes
-function mostrarMensajeCarga() {
-  const btn = document.querySelector('.btn-enviar-compra');
-  if (btn) {
-    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
-    btn.disabled = true;
-  }
-}
-
-function ocultarMensajeCarga() {
-  const btn = document.querySelector('.btn-enviar-compra');
-  if (btn) {
-    btn.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar Solicitud';
-    btn.disabled = false;
-  }
-}
-
-function mostrarMensajeExito(mensaje) {
-  alert(mensaje);
-}
-
-function mostrarMensajeError(mensaje) {
-  alert(mensaje);
-}
-
-// Función para formatear precio
-function formatearPrecio(precio) {
-  return new Intl.NumberFormat('es-PE').format(precio);
-}
-
-// ===== EVENT LISTENERS Y FUNCIONALIDADES GENERALES =====
-
 document.addEventListener('DOMContentLoaded', function() {
   const toggle = document.querySelector('.menu-toggle'); 
   const menu = document.querySelector('nav');
@@ -199,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
   if (toggle && menu) {
     toggle.addEventListener('click', () => {
       menu.classList.toggle('show');
-      toggle.classList.toggle('active');
+      toggle.classList.toggle('active'); // <- Esto activa la animación de la X
       document.body.classList.toggle('menu-abierto');
 
       // Guardamos en el historial para poder retroceder
@@ -209,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Cerrar menú al hacer clic fuera del nav
+  // Cerrar menú al hacer clic fuera del nav (solo si está abierto)
   document.addEventListener('click', (e) => {
     if (
       menu && menu.classList.contains('show') &&
@@ -219,77 +26,181 @@ document.addEventListener('DOMContentLoaded', function() {
       menu.classList.remove('show');
       toggle.classList.remove('active');
       document.body.classList.remove('menu-abierto');
+      history.back(); // para "limpiar" el pushState anterior
     }
   });
 
-  // Manejar el botón "atrás" del navegador
+  // Cerrar menú si se presiona el botón de retroceso del navegador
   window.addEventListener('popstate', (e) => {
     if (menu && menu.classList.contains('show')) {
       menu.classList.remove('show');
-      toggle.classList.remove('active');
+      toggle && toggle.classList.remove('active');
       document.body.classList.remove('menu-abierto');
     }
   });
 
-  // Funcionalidad del buscador
+  // Ampliar imagen al hacer click
+  window.ampliarImagen = function(img) {
+    const modal = document.getElementById("modal");
+    const modalImg = document.getElementById("img-ampliada");
+    const captionText = document.getElementById("caption");
+
+    if (modal && modalImg && captionText) {
+      modal.style.display = "block";
+      modalImg.src = img.src;
+      captionText.textContent = img.alt;
+    }
+  };
+
+  // Cerrar modal al hacer click en la "x"
+  const cerrarBtn = document.querySelector(".cerrar");
+  if (cerrarBtn) {
+    cerrarBtn.onclick = function () {
+      const modal = document.getElementById("modal");
+      if (modal) {
+        modal.style.display = "none";
+      }
+    };
+  }
+
+  // Reducir header al hacer scroll
+  window.addEventListener('scroll', function () {
+    const header = document.querySelector('header');
+    if (header) {
+      if (window.scrollY > 50) {
+        header.classList.add('shrink');
+      } else {
+        header.classList.remove('shrink');
+      }
+    }
+  });
+
+  /*funcionalidad de buscador*/
+  // Función para realizar la búsqueda
+  function realizarBusqueda() {
+    const tipoElement = document.getElementById('tipo-inmueble');
+    const textoElement = document.getElementById('texto-busqueda');
+    const monedaElement = document.getElementById('moneda');
+    const desdeElement = document.getElementById('precio-desde');
+    const hastaElement = document.getElementById('precio-hasta');
+    const retirarPrecioElement = document.getElementById('retirar-precio');
+
+    if (!tipoElement || !textoElement || !monedaElement || !desdeElement || !hastaElement || !retirarPrecioElement) {
+      return;
+    }
+
+    const tipo = tipoElement.value.toLowerCase();
+    const texto = textoElement.value.toLowerCase().trim();
+    const moneda = monedaElement.value;
+    const desde = parseFloat(desdeElement.value) || 0;
+    const hasta = parseFloat(hastaElement.value) || Infinity;
+    const retirarPrecio = retirarPrecioElement.checked;
+
+    let firstVisible = null;
+    let totalVisible = 0;
+
+    document.querySelectorAll('.galeria .card').forEach(card => {
+      const cardTipo = (card.getAttribute('data-tipo') || '').toLowerCase();
+      const cardUbicacion = (card.getAttribute('data-ubicacion') || '').toLowerCase();
+      const cardPrecio = parseFloat(card.getAttribute('data-precio')) || 0;
+      const cardMoneda = card.getAttribute('data-moneda') || '';
+
+      let visible = true;
+
+      // Filtro por tipo
+      if (tipo && cardTipo !== tipo) visible = false;
+      
+      // Filtro por texto (buscar en ubicación y nombre)
+      if (texto && !cardUbicacion.includes(texto)) visible = false;
+      
+      // Filtro por precio
+      if (!retirarPrecio && cardMoneda === moneda) {
+        if (cardPrecio < desde || cardPrecio > hasta) visible = false;
+      }
+
+      card.style.display = visible ? '' : 'none';
+
+      if (visible) {
+        totalVisible++;
+        if (!firstVisible) {
+          firstVisible = card;
+        }
+      }
+      
+      // Quitar resaltado anterior
+      card.classList.remove('resaltado-busqueda');
+    });
+
+    // Mostrar mensaje si no hay resultados
+    mostrarResultadosBusqueda(totalVisible);
+
+    // Hacer scroll a la primera tarjeta visible
+    if (firstVisible) {
+      firstVisible.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+
+  // Función para mostrar resultados de búsqueda
+  function mostrarResultadosBusqueda(total) {
+    // Remover mensaje anterior si existe
+    const mensajeAnterior = document.querySelector('.mensaje-busqueda');
+    if (mensajeAnterior) {
+      mensajeAnterior.remove();
+    }
+
+    const galeria = document.querySelector('.galeria');
+    if (galeria && total === 0) {
+      const mensaje = document.createElement('div');
+      mensaje.className = 'mensaje-busqueda';
+      mensaje.innerHTML = `
+        <div style="text-align: center; padding: 40px; color: #666;">
+          <i class="fas fa-search" style="font-size: 3rem; margin-bottom: 20px; opacity: 0.5;"></i>
+          <h3>No se encontraron terrenos</h3>
+          <p>Intenta ajustar los filtros de búsqueda</p>
+        </div>
+      `;
+      galeria.appendChild(mensaje);
+    }
+  }
+
   const formBuscador = document.getElementById('form-buscador');
   if (formBuscador) {
     formBuscador.addEventListener('submit', function(e) {
       e.preventDefault();
-      
-      const tipoInmueble = document.getElementById('tipo-inmueble').value;
-      const textoBusqueda = document.getElementById('texto-busqueda').value.toLowerCase();
-      const moneda = document.getElementById('moneda').value;
-      const precioDesde = parseFloat(document.getElementById('precio-desde').value) || 0;
-      const precioHasta = parseFloat(document.getElementById('precio-hasta').value) || Infinity;
-      const retirarPrecio = document.getElementById('retirar-precio').checked;
-      
-      filtrarTerrenos(tipoInmueble, textoBusqueda, moneda, precioDesde, precioHasta, retirarPrecio);
+      realizarBusqueda();
     });
   }
 
-  // Funcionalidad para ampliar imágenes
-  window.ampliarImagen = function(img) {
-    const modal = document.createElement('div');
-    modal.style.cssText = `
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.8);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-      cursor: pointer;
-    `;
-    
-    const imgAmpliada = document.createElement('img');
-    imgAmpliada.src = img.src;
-    imgAmpliada.style.cssText = `
-      max-width: 90%;
-      max-height: 90%;
-      object-fit: contain;
-    `;
-    
-    modal.appendChild(imgAmpliada);
-    document.body.appendChild(modal);
-    
-    modal.addEventListener('click', () => {
-      document.body.removeChild(modal);
-    });
-  };
+  // Escuchar cuando se cargan los terrenos dinámicos
+  document.addEventListener('terrenosCargados', function() {
+    console.log('Terrenos dinámicos cargados, buscador listo');
+  });
 
-  // Carrusel de imágenes
-  const slides = document.querySelectorAll('.slide');
-  const indicadores = document.querySelectorAll('.indicador');
+  // Búsqueda en tiempo real (opcional)
+  const inputBusqueda = document.getElementById('texto-busqueda');
+  if (inputBusqueda) {
+    let timeoutBusqueda;
+    inputBusqueda.addEventListener('input', function() {
+      clearTimeout(timeoutBusqueda);
+      timeoutBusqueda = setTimeout(() => {
+        if (this.value.length >= 2 || this.value.length === 0) {
+          realizarBusqueda();
+        }
+      }, 500);
+    });
+  }
+
+  // Funcionalidad del carrusel de Chorrillos
   let slideActualIndex = 0;
+  const slides = document.querySelectorAll('.carrusel-slide');
+  const indicadores = document.querySelectorAll('.indicador');
 
   function mostrarSlide(index) {
+    // Ocultar todos los slides
     slides.forEach(slide => slide.classList.remove('active'));
     indicadores.forEach(indicador => indicador.classList.remove('active'));
     
+    // Mostrar el slide actual
     if (slides[index]) {
       slides[index].classList.add('active');
       if (indicadores[index]) {
@@ -315,11 +226,11 @@ document.addEventListener('DOMContentLoaded', function() {
     mostrarSlide(slideActualIndex);
   }
 
-  // Auto-play del carrusel
+  // Auto-play del carrusel (solo si hay slides)
   if (slides.length > 0) {
     setInterval(() => {
       window.cambiarSlide(1);
-    }, 5000);
+    }, 5000); // Cambia cada 5 segundos
   }
 
   // Scroll to top functionality
@@ -349,36 +260,3 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 });
-
-// Función para filtrar terrenos
-function filtrarTerrenos(tipo, texto, moneda, precioDesde, precioHasta, retirarPrecio) {
-  const cards = document.querySelectorAll('.card');
-  
-  cards.forEach(card => {
-    const tipoCard = card.getAttribute('data-tipo');
-    const ubicacionCard = card.getAttribute('data-ubicacion').toLowerCase();
-    const precioCard = parseFloat(card.getAttribute('data-precio'));
-    const monedaCard = card.getAttribute('data-moneda');
-    
-    let mostrar = true;
-    
-    // Filtrar por tipo
-    if (tipo && tipoCard !== tipo) {
-      mostrar = false;
-    }
-    
-    // Filtrar por texto
-    if (texto && !ubicacionCard.includes(texto)) {
-      mostrar = false;
-    }
-    
-    // Filtrar por precio
-    if (!retirarPrecio && monedaCard === moneda) {
-      if (precioCard < precioDesde || precioCard > precioHasta) {
-        mostrar = false;
-      }
-    }
-    
-    card.style.display = mostrar ? 'block' : 'none';
-  });
-}

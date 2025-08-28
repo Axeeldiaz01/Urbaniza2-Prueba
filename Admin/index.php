@@ -3,7 +3,7 @@ session_start();
 
 // Verificar si ya está logueado
 if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true) {
-    header('Location: dashboard.php');
+    header('Location: views/dashboard.php');
     exit();
 }
 
@@ -29,7 +29,7 @@ if ($_POST) {
             $stmt = $pdo->prepare("UPDATE admins SET last_login = NOW() WHERE id = ?");
             $stmt->execute([$admin['id']]);
             
-            header('Location: dashboard.php');
+            header('Location: views/dashboard.php');
             exit();
         } else {
             $error = 'Usuario o contraseña incorrectos';

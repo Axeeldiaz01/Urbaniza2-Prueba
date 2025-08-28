@@ -1,10 +1,10 @@
-const toggle = document.querySelector('.menu-toggle'); 
+  const toggle = document.querySelector('.menu-toggle'); 
   const menu = document.querySelector('nav');
 
   // Abrir o cerrar menú con el botón ☰
   toggle.addEventListener('click', () => {
     menu.classList.toggle('show');
-    toggle.classList.toggle('active'); // <- Esto activa la animaciÃ³n de la X
+    toggle.classList.toggle('active'); // <- Esto activa la animación de la X
     document.body.classList.toggle('menu-abierto');
 
     // Guardamos en el historial para poder retroceder
@@ -44,4 +44,3 @@ window.addEventListener('scroll', function () {
     header.classList.remove('shrink');
   }
 });
-
