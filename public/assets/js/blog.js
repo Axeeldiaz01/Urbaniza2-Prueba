@@ -75,7 +75,6 @@ function openArticleModal(articleId) {
       title: "Consejos para Comprar tu Primer Terreno en Chancay",
       content: `
         <h2>Consejos para Comprar tu Primer Terreno en Chancay</h2>
-        <img src="img/chancay.jpg" alt="Chancay" style="width: 100%; border-radius: 10px; margin-bottom: 20px;">
         
         <p><strong>Chancay</strong> se ha convertido en una de las zonas más atractivas para la inversión inmobiliaria en Lima Norte. Con el desarrollo del Puerto de Chancay y su conexión estratégica, esta zona ofrece oportunidades únicas para quienes buscan su primer terreno.</p>
         
@@ -119,7 +118,6 @@ function openArticleModal(articleId) {
       title: "Crecimiento Territorial: Oportunidades de Expansión",
       content: `
         <h2>Crecimiento Territorial: Oportunidades de Expansión</h2>
-        <img src="img/crecimientoter.jpeg" alt="Crecimiento Territorial" style="width: 100%; border-radius: 10px; margin-bottom: 20px;">
         
         <p>El <strong>crecimiento territorial</strong> en Lima y provincias está creando nuevas oportunidades de inversión inmobiliaria. Conoce las zonas con mayor potencial de expansión urbana.</p>
         
@@ -161,7 +159,6 @@ function openArticleModal(articleId) {
       title: "Documentos Esenciales para Comprar un Terreno",
       content: `
         <h2>Documentos Esenciales para Comprar un Terreno</h2>
-        <img src="img/crecimientoneg.jpeg" alt="Documentos legales" style="width: 100%; border-radius: 10px; margin-bottom: 20px;">
         
         <p>Una compra segura requiere verificar cuidadosamente toda la documentación. Aquí te explicamos qué documentos son indispensables.</p>
         
@@ -218,7 +215,6 @@ function openArticleModal(articleId) {
       title: "Opciones de Financiamiento para tu Terreno",
       content: `
         <h2>Opciones de Financiamiento para tu Terreno</h2>
-        <img src="img/crecimientoecore.jpeg" alt="Financiamiento" style="width: 100%; border-radius: 10px; margin-bottom: 20px;">
         
         <p>Sabemos que comprar un terreno es una gran decisión. Por eso ofrecemos múltiples opciones de financiamiento para que puedas hacer realidad tu sueño.</p>
         
@@ -289,7 +285,6 @@ function openArticleModal(articleId) {
       title: "Crecimiento de Negocios: Inversión Inmobiliaria Comercial",
       content: `
         <h2>Crecimiento de Negocios: Inversión Inmobiliaria Comercial</h2>
-        <img src="img/desarrollopor.jpeg" alt="Crecimiento de Negocios" style="width: 100%; border-radius: 10px; margin-bottom: 20px;">
         
         <p>La <strong>inversión inmobiliaria comercial</strong> es una excelente estrategia para hacer crecer tu negocio y generar ingresos pasivos a largo plazo.</p>
         
@@ -332,7 +327,6 @@ function openArticleModal(articleId) {
       title: "Crecimiento Económico: Sectores en Expansión",
       content: `
         <h2>Crecimiento Económico: Sectores en Expansión</h2>
-        <img src="img/crecimientoecore.jpeg" alt="Crecimiento Económico" style="width: 100%; border-radius: 10px; margin-bottom: 20px;">
         
         <p>El <strong>crecimiento económico</strong> del país está impulsando nuevos sectores que generan oportunidades inmobiliarias únicas para inversionistas visionarios.</p>
         
@@ -375,7 +369,6 @@ function openArticleModal(articleId) {
       title: "Desarrollo Portuario: El Futuro de Chancay",
       content: `
         <h2>Desarrollo Portuario: El Futuro de Chancay</h2>
-        <img src="img/ubicaciones.jpeg" alt="Desarrollo Portuario" style="width: 100%; border-radius: 10px; margin-bottom: 20px;">
         
         <p>El <strong>Puerto de Chancay</strong> será el proyecto de infraestructura más importante del Perú, transformando completamente la zona norte de Lima y creando oportunidades de inversión históricas.</p>
         
@@ -418,7 +411,6 @@ function openArticleModal(articleId) {
       title: "Crecimiento Eco-responsable: Inversión Sostenible",
       content: `
         <h2>Crecimiento Eco-responsable: Inversión Sostenible</h2>
-        <img src="img/consultas.jpeg" alt="Crecimiento Eco-responsable" style="width: 100%; border-radius: 10px; margin-bottom: 20px;">
         
         <p>La <strong>inversión inmobiliaria sostenible</strong> no solo protege el medio ambiente, sino que también genera mayor rentabilidad y valor a largo plazo.</p>
         
@@ -461,7 +453,6 @@ function openArticleModal(articleId) {
       title: "Mejores Ubicaciones: Guía de Inversión Inmobiliaria",
       content: `
         <h2>Mejores Ubicaciones: Guía de Inversión Inmobiliaria</h2>
-        <img src="img/finanzas.jpeg" alt="Mejores Ubicaciones" style="width: 100%; border-radius: 10px; margin-bottom: 20px;">
         
         <p>La <strong>ubicación</strong> es el factor más importante en inversión inmobiliaria. Conoce las mejores zonas para invertir en Lima y provincias.</p>
         

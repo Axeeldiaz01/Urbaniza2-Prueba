@@ -78,17 +78,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // SISTEMA DE FAVORITOS
-    let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+    // SISTEMA DE COMPARACIÓN
     let comparacion = JSON.parse(localStorage.getItem('comparacion')) || [];
-
-    // Función para actualizar contador de favoritos
-    function actualizarContadorFavoritos() {
-        const contador = document.querySelector('.btn-favoritos');
-        if (contador) {
-            contador.textContent = `❤️ Favoritos (${favoritos.length})`;
-        }
-    }
 
     // Función para actualizar botón de comparar
     function actualizarBotonComparar() {
@@ -97,19 +88,6 @@ document.addEventListener('DOMContentLoaded', function() {
             btnComparar.textContent = `⚖️ Comparar (${comparacion.length})`;
             btnComparar.disabled = comparacion.length < 2;
         }
-    }
-
-    // Agregar/quitar de favoritos
-    function toggleFavorito(id) {
-        const index = favoritos.indexOf(id);
-        if (index > -1) {
-            favoritos.splice(index, 1);
-        } else {
-            favoritos.push(id);
-        }
-        localStorage.setItem('favoritos', JSON.stringify(favoritos));
-        actualizarContadorFavoritos();
-        actualizarBotonesFavoritos();
     }
 
     // Agregar/quitar de comparación
@@ -130,19 +108,7 @@ document.addEventListener('DOMContentLoaded', function() {
         actualizarBotonesComparacion();
     }
 
-    // Actualizar estado de botones de favoritos
-    function actualizarBotonesFavoritos() {
-        document.querySelectorAll('.btn-favorito').forEach(btn => {
-            const id = btn.dataset.id;
-            if (favoritos.includes(id)) {
-                btn.classList.add('active');
-                btn.textContent = '❤️';
-            } else {
-                btn.classList.remove('active');
-                btn.textContent = '🤍';
-            }
-        });
-    }
+
 
     // Actualizar estado de botones de comparación
     function actualizarBotonesComparacion() {
@@ -158,26 +124,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Event listeners para favoritos y comparación
+    // Event listeners para comparación
     document.addEventListener('click', function(e) {
-        if (e.target.classList.contains('btn-favorito')) {
-            e.preventDefault();
-            toggleFavorito(e.target.dataset.id);
-        }
-        
         if (e.target.classList.contains('btn-comparar-item')) {
             e.preventDefault();
             toggleComparacion(e.target.dataset.id);
         }
-    });
-
-    // Ver favoritos
-    document.querySelector('.btn-favoritos')?.addEventListener('click', function() {
-        if (favoritos.length === 0) {
-            alert('No tienes terrenos favoritos guardados');
-            return;
-        }
-        mostrarModalFavoritos();
     });
 
     // Comparar terrenos
@@ -211,9 +163,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     // Inicializar contadores y estados
-    actualizarContadorFavoritos();
     actualizarBotonComparar();
-    actualizarBotonesFavoritos();
     actualizarBotonesComparacion();
 
     // Inicializar formulario mejorado
@@ -222,49 +172,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // ===== FUNCIONES PARA MODALES =====
 
-// Modal de Favoritos
-function mostrarModalFavoritos() {
-    const modal = document.getElementById('modal-favoritos');
-    const listaFavoritos = document.getElementById('lista-favoritos');
-    
-    if (favoritos.length === 0) {
-        listaFavoritos.innerHTML = '<p class="no-favoritos">No tienes terrenos favoritos guardados</p>';
-    } else {
-        let html = '';
-        favoritos.forEach(id => {
-            const terreno = obtenerDatosTerreno(id);
-            if (terreno) {
-                html += `
-                    <div class="lista-favoritos-item">
-                        <img src="${terreno.img}" alt="${terreno.titulo}" class="favorito-img">
-                        <div class="favorito-info">
-                            <h4>${terreno.titulo}</h4>
-                            <div class="favorito-precio">S/ ${formatearPrecio(terreno.precio)}</div>
-                            <div class="favorito-ubicacion"><i class="fas fa-map-marker-alt"></i> ${terreno.ubicacion}</div>
-                        </div>
-                        <div class="favorito-acciones">
-                            <button class="btn-eliminar-favorito" onclick="eliminarFavorito('${id}')">
-                                <i class="fas fa-trash"></i> Eliminar
-                            </button>
-                        </div>
-                    </div>
-                `;
-            }
-        });
-        listaFavoritos.innerHTML = html;
-    }
-    
-    modal.style.display = 'block';
-}
 
-function cerrarModalFavoritos() {
-    document.getElementById('modal-favoritos').style.display = 'none';
-}
-
-function eliminarFavorito(id) {
-    toggleFavorito(id);
-    mostrarModalFavoritos(); // Actualizar la lista
-}
 
 // Modal de Comparación
 function mostrarModalComparacion() {
@@ -377,15 +285,7 @@ function mostrarModalDetalles(id, titulo, precio, ubicacion, area, img) {
     document.getElementById('detalle-img').src = img;
     document.getElementById('detalle-descripcion').textContent = 'Excelente oportunidad de inversión en una ubicación privilegiada.';
     
-    // Actualizar botón de favorito
-    const btnFavorito = document.getElementById('btn-favorito-modal');
-    if (favoritos.includes(id)) {
-        btnFavorito.classList.add('active');
-        btnFavorito.innerHTML = '<i class="fas fa-heart"></i> Quitar de Favoritos';
-    } else {
-        btnFavorito.classList.remove('active');
-        btnFavorito.innerHTML = '<i class="far fa-heart"></i> Agregar a Favoritos';
-    }
+
     
     modal.style.display = 'block';
 }
@@ -395,20 +295,7 @@ function cerrarModalDetalles() {
     terrenoActual = null;
 }
 
-function toggleFavoritoModal() {
-    if (terrenoActual) {
-        toggleFavorito(terrenoActual);
-        // Actualizar botón
-        const btnFavorito = document.getElementById('btn-favorito-modal');
-        if (favoritos.includes(terrenoActual)) {
-            btnFavorito.classList.add('active');
-            btnFavorito.innerHTML = '<i class="fas fa-heart"></i> Quitar de Favoritos';
-        } else {
-            btnFavorito.classList.remove('active');
-            btnFavorito.innerHTML = '<i class="far fa-heart"></i> Agregar a Favoritos';
-        }
-    }
-}
+
 
 function contactarWhatsApp() {
     if (terrenoActual) {

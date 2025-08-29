@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="assets/css/terrenos.css">
+  <link rel="stylesheet" href="assets/css/button-standardization.css">
 </head>
 <body>
     <header>
@@ -103,113 +104,7 @@
       </div>
     </div>
   </div>
-  <!-- SISTEMA DE FAVORITOS -->
-    <section class="favoritos-section">
-      <div class="favoritos-header">
-        <h2><i class="fas fa-heart"></i> Mis Terrenos Favoritos</h2>
-        <div class="favoritos-actions">
-          <button id="btn-favoritos" class="btn-favoritos">
-            <i class="fas fa-heart"></i> Ver Favoritos (<span id="contador-favoritos">0</span>)
-          </button>
-          <button id="btn-comparar" class="btn-comparar" disabled>
-            <i class="fas fa-balance-scale"></i> Comparar (<span id="contador-comparar">0</span>)
-          </button>
-        </div>
-      </div>
-      
-      <div class="terrenos-destacados">
-        <h3>Terrenos Destacados</h3>
-        <div class="terrenos-grid">
-          <div class="terreno-card" data-id="1" data-precio="100000" data-ubicacion="Chancay" data-area="80000">
-            <img src="assets/img/chancay1.jpeg" alt="Terreno Chancay">
-            <div class="terreno-info">
-              <h4>Terreno en Chancay</h4>
-              <p class="precio">S/ 100,000</p>
-              <p class="ubicacion"><i class="fas fa-map-marker-alt"></i> Chancay, Lima</p>
-              <p class="area"><i class="fas fa-ruler-combined"></i> 8 Hectáreas</p>
-              <div class="terreno-actions">
-                <button class="btn-favorito" data-id="1">
-                  <i class="far fa-heart"></i>
-                </button>
-                <button class="btn-comparar-item" data-id="1">
-                  <i class="fas fa-balance-scale"></i>
-                </button>
-                <button class="btn-comprar" data-ubicacion="Terreno en Chancay" data-precio="100000" data-area="8 Hectáreas" data-terreno-id="1">
-                  <i class="fas fa-shopping-cart"></i> Comprar
-                </button>
-                <a href="terrenos.html#chancay" class="btn-ver-mas">Ver Más</a>
-              </div>
-            </div>
-          </div>
-          
-          <div class="terreno-card" data-id="2" data-precio="300000" data-ubicacion="Végueta" data-area="500">
-            <img src="assets/img/vegueta.jpg" alt="Terreno Végueta">
-            <div class="terreno-info">
-              <h4>Terreno en Végueta</h4>
-              <p class="precio">S/ 300,000</p>
-              <p class="ubicacion"><i class="fas fa-map-marker-alt"></i> Végueta, Lima</p>
-              <p class="area"><i class="fas fa-ruler-combined"></i> Condominio Residencial</p>
-              <div class="terreno-actions">
-                <button class="btn-favorito" data-id="2">
-                  <i class="far fa-heart"></i>
-                </button>
-                <button class="btn-comparar-item" data-id="2">
-                  <i class="fas fa-balance-scale"></i>
-                </button>
-                <button class="btn-comprar" data-ubicacion="Terreno en Végueta" data-precio="300000" data-area="Condominio Residencial" data-terreno-id="2">
-                  <i class="fas fa-shopping-cart"></i> Comprar
-                </button>
-                <a href="terrenos.html#vegueta" class="btn-ver-mas">Ver Más</a>
-              </div>
-            </div>
-          </div>
-          
-          <div class="terreno-card" data-id="3" data-precio="100000" data-ubicacion="Paracas" data-area="1500000">
-            <img src="assets/img/paracas.jpg" alt="Terreno Paracas">
-            <div class="terreno-info">
-              <h4>Terreno en Paracas</h4>
-              <p class="precio">S/ 100,000</p>
-              <p class="ubicacion"><i class="fas fa-map-marker-alt"></i> Paracas, Ica</p>
-              <p class="area"><i class="fas fa-ruler-combined"></i> 150 Hectáreas</p>
-              <div class="terreno-actions">
-                <button class="btn-favorito" data-id="3">
-                  <i class="far fa-heart"></i>
-                </button>
-                <button class="btn-comparar-item" data-id="3">
-                  <i class="fas fa-balance-scale"></i>
-                </button>
-                <button class="btn-comprar" data-ubicacion="Terreno en Paracas" data-precio="100000" data-area="150 Hectáreas" data-terreno-id="3">
-                  <i class="fas fa-shopping-cart"></i> Comprar
-                </button>
-                <a href="terrenos.html#paracas" class="btn-ver-mas">Ver Más</a>
-              </div>
-            </div>
-          </div>
-          
-          <div class="terreno-card" data-id="4" data-precio="100000" data-ubicacion="Huacho" data-area="126000">
-            <img src="assets/img/huacho.jpeg" alt="Terreno Huacho">
-            <div class="terreno-info">
-              <h4>Terreno en Huacho</h4>
-              <p class="precio">S/ 100,000</p>
-              <p class="ubicacion"><i class="fas fa-map-marker-alt"></i> Huacho, Lima</p>
-              <p class="area"><i class="fas fa-ruler-combined"></i> KM 126</p>
-              <div class="terreno-actions">
-                <button class="btn-favorito" data-id="4">
-                  <i class="far fa-heart"></i>
-                </button>
-                <button class="btn-comparar-item" data-id="4">
-                  <i class="fas fa-balance-scale"></i>
-                </button>
-                <button class="btn-comprar" data-ubicacion="Terreno en Huacho" data-precio="100000" data-area="KM 126" data-terreno-id="4">
-                  <i class="fas fa-shopping-cart"></i> Comprar
-                </button>
-                <a href="terrenos.html#huacho" class="btn-ver-mas">Ver Más</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+
     <!-- CALCULADORA DE FINANCIAMIENTO -->
     <section class="calculadora-section">
       <h2><i class="fas fa-calculator"></i> Calculadora de Financiamiento</h2>

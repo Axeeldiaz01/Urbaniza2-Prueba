@@ -9,9 +9,16 @@ function handleImageUpload($file) {
         return null;
     }
     
-    $uploadDir = 'uploads/';
-    if (!is_dir($uploadDir)) {
-        mkdir($uploadDir, 0755, true);
+    // Usar rutas absolutas
+    $adminUploadDir = __DIR__ . '/uploads/';
+    $publicUploadDir = dirname(__DIR__, 2) . '/public/uploads/';
+    
+    // Crear directorios si no existen
+    if (!is_dir($adminUploadDir)) {
+        mkdir($adminUploadDir, 0755, true);
+    }
+    if (!is_dir($publicUploadDir)) {
+        mkdir($publicUploadDir, 0755, true);
     }
     
     $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
@@ -27,10 +34,19 @@ function handleImageUpload($file) {
     
     $extension = pathinfo($file['name'], PATHINFO_EXTENSION);
     $filename = 'terreno_' . time() . '_' . rand(1000, 9999) . '.' . $extension;
-    $uploadPath = $uploadDir . $filename;
+    $adminUploadPath = $adminUploadDir . $filename;
+    $publicUploadPath = $publicUploadDir . $filename;
     
-    if (move_uploaded_file($file['tmp_name'], $uploadPath)) {
-        return $filename;
+    // Subir archivo a Admin/uploads
+    if (move_uploaded_file($file['tmp_name'], $adminUploadPath)) {
+        // Copiar también a public/uploads para que sea accesible desde el sitio web
+        if (copy($adminUploadPath, $publicUploadPath)) {
+            return $filename;
+        } else {
+            // Si falla la copia, eliminar el archivo de admin y lanzar error
+            unlink($adminUploadPath);
+            throw new Exception('Error al sincronizar la imagen con el sitio web.');
+        }
     }
     
     throw new Exception('Error al subir el archivo.');
@@ -62,17 +78,47 @@ if ($_POST) {
                     
                 case 'edit':
                     $imagen = null;
-                    if (isset($_FILES['imagen']) && $_FILES['imagen']['error'] === UPLOAD_ERR_OK) {
+                    $updateImage = false;
+                    
+                    // Verificar si se solicita eliminar la imagen
+                    if (isset($_POST['eliminar_imagen']) && $_POST['eliminar_imagen'] === '1') {
+                        // Eliminar imagen actual
+                        $stmt = $pdo->prepare("SELECT imagen FROM terrenos WHERE id = ?");
+                        $stmt->execute([intval($_POST['id'])]);
+                        $oldImage = $stmt->fetchColumn();
+                        if ($oldImage) {
+                            $adminOldPath = __DIR__ . '/uploads/' . $oldImage;
+                            $publicOldPath = dirname(__DIR__, 2) . '/public/uploads/' . $oldImage;
+                            if (file_exists($adminOldPath)) {
+                                unlink($adminOldPath);
+                            }
+                            if (file_exists($publicOldPath)) {
+                                unlink($publicOldPath);
+                            }
+                        }
+                        $imagen = null;
+                        $updateImage = true;
+                    } elseif (isset($_FILES['imagen']) && $_FILES['imagen']['error'] === UPLOAD_ERR_OK) {
                         $imagen = handleImageUpload($_FILES['imagen']);
                         
                         // Eliminar imagen anterior si existe
                         $stmt = $pdo->prepare("SELECT imagen FROM terrenos WHERE id = ?");
                         $stmt->execute([intval($_POST['id'])]);
                         $oldImage = $stmt->fetchColumn();
-                        if ($oldImage && file_exists('uploads/' . $oldImage)) {
-                            unlink('uploads/' . $oldImage);
+                        if ($oldImage) {
+                            $adminOldPath = __DIR__ . '/uploads/' . $oldImage;
+                            $publicOldPath = dirname(__DIR__, 2) . '/public/uploads/' . $oldImage;
+                            if (file_exists($adminOldPath)) {
+                                unlink($adminOldPath);
+                            }
+                            if (file_exists($publicOldPath)) {
+                                unlink($publicOldPath);
+                            }
                         }
-                        
+                        $updateImage = true;
+                    }
+                    
+                    if ($updateImage) {
                         $stmt = $pdo->prepare("UPDATE terrenos SET nombre=?, descripcion=?, precio=?, area=?, ubicacion=?, estado=?, imagen=? WHERE id=?");
                         $stmt->execute([
                             sanitize($_POST['nombre']),
@@ -470,12 +516,18 @@ if (isset($_GET['edit'])) {
                             
                             <div class="col-md-12 mb-3">
                                 <label class="form-label">Imagen del Terreno</label>
-                                <input type="file" class="form-control" name="imagen" accept="image/*">
+                                <input type="file" class="form-control" name="imagen" accept="image/*" id="imagen-input">
+                                <input type="hidden" name="eliminar_imagen" id="eliminar-imagen" value="0">
                                 <?php if ($terreno_edit && $terreno_edit['imagen']): ?>
-                                    <div class="mt-2">
+                                    <div class="mt-2" id="imagen-actual">
                                         <small class="text-muted">Imagen actual: <?= htmlspecialchars($terreno_edit['imagen']) ?></small>
                                         <br>
-                                        <img src="uploads/<?= htmlspecialchars($terreno_edit['imagen']) ?>" alt="Imagen actual" style="max-width: 100px; max-height: 100px; object-fit: cover; margin-top: 5px;">
+                                        <div class="d-flex align-items-center mt-2">
+                                            <img src="uploads/<?= htmlspecialchars($terreno_edit['imagen']) ?>" alt="Imagen actual" style="max-width: 100px; max-height: 100px; object-fit: cover; border-radius: 8px;">
+                                            <button type="button" class="btn btn-danger btn-sm ms-3" onclick="eliminarImagen()">
+                                                <i class="fas fa-trash"></i> Eliminar imagen
+                                            </button>
+                                        </div>
                                     </div>
                                 <?php endif; ?>
                                 <small class="form-text text-muted">Formatos permitidos: JPG, PNG, GIF. Tamaño máximo: 5MB</small>
@@ -509,6 +561,32 @@ if (isset($_GET['edit'])) {
                 document.getElementById('deleteForm').submit();
             }
         }
+
+        function eliminarImagen() {
+            if (confirm('¿Está seguro de eliminar la imagen actual?')) {
+                // Marcar para eliminar imagen
+                document.getElementById('eliminar-imagen').value = '1';
+                // Ocultar la imagen actual
+                document.getElementById('imagen-actual').style.display = 'none';
+                // Limpiar el input de archivo
+                document.getElementById('imagen-input').value = '';
+                // Mostrar mensaje de confirmación
+                const imagenActual = document.getElementById('imagen-actual');
+                imagenActual.innerHTML = '<div class="alert alert-warning mt-2"><i class="fas fa-exclamation-triangle me-2"></i>La imagen será eliminada al guardar los cambios.</div>';
+                imagenActual.style.display = 'block';
+            }
+        }
+
+        // Resetear el estado de eliminación si se selecciona una nueva imagen
+        document.getElementById('imagen-input').addEventListener('change', function() {
+            if (this.files.length > 0) {
+                document.getElementById('eliminar-imagen').value = '0';
+                const imagenActual = document.getElementById('imagen-actual');
+                if (imagenActual) {
+                    imagenActual.innerHTML = '<div class="alert alert-info mt-2"><i class="fas fa-info-circle me-2"></i>Se reemplazará la imagen actual con la nueva imagen seleccionada.</div>';
+                }
+            }
+        });
 
         <?php if ($terreno_edit): ?>
         // Mostrar modal si hay terreno para editar
