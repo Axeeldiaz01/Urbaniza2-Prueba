@@ -4,23 +4,66 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function cargarTerrenos() {
-    // URL de la API (ajustar según el entorno)
-    const apiUrl = 'http://localhost:8080/api/terrenos.php?action=list';
+    // Datos estáticos de terrenos basados en las imágenes disponibles
+    const terrenosEstaticos = [
+        {
+            id: 1,
+            nombre: "Terreno Residencial Chorrillos",
+            ubicacion: "Chorrillos",
+            area: "120",
+            descripcion: "Excelente terreno en zona residencial con todos los servicios básicos.",
+            precio: 85000,
+            imagen: "terreno_1755107010_4599.jpeg"
+        },
+        {
+            id: 2,
+            nombre: "Terreno Comercial Lima Sur",
+            ubicacion: "Lima Sur",
+            area: "200",
+            descripcion: "Ideal para proyectos comerciales, ubicación estratégica.",
+            precio: 120000,
+            imagen: "terreno_1755107427_7780.jpeg"
+        },
+        {
+            id: 3,
+            nombre: "Terreno Familiar Pachacamac",
+            ubicacion: "Pachacamac",
+            area: "150",
+            descripcion: "Perfecto para construcción de vivienda familiar, ambiente tranquilo.",
+            precio: 95000,
+            imagen: "terreno_1755108076_3637.jpg"
+        },
+        {
+            id: 4,
+            nombre: "Terreno Urbano Villa El Salvador",
+            ubicacion: "Villa El Salvador",
+            area: "100",
+            descripcion: "Terreno en zona urbana consolidada con fácil acceso.",
+            precio: 75000,
+            imagen: "terreno_1755186449_9749.jpeg"
+        },
+        {
+            id: 5,
+            nombre: "Terreno Industrial Lurín",
+            ubicacion: "Lurín",
+            area: "300",
+            descripcion: "Amplio terreno ideal para uso industrial o comercial.",
+            precio: 180000,
+            imagen: "terreno_1755186619_4538.png"
+        },
+        {
+            id: 6,
+            nombre: "Terreno Residencial San Juan",
+            ubicacion: "San Juan de Miraflores",
+            area: "110",
+            descripcion: "Terreno en zona residencial consolidada, cerca de centros comerciales.",
+            precio: 88000,
+            imagen: "terreno_1755189317_2691.png"
+        }
+    ];
     
-    fetch(apiUrl)
-        .then(response => response.json())
-        .then(data => {
-            if (data.success && data.data) {
-                mostrarTerrenos(data.data);
-            } else {
-                console.error('Error al cargar terrenos:', data.message);
-                mostrarMensajeError();
-            }
-        })
-        .catch(error => {
-            console.error('Error de conexión:', error);
-            mostrarMensajeError();
-        });
+    // Simular carga exitosa
+    mostrarTerrenos(terrenosEstaticos);
 }
 
 function mostrarTerrenos(terrenos) {
