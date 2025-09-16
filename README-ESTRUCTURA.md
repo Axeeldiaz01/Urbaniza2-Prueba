@@ -8,18 +8,17 @@ Incluye páginas públicas en HTML, estilos CSS, scripts JS y recursos gráficos
 
 ```
 Urbaniza2-main/
-├── public/
-│   ├── assets/
-│   │   ├── css/         # Hojas de estilo
-│   │   ├── js/          # Scripts JavaScript
-│   │   └── img/         # Imágenes
-│   ├── uploads/         # Imágenes de terrenos (opcional)
-│   ├── index.html       # Página principal
-│   ├── nosotros.html    # Página nosotros
-│   ├── servicios.html   # Página servicios
-│   ├── terrenos.html    # Página terrenos
-│   ├── blog.html        # Página blog
-│   └── contacto.html    # Página contacto
+│  
+│── css/         # Hojas de estilo
+│── js/          # Scripts JavaScript
+│── img/         # Imágenes
+│── uploads/         # Imágenes de terrenos (opcional)
+│── index.html       # Página principal
+│── nosotros.html    # Página nosotros
+│── servicios.html   # Página servicios
+│── terrenos.html    # Página terrenos
+│── blog.html        # Página blog
+│── contacto.html    # Página contacto
 └── README-ESTRUCTURA.md
 ```
 

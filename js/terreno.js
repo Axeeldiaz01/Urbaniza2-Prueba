@@ -273,4 +273,173 @@ document.addEventListener('DOMContentLoaded', function() {
       return false;
     });
   }
+
+  // Funcionalidades de compra
+  function initializeComprarButtons() {
+    const botonesComprar = document.querySelectorAll('.btn-comprar');
+    
+    botonesComprar.forEach(boton => {
+      boton.addEventListener('click', function() {
+        const precio = this.getAttribute('data-precio');
+        const ubicacion = this.getAttribute('data-ubicacion');
+        const area = this.getAttribute('data-area');
+        
+        mostrarModalCompra(precio, ubicacion, area);
+      });
+    });
+  }
+
+  function mostrarModalCompra(precio, ubicacion, area) {
+    const precioFormateado = new Intl.NumberFormat('es-PE', {
+      style: 'currency',
+      currency: 'PEN'
+    }).format(precio);
+    
+    let areaFormateada;
+    if (area >= 10000) {
+      areaFormateada = (area / 10000).toFixed(1) + ' Hectáreas';
+    } else {
+      areaFormateada = area + ' m²';
+    }
+    
+    const modal = document.createElement('div');
+    modal.className = 'modal-compra';
+    modal.innerHTML = `
+      <div class="modal-compra-content">
+        <div class="modal-compra-header">
+          <h2>Solicitud de Compra</h2>
+          <span class="close-compra">&times;</span>
+        </div>
+        <div class="modal-compra-body">
+          <div class="terreno-seleccionado">
+            <h3>Detalles del Terreno</h3>
+            <div class="terreno-info">
+              <p><strong>Ubicación:</strong> ${ubicacion}</p>
+              <p><strong>Precio:</strong> ${precioFormateado}</p>
+              <p><strong>Área:</strong> ${areaFormateada}</p>
+            </div>
+          </div>
+          
+          <div class="datos-contacto-titulo">
+            <h3>Datos de Contacto</h3>
+          </div>
+          
+          <div class="form-compra">
+            <form id="form-compra">
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="nombre">Nombre completo *</label>
+                  <input type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre completo" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">Email *</label>
+                  <input type="email" id="email" name="email" placeholder="ejemplo@correo.com" required>
+                </div>
+                <div class="form-group">
+                  <label for="telefono">Teléfono *</label>
+                  <input type="tel" id="telefono" name="telefono" placeholder="+51 9XX XXX XXX" required>
+                </div>
+                <div class="form-group">
+                  <label for="tipo_pago">Tipo de pago preferido</label>
+                  <select id="tipo_pago" name="tipo_pago">
+                    <option value="">Seleccione una opción</option>
+                    <option value="contado">Al contado</option>
+                    <option value="financiado">Financiado</option>
+                    <option value="consultar">Consultar opciones</option>
+                  </select>
+                </div>
+                <div class="form-group full-width">
+                  <label for="mensaje">Mensaje adicional</label>
+                  <textarea id="mensaje" name="mensaje" rows="4" placeholder="Comentarios adicionales, consultas específicas..."></textarea>
+                </div>
+              </div>
+            </form>
+          </div>
+          
+          <div class="form-actions">
+            <button type="button" class="btn-cancelar" onclick="document.querySelector('.modal-compra').remove()">Cancelar</button>
+            <button type="button" class="btn-enviar-compra" onclick="procesarSolicitudCompra('${precio}', '${ubicacion}', '${area}')">Enviar y Contactar por WhatsApp</button>
+          </div>
+        </div>
+      </div>
+    `;
+    
+    document.body.appendChild(modal);
+    
+    // Cerrar modal
+    modal.querySelector('.close-compra').addEventListener('click', function() {
+      modal.remove();
+    });
+    
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) {
+        modal.remove();
+      }
+    });
+  }
+
+  function procesarSolicitudCompra(precio, ubicacion, area) {
+    const nombre = document.getElementById('nombre').value;
+    const email = document.getElementById('email').value;
+    const telefono = document.getElementById('telefono').value;
+    const tipoPago = document.getElementById('tipo_pago').value;
+    const mensaje = document.getElementById('mensaje').value;
+    
+    if (!nombre || !email || !telefono) {
+      alert('Por favor complete todos los campos obligatorios');
+      return;
+    }
+    
+    const precioFormateado = new Intl.NumberFormat('es-PE', {
+      style: 'currency',
+      currency: 'PEN'
+    }).format(precio);
+    
+    let areaFormateada;
+    if (area >= 10000) {
+      areaFormateada = (area / 10000).toFixed(1) + ' Hectáreas';
+    } else {
+      areaFormateada = area + ' m²';
+    }
+    
+    let mensajeWhatsApp = `🏞️ *SOLICITUD DE COMPRA DE TERRENO*\n\n`;
+    mensajeWhatsApp += `📍 *Ubicación:* ${ubicacion}\n`;
+    mensajeWhatsApp += `💰 *Precio:* ${precioFormateado}\n`;
+    mensajeWhatsApp += `📐 *Área:* ${areaFormateada}\n\n`;
+    mensajeWhatsApp += `👤 *Datos del interesado:*\n`;
+    mensajeWhatsApp += `• Nombre: ${nombre}\n`;
+    mensajeWhatsApp += `• Email: ${email}\n`;
+    mensajeWhatsApp += `• Teléfono: ${telefono}\n`;
+    
+    if (tipoPago) {
+      mensajeWhatsApp += `• Tipo de pago: ${tipoPago}\n`;
+    }
+    
+    if (mensaje) {
+      mensajeWhatsApp += `\n💬 *Mensaje adicional:*\n${mensaje}\n`;
+    }
+    
+    mensajeWhatsApp += `\n¡Gracias por su interés! 🙏`;
+    
+    const numeroWhatsApp = '51987654321';
+    const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensajeWhatsApp)}`;
+    
+    window.open(urlWhatsApp, '_blank');
+    document.querySelector('.modal-compra').remove();
+  }
+
+  // Inicializar botones de compra
+  initializeComprarButtons();
+  
+  // Reinicializar cuando se cargan terrenos dinámicos
+  document.addEventListener('terrenosCargados', function() {
+    initializeComprarButtons();
+  });
+
+  // Hacer funciones globales para compatibilidad
+  window.iniciarCompra = function(precio, ubicacion, area) {
+    mostrarModalCompra(precio, ubicacion, area);
+  };
+  
+  window.procesarSolicitudCompra = procesarSolicitudCompra;
 });
