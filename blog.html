@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Inmobiliario - Urbaniza2 Perú | Consejos y Noticias</title>
+    <meta name="description" content="Descubre consejos expertos sobre compra de terrenos, inversión inmobiliaria y las mejores oportunidades en Chorrillos, Chancay y Végueta.">
+    <link rel="icon" href="img/U2.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/blog.css">
+  <link rel="stylesheet" href="css/button-standardization.css">
+</head>
+<body>
+    <header>
+    <div class="container">
+      <a href="index.html"><img src="img/logo.png" alt="logo" class="logo"></a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="servicios.html">Servicios</a></li>
+          <li><a href="terrenos.html">Terrenos</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="contacto.html">Contáctanos</a></li>
+          <li><a href="blog.html">Blog</a></li>
+
+        </ul>
+      </nav>
+      <div class="menu-toggle" id="menuToggle">
+             <span class="bar"></span>
+             <span class="bar"></span>
+             <span class="bar"></span>
+      </div>
+    </div>
+  </header>
+    <!-- Sección Blog -->
+<section id="blog" class="blog-section">
+  <div class="blog-header">
+    <h1>Blog Inmobiliario Urbaniza2</h1>
+    <p>Consejos expertos, noticias del mercado y guías para tu inversión inmobiliaria</p>
+  </div>
+  
+  <div class="blog-container">
+    <!-- Tarjeta 1 -->
+    <div class="blog-card">
+      <img src="img/chancay.jpg" alt="Terrenos en Chancay">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="date"><i class="fas fa-calendar"></i> 15 Enero 2025</span>
+          <span class="category">Guías de Compra</span>
+        </div>
+        <h3>Consejos para Comprar tu Primer Terreno en Chancay</h3>
+        <p>Descubre todo lo que necesitas saber antes de invertir en uno de los distritos con mayor proyección de Lima Norte. Ubicación estratégica y precios accesibles.</p>
+        <div class="card-actions">
+          <a href="#" class="btn-read" onclick="openArticleModal('article1')">Leer más</a>
+          <a href="https://wa.me/51982664102?text=Hola, me interesa información sobre terrenos en Chancay" class="btn-contact">
+            <i class="fab fa-whatsapp"></i> Consultar
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Tarjeta 2 -->
+    <div class="blog-card">
+      <img src="img/crecimientoter.jpeg" alt="Crecimiento Territorial">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="date"><i class="fas fa-calendar"></i> 12 Enero 2025</span>
+          <span class="category">Desarrollo</span>
+        </div>
+        <h3>Crecimiento Territorial: Oportunidades de Expansión</h3>
+        <p>Descubre las zonas con mayor potencial de crecimiento territorial en Lima y provincias. Análisis de mercado y proyecciones de desarrollo urbano para inversiones inteligentes.</p>
+        <div class="card-actions">
+          <a href="#" class="btn-read" onclick="openArticleModal('article2')">Leer más</a>
+          <a href="https://wa.me/51982664102?text=Hola, me interesa información sobre crecimiento territorial" class="btn-contact">
+            <i class="fab fa-whatsapp"></i> Consultar
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Tarjeta 3 -->
+    <div class="blog-card">
+      <img src="img/crecimientoneg.jpeg" alt="Crecimiento de Negocios">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="date"><i class="fas fa-calendar"></i> 10 Enero 2025</span>
+          <span class="category">Negocios</span>
+        </div>
+        <h3>Crecimiento de Negocios Inmobiliarios</h3>
+        <p>Estrategias para hacer crecer tu negocio inmobiliario. Tendencias del mercado, mejores prácticas y oportunidades de inversión en el sector inmobiliario peruano.</p>
+        <div class="card-actions">
+          <a href="#" class="btn-read" onclick="openArticleModal('article3')">Leer más</a>
+          <a href="https://wa.me/51982664102?text=Necesito información sobre negocios inmobiliarios" class="btn-contact">
+            <i class="fab fa-whatsapp"></i> Asesoría
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Tarjeta 4 -->
+    <div class="blog-card">
+      <img src="img/crecimientoecore.jpeg" alt="Crecimiento Económico">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="date"><i class="fas fa-calendar"></i> 8 Enero 2025</span>
+          <span class="category">Economía</span>
+        </div>
+        <h3>Crecimiento Económico y Sector Inmobiliario</h3>
+        <p>Análisis del impacto del crecimiento económico en el mercado inmobiliario. Cómo las tendencias económicas influyen en las decisiones de inversión en terrenos.</p>
+        <div class="card-actions">
+          <a href="#" class="btn-read" onclick="openArticleModal('article4')">Leer más</a>
+          <a href="https://wa.me/51982664102?text=Quiero información sobre análisis económico inmobiliario" class="btn-contact">
+            <i class="fab fa-whatsapp"></i> Consultar
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Tarjeta 5 -->
+    <div class="blog-card">
+      <img src="img/desarrollopor.jpeg" alt="Desarrollo Portuario">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="date"><i class="fas fa-calendar"></i> 6 Enero 2025</span>
+          <span class="category">Infraestructura</span>
+        </div>
+        <h3>Desarrollo Portuario y Oportunidades Inmobiliarias</h3>
+        <p>El impacto de los proyectos portuarios en el desarrollo inmobiliario. Cómo los puertos generan plusvalía y nuevas oportunidades de inversión en zonas estratégicas.</p>
+        <div class="card-actions">
+          <a href="#" class="btn-read" onclick="openArticleModal('article5')">Leer más</a>
+          <a href="https://wa.me/51982664102?text=Me interesa información sobre desarrollo portuario" class="btn-contact">
+            <i class="fab fa-whatsapp"></i> Consultar
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Tarjeta 6 -->
+    <div class="blog-card">
+      <img src="img/crecimientoecore.jpeg" alt="Crecimiento Ecore">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="date"><i class="fas fa-calendar"></i> 4 Enero 2025</span>
+          <span class="category">Sostenibilidad</span>
+        </div>
+        <h3>Crecimiento Eco-responsable en Inmobiliaria</h3>
+        <p>La importancia del desarrollo sostenible en proyectos inmobiliarios. Tendencias verdes, construcción eco-amigable y el futuro de la inversión responsable.</p>
+        <div class="card-actions">
+          <a href="#" class="btn-read" onclick="openArticleModal('article6')">Leer más</a>
+          <a href="https://wa.me/51982664102?text=Quiero información sobre desarrollo sostenible" class="btn-contact">
+            <i class="fab fa-whatsapp"></i> Consultar
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Tarjeta 7 -->
+    <div class="blog-card">
+      <img src="img/ubicaciones.jpeg" alt="Mejores Ubicaciones">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="date"><i class="fas fa-calendar"></i> 2 Enero 2025</span>
+          <span class="category">Ubicación</span>
+        </div>
+        <h3>Las Mejores Ubicaciones para Invertir</h3>
+        <p>Guía completa de las ubicaciones más prometedoras para inversión inmobiliaria. Factores clave para elegir la ubicación perfecta y maximizar tu retorno de inversión.</p>
+        <div class="card-actions">
+          <a href="#" class="btn-read" onclick="openArticleModal('article7')">Leer más</a>
+          <a href="https://wa.me/51982664102?text=Necesito asesoría sobre mejores ubicaciones" class="btn-contact">
+            <i class="fab fa-whatsapp"></i> Asesoría
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Tarjeta 8 -->
+    <div class="blog-card">
+      <img src="img/consultas.jpeg" alt="Documentos legales">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="date"><i class="fas fa-calendar"></i> 1 Enero 2025</span>
+          <span class="category">Legal</span>
+        </div>
+        <h3>Documentos Esenciales para Comprar un Terreno</h3>
+        <p>Guía completa sobre la documentación legal necesaria para una compra segura. Evita problemas futuros con esta checklist de documentos indispensables.</p>
+        <div class="card-actions">
+          <a href="#" class="btn-read" onclick="openArticleModal('article8')">Leer más</a>
+          <a href="https://wa.me/51982664102?text=Necesito asesoría legal para compra de terreno" class="btn-contact">
+            <i class="fab fa-whatsapp"></i> Asesoría
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Tarjeta 9 -->
+    <div class="blog-card">
+      <img src="img/finanzas.jpeg" alt="Financiamiento de terrenos">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="date"><i class="fas fa-calendar"></i> 30 Diciembre 2024</span>
+          <span class="category">Financiamiento</span>
+        </div>
+        <h3>Opciones de Financiamiento para tu Terreno</h3>
+        <p>Explora las diferentes modalidades de pago y financiamiento que ofrecemos. Desde pagos al contado hasta planes de financiamiento directo adaptados a tu presupuesto.</p>
+        <div class="card-actions">
+          <a href="#" class="btn-read" onclick="openArticleModal('article9')">Leer más</a>
+          <a href="https://wa.me/51982664102?text=Quiero información sobre financiamiento de terrenos" class="btn-contact">
+            <i class="fab fa-whatsapp"></i> Financiar
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Preguntas Frecuentes -->
+  <div class="faq-section">
+    <h2><i class="fas fa-question-circle"></i> Preguntas Frecuentes</h2>
+    <div class="faq-container">
+      <div class="faq-item">
+        <button class="faq-question">¿Cuáles son los métodos de pago disponibles? <i class="fas fa-chevron-down"></i></button>
+        <div class="faq-answer">
+          <p>Ofrecemos múltiples opciones de pago para tu comodidad:</p>
+          <ul>
+            <li><strong>Pago al contado:</strong> Con descuentos especiales</li>
+            <li><strong>Financiamiento directo:</strong> Sin intereses hasta 24 meses</li>
+            <li><strong>Transferencias bancarias:</strong> BCP, BBVA, Interbank</li>
+            <li><strong>Planes personalizados:</strong> Adaptados a tu presupuesto</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <button class="faq-question">¿Los terrenos cuentan con servicios básicos? <i class="fas fa-chevron-down"></i></button>
+        <div class="faq-answer">
+          <p>Sí, nuestros terrenos están estratégicamente ubicados con acceso a:</p>
+          <ul>
+            <li><strong>Agua potable:</strong> Conexión directa o factibilidad garantizada</li>
+            <li><strong>Energía eléctrica:</strong> Suministro disponible</li>
+            <li><strong>Vías de acceso:</strong> Carreteras asfaltadas y transporte público</li>
+            <li><strong>Internet y telefonía:</strong> Cobertura de principales operadores</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <button class="faq-question">¿Cómo puedo agendar una visita al terreno? <i class="fas fa-chevron-down"></i></button>
+        <div class="faq-answer">
+          <p>Agendar una visita es muy fácil:</p>
+          <ul>
+            <li><strong>WhatsApp:</strong> <a href="https://wa.me/51982664102">982 664 102</a> (respuesta inmediata)</li>
+            <li><strong>Formulario web:</strong> Completa nuestro formulario de contacto</li>
+            <li><strong>Oficina:</strong> Jr. Augusto B. Leguía 254, Huacho</li>
+            <li><strong>Horarios:</strong> Lunes a sábado de 9:00 AM a 6:00 PM</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <button class="faq-question">¿Qué documentos necesito para la compra? <i class="fas fa-chevron-down"></i></button>
+        <div class="faq-answer">
+          <p>Para proceder con la compra necesitas:</p>
+          <ul>
+            <li><strong>DNI vigente</strong> (original y copia)</li>
+            <li><strong>Constancia de ingresos</strong> o declaración jurada</li>
+            <li><strong>Recibo de servicios</strong> (domicilio actual)</li>
+            <li><strong>Referencias comerciales</strong> (opcional)</li>
+          </ul>
+          <p><em>Nosotros nos encargamos de toda la documentación legal del terreno.</em></p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <button class="faq-question">¿Ofrecen asesoría legal gratuita? <i class="fas fa-chevron-down"></i></button>
+        <div class="faq-answer">
+          <p><strong>¡Sí! Incluimos asesoría legal completa:</strong></p>
+          <ul>
+            <li>Verificación de documentos del terreno</li>
+            <li>Elaboración de contratos de compraventa</li>
+            <li>Trámites registrales y notariales</li>
+            <li>Seguimiento hasta la inscripción en Registros Públicos</li>
+          </ul>
+          <p><em>Tu tranquilidad es nuestra prioridad.</em></p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <button class="faq-question">¿Cuál es el proceso de compra paso a paso? <i class="fas fa-chevron-down"></i></button>
+        <div class="faq-answer">
+          <p><strong>Proceso simple en 6 pasos:</strong></p>
+          <ol>
+            <li><strong>Consulta inicial:</strong> Conocemos tus necesidades</li>
+            <li><strong>Visita al terreno:</strong> Te acompañamos personalmente</li>
+            <li><strong>Evaluación financiera:</strong> Definimos el plan de pago</li>
+            <li><strong>Separación:</strong> Apartas el terreno con una cuota inicial</li>
+            <li><strong>Documentación:</strong> Preparamos todos los papeles legales</li>
+            <li><strong>Escrituración:</strong> Firmas y recibes tu título de propiedad</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Modales para Artículos -->
+<div id="articleModal" class="article-modal">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <div id="modalContent">
+      <!-- El contenido se carga dinámicamente -->
+    </div>
+  </div>
+</div>
+
+<a class="scrollToHome" href="#" style="display: inline;"><i class="fa fa-angle-up"></i></a>
+<footer>
+    <p>&copy; 2025 Urbaniza2 Inmobiliaria - Todos los derechos reservados</p>
+    <div class="redes-sociales">
+      <a href="https://www.facebook.com/urbaniza2inmobiliaria?mibextid=ZbWKwL" target="_blank" title="Facebook">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="https://www.tiktok.com/@urbaniza2inmobiliaria?_t=ZM-8y3GdIXEmca&_r=1" target="_blank" title="TikTok">
+        <i class="fab fa-tiktok"></i>
+      </a>
+      <a href="https://www.instagram.com/urbaniza2.inm?igsh=MWNrbHF0dG0yd2s1cg==" target="_blank" title="instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+    </div>
+  </footer>
+  <a href="https://wa.me/51982664102" 
+     class="whatsapp-float" 
+     target="_blank" 
+     title="Chatea con nosotros por WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#fff" viewBox="0 0 24 24">
+      <path d="M12.004 2.002C6.475 2.002 2 6.477 2 12.007c0 1.994.522 3.853 1.516 5.513L2 22l4.605-1.505A9.944 9.944 0 0012.004 22c5.528 0 10.002-4.475 10.002-9.993 0-5.53-4.474-10.005-10.002-10.005zm.007 18.002c-1.612 0-3.185-.437-4.564-1.263l-.328-.195-2.733.893.9-2.66-.212-.34a7.935 7.935 0 01-1.2-4.177c0-4.415 3.59-8.006 8.004-8.006 4.415 0 8.004 3.59 8.004 8.006 0 4.413-3.59 7.992-8.004 7.992zm4.507-5.994c-.246-.123-1.457-.72-1.683-.8-.226-.08-.392-.123-.558.124-.165.246-.64.8-.785.965-.145.165-.29.185-.536.062-.246-.123-1.04-.383-1.98-1.22-.732-.652-1.226-1.46-1.37-1.705-.145-.247-.015-.38.109-.502.112-.111.246-.29.37-.435.124-.144.165-.247.248-.412.083-.165.042-.31-.02-.435-.062-.123-.558-1.35-.764-1.845-.202-.485-.407-.42-.558-.427-.145-.006-.31-.007-.476-.007-.165 0-.435.062-.663.31-.227.248-.866.845-.866 2.06 0 1.215.886 2.39 1.008 2.554.124.165 1.742 2.658 4.225 3.724.59.254 1.05.405 1.408.519.592.188 1.132.162 1.56.098.476-.07 1.457-.595 1.663-1.173.205-.577.205-1.07.145-1.173-.062-.104-.227-.165-.476-.288z"/>
+    </svg>
+  </a>
+<script src="js/blog.js"></script>
+    
+</body>
+</html>
