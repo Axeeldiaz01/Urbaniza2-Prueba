@@ -495,7 +495,7 @@ function updateSummary() {
   `;
 }
 
-// Enviar formulario a la API local
+// Enviar formulario a WhatsApp en vez de PHP
 async function submitForm() {
   const modalFormulario = document.getElementById('modal-formulario-mejorado');
   const btnEnviar = document.getElementById('btn-enviar');
@@ -514,29 +514,40 @@ async function submitForm() {
       presupuesto: document.getElementById('presupuesto').value,
       ubicacion_interes: document.getElementById('ubicacion-interes').value
     };
-    
-    const response = await fetch('http://localhost:8080/api/consultas.php', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData)
-    });
-    
-    const result = await response.json();
-    
-    if (result.success) {
-      showSuccessMessage();
-      setTimeout(() => {
-        modalFormulario.style.display = 'none';
-        resetForm();
-      }, 3000);
-    } else {
-      showErrorMessage(result.message || 'Error al enviar la consulta');
-    }
+
+    // Formatear mensaje para WhatsApp
+    const tipoConsulta = document.getElementById('tipo-consulta');
+    const tipoTexto = tipoConsulta.options[tipoConsulta.selectedIndex].text;
+    const presupuesto = document.getElementById('presupuesto');
+    const presupuestoTexto = presupuesto.value ? presupuesto.options[presupuesto.selectedIndex].text : 'No especificado';
+
+    const mensajeWhatsApp = 
+      `¡Hola! Quiero hacer una consulta desde la web Urbaniza2:\n\n` +
+      `👤 Nombre: ${formData.nombre}\n` +
+      `📧 Email: ${formData.email}\n` +
+      `📱 Teléfono: ${formData.telefono}\n` +
+      `📋 Tipo de consulta: ${tipoTexto}\n` +
+      `💰 Presupuesto: ${presupuestoTexto}\n` +
+      `📍 Ubicación de interés: ${formData.ubicacion_interes || 'No especificada'}\n` +
+      `📝 Mensaje: ${formData.mensaje}\n`;
+
+    // Número de WhatsApp destino (cámbialo si lo deseas)
+    const numeroWhatsApp = '51982664102';
+    const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensajeWhatsApp)}`;
+
+    // Abrir WhatsApp en nueva pestaña
+    window.open(url, '_blank');
+
+    // Mostrar mensaje de éxito y cerrar modal
+    showSuccessMessage();
+    setTimeout(() => {
+      modalFormulario.style.display = 'none';
+      resetForm();
+    }, 3000);
+
   } catch (error) {
     console.error('Error:', error);
-    showErrorMessage('Error de conexión. Por favor, intenta nuevamente.');
+    showErrorMessage('No se pudo abrir WhatsApp. Por favor, intenta nuevamente.');
   } finally {
     btnEnviar.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar Consulta';
     btnEnviar.disabled = false;
