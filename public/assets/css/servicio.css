@@ -169,6 +169,16 @@ nav ul li a:hover {
     flex-direction: column;
     gap: 20px;
   }
+
+  .scrollToHome {
+    width: 50px;
+    height: 50px;
+    font-size: 18px;
+    line-height: 50px;
+    border-radius: 18px;
+    bottom: 18px;
+    right: 18px;
+  }
 }
 .redes-sociales {
   margin-top: 10px;
@@ -190,23 +200,39 @@ a:hover .whatsapp-num {
   color: #25D366;
 }
 .scrollToHome {
-    border-radius: 3px;
-    background-color: #263755;
-    bottom: 15px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #263755, #34495e);
+    bottom: 20px;
     color: #ffffff;
     display: none;
-    font-size: 18px;
-    height: 45px;
-    line-height: 40px;
-    padding: 3px 10px;
+    font-size: 20px;
+    height: 55px;
+    line-height: 55px;
+    padding: 0;
     position: fixed;
     right: 20px;
     text-align: center;
-    width: 45px;
+    width: 55px;
     z-index: 99999;
+    box-shadow: 0 8px 25px rgba(38, 55, 85, 0.3);
+    border: none;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
     -webkit-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.scrollToHome:hover {
+    transform: translateY(-3px) scale(1.05);
+    background: linear-gradient(135deg, #34495e, #2c3e50);
+    box-shadow: 0 12px 35px rgba(38, 55, 85, 0.4);
+    color: #f8f9fa;
+}
+
+.scrollToHome:active {
+    transform: translateY(-1px) scale(1.02);
+    transition: all 0.1s ease;
 }
 .banner {
   position: relative;
@@ -336,6 +362,16 @@ a:hover .whatsapp-num {
     flex-direction: column;
     text-align: center;
   }
+
+  .scrollToHome {
+    width: 50px;
+    height: 50px;
+    font-size: 18px;
+    line-height: 50px;
+    border-radius: 18px;
+    bottom: 18px;
+    right: 18px;
+  }
 }
 /* Footer */
 footer {
@@ -367,5 +403,21 @@ footer {
 
 .whatsapp-float:hover {
   transform: scale(1.1);
+}
+
+@media (max-width: 480px) {
+  .scrollToHome {
+    width: 45px;
+    height: 45px;
+    font-size: 16px;
+    line-height: 45px;
+    border-radius: 15px;
+    bottom: 15px;
+    right: 15px;
+  }
+
+  .scrollToHome:hover {
+    transform: translateY(-2px) scale(1.03);
+  }
 }
 
