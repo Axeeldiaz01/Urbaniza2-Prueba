@@ -110,7 +110,7 @@ function mejorarWhatsApp() {
 
 // FUNCIONALIDAD DEL FORMULARIO MEJORADO
 let currentStep = 1;
-const totalSteps = 3;
+const totalSteps = 2;
 let captchaAnswer = 0;
 
 // Función para copiar al portapapeles
@@ -235,7 +235,7 @@ function initializeEnhancedForm() {
     formulario.addEventListener('submit', async function(e) {
       e.preventDefault();
       
-      if (validateStep(3)) {
+      if (validateStep(2)) {
         await submitForm();
       }
     });
@@ -248,10 +248,6 @@ function nextStep() {
     if (currentStep < totalSteps) {
       currentStep++;
       updateStepDisplay();
-      
-      if (currentStep === 3) {
-        updateSummary();
-      }
     }
   }
 }
@@ -428,29 +424,6 @@ function validateStep(step) {
       }
       isValid = isValid && validateField('mensaje');
       break;
-
-    case 3:
-      const captchaInput = document.getElementById('captcha-answer');
-      const captchaValidation = document.getElementById('captcha-validation');
-      const privacidadCheck = document.getElementById('acepto-privacidad');
-
-      // Validar CAPTCHA
-      if (parseInt(captchaInput.value) !== captchaAnswer) {
-        isValid = false;
-        captchaValidation.textContent = 'Respuesta incorrecta';
-        captchaValidation.classList.add('error');
-      } else {
-        captchaValidation.textContent = '✓ Verificación correcta';
-        captchaValidation.classList.remove('error');
-        captchaValidation.classList.add('success');
-      }
-
-      // Validar aceptación de privacidad
-      if (!privacidadCheck.checked) {
-        isValid = false;
-        alert('Debes aceptar la política de privacidad para continuar');
-      }
-      break;
   }
 
   return isValid;
@@ -514,6 +487,7 @@ async function submitForm() {
       presupuesto: document.getElementById('presupuesto').value,
       ubicacion_interes: document.getElementById('ubicacion-interes').value
     };
+<<<<<<< Updated upstream:js/contacto.js
 
     // Formatear mensaje para WhatsApp
     const tipoConsulta = document.getElementById('tipo-consulta');
@@ -544,7 +518,6 @@ async function submitForm() {
       modalFormulario.style.display = 'none';
       resetForm();
     }, 3000);
-
   } catch (error) {
     console.error('Error:', error);
     showErrorMessage('No se pudo abrir WhatsApp. Por favor, intenta nuevamente.');
@@ -554,7 +527,71 @@ async function submitForm() {
   }
 }
 
-// Mostrar mensaje de éxito
+// Mostrar notificación de éxito fuera del modal
+function showSuccessNotification() {
+  // Crear el elemento de notificación
+  const notification = document.createElement('div');
+  notification.id = 'success-notification';
+  notification.style.cssText = `
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #27ae60, #2ecc71);
+    color: white;
+    padding: 20px 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(39, 174, 96, 0.3);
+    z-index: 10000;
+    max-width: 350px;
+    font-family: 'Poppins', sans-serif;
+    transform: translateX(400px);
+    transition: all 0.3s ease;
+    border-left: 5px solid #1e8449;
+  `;
+  
+  notification.innerHTML = `
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+      <i class="fas fa-check-circle" style="font-size: 1.5rem; margin-right: 10px;"></i>
+      <strong style="font-size: 1.1rem;">¡Consulta Enviada!</strong>
+    </div>
+    <p style="margin: 0; font-size: 0.9rem; opacity: 0.95;">
+      Tu consulta fue enviada exitosamente. Te responderemos en menos de 24 horas.
+    </p>
+    <div style="margin-top: 10px; font-size: 0.8rem; opacity: 0.9;">
+      <i class="fab fa-whatsapp"></i> ¿Urgente? WhatsApp: 982 664 102
+    </div>
+  `;
+  
+  // Agregar al body
+  document.body.appendChild(notification);
+  
+  // Animar entrada
+  setTimeout(() => {
+    notification.style.transform = 'translateX(0)';
+  }, 100);
+  
+  // Auto-remover después de 5 segundos
+  setTimeout(() => {
+    notification.style.transform = 'translateX(400px)';
+    setTimeout(() => {
+      if (notification.parentNode) {
+        notification.parentNode.removeChild(notification);
+      }
+    }, 300);
+  }, 5000);
+  
+  // Permitir cerrar manualmente
+  notification.addEventListener('click', () => {
+    notification.style.transform = 'translateX(400px)';
+    setTimeout(() => {
+      if (notification.parentNode) {
+        notification.parentNode.removeChild(notification);
+      }
+    }, 300);
+  });
+}
+
+// Mostrar mensaje de éxito (función original mantenida para compatibilidad)
 function showSuccessMessage() {
   const formulario = document.getElementById('formulario-contacto-mejorado');
   formulario.innerHTML = `
