@@ -40,4 +40,4 @@ npx http-server public -p 3000
 
 - Sube únicamente los archivos de la carpeta `public` a tu hosting para publicar la web.
 - No se requiere configuración de base de datos ni archivos PHP.
-- Todos los cambios se realizan directamente en los archivos HTML,
+- Todos los cambios se realizan directamente en los archivos HTML, CSS y JS.
