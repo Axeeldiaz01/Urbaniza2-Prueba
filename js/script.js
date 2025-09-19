@@ -13,6 +13,89 @@ const toggle = document.querySelector('.menu-toggle');
     }
   });
 
+// Scroll to top functionality
+const scrollToHomeBtn = document.querySelector('.scrollToHome');
+if (scrollToHomeBtn) {
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 100) {
+      scrollToHomeBtn.style.display = 'block';
+      scrollToHomeBtn.style.opacity = '1';
+    } else {
+      scrollToHomeBtn.style.opacity = '0';
+      setTimeout(() => {
+        if (window.scrollY <= 100) {
+          scrollToHomeBtn.style.display = 'none';
+        }
+      }, 300);
+    }
+  });
+
+  scrollToHomeBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+    return false;
+  });
+}
+
+// Navegación suave entre secciones
+document.addEventListener('DOMContentLoaded', function() {
+  const navButtons = document.querySelectorAll('.nav-btn');
+  
+  navButtons.forEach(button => {
+    button.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      const targetId = this.getAttribute('href').substring(1);
+      const targetSection = document.getElementById(targetId);
+      
+      if (targetSection) {
+        const offsetTop = targetSection.offsetTop - 80; // Ajuste para header fijo
+        
+        window.scrollTo({
+          top: offsetTop,
+          behavior: 'smooth'
+        });
+        
+        // Agregar efecto visual al botón clickeado
+        navButtons.forEach(btn => btn.classList.remove('active'));
+        this.classList.add('active');
+        
+        // Remover la clase active después de un tiempo
+        setTimeout(() => {
+          this.classList.remove('active');
+        }, 1000);
+      }
+    });
+  });
+  
+  // Resaltar botón activo basado en la sección visible
+  function updateActiveNavButton() {
+    const sections = document.querySelectorAll('section[id]');
+    const scrollPos = window.scrollY + 150;
+    
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.offsetHeight;
+      const sectionId = section.getAttribute('id');
+      
+      if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+        navButtons.forEach(btn => btn.classList.remove('current'));
+        const activeBtn = document.querySelector(`.nav-btn[href="#${sectionId}"]`);
+        if (activeBtn) {
+          activeBtn.classList.add('current');
+        }
+      }
+    });
+  }
+  
+  // Actualizar botón activo al hacer scroll
+  window.addEventListener('scroll', updateActiveNavButton);
+  updateActiveNavButton(); // Ejecutar al cargar la página
+});
+
   // Cerrar menú al hacer clic fuera del nav (solo si está abierto)
   document.addEventListener('click', (e) => {
     if (

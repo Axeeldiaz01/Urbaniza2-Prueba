@@ -193,7 +193,7 @@ nav ul li a:hover {
 }
 .scrollToHome {
     border-radius: 20px;
-    background: linear-gradient(135deg, #263755, #34495e);
+    background: linear-gradient(135deg, #f49d32, #ff6b35);
     bottom: 20px;
     color: #ffffff;
     display: none;
@@ -206,7 +206,7 @@ nav ul li a:hover {
     text-align: center;
     width: 55px;
     z-index: 99999;
-    box-shadow: 0 8px 25px rgba(38, 55, 85, 0.3);
+    box-shadow: 0 8px 25px rgba(244, 157, 50, 0.4);
     border: none;
     cursor: pointer;
     font-family: 'Poppins', sans-serif;
@@ -217,9 +217,9 @@ nav ul li a:hover {
 
 .scrollToHome:hover {
     transform: translateY(-3px) scale(1.05);
-    background: linear-gradient(135deg, #34495e, #2c3e50);
-    box-shadow: 0 12px 35px rgba(38, 55, 85, 0.4);
-    color: #f8f9fa;
+    background: linear-gradient(135deg, #ff6b35, #e8890b);
+    box-shadow: 0 12px 35px rgba(244, 157, 50, 0.6);
+    color: #ffffff;
 }
 
 .scrollToHome:active {
@@ -1639,4 +1639,82 @@ p {
   .scrollToHome:hover {
     transform: translateY(-2px) scale(1.03);
   }
+}
+
+/* Clases para funcionalidades dinámicas de contacto */
+.notification-success {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #27ae60;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  z-index: 10000;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.modal-visible {
+  display: block !important;
+}
+
+/* Notificaciones de éxito */
+.notification-success {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, #27ae60, #2ecc71);
+  color: white;
+  padding: 20px 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(39, 174, 96, 0.3);
+  z-index: 10000;
+  max-width: 350px;
+  font-family: 'Poppins', sans-serif;
+  transform: translateX(400px);
+  transition: all 0.3s ease;
+  border-left: 5px solid #1e8449;
+  cursor: pointer;
+}
+
+.notification-success.show {
+  transform: translateX(0);
+}
+
+.notification-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.notification-header i {
+  font-size: 1.5rem;
+  margin-right: 10px;
+}
+
+.notification-header strong {
+  font-size: 1.1rem;
+}
+
+.notification-text {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.95;
+}
+
+.notification-footer {
+  margin-top: 10px;
+  font-size: 0.8rem;
+  opacity: 0.9;
 }

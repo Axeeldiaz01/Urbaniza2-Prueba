@@ -32,7 +32,7 @@
     </div>
   </header>
   <!--buscador-->
-<div class="buscador-inmuebles">
+<div id="buscador" class="buscador-inmuebles">
   <h1>Venta de departamentos e inmuebles en Perú</h1>
   <form class="buscador-form" id="form-buscador">
     <div class="buscador-row">
@@ -58,7 +58,7 @@
   </form>
 </div>
 
-  <section id="terrenos" class="container">
+  <section id="terrenos-disponibles" class="container">
   <h2>Terrenos disponibles</h2>
   <div class="galeria">
     <div class="card" data-tipo="Terreno" data-ubicacion="Chorrillos" data-precio="120000" data-moneda="S/">
@@ -108,12 +108,12 @@
 
   
   </section>
-  <div class="section">
+  <div id="chorrillos" class="section">
         <div class="cardd">
             <div class="carrusel-chorrillos">
                 <div class="carrusel-container">
                     <div class="carrusel-slide active">
-                        <img src="img/chorrillos1.jpeg" alt="Chorrillos 1" class="imagen">
+                        <img src="img/chorrillos.jpeg" alt="Chorrillos" class="imagen">
                     </div>
                     <div class="carrusel-slide">
                         <img src="img/chorrillos2.jpeg" alt="Chorrillos 2" class="imagen">
@@ -127,6 +127,15 @@
                     <div class="carrusel-slide">
                         <img src="img/chorrillos5.jpeg" alt="Chorrillos 5" class="imagen">
                     </div>
+                    <div class="carrusel-slide">
+                        <img src="img/chorrillos6.jpeg" alt="Chorrillos 6" class="imagen">
+                    </div>
+                    <div class="carrusel-slide">
+                        <img src="img/chorrillos7.jpeg" alt="Chorrillos 7" class="imagen">
+                    </div>
+                    <div class="carrusel-slide">
+                        <img src="img/chorrillos8.jpeg" alt="Chorrillos 8" class="imagen">
+                    </div>
                 </div>
 
                 <div class="carrusel-indicadores">
@@ -135,23 +144,24 @@
                     <span class="indicador"></span>
                     <span class="indicador"></span>
                     <span class="indicador"></span>
+                    <span class="indicador"></span>
+                    <span class="indicador"></span>
+                    <span class="indicador"></span>
                 </div>
             </div>
         </div>
-        <div class="texto" id="chorrillos">
-            <h2>DISTRITOS DE CHORRILLOS</h2>
-            <p>En el distrito de Chorrillos, dentro del área de Tratamiento Normativo II 
-              (Ordenanza N.º 1076-MML), se permite el uso multifamiliar en zonas CZ, RDA y RDM según la 
-              Ordenanza N.º 1015-MML. Los lotes deben tener un mínimo de 300 m² (RDA y RDM) y 10 m de frente. 
-              El área libre mínima es 35 % (RDA y RDM), y la altura máxima es de 8 pisos (RDA) y 6-7 pisos (RDM).
-               El retiro frontal es de 5 m y los estacionamientos requeridos son 1 por cada 50 m² (CZ) o 1 por cada 1.5 
-               viviendas (RDA y RDM), según el RNE.
-            </p>
+        <div class="texto">
+            <h2>CHORRILLOS</h2>
+            <p>Terreno de 120 m2 en Chorrillos, ubicado en una zona residencial tranquila y en crecimiento. 
+              Ideal para construir tu hogar o como inversión. Cuenta con todos los servicios básicos: agua, 
+              luz y desagüe. Fácil acceso al transporte público y cerca de centros comerciales, colegios y 
+              hospitales. Documentación en regla y listo para escriturar. ¡Una excelente oportunidad para 
+              hacer realidad tu proyecto inmobiliario!</p>
             <a href="contacto.html">Cotizar ahora</a>
         </div>
     </div>
 
-    <div class="section">
+    <div id="surco" class="section">
         <div class="cardd">
             <div class="carrusel-chorrillos">
                 <div class="carrusel-container">
@@ -213,7 +223,9 @@
       <img class="modal-contenido" id="img-ampliada">
       <div id="caption"></div>
     </div>
-  <a class="scrollToHome" href="#" style="display: inline;"><i class="fa fa-angle-up"></i></a>
+  <a class="scrollToHome scroll-to-home-visible" href="#"><i class="fa fa-angle-up"></i></a>
+  
+
    <footer>
   <p>&copy; 2025 Urbaniza2 Inmobiliaria - Todos los derechos reservados</p>
   

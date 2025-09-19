@@ -33,14 +33,14 @@
     </div>
   </header>
   <!-- SECCIÓN DE CONTACTO MEJORADA -->
-  <section class="contacto-section">
+  <section id="inicio" class="contacto-section">
     <div class="contacto-header">
       <h2><i class="fas fa-phone-alt"></i> Contáctanos</h2>
       <p class="contacto-subtitle">Estamos aquí para ayudarte a encontrar tu terreno ideal</p>
     </div>
 
     <!-- ELEMENTOS DE CONFIANZA -->
-    <div class="confianza-section">
+    <div id="confianza" class="confianza-section">
       <div class="confianza-stats">
         <div class="stat-item">
           <div class="stat-number">15+</div>
@@ -76,7 +76,7 @@
     </div>
 
     <!-- TESTIMONIOS -->
-    <div class="testimonios-section">
+    <div id="testimonios" class="testimonios-section">
       <h3><i class="fas fa-quote-left"></i> Lo que dicen nuestros clientes</h3>
       <div class="testimonios-grid">
         <div class="testimonio-card">
@@ -133,7 +133,7 @@
     </div>
 
     <!-- INFORMACIÓN DE CONTACTO -->
-    <div class="contacto-info">
+    <div id="contacto" class="contacto-info">
       <div class="contacto-cards">
         <div class="contacto-card whatsapp-card">
           <div class="card-icon">
@@ -204,7 +204,9 @@
     </div>
   </section>
 
-  <a class="scrollToHome" href="#" style="display: inline;"><i class="fa fa-angle-up"></i></a>
+  <a class="scrollToHome scroll-to-home-visible" href="#"><i class="fa fa-angle-up"></i></a>
+  
+
   
   <!-- MODAL FORMULARIO MEJORADO -->
   <div id="modal-formulario-mejorado" class="modal-enhanced">
@@ -300,13 +302,13 @@
 
         <!-- Botones de navegación -->
         <div class="form-navigation">
-          <button type="button" id="btn-anterior" class="btn-nav btn-secondary" style="display: none;">
+          <button type="button" id="btn-anterior" class="btn-nav btn-secondary btn-nav-hidden">
             <i class="fas fa-arrow-left"></i> Anterior
           </button>
           <button type="button" id="btn-siguiente" class="btn-nav btn-primary">
             Siguiente <i class="fas fa-arrow-right"></i>
           </button>
-          <button type="submit" id="btn-enviar" class="btn-nav btn-success" style="display: none;">
+          <button type="submit" id="btn-enviar" class="btn-nav btn-success btn-nav-hidden">
             <i class="fas fa-paper-plane"></i> Enviar Consulta
           </button>
         </div>

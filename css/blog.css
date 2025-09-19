@@ -530,7 +530,7 @@ a:hover .whatsapp-num {
 }
 .scrollToHome {
     border-radius: 20px;
-    background: linear-gradient(135deg, #263755, #34495e);
+    background: linear-gradient(135deg, #f49d32, #ff6b35);
     bottom: 20px;
     color: #ffffff;
     display: none;
@@ -543,7 +543,7 @@ a:hover .whatsapp-num {
     text-align: center;
     width: 55px;
     z-index: 99999;
-    box-shadow: 0 8px 25px rgba(38, 55, 85, 0.3);
+    box-shadow: 0 8px 25px rgba(244, 157, 50, 0.4);
     border: none;
     cursor: pointer;
     font-family: 'Poppins', sans-serif;
@@ -554,9 +554,9 @@ a:hover .whatsapp-num {
 
 .scrollToHome:hover {
     transform: translateY(-3px) scale(1.05);
-    background: linear-gradient(135deg, #34495e, #2c3e50);
-    box-shadow: 0 12px 35px rgba(38, 55, 85, 0.4);
-    color: #f8f9fa;
+    background: linear-gradient(135deg, #ff6b35, #e8890b);
+    box-shadow: 0 12px 35px rgba(244, 157, 50, 0.6);
+    color: #ffffff;
 }
 
 .scrollToHome:active {
@@ -588,6 +588,120 @@ a:hover .whatsapp-num {
 
 .whatsapp-float:hover {
   transform: scale(1.1);
+}
+
+/* Clases para contenido dinámico del blog */
+.blog-content-whatsapp {
+  background-color: #e8f5e8;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.blog-btn-whatsapp {
+  display: inline-block;
+  background-color: #25D366;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.blog-content-blue {
+  background-color: #e3f2fd;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.blog-btn-blue {
+  display: inline-block;
+  background-color: #2196F3;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.blog-content-warning {
+  background-color: #fff3cd;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.blog-btn-orange {
+  display: inline-block;
+  background-color: #ff9800;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.blog-btn-orange-alt {
+  display: inline-block;
+  background-color: #FF5722;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.blog-content-general {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.blog-content-green {
+  background-color: #d4edda;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.blog-content-orange {
+  background-color: #fff3cd;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.blog-content-light-green {
+  background-color: #e8f5e8;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.blog-btn-green {
+  display: inline-block;
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* Clases para modal y body */
+.body-no-scroll {
+  overflow: hidden;
+}
+
+.modal-visible {
+  display: block !important;
 }
 
 /* Responsive para dispositivos muy pequeños */

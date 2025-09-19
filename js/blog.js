@@ -104,11 +104,11 @@ function openArticleModal(articleId) {
           <li>Asesoría legal incluida</li>
         </ul>
         
-        <div style="background-color: #f8f9fa; padding: 20px; border-radius: 10px; margin-top: 20px;">
+        <div class="blog-content-green">
           <h4>🎯 ¿Listo para dar el primer paso?</h4>
           <p>Nuestro equipo de expertos te acompañará en todo el proceso. Agenda una visita gratuita y conoce las mejores opciones en Chancay.</p>
-          <a href="https://wa.me/51982664102?text=Hola, me interesa información sobre terrenos en Chancay" 
-             style="display: inline-block; background-color: #25D366; color: white; padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: bold; margin-top: 10px;">
+          <a href="https://wa.me/51982664102?text=Hola, me interesa información sobre financiamiento de terrenos" 
+             class="blog-btn-whatsapp">
             📱 Contactar por WhatsApp
           </a>
         </div>
@@ -145,11 +145,11 @@ function openArticleModal(articleId) {
           <li>Inversión en terrenos agrícolas con potencial urbano</li>
         </ul>
         
-        <div style="background-color: #e3f2fd; padding: 20px; border-radius: 10px; margin-top: 20px;">
+        <div class="blog-content-blue">
           <h4>🎯 Estrategia de inversión</h4>
           <p>El momento ideal para invertir es antes de que se concrete el desarrollo. Identifica las zonas con proyectos de infraestructura aprobados pero aún no ejecutados.</p>
           <a href="https://wa.me/51982664102?text=Hola, me interesa información sobre crecimiento territorial" 
-             style="display: inline-block; background-color: #2196F3; color: white; padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: bold; margin-top: 10px;">
+             class="blog-btn-blue">
             📈 Consultar oportunidades
           </a>
         </div>
@@ -201,11 +201,11 @@ function openArticleModal(articleId) {
           <li><strong>Inscripción registral:</strong> Registramos la propiedad a tu nombre</li>
         </ol>
         
-        <div style="background-color: #fff3cd; padding: 20px; border-radius: 10px; margin-top: 20px; border-left: 4px solid #ffc107;">
+        <div class="blog-content-warning">
           <h4>⚠️ Importante</h4>
           <p><strong>En Urbaniza2 nos encargamos de toda la gestión legal.</strong> Nuestro equipo jurídico verifica cada documento y te acompaña en todo el proceso hasta que tengas tu título de propiedad en mano.</p>
           <a href="https://wa.me/51982664102?text=Necesito asesoría legal para compra de terreno" 
-             style="display: inline-block; background-color: #f97109; color: white; padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: bold; margin-top: 10px;">
+             class="blog-btn-orange">
             🏛️ Consulta legal gratuita
           </a>
         </div>
@@ -243,7 +243,7 @@ function openArticleModal(articleId) {
         </ul>
         
         <h3>📊 Ejemplo de financiamiento:</h3>
-        <div style="background-color: #f8f9fa; padding: 20px; border-radius: 10px; margin: 20px 0;">
+        <div class="blog-content-general">
           <h4>Terreno de S/ 50,000</h4>
           <ul>
             <li><strong>Cuota inicial:</strong> S/ 10,000 (20%)</li>
@@ -312,11 +312,11 @@ function openArticleModal(articleId) {
           <li>Cerca de estaciones de transporte público</li>
         </ul>
         
-        <div style="background-color: #fff3e0; padding: 20px; border-radius: 10px; margin-top: 20px;">
+        <div class="blog-content-orange">
           <h4>🎯 Estrategia de crecimiento</h4>
           <p>Comienza con una propiedad comercial pequeña y reinvierte las ganancias para expandir tu portafolio. La clave está en la ubicación y el tipo de inquilino.</p>
           <a href="https://wa.me/51982664102?text=Quiero información sobre inversión comercial" 
-             style="display: inline-block; background-color: #FF9800; color: white; padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: bold; margin-top: 10px;">
+             class="blog-btn-orange-alt">
             🏢 Explorar oportunidades
           </a>
         </div>
@@ -354,11 +354,11 @@ function openArticleModal(articleId) {
           <li>Mejoras en infraestructura</li>
         </ul>
         
-        <div style="background-color: #e8f5e8; padding: 20px; border-radius: 10px; margin-top: 20px;">
+        <div class="blog-content-light-green">
           <h4>💰 Maximiza tu inversión</h4>
           <p>Identifica sectores con alta demanda y poca oferta inmobiliaria. El timing es crucial para obtener la máxima rentabilidad.</p>
           <a href="https://wa.me/51982664102?text=Me interesa invertir en sectores de crecimiento" 
-             style="display: inline-block; background-color: #4CAF50; color: white; padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: bold; margin-top: 10px;">
+             class="blog-btn-green">
             📊 Analizar sectores
           </a>
         </div>
@@ -396,11 +396,11 @@ function openArticleModal(articleId) {
           <li>Corredor vial: Servicios de transporte</li>
         </ul>
         
-        <div style="background-color: #e3f2fd; padding: 20px; border-radius: 10px; margin-top: 20px;">
+        <div class="blog-content-blue">
           <h4>⚡ Oportunidad única</h4>
           <p>El Puerto de Chancay estará operativo en 2024. Los precios de terrenos en la zona aún están en niveles pre-desarrollo. Es el momento de invertir.</p>
           <a href="https://wa.me/51982664102?text=Quiero información sobre terrenos en Chancay" 
-             style="display: inline-block; background-color: #2196F3; color: white; padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: bold; margin-top: 10px;">
+             class="blog-btn-blue">
             🚢 Invertir en Chancay
           </a>
         </div>
@@ -496,7 +496,7 @@ function openArticleModal(articleId) {
   if (articles[articleId]) {
     modalContent.innerHTML = articles[articleId].content;
     modal.style.display = 'block';
-    document.body.style.overflow = 'hidden'; // Prevenir scroll del fondo
+    document.body.classList.add('body-no-scroll');
   }
 }
 
@@ -508,22 +508,22 @@ document.addEventListener('DOMContentLoaded', function() {
   // Cerrar con el botón X
   closeBtn.addEventListener('click', function() {
     modal.style.display = 'none';
-    document.body.style.overflow = 'auto';
+    document.body.classList.remove('body-no-scroll');
   });
   
   // Cerrar al hacer clic fuera del modal
   window.addEventListener('click', function(event) {
     if (event.target === modal) {
       modal.style.display = 'none';
-      document.body.style.overflow = 'auto';
+      document.body.classList.remove('body-no-scroll');
     }
   });
   
   // Cerrar con la tecla Escape
   document.addEventListener('keydown', function(event) {
-    if (event.key === 'Escape' && modal.style.display === 'block') {
+    if (event.key === 'Escape' && modal.classList.contains('modal-visible')) {
       modal.style.display = 'none';
-      document.body.style.overflow = 'auto';
+      document.body.classList.remove('body-no-scroll');
     }
   });
 });

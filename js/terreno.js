@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const captionText = document.getElementById("caption");
 
     if (modal && modalImg && captionText) {
-      modal.style.display = "block";
+      modal.classList.add('modal-visible');
       modalImg.src = img.src;
       captionText.textContent = img.alt;
     }
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
     cerrarBtn.onclick = function () {
       const modal = document.getElementById("modal");
       if (modal) {
-        modal.style.display = "none";
+        modal.classList.remove('modal-visible');
       }
     };
   }
@@ -153,8 +153,8 @@ document.addEventListener('DOMContentLoaded', function() {
       const mensaje = document.createElement('div');
       mensaje.className = 'mensaje-busqueda';
       mensaje.innerHTML = `
-        <div style="text-align: center; padding: 40px; color: #666;">
-          <i class="fas fa-search" style="font-size: 3rem; margin-bottom: 20px; opacity: 0.5;"></i>
+        <div class="search-no-results">
+          <i class="fas fa-search search-icon"></i>
           <h3>No se encontraron terrenos</h3>
           <p>Intenta ajustar los filtros de búsqueda</p>
         </div>
