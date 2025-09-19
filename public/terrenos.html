@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terrenos</title>
+    <link rel="icon" href="assets/img/U2.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/terrenos.css">
+  <link rel="stylesheet" href="assets/css/button-standardization.css">
+</head>
+<body>
+    <header>
+    <div class="container">
+      <a href="index.html"><img src="assets/img/logo.png" alt="logo" class="logo"></a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="servicios.html">Servicios</a></li>
+          <li><a href="terrenos.html">Terrenos</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="contacto.html">Contáctanos</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </nav>
+      <div class="menu-toggle" id="menuToggle">
+             <span class="bar"></span>
+             <span class="bar"></span>
+             <span class="bar"></span>
+      </div>
+    </div>
+  </header>
+  <!--buscador-->
+<div class="buscador-inmuebles">
+  <h1>Venta de departamentos e inmuebles en Perú</h1>
+  <form class="buscador-form" id="form-buscador">
+    <div class="buscador-row">
+      <select id="tipo-inmueble">
+        <option value="">TODOS</option>
+        <option value="Departamento">Departamento</option>
+        <option value="Casa">Casa</option>
+        <option value="Terreno">Terreno</option>
+      </select>
+      <input type="text" id="texto-busqueda" placeholder="Ingresa Departamento, Provincia, Distrito o Urbaniz">
+      <button type="submit" class="btn-buscar"><i class="fa fa-search"></i> BUSCAR</button>
+    </div>
+    <div class="precio-group">
+      <select id="moneda">
+        <option value="S/">S/</option>
+        <option value="US$">US$</option>
+      </select>
+      <input type="text" id="precio-desde" placeholder="Precio desde">
+      <input type="text" id="precio-hasta" placeholder="Precio hasta">
+      <label>
+        <input type="checkbox" id="retirar-precio"> Retirar precio</label>
+    </div>
+  </form>
+</div>
+
+  <section id="terrenos" class="container">
+  <h2>Terrenos disponibles</h2>
+  <div class="galeria">
+    <div class="card" data-tipo="Terreno" data-ubicacion="Chorrillos" data-precio="120000" data-moneda="S/">
+      <img src="assets/img/chorrillos1.jpeg" alt="Terreno en Chorrillos" onclick="ampliarImagen(this)">
+      <div class="linea-decorativa"></div>
+      <h3>Chorrillos</h3>
+      <p>200 m².</p>
+      <p>Ubicado en zona residencial estratégica.</p>
+      <p>Ideal para vivienda familiar.</p>
+      <p class="precio">S/ 120,000</p>
+      <div class="card-actions">
+        <button class="btn-comprar" data-ubicacion="Chorrillos" data-precio="120000" data-area="200 m²" data-terreno-id="5">
+          <i class="fas fa-shopping-cart"></i> Comprar
+        </button>
+      </div>
+    </div>
+    <div class="card" data-tipo="Terreno" data-ubicacion="Chancay" data-precio="95000" data-moneda="S/">
+      <img src="assets/img/chancay.jpg" alt="Terreno en Chancay" onclick="ampliarImagen(this)">
+      <div class="linea-decorativa"></div>
+      <h3>Chancay</h3>
+      <p>180 m².</p>
+      <p>Excelente ubicación cerca del centro.</p>
+      <p>Documentos en regla.</p>
+      <p class="precio">S/ 95,000</p>
+      <div class="card-actions">
+        <button class="btn-comprar" data-ubicacion="Chancay" data-precio="95000" data-area="180 m²" data-terreno-id="6">
+          <i class="fas fa-shopping-cart"></i> Comprar
+        </button>
+      </div>
+    </div>
+    <div class="card" data-tipo="Terreno" data-ubicacion="Végueta" data-precio="85000" data-moneda="S/">
+      <img src="assets/img/vegueta.jpg" alt="Terreno en Végueta" onclick="ampliarImagen(this)">
+      <div class="linea-decorativa"></div>
+      <h3>Végueta</h3>
+      <p>220 m².</p>
+      <p>Zona tranquila y en crecimiento.</p>
+      <p>Perfecto para inversión.</p>
+      <p class="precio">S/ 85,000</p>
+      <div class="card-actions">
+        <button class="btn-comprar" data-ubicacion="Végueta" data-precio="85000" data-area="220 m²" data-terreno-id="7">
+          <i class="fas fa-shopping-cart"></i> Comprar
+        </button>
+      </div>
+    </div>
+  </div>
+
+    <!-- CALCULADORA DE FINANCIAMIENTO -->
+    <section class="calculadora-section">
+      <h2><i class="fas fa-calculator"></i> Calculadora de Financiamiento</h2>
+      <p>Simula tu plan de pago y descubre cuánto puedes invertir</p>
+      <div class="calculadora-container">
+        <div class="calculadora-inputs">
+          <div class="input-group">
+            <label for="precio-terreno">Precio del Terreno (S/)</label>
+            <input type="number" id="precio-terreno" placeholder="150000" min="0">
+          </div>
+          <div class="input-group">
+            <label for="cuota-inicial">Cuota Inicial (%)</label>
+            <input type="range" id="cuota-inicial" min="10" max="50" value="20">
+            <span id="cuota-inicial-valor">S/ 30,000</span>
+          </div>
+          <div class="input-group">
+            <label for="plazo-pago">Plazo de Pago (años)</label>
+            <select id="plazo-pago">
+              <option value="3">3 año</option>
+              <option value="4" selected>4 años</option>
+              <option value="5">5 años</option>
+              <option value="6">6 años</option>
+              <option value="7">7 años</option>
+              <option value="8">8 años</option>
+              <option value="9">9 años</option>
+              <option value="10">10 años</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label for="tasa-interes">Tasa de Interés Anual (%)</label>
+            <select id="tasa-interes">
+              <option value="8">8% - Promocional</option>
+              <option value="10" selected>10% - Estándar</option>
+              <option value="12">12% - Premium</option>
+              <option value="15">15% - Especial</option>
+            </select>
+          </div>
+          <button id="btn-calcular" class="btn-calcular">Calcular</button>
+        </div>
+        <div class="calculadora-resultados">
+          <h3>Resultados del Financiamiento</h3>
+          <div class="resultado-item">
+            <span>Cuota Inicial:</span>
+            <span id="cuota-inicial-resultado">S/ 0</span>
+          </div>
+          <div class="resultado-item">
+            <span>Monto a Financiar:</span>
+            <span id="monto-financiar">S/ 0</span>
+          </div>
+          <div class="resultado-item">
+            <span>Cuota Mensual:</span>
+            <span id="cuota-mensual">S/ 0</span>
+          </div>
+          <div class="resultado-item">
+            <span>Interés Total:</span>
+            <span id="interes-total">S/ 0</span>
+          </div>
+          <div class="resultado-item total">
+            <span>Total a Pagar:</span>
+            <span id="total-pagar">S/ 0</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+  </section>
+  <div class="section">
+        <div class="cardd">
+            <div class="carrusel-chorrillos">
+                <div class="carrusel-container">
+                    <div class="carrusel-slide active">
+                        <img src="assets/img/chorrillos1.jpeg" alt="Chorrillos 1" class="imagen">
+                    </div>
+                    <div class="carrusel-slide">
+                        <img src="assets/img/chorrillos2.jpeg" alt="Chorrillos 2" class="imagen">
+                    </div>
+                    <div class="carrusel-slide">
+                        <img src="assets/img/chorrillos3.jpeg" alt="Chorrillos 3" class="imagen">
+                    </div>
+                    <div class="carrusel-slide">
+                        <img src="assets/img/chorrillos4.jpeg" alt="Chorrillos 4" class="imagen">
+                    </div>
+                    <div class="carrusel-slide">
+                        <img src="assets/img/chorrillos5.jpeg" alt="Chorrillos 5" class="imagen">
+                    </div>
+                </div>
+
+                <div class="carrusel-indicadores">
+                    <span class="indicador active" onclick="slideActual(1)"></span>
+                    <span class="indicador" onclick="slideActual(2)"></span>
+                    <span class="indicador" onclick="slideActual(3)"></span>
+                    <span class="indicador" onclick="slideActual(4)"></span>
+                    <span class="indicador" onclick="slideActual(5)"></span>
+                </div>
+            </div>
+        </div>
+        <div class="texto" id="chorrillos">
+            <h2>DISTRITOS DE CHORRILLOS</h2>
+            <p>En el distrito de Chorrillos, dentro del área de Tratamiento Normativo II 
+              (Ordenanza N.º 1076-MML), se permite el uso multifamiliar en zonas CZ, RDA y RDM según la 
+              Ordenanza N.º 1015-MML. Los lotes deben tener un mínimo de 300 m² (RDA y RDM) y 10 m de frente. 
+              El área libre mínima es 35 % (RDA y RDM), y la altura máxima es de 8 pisos (RDA) y 6-7 pisos (RDM).
+               El retiro frontal es de 5 m y los estacionamientos requeridos son 1 por cada 50 m² (CZ) o 1 por cada 1.5 
+               viviendas (RDA y RDM), según el RNE.
+            </p>
+            <a href="contacto.html">Cotizar ahora</a>
+        </div>
+    </div>
+
+    <div id="modal" class="modal">
+      <span class="cerrar">&times;</span>
+      <img class="modal-contenido" id="img-ampliada">
+      <div id="caption"></div>
+    </div>
+  <a class="scrollToHome" href="#" style="display: inline;"><i class="fa fa-angle-up"></i></a>
+   <footer>
+  <p>&copy; 2025 Urbaniza2 Inmobiliaria - Todos los derechos reservados</p>
+  
+  <div class="redes-sociales">
+    <a href="https://www.facebook.com/urbaniza2inmobiliaria?mibextid=ZbWKwL" target="_blank" title="Facebook">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+    <a href="https://www.tiktok.com/@urbaniza2inmobiliaria?_t=ZM-8y3GdIXEmca&_r=1" target="_blank" title="TikTok">
+      <i class="fab fa-tiktok"></i>
+    </a>
+    <a href="https://www.instagram.com/urbaniza2.inm?igsh=MWNrbHF0dG0yd2s1cg==" target="_blank" title="instagram">
+      <i class="fab fa-instagram"></i>
+    </a>
+  </div>
+  <!-- Enlace discreto para administradores -->
+  <div class="admin-access" style="margin-top: 10px;">
+    <a href="http://localhost:8080/index.php" target="_blank" style="color: #666; font-size: 12px; text-decoration: none; opacity: 0.7;" title="Acceso Administrativo">
+      <i class="fas fa-cog" style="margin-right: 5px;"></i>Admin
+    </a>
+  </div>
+</footer>
+   <a href="https://wa.me/51982664102" 
+   class="whatsapp-float" 
+   target="_blank" 
+   title="Chatea con nosotros por WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#fff" viewBox="0 0 24 24">
+    <path d="M12.004 2.002C6.475 2.002 2 6.477 2 12.007c0 1.994.522 3.853 1.516 5.513L2 22l4.605-1.505A9.944 9.944 0 0012.004 22c5.528 0 10.002-4.475 10.002-9.993 0-5.53-4.474-10.005-10.002-10.005zm.007 18.002c-1.612 0-3.185-.437-4.564-1.263l-.328-.195-2.733.893.9-2.66-.212-.34a7.935 7.935 0 01-1.2-4.177c0-4.415 3.59-8.006 8.004-8.006 4.415 0 8.004 3.59 8.004 8.006 0 4.413-3.59 7.992-8.004 7.992zm4.507-5.994c-.246-.123-1.457-.72-1.683-.8-.226-.08-.392-.123-.558.124-.165.246-.64.8-.785.965-.145.165-.29.185-.536.062-.246-.123-1.04-.383-1.98-1.22-.732-.652-1.226-1.46-1.37-1.705-.145-.247-.015-.38.109-.502.112-.111.246-.29.37-.435.124-.144.165-.247.248-.412.083-.165.042-.31-.02-.435-.062-.123-.558-1.35-.764-1.845-.202-.485-.407-.42-.558-.427-.145-.006-.31-.007-.476-.007-.165 0-.435.062-.663.31-.227.248-.866.845-.866 2.06 0 1.215.886 2.39 1.008 2.554.124.165 1.742 2.658 4.225 3.724.59.254 1.05.405 1.408.519.592.188 1.132.162 1.56.098.476-.07 1.457-.595 1.663-1.173.205-.577.205-1.07.145-1.173-.062-.104-.227-.165-.476-.288z"/>
+  </svg>
+</a>
+  <script src="assets/js/cargar-terrenos.js"></script>
+  <script src="assets/js/terreno.js"></script>
+  <script src="assets/js/funcionalidades.js"></script>
+</body>
+</html>

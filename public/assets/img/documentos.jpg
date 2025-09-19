@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400">
+  <defs>
+    <linearGradient id="docGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f5576c;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Fondo -->
+  <rect width="800" height="400" fill="url(#docGradient)"/>
+  
+  <!-- Documentos apilados -->
+  <g>
+    <!-- Documento 1 (atrás) -->
+    <rect x="200" y="120" width="180" height="240" fill="#FFFFFF" stroke="#CCCCCC" stroke-width="2" rx="5"/>
+    <rect x="210" y="140" width="160" height="8" fill="#E0E0E0"/>
+    <rect x="210" y="160" width="140" height="6" fill="#E0E0E0"/>
+    <rect x="210" y="180" width="150" height="6" fill="#E0E0E0"/>
+    <rect x="210" y="200" width="120" height="6" fill="#E0E0E0"/>
+    
+    <!-- Documento 2 (medio) -->
+    <rect x="250" y="100" width="180" height="240" fill="#FFFFFF" stroke="#CCCCCC" stroke-width="2" rx="5"/>
+    <rect x="260" y="120" width="160" height="8" fill="#E0E0E0"/>
+    <rect x="260" y="140" width="140" height="6" fill="#E0E0E0"/>
+    <rect x="260" y="160" width="150" height="6" fill="#E0E0E0"/>
+    <rect x="260" y="180" width="120" height="6" fill="#E0E0E0"/>
+    
+    <!-- Documento 3 (frente) -->
+    <rect x="300" y="80" width="180" height="240" fill="#FFFFFF" stroke="#CCCCCC" stroke-width="2" rx="5"/>
+    <rect x="310" y="100" width="160" height="10" fill="#4CAF50"/>
+    <rect x="310" y="120" width="140" height="6" fill="#E0E0E0"/>
+    <rect x="310" y="140" width="150" height="6" fill="#E0E0E0"/>
+    <rect x="310" y="160" width="120" height="6" fill="#E0E0E0"/>
+    <rect x="310" y="180" width="160" height="6" fill="#E0E0E0"/>
+    <rect x="310" y="200" width="100" height="6" fill="#E0E0E0"/>
+    
+    <!-- Sello oficial -->
+    <circle cx="420" cy="280" r="25" fill="none" stroke="#FF5722" stroke-width="3"/>
+    <text x="420" y="285" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#FF5722">LEGAL</text>
+  </g>
+  
+  <!-- Iconos legales -->
+  <g>
+    <!-- Balanza de justicia -->
+    <g transform="translate(550, 150)">
+      <rect x="-2" y="0" width="4" height="80" fill="#8B4513"/>
+      <rect x="-15" y="75" width="30" height="8" fill="#8B4513"/>
+      <line x1="-30" y1="20" x2="30" y2="20" stroke="#FFD700" stroke-width="3"/>
+      <circle cx="-25" cy="35" r="12" fill="none" stroke="#FFD700" stroke-width="2"/>
+      <circle cx="25" cy="35" r="12" fill="none" stroke="#FFD700" stroke-width="2"/>
+      <line x1="-25" y1="23" x2="-25" y2="35" stroke="#FFD700" stroke-width="2"/>
+      <line x1="25" y1="23" x2="25" y2="35" stroke="#FFD700" stroke-width="2"/>
+    </g>
+    
+    <!-- Martillo de juez -->
+    <g transform="translate(120, 200)">
+      <rect x="0" y="-5" width="40" height="10" fill="#8B4513" rx="5"/>
+      <rect x="35" y="-15" width="8" height="30" fill="#654321"/>
+      <rect x="37" y="15" width="4" height="40" fill="#8B4513"/>
+    </g>
+    
+    <!-- Lupa -->
+    <g transform="translate(650, 250)">
+      <circle cx="0" cy="0" r="20" fill="none" stroke="#2196F3" stroke-width="4"/>
+      <line x1="15" y1="15" x2="30" y2="30" stroke="#2196F3" stroke-width="4" stroke-linecap="round"/>
+    </g>
+  </g>
+  
+  <!-- Texto principal -->
+  <text x="400" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#FFFFFF">
+    Documentación Legal Completa
+  </text>
+  
+  <!-- Checkmarks -->
+  <g fill="#4CAF50">
+    <circle cx="150" cy="120" r="12" fill="#4CAF50"/>
+    <path d="M 145 120 L 148 123 L 155 116" stroke="#FFFFFF" stroke-width="2" fill="none"/>
+    
+    <circle cx="150" cy="160" r="12" fill="#4CAF50"/>
+    <path d="M 145 160 L 148 163 L 155 156" stroke="#FFFFFF" stroke-width="2" fill="none"/>
+    
+    <circle cx="150" cy="200" r="12" fill="#4CAF50"/>
+    <path d="M 145 200 L 148 203 L 155 196" stroke="#FFFFFF" stroke-width="2" fill="none"/>
+  </g>
+  
+  <!-- Etiquetas -->
+  <g font-family="Arial, sans-serif" font-size="14" fill="#FFFFFF">
+    <text x="170" y="125">Título de Propiedad</text>
+    <text x="170" y="165">Certificados</text>
+    <text x="170" y="205">Documentos Legales</text>
+  </g>
+</svg>
