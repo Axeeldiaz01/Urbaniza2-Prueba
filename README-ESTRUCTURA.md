@@ -25,19 +25,19 @@ Urbaniza2-main/
 ## Características de la Estructura
 
 - **Sitio 100% estático:** No requiere base de datos ni backend.
-- **Centralización de assets:** Todos los recursos están en `public/assets/`.
+- **Organización simple:** Archivos HTML en la raíz, recursos en carpetas `css/`, `js/`, `img/`.
 - **Fácil mantenimiento:** Solo archivos HTML, CSS, JS e imágenes.
 - **Escalable:** Puedes agregar nuevas páginas HTML o recursos fácilmente.
 
 ## Comandos Útiles
 
 ```bash
-# Servir el sitio localmente (requiere Node.js y http-server)
-npx http-server public -p 3000
+# Servir el sitio localmente con PowerShell (método actual)
+# El servidor ya está configurado y corriendo en http://localhost:3000
 ```
 
 ## Notas Importantes
 
-- Sube únicamente los archivos de la carpeta `public` a tu hosting para publicar la web.
+- Los archivos principales están en la raíz del proyecto.
 - No se requiere configuración de base de datos ni archivos PHP.
 - Todos los cambios se realizan directamente en los archivos HTML, CSS y JS.

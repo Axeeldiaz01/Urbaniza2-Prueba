@@ -1,44 +1,35 @@
-# Script para iniciar ambos servidores de Urbaniza2
+# Script para iniciar el servidor de Urbaniza2 (Sitio Estatico)
 
-Write-Host "=== Iniciando Servidores de Urbaniza2 ===" -ForegroundColor Green
+Write-Host "=== Iniciando Servidor de Urbaniza2 ===" -ForegroundColor Green
 Write-Host ""
 
-# Verificar si XAMPP está instalado
+# Verificar si XAMPP esta instalado
 if (Test-Path "C:\xampp\php\php.exe") {
-    Write-Host "✓ XAMPP encontrado" -ForegroundColor Green
+    Write-Host "XAMPP encontrado" -ForegroundColor Green
 } else {
-    Write-Host "✗ XAMPP no encontrado. Instala XAMPP primero." -ForegroundColor Red
+    Write-Host "XAMPP no encontrado. Instala XAMPP primero." -ForegroundColor Red
     exit 1
 }
 
 Write-Host ""
-Write-Host "Iniciando servidores..." -ForegroundColor Yellow
+Write-Host "Iniciando servidor del sitio web..." -ForegroundColor Yellow
 Write-Host ""
 
-# Iniciar servidor del sitio web público
-Write-Host "🌐 Sitio Web Público: http://localhost:3000" -ForegroundColor Cyan
-Start-Process powershell -ArgumentList "-NoExit", "-Command", "cd '$PWD'; C:\xampp\php\php.exe -S localhost:3000 -t public"
-
-Start-Sleep -Seconds 2
-
-# Iniciar servidor del panel administrativo
-Write-Host "🔧 Panel Administrativo: http://localhost:8080" -ForegroundColor Cyan
-Start-Process powershell -ArgumentList "-NoExit", "-Command", "cd '$PWD'; C:\xampp\php\php.exe -S localhost:8080 -t Admin"
+# Iniciar servidor del sitio web estatico desde la raiz
+Write-Host "Sitio Web: http://localhost:3000" -ForegroundColor Cyan
+Start-Process powershell -ArgumentList "-NoExit", "-Command", "cd '$PWD'; C:\xampp\php\php.exe -S localhost:3000"
 
 Start-Sleep -Seconds 2
 
 Write-Host ""
-Write-Host "=== Servidores Iniciados ===" -ForegroundColor Green
+Write-Host "=== Servidor Iniciado ===" -ForegroundColor Green
 Write-Host "Sitio Web: http://localhost:3000" -ForegroundColor White
-Write-Host "Admin Panel: http://localhost:8080" -ForegroundColor White
 Write-Host ""
-Write-Host "Presiona Ctrl+C en cada ventana para detener los servidores" -ForegroundColor Yellow
+Write-Host "Presiona Ctrl+C en la ventana del servidor para detenerlo" -ForegroundColor Yellow
 Write-Host ""
 
-# Abrir navegadores automáticamente
-Write-Host "Abriendo navegadores..." -ForegroundColor Yellow
+# Abrir navegador automaticamente
+Write-Host "Abriendo navegador..." -ForegroundColor Yellow
 Start-Process "http://localhost:3000"
-Start-Sleep -Seconds 2
-Start-Process "http://localhost:8080"
 
-Write-Host "¡Listo! Los servidores están ejecutándose." -ForegroundColor Green
+Write-Host "Listo! El servidor esta ejecutandose." -ForegroundColor Green

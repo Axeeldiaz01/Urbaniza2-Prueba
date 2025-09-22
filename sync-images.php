@@ -1,7 +1,19 @@
 <?php
 /**
- * Script para sincronizar imágenes entre Admin/uploads y public/uploads
- * Ejecutar después de agregar nuevos terrenos desde el dashboard
+ * NOTA: Este script NO es necesario para la estructura actual del proyecto.
+ * 
+ * Urbaniza2 es un sitio web 100% estático sin panel administrativo.
+ * Las imágenes se gestionan directamente en la carpeta img/
+ * 
+ * Script original para sincronizar imágenes entre Admin/uploads y public/uploads
+ * (Solo útil si se implementa un panel administrativo en el futuro)
+ */
+
+// SCRIPT DESHABILITADO - No es necesario para sitio estático
+exit("Este script no es necesario para la estructura actual del proyecto estático.\n");
+
+/*
+ * Código original comentado:
  */
 
 $adminUploads = __DIR__ . '/Admin/uploads';
