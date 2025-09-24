@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-/* Variables */
 :root {
   --primary: #fb9f2ee2;
   --dark: #333;
@@ -27,7 +26,6 @@ body {
   margin: 0 auto;
 }
 
-/* Header y Navegación */
 header {
   position: sticky;
   top: 0;
@@ -60,9 +58,11 @@ header .container {
   justify-content: space-between;
   padding: 5px 0;
 }
+
 nav {
   margin: 5px -70px;
 }
+
 nav ul {
   list-style: none;
   display: flex;
@@ -81,7 +81,8 @@ nav ul li a {
 
 nav ul li a:hover {
   color: var(--dark);
-}  
+}
+
 .menu-toggle {
   display: none;
   flex-direction: column;
@@ -122,8 +123,6 @@ nav ul li a:hover {
   transform: rotate(-45deg) translateY(-8px);
 }
 
-
-/* Responsividad */
 @media (max-width: 768px) {
   nav {
     position: fixed;
@@ -155,7 +154,7 @@ nav ul li a:hover {
   }
 
   body.menu-abierto {
-    overflow: hidden; /* Bloquea el scroll del fondo */
+    overflow: hidden;
   }
 
   nav ul {
@@ -173,11 +172,12 @@ nav ul li a:hover {
     right: 18px;
   }
 }
-/* Banner */
+
 .banner img {
   width: 100%;
   display: block;
 }
+
 .banner {
   position: relative;
   width: 100%;
@@ -215,9 +215,11 @@ nav ul li a:hover {
   font-size: 1.2rem;
   margin-bottom: 2rem;
 }
+
 .title{
   text-align: center;
 }
+
 .section {
   display: flex;
   align-items: center;
@@ -227,6 +229,7 @@ nav ul li a:hover {
   flex-wrap: wrap;
   margin: 30px 20px;
 }
+
 .card, .texto {
   flex: 1 1 400px;
   max-width: 500px;
@@ -238,11 +241,13 @@ nav ul li a:hover {
   border: 3px solid black;
   border-radius: 8px;
 }
+
 .texto p {
   font-size: 1.1rem;
   margin-bottom: 1.5rem;
   text-align: center;
 }
+
 .redes-sociales {
   margin-top: 10px;
 }
@@ -257,8 +262,8 @@ nav ul li a:hover {
 
 .redes-sociales a:hover {
   color: #1d05f8;
-  /* anaranjado al pasar el mouse */
 }
+
 .scrollToHome {
     border-radius: 20px;
     background: linear-gradient(135deg, #f49d32, #ff6b35);
@@ -294,19 +299,59 @@ nav ul li a:hover {
     transform: translateY(-1px) scale(1.02);
     transition: all 0.1s ease;
 }
+
 .centro {
   font-size: 1.2rem;
   margin-bottom: 2rem;
   text-align: center;
   margin: 20px 40px;
 }
+
 /* Footer */
 footer {
   background: var(--dark);
   color: white;
   text-align: center;
-  padding: 15px 0;
+  padding: 20px 0;
+  margin-top: 40px;
 }
+
+footer p {
+  margin: 0 0 15px 0;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.redes-sociales {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.redes-sociales a {
+  color: white;
+  font-size: 24px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid transparent;
+}
+
+.redes-sociales a:hover {
+  color: var(--primary);
+  background: rgba(251, 159, 46, 0.1);
+  border-color: var(--primary);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(251, 159, 46, 0.3);
+}
+
 .valores {
   display: flex;
   flex-wrap: wrap;
@@ -348,11 +393,13 @@ footer {
   color: #333;
   line-height: 1.5;
 }
-/* --- EFECTO HOVER PARA EL ÍCONO --- */
+
 .valor-card:hover i {
-  color: #0d47a1;       /* mismo naranja de tu marca */
+  color: #0d47a1;
   transition: color 0.3s ease;
 }
+
+/* WhatsApp Float Button */
 .whatsapp-float {
   position: fixed;
   bottom: 20px;
@@ -365,20 +412,79 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease;
-}
-
-.whatsapp-float img {
-  width: 30px;
-  height: 30px;
+  text-decoration: none;
+  color: white;
+  font-size: 24px;
 }
 
 .whatsapp-float:hover {
   transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Footer responsivo */
+@media (max-width: 768px) {
+  /* Footer responsivo */
+  footer {
+    padding: 25px 15px;
+  }
+
+  footer p {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+  }
+
+  .redes-sociales {
+    gap: 15px;
+  }
+
+  .redes-sociales a {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+
+  .whatsapp-float {
+    width: 55px;
+    height: 55px;
+    font-size: 22px;
+    bottom: 15px;
+    left: 15px;
+  }
 }
 
 @media (max-width: 480px) {
+  /* Footer para móviles pequeños */
+  footer {
+    padding: 20px 10px;
+  }
+
+  footer p {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+
+  .redes-sociales {
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .redes-sociales a {
+    width: 38px;
+    height: 38px;
+    font-size: 18px;
+  }
+
+  .whatsapp-float {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    bottom: 12px;
+    left: 12px;
+  }
+
   .scrollToHome {
     width: 45px;
     height: 45px;

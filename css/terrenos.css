@@ -60,9 +60,11 @@ header .container {
   justify-content: space-between;
   padding: 0.3rem 0;
 }
+
 nav {
   margin: 0.3rem -4.4rem;
 }
+
 nav ul {
   list-style: none;
   display: flex;
@@ -81,7 +83,8 @@ nav ul li a {
 
 nav ul li a:hover {
   color: var(--dark);
-}  
+}
+
 .menu-toggle {
   display: none;
   flex-direction: column;
@@ -104,7 +107,7 @@ nav ul li a:hover {
   width: 1.9rem;
   background-color: white;
   border-radius: 0.1rem;
-  transition:all 0.3s ease;
+  transition: all 0.3s ease;
   position: relative;
   transform-origin: center;
   margin: 0.2rem 0;
@@ -121,7 +124,8 @@ nav ul li a:hover {
 .menu-toggle.active .bar:nth-child(3) {
   transform: rotate(-45deg) translateY(-0.5rem);
 }
-/*buscador*/
+
+/* Buscador */
 .buscador-inmuebles {
   background: #f7f7f7;
   padding: 2rem 0 1.5rem 0;
@@ -129,36 +133,13 @@ nav ul li a:hover {
   margin-bottom: 1.9rem;
 }
 
-/* Estilos para resaltado de búsqueda */
-.resaltado-busqueda {
-  transform: scale(1.02);
-  box-shadow: 0 8px 25px rgba(255, 193, 7, 0.4);
-  border: 2px solid #ffc107;
-  transition: all 0.3s ease;
-}
-
-/* Mensaje de búsqueda sin resultados */
-.mensaje-busqueda {
-  grid-column: 1 / -1;
-  width: 100%;
-  margin: 20px 0;
-}
-
-.mensaje-busqueda h3 {
-  color: #666;
-  margin-bottom: 10px;
-}
-
-.mensaje-busqueda p {
-  color: #999;
-  font-size: 1rem;
-}
 .buscador-inmuebles h1 {
   font-size: 2rem;
   font-weight: 600;
   margin-bottom: 1.1rem;
   color: #222;
 }
+
 .buscador-form {
   display: flex;
   flex-direction: column;
@@ -174,13 +155,14 @@ nav ul li a:hover {
   justify-content: center;
 }
 
-.buscador-row select{
+.buscador-row select {
   min-width: 12.5rem;
   padding: 0.6rem 0.75rem;
   border: 0.06rem solid #ddd;
   border-radius: 0.4rem;
   font-size: 1rem;
 }
+
 .buscador-row input[type="text"] {
   min-width: 25rem;
   padding: 0.6rem 0.75rem;
@@ -228,36 +210,31 @@ nav ul li a:hover {
   gap: 0.25rem;
 }
 
-/* Responsive para tablets */
-@media (max-width: 50rem) {
-  .buscador-row,
-  .precio-group {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.5rem;
-  }
-  
-  .buscador-row select,
-  .buscador-row input[type="text"] {
-    min-width: auto;
-    width: 100%;
-  }
-  
-  .galeria {
-    grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr));
-    gap: 0.9rem;
-  }
-  
-  .container {
-    width: 90%;
-  }
-}
-/*resaltado*/
+/* Estilos para resaltado de búsqueda */
 .resaltado-busqueda {
-  box-shadow: 0 0 0 4px #ff9800, 0 2px 8px rgba(0,0,0,0.15);
-  transition: box-shadow 0.3s;
-  z-index: 10;
+  transform: scale(1.02);
+  box-shadow: 0 8px 25px rgba(255, 193, 7, 0.4);
+  border: 2px solid #ffc107;
+  transition: all 0.3s ease;
 }
+
+/* Mensaje de búsqueda sin resultados */
+.mensaje-busqueda {
+  grid-column: 1 / -1;
+  width: 100%;
+  margin: 20px 0;
+}
+
+.mensaje-busqueda h3 {
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.mensaje-busqueda p {
+  color: #999;
+  font-size: 1rem;
+}
+
 /* Galería de terrenos */
 #terrenos h2 {
   text-align: left;
@@ -273,6 +250,7 @@ nav ul li a:hover {
   grid-template-columns: repeat(auto-fit, minmax(15.6rem, 1fr));
   gap: 1.25rem;
 }
+
 .linea-decorativa {
   width: 80%;
   height: 0.3rem;
@@ -280,6 +258,7 @@ nav ul li a:hover {
   margin: 5% auto;
   border-radius: 0.3rem;
 }
+
 .card {
   background: #fff;
   border-radius: 0.6rem;
@@ -342,7 +321,8 @@ nav ul li a:hover {
   transform: translateY(-0.1rem);
   box-shadow: 0 0.25rem 0.75rem rgba(39, 174, 96, 0.3);
 }
-/*secction*/
+
+/* Secciones */
 .section {
   display: flex;
   align-items: center;
@@ -355,6 +335,7 @@ nav ul li a:hover {
   margin: 1.9rem 1.25rem;
   box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.304);
 }
+
 .cardd, .texto {
   flex: 1 1 25rem;
   max-width: 31.25rem;
@@ -392,24 +373,6 @@ nav ul li a:hover {
   background-color: #d58f22;
 }
 
-@media (max-width: 48rem) {
-  .section, .section.reverse {
-    flex-direction: column;
-    text-align: center;
-    margin: 1.25rem 0.6rem;
-    padding: 1.9rem 0.9rem;
-  }
-  
-  .cardd, .texto {
-    max-width: 100%;
-    width: 100%;
-  }
-  
-  .carrusel-chorrillos {
-    max-width: 100%;
-    width: 100%;
-  }
-}
 /* Modal para imagen ampliada */
 .modal {
   display: none;
@@ -461,7 +424,217 @@ nav ul li a:hover {
   cursor: pointer;
 }
 
-/* Responsividad para móviles */
+/* Botón scroll to home */
+.scrollToHome {
+  border-radius: 20px;
+  background: linear-gradient(135deg, #f49d32, #ff6b35);
+  bottom: 20px;
+  color: #ffffff;
+  display: none;
+  font-size: 20px;
+  height: 55px;
+  line-height: 55px;
+  padding: 0;
+  position: fixed;
+  right: 20px;
+  text-align: center;
+  width: 55px;
+  z-index: 99999;
+  box-shadow: 0 8px 25px rgba(244, 157, 50, 0.4);
+  border: none;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.3s ease-in-out;
+}
+
+.scrollToHome:hover {
+  transform: translateY(-3px) scale(1.05);
+  background: linear-gradient(135deg, #ff6b35, #e8890b);
+  box-shadow: 0 12px 35px rgba(244, 157, 50, 0.6);
+  color: #ffffff;
+}
+
+.scrollToHome:active {
+  transform: translateY(-1px) scale(1.02);
+  transition: all 0.1s ease;
+}
+
+
+
+/* Footer */
+footer {
+    background: var(--dark);
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
+footer p {
+    margin: 0 0 15px 0;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.redes-sociales {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.redes-sociales a {
+    color: white;
+    font-size: 24px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid transparent;
+}
+
+.redes-sociales a:hover {
+    color: var(--primary);
+    background: rgba(251, 159, 46, 0.1);
+    border-color: var(--primary);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(251, 159, 46, 0.3);
+}
+
+/* WhatsApp Float Button */
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 100;
+    width: 60px;
+    height: 60px;
+    background-color: #25D366;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+    text-decoration: none;
+    color: white;
+    font-size: 24px;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Estilos para el carrusel de Chorrillos */
+.carrusel-chorrillos {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.carrusel-container {
+  position: relative;
+  width: 100%;
+  height: 18.75rem;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  box-shadow: 0 0.25rem 0.625rem rgba(0,0,0,0.15);
+}
+
+.carrusel-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.carrusel-slide.active {
+  opacity: 1;
+}
+
+.carrusel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.75rem;
+}
+
+.carrusel-indicadores {
+  text-align: center;
+  margin-top: 0.9375rem;
+}
+
+.indicador {
+  display: inline-block;
+  width: 0.75rem;
+  height: 0.75rem;
+  background: #ccc;
+  border-radius: 50%;
+  margin: 0 0.3125rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.indicador.active {
+  background: var(--primary);
+}
+
+.indicador:hover {
+  background: #999;
+}
+
+/* Clases para funcionalidades dinámicas de terrenos */
+.modal-visible {
+  display: block !important;
+}
+
+.search-no-results {
+  text-align: center;
+  padding: 40px;
+  color: #666;
+}
+
+.search-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  opacity: 0.5;
+}
+
+/* Responsividad */
+@media (max-width: 50rem) {
+  .buscador-row,
+  .precio-group {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+  
+  .buscador-row select,
+  .buscador-row input[type="text"] {
+    min-width: auto;
+    width: 100%;
+  }
+  
+  .galeria {
+    grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr));
+    gap: 0.9rem;
+  }
+  
+  .container {
+    width: 90%;
+  }
+}
+
 @media (max-width: 48rem) {
   /* Navegación móvil */
   nav {
@@ -531,9 +704,111 @@ nav ul li a:hover {
   .container {
     width: 95%;
   }
+
+  .section, .section.reverse {
+    flex-direction: column;
+    text-align: center;
+    margin: 1.25rem 0.6rem;
+    padding: 1.9rem 0.9rem;
+  }
+  
+  .cardd, .texto {
+    max-width: 100%;
+    width: 100%;
+  }
+  
+  .carrusel-chorrillos {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .carrusel-container {
+    height: 15.625rem;
+  }
+  
+  .carrusel-chorrillos {
+    max-width: 100%;
+    width: 100%;
+    margin-bottom: 0;
+  }
+  
+  .carrusel-indicadores {
+    margin-top: 0.625rem;
+    margin-bottom: 0;
+  }
+
+  .scrollToHome {
+    width: 50px;
+    height: 50px;
+    font-size: 18px;
+    line-height: 50px;
+    border-radius: 18px;
+    bottom: 18px;
+    right: 18px;
+  }
 }
 
-/* Teléfonos pequeños */
+/* Footer responsivo */
+@media (max-width: 768px) {
+    footer {
+        padding: 25px 15px;
+    }
+    
+    footer p {
+        font-size: 0.9rem;
+        margin-bottom: 20px;
+    }
+    
+    .redes-sociales {
+        gap: 15px;
+    }
+    
+    .redes-sociales a {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+    
+    .whatsapp-float {
+        width: 55px;
+        height: 55px;
+        font-size: 22px;
+        bottom: 15px;
+        left: 15px;
+    }
+}
+
+/* Footer para móviles pequeños */
+@media (max-width: 480px) {
+    footer {
+        padding: 20px 10px;
+    }
+    
+    footer p {
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+    
+    .redes-sociales {
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+    
+    .redes-sociales a {
+        width: 38px;
+        height: 38px;
+        font-size: 18px;
+    }
+    
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+        bottom: 12px;
+        left: 12px;
+    }
+}
+
 @media (max-width: 30rem) {
   /* Header pequeño */
   .logo {
@@ -602,173 +877,7 @@ nav ul li a:hover {
   .container {
     width: 98%;
   }
-}
-.scrollToHome {
-    border-radius: 20px;
-    background: linear-gradient(135deg, #f49d32, #ff6b35);
-    bottom: 20px;
-    color: #ffffff;
-    display: none;
-    font-size: 20px;
-    height: 55px;
-    line-height: 55px;
-    padding: 0;
-    position: fixed;
-    right: 20px;
-    text-align: center;
-    width: 55px;
-    z-index: 99999;
-    box-shadow: 0 8px 25px rgba(244, 157, 50, 0.4);
-    border: none;
-    cursor: pointer;
-    font-family: 'Poppins', sans-serif;
-    -webkit-transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-}
 
-.scrollToHome:hover {
-    transform: translateY(-3px) scale(1.05);
-    background: linear-gradient(135deg, #ff6b35, #e8890b);
-    box-shadow: 0 12px 35px rgba(244, 157, 50, 0.6);
-    color: #ffffff;
-}
-
-.scrollToHome:active {
-    transform: translateY(-1px) scale(1.02);
-    transition: all 0.1s ease;
-}
-/* Footer */
-footer {
-  background: var(--dark);
-  color: white;
-  text-align: center;
-  padding: 0.9rem 0;
-}
-.redes-sociales {
-  margin-top: 0.6rem;
-}
-
-.redes-sociales a {
-  color: white;
-  margin: 0 0.6rem;
-  font-size: 1.5rem;
-  transition: color 0.3s;
-  text-decoration: none;
-}
-
-.redes-sociales a:hover {
-  color: #1d05f8
-  
-  /* anaranjado al pasar el mouse */
-}
-.whatsapp-float {
-  position: fixed;
-  bottom: 1.25rem;
-  left: 1.25rem;
-  z-index: 100;
-  width: 3.75rem;
-  height: 3.75rem;
-  background-color: #25D366;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,0.3);
-  transition: transform 0.3s ease;
-}
-
-.whatsapp-float img {
-  width: 1.9rem;
-  height: 1.9rem;
-}
-
-.whatsapp-float:hover {
-  transform: scale(1.1);
-}
-
-/* Estilos para el carrusel de Chorrillos */
-.carrusel-chorrillos {
-  position: relative;
-  width: 100%;
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-.carrusel-container {
-  position: relative;
-  width: 100%;
-  height: 18.75rem;
-  overflow: hidden;
-  border-radius: 0.75rem;
-  box-shadow: 0 0.25rem 0.625rem rgba(0,0,0,0.15);
-}
-
-.carrusel-slide {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-}
-
-.carrusel-slide.active {
-  opacity: 1;
-}
-
-.carrusel-slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 0.75rem;
-}
-
-
-
-.carrusel-indicadores {
-  text-align: center;
-  margin-top: 0.9375rem;
-}
-
-.indicador {
-  display: inline-block;
-  width: 0.75rem;
-  height: 0.75rem;
-  background: #ccc;
-  border-radius: 50%;
-  margin: 0 0.3125rem;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.indicador.active {
-  background: var(--primary);
-}
-
-.indicador:hover {
-  background: #999;
-}
-
-@media (max-width: 48rem) {
-  .carrusel-container {
-    height: 15.625rem;
-  }
-  
-  .carrusel-chorrillos {
-    max-width: 100%;
-    width: 100%;
-    margin-bottom: 0;
-  }
-  
-  .carrusel-indicadores {
-    margin-top: 0.625rem;
-    margin-bottom: 0;
-  }
-}
-
-@media (max-width: 30rem) {
   .section {
     margin: 0.9375rem 0.3125rem;
     padding: 1.25rem 0.625rem;
@@ -805,7 +914,6 @@ footer {
   }
 }
 
-/* Pantallas muy pequeñas */
 @media (max-width: 22.5rem) {
   .buscador-inmuebles {
     padding: 0.9375rem 0 0.625rem 0;
@@ -854,6 +962,22 @@ footer {
   
   .container {
     width: 99%;
+  }
+}
+
+@media (max-width: 480px) {
+  .scrollToHome {
+    width: 45px;
+    height: 45px;
+    font-size: 16px;
+    line-height: 45px;
+    border-radius: 15px;
+    bottom: 15px;
+    right: 15px;
+  }
+
+  .scrollToHome:hover {
+    transform: translateY(-2px) scale(1.03);
   }
 }
 

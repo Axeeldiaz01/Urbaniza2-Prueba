@@ -61,9 +61,11 @@ header .container {
   justify-content: space-between;
   padding: 5px 0;
 }
+
 nav {
   margin: 5px -70px;
 }
+
 nav ul {
   list-style: none;
   display: flex;
@@ -82,7 +84,8 @@ nav ul li a {
 
 nav ul li a:hover {
   color: var(--dark);
-}  
+}
+
 .menu-toggle {
   display: none;
   flex-direction: column;
@@ -105,7 +108,7 @@ nav ul li a:hover {
   width: 30px;
   background-color: white;
   border-radius: 2px;
-  transition:all 0.3s ease;
+  transition: all 0.3s ease;
   position: relative;
   transform-origin: center;
   margin: 3px 0;
@@ -123,121 +126,11 @@ nav ul li a:hover {
   transform: rotate(-45deg) translateY(-8px);
 }
 
-
 /* Banner */
-.banner img {
-  width: 100%;
-  display: block;
-}
-
-/* Responsividad */
-@media (max-width: 768px) {
-  nav {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 70%;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.533);
-    padding: 30px 20px;
-    transition: right 0.6s ease;
-    z-index: 1000;
-  }
-
-  nav.show {
-    right: 0;
-  }
-
-  .menu-toggle {
-    display: block;
-    position: fixed;
-    top: 26px;
-    right: 12px;
-    z-index: 1101;
-    font-size: 2rem;
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
-  }
-
-  body.menu-abierto {
-    overflow: hidden; /* Bloquea el scroll del fondo */
-  }
-
-  nav ul {
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .scrollToHome {
-    width: 50px;
-    height: 50px;
-    font-size: 18px;
-    line-height: 50px;
-    border-radius: 18px;
-    bottom: 18px;
-    right: 18px;
-  }
-}
-.redes-sociales {
-  margin-top: 10px;
-}
-
-.redes-sociales a {
-  color: white;
-  margin: 0 10px;
-  font-size: 24px;
-  transition: color 0.3s;
-  text-decoration: none;
-}
-
-.redes-sociales a:hover {
-  color: #1d05f8;
-  /* anaranjado al pasar el mouse */
-}
-a:hover .whatsapp-num {
-  color: #25D366;
-}
-.scrollToHome {
-    border-radius: 20px;
-    background: linear-gradient(135deg, #f49d32, #ff6b35);
-    bottom: 20px;
-    color: #ffffff;
-    display: none;
-    font-size: 20px;
-    height: 55px;
-    line-height: 55px;
-    padding: 0;
-    position: fixed;
-    right: 20px;
-    text-align: center;
-    width: 55px;
-    z-index: 99999;
-    box-shadow: 0 8px 25px rgba(244, 157, 50, 0.4);
-    border: none;
-    cursor: pointer;
-    font-family: 'Poppins', sans-serif;
-    -webkit-transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-}
-
-.scrollToHome:hover {
-    transform: translateY(-3px) scale(1.05);
-    background: linear-gradient(135deg, #ff6b35, #e8890b);
-    box-shadow: 0 12px 35px rgba(244, 157, 50, 0.6);
-    color: #ffffff;
-}
-
-.scrollToHome:active {
-    transform: translateY(-1px) scale(1.02);
-    transition: all 0.1s ease;
-}
 .banner {
   position: relative;
   width: 100%;
-  height: 80vh; /* Pantalla completa */
+  height: 80vh;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -288,21 +181,7 @@ a:hover .whatsapp-num {
   background-color: #d58f22;
 }
 
-/* Responsive ajustes */
-@media (max-width: 768px) {
-  .banner-content h1 {
-    font-size: 2rem;
-  }
-
-  .banner-content p {
-    font-size: 1rem;
-  }
-
-  .banner-buttons a {
-    padding: 10px 18px;
-    margin: 8px 5px;
-  }
-}
+/* Secciones */
 .section {
   display: flex;
   align-items: center;
@@ -357,29 +236,42 @@ a:hover .whatsapp-num {
   background-color: #d58f22;
 }
 
-@media (max-width: 768px) {
-  .section, .section.reverse {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .scrollToHome {
-    width: 50px;
-    height: 50px;
-    font-size: 18px;
-    line-height: 50px;
-    border-radius: 18px;
-    bottom: 18px;
-    right: 18px;
-  }
-}
-/* Footer */
-footer {
-  background: var(--dark);
-  color: white;
+/* Botón scroll to home */
+.scrollToHome {
+  border-radius: 20px;
+  background: linear-gradient(135deg, #f49d32, #ff6b35);
+  bottom: 20px;
+  color: #ffffff;
+  display: none;
+  font-size: 20px;
+  height: 55px;
+  line-height: 55px;
+  padding: 0;
+  position: fixed;
+  right: 20px;
   text-align: center;
-  padding: 15px 0;
+  width: 55px;
+  z-index: 99999;
+  box-shadow: 0 8px 25px rgba(244, 157, 50, 0.4);
+  border: none;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.3s ease-in-out;
 }
+
+.scrollToHome:hover {
+  transform: translateY(-3px) scale(1.05);
+  background: linear-gradient(135deg, #ff6b35, #e8890b);
+  box-shadow: 0 12px 35px rgba(244, 157, 50, 0.6);
+  color: #ffffff;
+}
+
+.scrollToHome:active {
+  transform: translateY(-1px) scale(1.02);
+  transition: all 0.1s ease;
+}
+
+/* WhatsApp float */
 .whatsapp-float {
   position: fixed;
   bottom: 20px;
@@ -405,7 +297,203 @@ footer {
   transform: scale(1.1);
 }
 
+/* Footer */
+footer {
+  background: var(--dark);
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 40px;
+}
+
+footer p {
+  margin: 0 0 15px 0;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.redes-sociales {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.redes-sociales a {
+  color: white;
+  font-size: 24px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid transparent;
+}
+
+.redes-sociales a:hover {
+  color: var(--primary);
+  background: rgba(251, 159, 46, 0.1);
+  border-color: var(--primary);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(251, 159, 46, 0.3);
+}
+
+/* WhatsApp Float */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 100;
+  width: 60px;
+  height: 60px;
+  background-color: #25D366;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+  text-decoration: none;
+  color: white;
+  font-size: 24px;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.533);
+    padding: 30px 20px;
+    transition: right 0.6s ease;
+    z-index: 1000;
+  }
+
+  nav.show {
+    right: 0;
+  }
+
+  .menu-toggle {
+    display: block;
+    position: fixed;
+    top: 26px;
+    right: 12px;
+    z-index: 1101;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+
+  body.menu-abierto {
+    overflow: hidden;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .banner-content h1 {
+    font-size: 2rem;
+  }
+
+  .banner-content p {
+    font-size: 1rem;
+  }
+
+  .banner-buttons a {
+    padding: 10px 18px;
+    margin: 8px 5px;
+  }
+
+  .section, .section.reverse {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  /* Footer responsivo */
+  footer {
+    padding: 25px 15px;
+  }
+
+  footer p {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+  }
+
+  .redes-sociales {
+    gap: 15px;
+  }
+
+  .redes-sociales a {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+
+  .whatsapp-float {
+    width: 55px;
+    height: 55px;
+    font-size: 22px;
+    bottom: 15px;
+    left: 15px;
+  }
+
+  .scrollToHome {
+    width: 50px;
+    height: 50px;
+    font-size: 18px;
+    line-height: 50px;
+    border-radius: 18px;
+    bottom: 18px;
+    right: 18px;
+  }
+}
+
 @media (max-width: 480px) {
+  /* Footer para móviles pequeños */
+  footer {
+    padding: 20px 10px;
+  }
+
+  footer p {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+
+  .redes-sociales {
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .redes-sociales a {
+    width: 38px;
+    height: 38px;
+    font-size: 18px;
+  }
+
+  .whatsapp-float {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    bottom: 12px;
+    left: 12px;
+  }
+
   .scrollToHome {
     width: 45px;
     height: 45px;

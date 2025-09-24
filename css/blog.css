@@ -503,31 +503,78 @@ nav ul li a:hover {
 
 /* Footer */
 footer {
-  background: var(--dark);
-  color: white;
-  text-align: center;
-  padding: 15px 0;
+    background: var(--dark);
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
+footer p {
+    margin: 0 0 15px 0;
+    font-size: 1rem;
+    font-weight: 400;
 }
 
 .redes-sociales {
-  margin-top: 10px;
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
 .redes-sociales a {
-  color: white;
-  margin: 0 10px;
-  font-size: 24px;
-  transition: color 0.3s;
-  text-decoration: none;
+    color: white;
+    font-size: 24px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid transparent;
 }
 
 .redes-sociales a:hover {
-  color: #1d05f8;
-  /* anaranjado al pasar el mouse */
+    color: var(--primary);
+    background: rgba(251, 159, 46, 0.1);
+    border-color: var(--primary);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(251, 159, 46, 0.3);
 }
+
+/* WhatsApp Float Button */
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 100;
+    width: 60px;
+    height: 60px;
+    background-color: #25D366;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+    text-decoration: none;
+    color: white;
+    font-size: 24px;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
 a:hover .whatsapp-num {
   color: #25D366;
 }
+
 .scrollToHome {
     border-radius: 20px;
     background: linear-gradient(135deg, #f49d32, #ff6b35);
@@ -563,32 +610,8 @@ a:hover .whatsapp-num {
     transform: translateY(-1px) scale(1.02);
     transition: all 0.1s ease;
 }
-/*new*/
 
-.whatsapp-float {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  z-index: 100;
-  width: 60px;
-  height: 60px;
-  background-color: #25D366;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-  transition: transform 0.3s ease;
-}
 
-.whatsapp-float img {
-  width: 30px;
-  height: 30px;
-}
-
-.whatsapp-float:hover {
-  transform: scale(1.1);
-}
 
 /* Clases para contenido dinámico del blog */
 .blog-content-whatsapp {
@@ -675,6 +698,67 @@ a:hover .whatsapp-num {
   padding: 20px;
   border-radius: 10px;
   margin-top: 20px;
+}
+
+/* Footer responsivo */
+@media (max-width: 768px) {
+    footer {
+        padding: 25px 15px;
+    }
+    
+    footer p {
+        font-size: 0.9rem;
+        margin-bottom: 20px;
+    }
+    
+    .redes-sociales {
+        gap: 15px;
+    }
+    
+    .redes-sociales a {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+    
+    .whatsapp-float {
+        width: 55px;
+        height: 55px;
+        font-size: 22px;
+        bottom: 15px;
+        left: 15px;
+    }
+}
+
+/* Footer para móviles pequeños */
+@media (max-width: 480px) {
+    footer {
+        padding: 20px 10px;
+    }
+    
+    footer p {
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+    
+    .redes-sociales {
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+    
+    .redes-sociales a {
+        width: 38px;
+        height: 38px;
+        font-size: 18px;
+    }
+    
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+        bottom: 12px;
+        left: 12px;
+    }
 }
 
 .blog-content-light-green {
