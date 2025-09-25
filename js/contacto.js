@@ -4,6 +4,33 @@ document.addEventListener('DOMContentLoaded', function() {
   const toggle = document.querySelector('.menu-toggle'); 
   const menu = document.querySelector('nav');
 
+// Scroll to top functionality
+const scrollToHomeBtn = document.querySelector('.scrollToHome');
+if (scrollToHomeBtn) {
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 100) {
+      scrollToHomeBtn.style.display = 'block';
+      scrollToHomeBtn.style.opacity = '1';
+    } else {
+      scrollToHomeBtn.style.opacity = '0';
+      setTimeout(() => {
+        if (window.scrollY <= 100) {
+          scrollToHomeBtn.style.display = 'none';
+        }
+      }, 300);
+    }
+  });
+
+  scrollToHomeBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+    return false;
+  });
+}
+
   // Abrir o cerrar menú con el botón ☰
   if (toggle && menu) {
     toggle.addEventListener('click', () => {
@@ -86,11 +113,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // FUNCIONALIDAD DEL FORMULARIO MEJORADO
   let currentStep = 1;
-  const totalSteps = 2;
+  const totalSteps = 3;
   let captchaAnswer = 0;
 
-  // Función para copiar al portapapeles
-  function copyToClipboard(text) {
+  // Función para copiar al portapapeles (disponible globalmente)
+  window.copyToClipboard = function(text) {
     navigator.clipboard.writeText(text).then(function() {
       // Crear notificación temporal
       const notification = document.createElement('div');
@@ -123,10 +150,15 @@ document.addEventListener('DOMContentLoaded', function() {
   if (abrirFormulario) {
     abrirFormulario.addEventListener('click', function() {
       if (modalFormulario) {
-        modalFormulario.style.display = 'block';
+        modalFormulario.classList.remove('oculto');
         currentStep = 1;
         updateStepDisplay();
         generateCaptcha();
+        
+        // Ocultar botón scroll to top
+        if (scrollToHomeBtn) {
+          scrollToHomeBtn.style.display = 'none';
+        }
       }
     });
   }
@@ -135,8 +167,14 @@ document.addEventListener('DOMContentLoaded', function() {
   if (cerrarFormulario) {
     cerrarFormulario.addEventListener('click', function() {
       if (modalFormulario) {
-        modalFormulario.style.display = 'none';
+        modalFormulario.classList.add('oculto');
         resetForm();
+        
+        // Mostrar botón scroll to top si corresponde
+        if (scrollToHomeBtn && window.scrollY > 100) {
+          scrollToHomeBtn.style.display = 'block';
+          scrollToHomeBtn.style.opacity = '1';
+        }
       }
     });
   }
@@ -144,8 +182,14 @@ document.addEventListener('DOMContentLoaded', function() {
   // Cerrar modal al hacer clic fuera
   window.addEventListener('click', function(event) {
     if (event.target === modalFormulario && modalFormulario) {
-      modalFormulario.style.display = 'none';
+      modalFormulario.classList.add('oculto');
       resetForm();
+      
+      // Mostrar botón scroll to top si corresponde
+      if (scrollToHomeBtn && window.scrollY > 100) {
+        scrollToHomeBtn.style.display = 'block';
+        scrollToHomeBtn.style.opacity = '1';
+      }
     }
   });
 
@@ -197,13 +241,22 @@ document.addEventListener('DOMContentLoaded', function() {
   if (verPolitica) {
     verPolitica.addEventListener('click', function(e) {
       e.preventDefault();
-      modalPolitica.classList.add('modal-visible');
+      modalPolitica.classList.remove('oculto');
     });
   }
 
   if (cerrarPolitica) {
     cerrarPolitica.addEventListener('click', function() {
-      modalPolitica.classList.remove('modal-visible');
+      modalPolitica.classList.add('oculto');
+    });
+  }
+
+  // Cerrar modal al hacer clic fuera de él
+  if (modalPolitica) {
+    modalPolitica.addEventListener('click', function(e) {
+      if (e.target === modalPolitica) {
+        modalPolitica.classList.add('oculto');
+      }
     });
   }
 
@@ -312,6 +365,15 @@ document.addEventListener('DOMContentLoaded', function() {
     tipoConsulta.addEventListener('change', () => validateField('tipo-consulta'));
   }
   
+  if (presupuesto) {
+    presupuesto.addEventListener('change', () => validateField('presupuesto'));
+  }
+  
+  if (ubicacionInteres) {
+    ubicacionInteres.addEventListener('blur', () => validateField('ubicacion-interes'));
+    ubicacionInteres.addEventListener('input', () => clearValidation('ubicacion-interes'));
+  }
+  
   if (captchaInput) {
     captchaInput.addEventListener('blur', () => validateField('captcha'));
     captchaInput.addEventListener('input', () => clearValidation('captcha'));
@@ -371,6 +433,17 @@ document.addEventListener('DOMContentLoaded', function() {
           message = 'Mensaje válido';
         }
         break;
+
+      case 'captcha':
+        const captchaValue = parseInt(field.value.trim());
+        if (captchaValue === captchaAnswer) {
+          isValid = true;
+          message = 'Respuesta correcta';
+        } else {
+          isValid = false;
+          message = 'Respuesta incorrecta';
+        }
+        break;
     }
 
     // Aplicar estilos y mostrar mensaje
@@ -408,12 +481,42 @@ document.addEventListener('DOMContentLoaded', function() {
         break;
 
       case 2:
+        // Validar tipo de consulta
         const tipoConsulta = document.getElementById('tipo-consulta');
         if (!tipoConsulta.value) {
           isValid = false;
           alert('Por favor selecciona un tipo de consulta');
+          return false;
         }
-        isValid = isValid && validateField('mensaje');
+        
+        // Validar mensaje
+        if (!validateField('mensaje')) {
+          isValid = false;
+          alert('Por favor completa el mensaje de tu consulta');
+          return false;
+        }
+        
+        // Validar CAPTCHA
+        const captchaField = document.getElementById('captcha-input');
+        if (!validateField('captcha')) {
+          isValid = false;
+          alert('Por favor responde correctamente la pregunta de seguridad');
+          captchaField.focus();
+          return false;
+        }
+        
+        // Validar política de privacidad
+        const politicaCheckbox = document.getElementById('politica-privacidad');
+        if (!politicaCheckbox.checked) {
+          isValid = false;
+          alert('Debes aceptar la política de privacidad para continuar');
+          return false;
+        }
+        break;
+
+      case 3:
+        // En el paso 3 solo mostramos el resumen, no hay validaciones adicionales
+        updateSummary();
         break;
     }
 
@@ -449,13 +552,48 @@ document.addEventListener('DOMContentLoaded', function() {
   const presupuestoTexto = presupuesto.value ? presupuesto.options[presupuesto.selectedIndex].text : 'No especificado';
 
   resumenContenido.innerHTML = `
-    <p><strong>Nombre:</strong> ${nombre}</p>
-    <p><strong>Email:</strong> ${email}</p>
-    <p><strong>Teléfono:</strong> ${telefono}</p>
-    <p><strong>Tipo de consulta:</strong> ${tipoTexto}</p>
-    <p><strong>Presupuesto:</strong> ${presupuestoTexto}</p>
-    <p><strong>Ubicación de interés:</strong> ${ubicacion || 'No especificada'}</p>
-    <p><strong>Mensaje:</strong> ${mensaje.substring(0, 100)}${mensaje.length > 100 ? '...' : ''}</p>
+    <div class="resumen-header">
+      <h4><i class="fas fa-clipboard-list"></i> Resumen de tu consulta</h4>
+      <p class="resumen-subtitle">Revisa que todos los datos sean correctos antes de enviar</p>
+    </div>
+    
+    <div class="resumen-datos">
+      <div class="dato-item">
+        <span class="dato-label"><i class="fas fa-user"></i> Nombre:</span>
+        <span class="dato-valor">${nombre}</span>
+      </div>
+      <div class="dato-item">
+        <span class="dato-label"><i class="fas fa-envelope"></i> Email:</span>
+        <span class="dato-valor">${email}</span>
+      </div>
+      <div class="dato-item">
+        <span class="dato-label"><i class="fas fa-phone"></i> Teléfono:</span>
+        <span class="dato-valor">${telefono}</span>
+      </div>
+      <div class="dato-item">
+        <span class="dato-label"><i class="fas fa-question-circle"></i> Tipo de consulta:</span>
+        <span class="dato-valor">${tipoTexto}</span>
+      </div>
+      <div class="dato-item">
+        <span class="dato-label"><i class="fas fa-dollar-sign"></i> Presupuesto:</span>
+        <span class="dato-valor">${presupuestoTexto}</span>
+      </div>
+      <div class="dato-item">
+        <span class="dato-label"><i class="fas fa-map-marker-alt"></i> Ubicación de interés:</span>
+        <span class="dato-valor">${ubicacion || 'No especificada'}</span>
+      </div>
+      <div class="dato-item mensaje-item">
+        <span class="dato-label"><i class="fas fa-comment"></i> Mensaje:</span>
+        <span class="dato-valor mensaje-completo">${mensaje}</span>
+      </div>
+    </div>
+    
+    <div class="resumen-footer">
+      <div class="info-envio">
+        <i class="fas fa-info-circle"></i>
+        <span>Al enviar, serás redirigido a WhatsApp para completar tu consulta</span>
+      </div>
+    </div>
   `;
 }
 
@@ -499,15 +637,19 @@ async function submitForm() {
     const numeroWhatsApp = '51982664102';
     const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensajeWhatsApp)}`;
 
-    // Abrir WhatsApp en nueva pestaña
-    window.open(url, '_blank');
+    // Mostrar mensaje de confirmación antes de abrir WhatsApp
+    showConfirmationMessage();
+    
+    // Esperar un momento antes de abrir WhatsApp
+    setTimeout(() => {
+      window.open(url, '_blank');
+    }, 1500);
 
-    // Mostrar mensaje de éxito y cerrar modal
-    showSuccessMessage();
+    // Cerrar modal después de mostrar confirmación
     setTimeout(() => {
       modalFormulario.classList.remove('modal-visible');
       resetForm();
-    }, 3000);
+    }, 4000);
   } catch (error) {
     console.error('Error:', error);
     showErrorMessage('No se pudo abrir WhatsApp. Por favor, intenta nuevamente.');
@@ -563,6 +705,49 @@ async function submitForm() {
         }
       }, 300);
     });
+  }
+
+  // Mostrar mensaje de confirmación en el paso 3
+  function showConfirmationMessage() {
+    const resumenContenido = document.getElementById('resumen-contenido');
+    if (!resumenContenido) return;
+    
+    resumenContenido.innerHTML = `
+      <div class="confirmacion-envio">
+        <div class="confirmacion-header">
+          <div class="check-animation">
+            <i class="fas fa-check-circle"></i>
+          </div>
+          <h3>¡Formulario Enviado Correctamente!</h3>
+          <p class="confirmacion-subtitle">Tu consulta ha sido procesada exitosamente</p>
+        </div>
+        
+        <div class="confirmacion-body">
+          <div class="mensaje-principal">
+            <i class="fas fa-paper-plane"></i>
+            <p>Tu consulta será redirigida a WhatsApp para completar el proceso de contacto.</p>
+          </div>
+          
+          <div class="tiempo-respuesta">
+            <i class="fas fa-clock"></i>
+            <p><strong>Tiempo de respuesta:</strong> Menos de 24 horas</p>
+          </div>
+          
+          <div class="contacto-directo">
+            <i class="fab fa-whatsapp"></i>
+            <p><strong>¿Consulta urgente?</strong><br>
+            WhatsApp directo: <a href="https://wa.me/51982664102" target="_blank">982 664 102</a></p>
+          </div>
+        </div>
+        
+        <div class="confirmacion-footer">
+          <div class="loading-whatsapp">
+            <i class="fas fa-spinner fa-spin"></i>
+            <span>Abriendo WhatsApp...</span>
+          </div>
+        </div>
+      </div>
+    `;
   }
 
   // Mostrar mensaje de éxito (función original mantenida para compatibilidad)

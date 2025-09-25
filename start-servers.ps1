@@ -17,15 +17,18 @@ Write-Host ""
 
 # Iniciar servidor del sitio web estatico desde la raiz
 Write-Host "Sitio Web: http://localhost:3000" -ForegroundColor Cyan
-Start-Process powershell -ArgumentList "-NoExit", "-Command", "cd '$PWD'; C:\xampp\php\php.exe -S localhost:3000"
+
+# Iniciar servidor en segundo plano sin ventana adicional
+$serverProcess = Start-Process "C:\xampp\php\php.exe" -ArgumentList "-S", "localhost:3000" -WindowStyle Hidden -PassThru
 
 Start-Sleep -Seconds 2
 
 Write-Host ""
 Write-Host "=== Servidor Iniciado ===" -ForegroundColor Green
 Write-Host "Sitio Web: http://localhost:3000" -ForegroundColor White
+Write-Host "Proceso ID: $($serverProcess.Id)" -ForegroundColor Gray
 Write-Host ""
-Write-Host "Presiona Ctrl+C en la ventana del servidor para detenerlo" -ForegroundColor Yellow
+Write-Host "Para detener el servidor, ejecuta: Stop-Process -Id $($serverProcess.Id)" -ForegroundColor Yellow
 Write-Host ""
 
 # Abrir navegador automaticamente

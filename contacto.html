@@ -209,7 +209,7 @@
 
   
   <!-- MODAL FORMULARIO MEJORADO -->
-  <div id="modal-formulario-mejorado" class="modal-enhanced">
+  <div id="modal-formulario-mejorado" class="modal-enhanced oculto">
     <div class="modal-content-enhanced">
       <div class="modal-header-enhanced">
         <h2><i class="fas fa-paper-plane"></i> Formulario de Consulta</h2>
@@ -225,6 +225,10 @@
         <div class="step" data-step="2">
           <div class="step-number">2</div>
           <div class="step-label">Detalles de Consulta</div>
+        </div>
+        <div class="step" data-step="3">
+          <div class="step-number">3</div>
+          <div class="step-label">Resumen</div>
         </div>
       </div>
 
@@ -296,9 +300,40 @@
             <input type="file" id="imagen-opcional" name="imagen" accept="image/*">
             <small>Puedes adjuntar una imagen relacionada con tu consulta</small>
           </div>
+
+          <!-- CAPTCHA -->
+          <div class="form-group">
+            <label for="captcha-input">Verificación de Seguridad *</label>
+            <div class="captcha-container">
+              <span id="captcha-question">¿Cuánto es 5 + 3?</span>
+              <input type="number" id="captcha-input" name="captcha" required placeholder="Respuesta">
+            </div>
+            <div class="validation-message" id="captcha-validation"></div>
+          </div>
+
+          <!-- Política de Privacidad -->
+          <div class="form-group">
+            <div class="checkbox-group">
+              <input type="checkbox" id="politica-privacidad" name="politica_privacidad" required>
+              <label for="politica-privacidad">
+                Acepto la <a href="#" id="ver-politica-privacidad">Política de Privacidad</a> y el tratamiento de mis datos personales *
+              </label>
+            </div>
+            <div class="validation-message" id="politica-validation"></div>
+          </div>
         </div>
 
-
+        <!-- Paso 3: Resumen -->
+        <div class="form-step" data-step="3">
+          <h3>Resumen de tu Consulta</h3>
+          <div id="resumen-contenido" class="resumen-contenido">
+            <!-- El contenido se generará dinámicamente -->
+          </div>
+          <div class="resumen-note">
+            <i class="fas fa-info-circle"></i>
+            <p>Revisa que toda la información sea correcta antes de enviar tu consulta.</p>
+          </div>
+        </div>
 
         <!-- Botones de navegación -->
         <div class="form-navigation">
@@ -317,7 +352,7 @@
   </div>
 
   <!-- MODAL POLÍTICA DE PRIVACIDAD -->
-  <div id="modal-politica-privacidad" class="modal-enhanced">
+  <div id="modal-politica-privacidad" class="modal-enhanced oculto">
     <div class="modal-content-enhanced">
       <div class="modal-header-enhanced">
         <h2><i class="fas fa-shield-alt"></i> Política de Privacidad</h2>

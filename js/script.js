@@ -190,18 +190,37 @@ const modalContacto = document.getElementById('modal-contacto');
 if (abrirFormulario && modalContacto) {
   abrirFormulario.onclick = function() {
     modalContacto.classList.remove('oculto');
+    // Ocultar botón scroll to top cuando se abre el modal
+    const scrollToHomeBtn = document.querySelector('.scrollToHome');
+    if (scrollToHomeBtn) {
+      scrollToHomeBtn.style.display = 'none';
+    }
   };
 }
 
 if (cerrarModalBtn && modalContacto) {
   cerrarModalBtn.onclick = function() {
     modalContacto.classList.add('oculto');
+    // Mostrar botón scroll to top cuando se cierra el modal (si corresponde)
+    const scrollToHomeBtn = document.querySelector('.scrollToHome');
+    if (scrollToHomeBtn && window.scrollY > 100) {
+      scrollToHomeBtn.style.display = 'block';
+      scrollToHomeBtn.style.opacity = '1';
+    }
   };
 }
 
 if (modalContacto) {
   modalContacto.onclick = function(e) {
-    if (e.target === this) this.classList.add('oculto');
+    if (e.target === this) {
+      this.classList.add('oculto');
+      // Mostrar botón scroll to top cuando se cierra el modal (si corresponde)
+      const scrollToHomeBtn = document.querySelector('.scrollToHome');
+      if (scrollToHomeBtn && window.scrollY > 100) {
+        scrollToHomeBtn.style.display = 'block';
+        scrollToHomeBtn.style.opacity = '1';
+      }
+    }
   };
 }
 
