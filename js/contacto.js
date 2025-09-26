@@ -158,6 +158,8 @@ if (scrollToHomeBtn) {
         // Ocultar botón scroll to top
         if (scrollToHomeBtn) {
           scrollToHomeBtn.style.display = 'none';
+          scrollToHomeBtn.style.visibility = 'hidden';
+          scrollToHomeBtn.style.opacity = '0';
         }
       }
     });
@@ -173,6 +175,7 @@ if (scrollToHomeBtn) {
         // Mostrar botón scroll to top si corresponde
         if (scrollToHomeBtn && window.scrollY > 100) {
           scrollToHomeBtn.style.display = 'block';
+          scrollToHomeBtn.style.visibility = 'visible';
           scrollToHomeBtn.style.opacity = '1';
         }
       }
@@ -186,10 +189,11 @@ if (scrollToHomeBtn) {
       resetForm();
       
       // Mostrar botón scroll to top si corresponde
-      if (scrollToHomeBtn && window.scrollY > 100) {
-        scrollToHomeBtn.style.display = 'block';
-        scrollToHomeBtn.style.opacity = '1';
-      }
+        if (scrollToHomeBtn && window.scrollY > 100) {
+          scrollToHomeBtn.style.display = 'block';
+          scrollToHomeBtn.style.visibility = 'visible';
+          scrollToHomeBtn.style.opacity = '1';
+        }
     }
   });
 
@@ -277,6 +281,11 @@ if (scrollToHomeBtn) {
       if (currentStep < totalSteps) {
         currentStep++;
         updateStepDisplay();
+        
+        // Si llegamos al paso 3 (resumen), mostrar los datos
+        if (currentStep === 3) {
+          mostrarResumenDatos();
+        }
       }
     }
   }
@@ -315,16 +324,22 @@ if (scrollToHomeBtn) {
 
     if (currentStep === 1) {
       btnAnterior.style.display = 'none';
+      btnAnterior.classList.add('btn-nav-hidden');
     } else {
       btnAnterior.style.display = 'inline-flex';
+      btnAnterior.classList.remove('btn-nav-hidden');
     }
 
     if (currentStep === totalSteps) {
       btnSiguiente.style.display = 'none';
+      btnSiguiente.classList.add('btn-nav-hidden');
       btnEnviar.style.display = 'inline-flex';
+      btnEnviar.classList.remove('btn-nav-hidden');
     } else {
       btnSiguiente.style.display = 'inline-flex';
+      btnSiguiente.classList.remove('btn-nav-hidden');
       btnEnviar.style.display = 'none';
+      btnEnviar.classList.add('btn-nav-hidden');
     }
   }
 
@@ -375,8 +390,8 @@ if (scrollToHomeBtn) {
   }
   
   if (captchaInput) {
-    captchaInput.addEventListener('blur', () => validateField('captcha'));
-    captchaInput.addEventListener('input', () => clearValidation('captcha'));
+    captchaInput.addEventListener('blur', () => validateField('captcha-input'));
+    captchaInput.addEventListener('input', () => clearValidation('captcha-input'));
   }
   }
 
@@ -434,14 +449,20 @@ if (scrollToHomeBtn) {
         }
         break;
 
-      case 'captcha':
-        const captchaValue = parseInt(field.value.trim());
-        if (captchaValue === captchaAnswer) {
+      case 'captcha-input':
+        const userInput = field.value.trim();
+        const captchaValue = parseInt(userInput);
+        
+        // Verificar que sea un número válido y coincida con la respuesta
+        if (userInput === '' || isNaN(captchaValue)) {
+          isValid = false;
+          message = 'Por favor ingresa un número';
+        } else if (captchaValue === captchaAnswer) {
           isValid = true;
-          message = 'Respuesta correcta';
+          message = 'Respuesta correcta ✓';
         } else {
           isValid = false;
-          message = 'Respuesta incorrecta';
+          message = 'Respuesta incorrecta. Inténtalo de nuevo';
         }
         break;
     }
@@ -498,9 +519,21 @@ if (scrollToHomeBtn) {
         
         // Validar CAPTCHA
         const captchaField = document.getElementById('captcha-input');
-        if (!validateField('captcha')) {
+        const captchaValue = parseInt(captchaField.value.trim());
+        
+        if (!captchaField.value.trim() || isNaN(captchaValue) || captchaValue !== captchaAnswer) {
           isValid = false;
-          alert('Por favor responde correctamente la pregunta de seguridad');
+          
+          // Mostrar mensaje específico según el error
+          if (!captchaField.value.trim()) {
+            alert('Por favor responde la pregunta de seguridad');
+          } else if (isNaN(captchaValue)) {
+            alert('Por favor ingresa un número válido');
+          } else {
+            alert('Respuesta incorrecta. La respuesta correcta es ' + captchaAnswer + '. Se generará una nueva pregunta.');
+            generateCaptcha(); // Generar nueva pregunta
+          }
+          
           captchaField.focus();
           return false;
         }
@@ -525,13 +558,27 @@ if (scrollToHomeBtn) {
 
   // Generar CAPTCHA simple
   function generateCaptcha() {
-    const num1 = Math.floor(Math.random() * 10) + 1;
-    const num2 = Math.floor(Math.random() * 10) + 1;
+    const num1 = Math.floor(Math.random() * 9) + 1; // 1-9
+    const num2 = Math.floor(Math.random() * 9) + 1; // 1-9
     captchaAnswer = num1 + num2;
     
     const captchaQuestion = document.getElementById('captcha-question');
     if (captchaQuestion) {
       captchaQuestion.textContent = `¿Cuánto es ${num1} + ${num2}?`;
+    }
+    
+    // Limpiar el campo de entrada
+    const captchaInput = document.getElementById('captcha-input');
+    if (captchaInput) {
+      captchaInput.value = '';
+      captchaInput.classList.remove('valid', 'invalid');
+    }
+    
+    // Limpiar mensaje de validación
+    const captchaValidation = document.getElementById('captcha-validation');
+    if (captchaValidation) {
+      captchaValidation.textContent = '';
+      captchaValidation.classList.remove('success', 'error');
     }
   }
 
@@ -611,45 +658,54 @@ async function submitForm() {
       nombre: document.getElementById('nombre').value,
       email: document.getElementById('email').value,
       telefono: document.getElementById('telefono').value,
-      tipo_consulta: document.getElementById('tipo-consulta').value,
-      mensaje: document.getElementById('mensaje').value,
+      tipoConsulta: document.getElementById('tipo-consulta').value,
       presupuesto: document.getElementById('presupuesto').value,
-      ubicacion_interes: document.getElementById('ubicacion-interes').value
+      ubicacionInteres: document.getElementById('ubicacion-interes').value,
+      mensaje: document.getElementById('mensaje').value
     };
 
     // Formatear mensaje para WhatsApp
     const tipoConsulta = document.getElementById('tipo-consulta');
-    const tipoTexto = tipoConsulta.options[tipoConsulta.selectedIndex].text;
+    const tipoConsultaTexto = tipoConsulta.selectedOptions[0]?.text || 'No especificado';
     const presupuesto = document.getElementById('presupuesto');
-    const presupuestoTexto = presupuesto.value ? presupuesto.options[presupuesto.selectedIndex].text : 'No especificado';
+    const presupuestoTexto = presupuesto.selectedOptions[0]?.text || 'No especificado';
 
     const mensajeWhatsApp = 
       `Hola! Quiero hacer una consulta desde la web Urbaniza2:\n\n` +
       `Nombre: ${formData.nombre}\n` +
       `Email: ${formData.email}\n` +
-      `Telefono: ${formData.telefono}\n` +
-      `Tipo de consulta: ${tipoTexto}\n` +
+      `Teléfono: ${formData.telefono}\n` +
+      `Tipo de consulta: ${tipoConsultaTexto}\n` +
       `Presupuesto: ${presupuestoTexto}\n` +
-      `Ubicacion de interes: ${formData.ubicacion_interes || 'No especificada'}\n` +
-      `Mensaje: ${formData.mensaje}\n`;
+      `Ubicación de interés: ${formData.ubicacionInteres || 'No especificado'}\n` +
+      `Mensaje: ${formData.mensaje || 'Sin mensaje adicional'}\n`;
 
     // Número de WhatsApp destino (cámbialo si lo deseas)
     const numeroWhatsApp = '51982664102';
     const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensajeWhatsApp)}`;
 
-    // Mostrar mensaje de confirmación antes de abrir WhatsApp
-    showConfirmationMessage();
+    // Cerrar el formulario modal
+    modalFormulario.classList.add('oculto');
+    
+    // Mostrar mensaje de éxito fuera del modal
+    showSuccessNotificationOutside();
+    
+    // Resetear el formulario
+    resetForm();
     
     // Esperar un momento antes de abrir WhatsApp
     setTimeout(() => {
       window.open(url, '_blank');
-    }, 1500);
-
-    // Cerrar modal después de mostrar confirmación
-    setTimeout(() => {
-      modalFormulario.classList.remove('modal-visible');
-      resetForm();
-    }, 4000);
+    }, 2000);
+    
+    // Mostrar botón scroll to top si corresponde
+    const scrollToHomeBtn = document.querySelector('.scrollToHome');
+    if (scrollToHomeBtn && window.scrollY > 100) {
+      scrollToHomeBtn.style.display = 'block';
+      scrollToHomeBtn.style.visibility = 'visible';
+      scrollToHomeBtn.style.opacity = '1';
+    }
+    
   } catch (error) {
     console.error('Error:', error);
     showErrorMessage('No se pudo abrir WhatsApp. Por favor, intenta nuevamente.');
@@ -705,6 +761,167 @@ async function submitForm() {
         }
       }, 300);
     });
+  }
+
+  // Mostrar notificación de éxito fuera del modal (nueva función)
+  function showSuccessNotificationOutside() {
+    // Crear el elemento de notificación
+    const notification = document.createElement('div');
+    notification.className = 'success-notification-outside';
+    
+    notification.innerHTML = `
+      <div class="notification-container">
+        <div class="notification-icon">
+          <i class="fas fa-check-circle"></i>
+        </div>
+        <div class="notification-content">
+          <h3>¡Formulario Enviado Exitosamente!</h3>
+          <p>Tu consulta ha sido procesada correctamente y será redirigida a WhatsApp.</p>
+          <div class="notification-details">
+            <div class="detail-item">
+              <i class="fas fa-clock"></i>
+              <span>Tiempo de respuesta: Menos de 24 horas</span>
+            </div>
+            <div class="detail-item">
+              <i class="fab fa-whatsapp"></i>
+              <span>¿Urgente? WhatsApp: <a href="https://wa.me/51982664102" target="_blank">982 664 102</a></span>
+            </div>
+          </div>
+        </div>
+        <button class="notification-close" onclick="this.parentElement.parentElement.remove()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+    `;
+    
+    // Agregar estilos CSS inline para la notificación
+    const style = document.createElement('style');
+    style.textContent = `
+      .success-notification-outside {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 10000;
+        max-width: 400px;
+        background: linear-gradient(135deg, #27ae60, #2ecc71);
+        color: white;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        animation: slideInRight 0.5s ease-out;
+        font-family: 'Poppins', sans-serif;
+      }
+      
+      .notification-container {
+        padding: 20px;
+        position: relative;
+        display: flex;
+        align-items: flex-start;
+        gap: 15px;
+      }
+      
+      .notification-icon {
+        font-size: 2.5rem;
+        color: #fff;
+        flex-shrink: 0;
+      }
+      
+      .notification-content h3 {
+        margin: 0 0 8px 0;
+        font-size: 1.2rem;
+        font-weight: 600;
+      }
+      
+      .notification-content p {
+        margin: 0 0 15px 0;
+        font-size: 0.95rem;
+        opacity: 0.9;
+        line-height: 1.4;
+      }
+      
+      .notification-details {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      
+      .detail-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.9rem;
+      }
+      
+      .detail-item i {
+        width: 16px;
+        text-align: center;
+      }
+      
+      .detail-item a {
+        color: #fff;
+        text-decoration: underline;
+        font-weight: 500;
+      }
+      
+      .notification-close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: rgba(255,255,255,0.2);
+        border: none;
+        color: white;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.3s ease;
+      }
+      
+      .notification-close:hover {
+        background: rgba(255,255,255,0.3);
+      }
+      
+      @keyframes slideInRight {
+        from {
+          transform: translateX(100%);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+      
+      @media (max-width: 768px) {
+        .success-notification-outside {
+          top: 10px;
+          right: 10px;
+          left: 10px;
+          max-width: none;
+        }
+      }
+    `;
+    
+    // Agregar estilos al head si no existen
+    if (!document.querySelector('#success-notification-styles')) {
+      style.id = 'success-notification-styles';
+      document.head.appendChild(style);
+    }
+    
+    // Agregar al body
+    document.body.appendChild(notification);
+    
+    // Auto-remover después de 8 segundos
+    setTimeout(() => {
+      if (notification.parentNode) {
+        notification.style.animation = 'slideInRight 0.5s ease-out reverse';
+        setTimeout(() => {
+          notification.remove();
+        }, 500);
+      }
+    }, 8000);
   }
 
   // Mostrar mensaje de confirmación en el paso 3
@@ -791,6 +1008,57 @@ async function submitForm() {
     setTimeout(() => {
       errorDiv.remove();
     }, 5000);
+  }
+
+  // Función para mostrar el resumen de datos
+  function mostrarResumenDatos() {
+    // Recopilar datos del formulario usando los IDs correctos
+    const nombre = document.getElementById('nombre').value;
+    const email = document.getElementById('email').value;
+    const telefono = document.getElementById('telefono').value;
+    const tipoConsulta = document.getElementById('tipo-consulta').value;
+    const presupuesto = document.getElementById('presupuesto').value;
+    const ubicacionInteres = document.getElementById('ubicacion-interes').value;
+    const mensaje = document.getElementById('mensaje').value;
+
+    // Obtener textos legibles para los selects
+    const tipoConsultaTexto = document.getElementById('tipo-consulta').selectedOptions[0]?.text || 'No especificado';
+    const presupuestoTexto = document.getElementById('presupuesto').selectedOptions[0]?.text || 'No especificado';
+
+    // Actualizar elementos del resumen
+    document.getElementById('resumen-nombre').textContent = nombre || '-';
+    document.getElementById('resumen-email').textContent = email || '-';
+    document.getElementById('resumen-telefono').textContent = telefono || '-';
+    document.getElementById('resumen-ubicacion').textContent = ubicacionInteres || '-';
+    document.getElementById('resumen-presupuesto').textContent = presupuestoTexto || '-';
+    document.getElementById('resumen-tiempo').textContent = tipoConsultaTexto || '-';
+    document.getElementById('resumen-mensaje').textContent = mensaje || 'Sin mensaje adicional';
+  }
+
+  // Función para mostrar confirmación de envío
+  function mostrarConfirmacionEnvio() {
+    // Ocultar el resumen de datos
+    document.getElementById('resumen-datos').style.display = 'none';
+    
+    // Mostrar mensaje de confirmación
+    document.getElementById('confirmacion-envio').style.display = 'block';
+    
+    // Ocultar la nota de revisión
+    document.querySelector('.resumen-note').style.display = 'none';
+    
+    // Ocultar botón de enviar
+    document.getElementById('btn-enviar').style.display = 'none';
+    
+    // Simular preparación de WhatsApp (opcional)
+    setTimeout(() => {
+      const loadingWhatsapp = document.querySelector('.loading-whatsapp');
+      if (loadingWhatsapp) {
+        loadingWhatsapp.innerHTML = `
+          <i class="fab fa-whatsapp"></i>
+          <span>¡Listo! Puedes contactarnos por WhatsApp cuando gustes.</span>
+        `;
+      }
+    }, 3000);
   }
 
   // Resetear formulario

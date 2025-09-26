@@ -326,9 +326,103 @@
         <!-- Paso 3: Resumen -->
         <div class="form-step" data-step="3">
           <h3>Resumen de tu Consulta</h3>
-          <div id="resumen-contenido" class="resumen-contenido">
-            <!-- El contenido se generará dinámicamente -->
+          
+          <!-- Resumen de datos antes del envío -->
+          <div id="resumen-datos" class="resumen-contenido">
+            <div class="resumen-header">
+              <h4><i class="fas fa-clipboard-list"></i> Datos de tu Consulta</h4>
+              <p class="resumen-subtitle">Verifica que toda la información sea correcta</p>
+            </div>
+            <div class="resumen-datos">
+              <div class="dato-item">
+                <div class="dato-label">
+                  <i class="fas fa-user"></i>
+                  Nombre Completo:
+                </div>
+                <div class="dato-valor" id="resumen-nombre">-</div>
+              </div>
+              <div class="dato-item">
+                <div class="dato-label">
+                  <i class="fas fa-envelope"></i>
+                  Email:
+                </div>
+                <div class="dato-valor" id="resumen-email">-</div>
+              </div>
+              <div class="dato-item">
+                <div class="dato-label">
+                  <i class="fas fa-phone"></i>
+                  Teléfono:
+                </div>
+                <div class="dato-valor" id="resumen-telefono">-</div>
+              </div>
+              <div class="dato-item">
+                <div class="dato-label">
+                  <i class="fas fa-map-marker-alt"></i>
+                  Ubicación de Interés:
+                </div>
+                <div class="dato-valor" id="resumen-ubicacion">-</div>
+              </div>
+              <div class="dato-item">
+                <div class="dato-label">
+                  <i class="fas fa-dollar-sign"></i>
+                  Presupuesto:
+                </div>
+                <div class="dato-valor" id="resumen-presupuesto">-</div>
+              </div>
+              <div class="dato-item">
+                <div class="dato-label">
+                  <i class="fas fa-question-circle"></i>
+                  Tipo de Consulta:
+                </div>
+                <div class="dato-valor" id="resumen-tiempo">-</div>
+              </div>
+              <div class="dato-item mensaje-item">
+                <div class="dato-label">
+                  <i class="fas fa-comment"></i>
+                  Mensaje:
+                </div>
+                <div class="mensaje-completo" id="resumen-mensaje">-</div>
+              </div>
+            </div>
+            <div class="resumen-footer">
+              <div class="info-envio">
+                <i class="fas fa-info-circle"></i>
+                <span>Al enviar, recibirás una confirmación por email y WhatsApp</span>
+              </div>
+            </div>
           </div>
+
+          <!-- Mensaje de confirmación después del envío -->
+          <div id="confirmacion-envio" class="resumen-contenido confirmacion-envio" style="display: none;">
+            <div class="confirmacion-header">
+              <div class="check-animation">
+                <i class="fas fa-check-circle"></i>
+              </div>
+              <h3>¡Consulta Enviada Correctamente!</h3>
+              <p class="confirmacion-subtitle">Hemos recibido tu solicitud de información</p>
+            </div>
+            <div class="confirmacion-body">
+              <div class="mensaje-principal">
+                <i class="fas fa-envelope-open-text"></i>
+                <p><strong>Tu consulta ha sido enviada exitosamente.</strong> Nuestro equipo de asesores revisará tu solicitud y se pondrá en contacto contigo a la brevedad.</p>
+              </div>
+              <div class="tiempo-respuesta">
+                <i class="fas fa-clock"></i>
+                <p><strong>Tiempo de respuesta:</strong> Te contactaremos dentro de las próximas 24 horas en horario de oficina (Lunes a Viernes de 9:00 AM a 6:00 PM).</p>
+              </div>
+              <div class="contacto-directo">
+                <i class="fab fa-whatsapp"></i>
+                <p><strong>¿Necesitas respuesta inmediata?</strong> También puedes contactarnos directamente por <a href="https://wa.me/51987654321" target="_blank">WhatsApp</a> para una atención más rápida.</p>
+              </div>
+            </div>
+            <div class="confirmacion-footer">
+              <div class="loading-whatsapp">
+                <i class="fab fa-whatsapp"></i>
+                <span>Preparando mensaje de WhatsApp...</span>
+              </div>
+            </div>
+          </div>
+
           <div class="resumen-note">
             <i class="fas fa-info-circle"></i>
             <p>Revisa que toda la información sea correcta antes de enviar tu consulta.</p>
