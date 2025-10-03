@@ -3,8 +3,6 @@
 /* Variables */
 :root {
   --dark: #333;
-  --round: 5px;
-  --bg: #f0eaea;
   --font: 'Poppins', sans-serif;
 }
 
@@ -571,9 +569,7 @@ footer p {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
 }
 
-a:hover .whatsapp-num {
-  color: #25D366;
-}
+
 
 .scrollToHome {
     border-radius: 20px;
@@ -613,92 +609,7 @@ a:hover .whatsapp-num {
 
 
 
-/* Clases para contenido dinámico del blog */
-.blog-content-whatsapp {
-  background-color: #e8f5e8;
-  padding: 20px;
-  border-radius: 10px;
-  margin-top: 20px;
-}
 
-.blog-btn-whatsapp {
-  display: inline-block;
-  background-color: #25D366;
-  color: white;
-  padding: 12px 25px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-  margin-top: 10px;
-}
-
-.blog-content-blue {
-  background-color: #e3f2fd;
-  padding: 20px;
-  border-radius: 10px;
-  margin-top: 20px;
-}
-
-.blog-btn-blue {
-  display: inline-block;
-  background-color: #2196F3;
-  color: white;
-  padding: 12px 25px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-  margin-top: 10px;
-}
-
-.blog-content-warning {
-  background-color: #fff3cd;
-  padding: 20px;
-  border-radius: 10px;
-  margin-top: 20px;
-}
-
-.blog-btn-orange {
-  display: inline-block;
-  background-color: #ff9800;
-  color: white;
-  padding: 12px 25px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-  margin-top: 10px;
-}
-
-.blog-btn-orange-alt {
-  display: inline-block;
-  background-color: #FF5722;
-  color: white;
-  padding: 12px 25px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-  margin-top: 10px;
-}
-
-.blog-content-general {
-  background-color: #f8f9fa;
-  padding: 20px;
-  border-radius: 10px;
-  margin-top: 20px;
-}
-
-.blog-content-green {
-  background-color: #d4edda;
-  padding: 20px;
-  border-radius: 10px;
-  margin-top: 20px;
-}
-
-.blog-content-orange {
-  background-color: #fff3cd;
-  padding: 20px;
-  border-radius: 10px;
-  margin-top: 20px;
-}
 
 /* Footer responsivo */
 @media (max-width: 768px) {
@@ -761,32 +672,7 @@ a:hover .whatsapp-num {
     }
 }
 
-.blog-content-light-green {
-  background-color: #e8f5e8;
-  padding: 20px;
-  border-radius: 10px;
-  margin-top: 20px;
-}
 
-.blog-btn-green {
-  display: inline-block;
-  background-color: #4CAF50;
-  color: white;
-  padding: 12px 25px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-  margin-top: 10px;
-}
-
-/* Clases para modal y body */
-.body-no-scroll {
-  overflow: hidden;
-}
-
-.modal-visible {
-  display: block !important;
-}
 
 /* Responsive para dispositivos muy pequeños */
 @media (max-width: 480px) {

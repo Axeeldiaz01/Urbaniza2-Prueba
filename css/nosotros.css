@@ -300,13 +300,6 @@ nav ul li a:hover {
     transition: all 0.1s ease;
 }
 
-.centro {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-  text-align: center;
-  margin: 20px 40px;
-}
-
 /* Footer */
 footer {
   background: var(--dark);

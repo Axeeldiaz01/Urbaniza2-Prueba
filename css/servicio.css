@@ -288,11 +288,6 @@ nav ul li a:hover {
   transition: transform 0.3s ease;
 }
 
-.whatsapp-float img {
-  width: 30px;
-  height: 30px;
-}
-
 .whatsapp-float:hover {
   transform: scale(1.1);
 }
@@ -340,31 +335,6 @@ footer p {
   border-color: var(--primary);
   transform: translateY(-3px);
   box-shadow: 0 5px 15px rgba(251, 159, 46, 0.3);
-}
-
-/* WhatsApp Float */
-.whatsapp-float {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  z-index: 100;
-  width: 60px;
-  height: 60px;
-  background-color: #25D366;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease;
-  text-decoration: none;
-  color: white;
-  font-size: 24px;
-}
-
-.whatsapp-float:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
 }
 
 /* Responsividad */
