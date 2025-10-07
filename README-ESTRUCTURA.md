@@ -33,8 +33,6 @@ Urbaniza2-main/
 
 ```bash
 # Servir el sitio localmente con PowerShell (método actual)
-# El servidor ya está configurado y corriendo en http://localhost:3000
-```
 
 ## Notas Importantes
 
