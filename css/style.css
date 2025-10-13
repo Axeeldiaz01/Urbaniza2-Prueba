@@ -1207,28 +1207,57 @@ a:hover .whatsapp-num {
   border-radius: 12px;
   text-align: center;
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, filter 0.35s ease;
+  transform: translateY(10px) scale(0.98);
+  opacity: 0;
+  animation: cardFadeIn 0.6s ease forwards;
 }
 
 .service-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+  filter: saturate(1.05);
 }
 
 .service-icon {
   width: 80px;
   height: 80px;
-  background: linear-gradient(135deg, rgba(249, 145, 9, 0.1), rgba(249, 145, 9, 0.2));
+  background: linear-gradient(135deg, rgba(249, 145, 9, 0.1), rgba(249, 145, 9, 0.25));
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto 1.5rem;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
 .service-icon i {
   font-size: 2rem;
-  color: rgba(249, 145, 9, 0.8);
+  color: rgba(249, 145, 9, 0.85);
+  transition: transform 0.35s ease;
 }
+
+.service-card:hover .service-icon {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(249,145,9,0.25);
+}
+
+.service-card:hover .service-icon i {
+  transform: scale(1.06) rotate(1deg);
+}
+
+@keyframes cardFadeIn {
+  0% { opacity: 0; transform: translateY(14px) scale(0.98); }
+  60% { opacity: 1; transform: translateY(0) scale(1); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Entrada escalonada para tarjetas dentro del grid */
+.services-grid .service-card:nth-child(1) { animation-delay: 0.05s; }
+.services-grid .service-card:nth-child(2) { animation-delay: 0.12s; }
+.services-grid .service-card:nth-child(3) { animation-delay: 0.19s; }
+.services-grid .service-card:nth-child(4) { animation-delay: 0.26s; }
+.services-grid .service-card:nth-child(5) { animation-delay: 0.33s; }
 
 .service-card h3 {
   font-size: 1.3rem;

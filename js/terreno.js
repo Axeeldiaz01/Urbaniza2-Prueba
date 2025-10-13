@@ -199,17 +199,28 @@ document.addEventListener('DOMContentLoaded', function() {
     const indicadores = carrusel.querySelectorAll('.indicador');
 
     function mostrarSlide(index) {
-      // Ocultar todos los slides de este carrusel
-      slides.forEach(slide => slide.classList.remove('active'));
-      indicadores.forEach(indicador => indicador.classList.remove('active'));
-      
-      // Mostrar el slide actual
+      // Clampear índice para evitar estados inválidos
+      if (index < 0 || index >= slides.length) {
+        index = 0;
+      }
+      // Activar primero el slide objetivo para evitar un frame en blanco
       if (slides[index]) {
         slides[index].classList.add('active');
-        if (indicadores[index]) {
-          indicadores[index].classList.add('active');
-        }
       }
+
+      // Desactivar el resto de slides
+      slides.forEach((slide, i) => {
+        if (i !== index) slide.classList.remove('active');
+      });
+
+      // Actualizar indicadores
+      indicadores.forEach((indicador, i) => {
+        if (i === index) {
+          indicador.classList.add('active');
+        } else {
+          indicador.classList.remove('active');
+        }
+      });
     }
 
     // Función para cambiar slide específica de este carrusel
@@ -228,8 +239,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Agregar event listeners a los indicadores de este carrusel
     indicadores.forEach((indicador, index) => {
       indicador.addEventListener('click', () => {
-        slideActualIndex = index;
-        mostrarSlide(slideActualIndex);
+        if (index >= 0 && index < slides.length) {
+          slideActualIndex = index;
+          mostrarSlide(slideActualIndex);
+        }
       });
     });
 
