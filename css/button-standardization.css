@@ -49,6 +49,14 @@
   gap: 8px;
 }
 
+/* Accesibilidad: foco visible para botones */
+.btn:focus-visible,
+[class^="btn-"]:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(249, 145, 9, 0.45);
+}
+.btn:focus { outline: none; }
+
 /* BOTONES PRINCIPALES */
 .btn-primary {
   background: rgba(249, 145, 9, 0.9);

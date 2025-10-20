@@ -71,3 +71,40 @@ if (scrollToHomeBtn) {
     return false;
   });
 }
+
+// Acordeón de FAQ
+const faqButtons = document.querySelectorAll('.faq-item');
+faqButtons.forEach(btn => {
+  // Si no es un botón o enlace, añade rol y tabIndex
+  if (!['BUTTON','A'].includes(btn.tagName)) {
+    btn.setAttribute('role', 'button');
+    btn.setAttribute('tabindex', '0');
+  }
+
+  btn.addEventListener('click', () => {
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    const panel = btn.nextElementSibling;
+    btn.setAttribute('aria-expanded', String(!expanded));
+    panel.style.maxHeight = !expanded ? panel.scrollHeight + 'px' : '0';
+  });
+
+  btn.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      btn.click();
+    }
+  });
+});
+
+// Revelado al hacer scroll
+const revealEls = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+revealEls.forEach(el => observer.observe(el));

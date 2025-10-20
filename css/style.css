@@ -84,6 +84,27 @@ nav ul li a {
 nav ul li a:hover {
   color: var(--dark);
 }  
+
+/* Accesibilidad: foco visible global */
+a:focus-visible {
+  outline: 2px solid rgba(249, 145, 9, 0.85);
+  outline-offset: 2px;
+}
+
+/* Foco visible para enlaces de navegación en header */
+nav ul li a:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.6);
+  border-radius: 6px;
+}
+
+/* Foco visible para botones estandarizados */
+.btn:focus-visible,
+[class^="btn-"]:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(249, 145, 9, 0.45);
+}
+
 .menu-toggle {
   display: none;
   flex-direction: column;
