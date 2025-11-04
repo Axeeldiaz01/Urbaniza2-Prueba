@@ -855,6 +855,9 @@ function initializeComprarButtons() {
     const botonesComprar = document.querySelectorAll('.btn-comprar');
     
     botonesComprar.forEach(boton => {
+        // Evitar duplicar listeners si ya fueron inicializados por otro módulo
+        if (boton.dataset.compraInit) return;
+        
         boton.addEventListener('click', function() {
             const precio = this.getAttribute('data-precio');
             const ubicacion = this.getAttribute('data-ubicacion');
@@ -862,6 +865,9 @@ function initializeComprarButtons() {
             
             mostrarModalCompra(precio, ubicacion, area);
         });
+        
+        // Marcar como inicializado por funcionalidades para evitar futuras duplicaciones
+        boton.dataset.compraInit = 'funcionalidades';
     });
 }
 
@@ -1042,5 +1048,9 @@ function irACalculadora() {
 
 // Inicializar botones de comprar cuando se carga la página
 document.addEventListener('DOMContentLoaded', function() {
-    initializeComprarButtons();
+    // Si otro módulo ya adjuntó listeners (marca data-compra-init), no inicializar aquí
+    const algunInicializado = document.querySelector('.btn-comprar[data-compra-init]');
+    if (!algunInicializado) {
+        initializeComprarButtons();
+    }
 });

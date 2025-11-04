@@ -1123,7 +1123,9 @@ footer p {
 
 /* MODAL DE COMPRA */
 .modal-compra {
-  display: flex;
+  /* Centrado robusto usando grid para evitar desplazamientos laterales */
+  display: grid;
+  place-items: center;
   position: fixed;
   z-index: 10000;
   left: 0;
@@ -1132,8 +1134,6 @@ footer p {
   height: 100%;
   background: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(6px);
-  align-items: center;
-  justify-content: center;
   animation: modalFadeIn 0.3s ease-out;
 }
 
@@ -1150,6 +1150,9 @@ footer p {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  /* Garantiza centrado incluso si grid no aplica por alguna razón */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .modal-compra-header {

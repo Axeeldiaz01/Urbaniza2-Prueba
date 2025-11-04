@@ -292,6 +292,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const botonesComprar = document.querySelectorAll('.btn-comprar');
     
     botonesComprar.forEach(boton => {
+      // Evitar adjuntar múltiples listeners al mismo botón
+      if (boton.dataset.compraInit) return;
+      
       boton.addEventListener('click', function() {
         const precio = this.getAttribute('data-precio');
         const ubicacion = this.getAttribute('data-ubicacion');
@@ -299,6 +302,8 @@ document.addEventListener('DOMContentLoaded', function() {
         
         mostrarModalCompra(precio, ubicacion, area);
       });
+      
+      boton.dataset.compraInit = 'terreno';
     });
   }
 
