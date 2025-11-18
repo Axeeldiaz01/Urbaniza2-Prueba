@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/* Fuente cargada vía <link> en HTML; se elimina import duplicado */
 
 :root {
   --primary: #fb9f2ee2;
@@ -190,6 +190,16 @@ nav ul li a:hover {
   color: white;
 }
 
+/* Overlay para mejorar legibilidad sobre el banner */
+.banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.45) 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
 .background-img {
   position: absolute;
   width: 100%;
@@ -201,7 +211,7 @@ nav ul li a:hover {
 
 .banner-content {
   position: relative;
-  z-index: 2;
+  z-index: 3; /* por encima del overlay */
   max-width: 800px;
   padding: 10px;
 }
@@ -214,6 +224,12 @@ nav ul li a:hover {
 .banner-content p {
   font-size: 1.2rem;
   margin-bottom: 2rem;
+}
+
+/* Ajuste de ancho de botones en la sección Nosotros */
+.banner .btn-group .btn {
+  /* Evita que los botones crezcan a todo el ancho por la regla global .btn-group .btn { flex: 1 } */
+  flex: 0 0 auto;
 }
 
 .title{

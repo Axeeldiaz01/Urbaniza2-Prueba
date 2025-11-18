@@ -108,3 +108,44 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.1 });
 
 revealEls.forEach(el => observer.observe(el));
+
+// Brillo secuencial en "Proceso de trabajo"
+(() => {
+  const stepsContainer = document.querySelector('.process-steps');
+  if (!stepsContainer) return;
+  const steps = Array.from(stepsContainer.querySelectorAll('li'));
+  if (!steps.length) return;
+
+  let index = -1;
+  let timer = null;
+
+  const tick = () => {
+    index = (index + 1) % steps.length;
+    steps.forEach((li, i) => li.classList.toggle('highlight', i === index));
+  };
+
+  const start = () => {
+    if (timer) return;
+    tick();
+    timer = setInterval(tick, 1800);
+  };
+  const stop = () => {
+    if (!timer) return;
+    clearInterval(timer);
+    timer = null;
+    steps.forEach(li => li.classList.remove('highlight'));
+  };
+
+  // Inicia cuando el bloque es visible en el viewport
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) start();
+      else stop();
+    });
+  }, { threshold: 0.2 });
+
+  io.observe(stepsContainer);
+
+  // Limpieza
+  window.addEventListener('beforeunload', stop);
+})();
