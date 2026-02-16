@@ -1192,86 +1192,204 @@ a:hover .whatsapp-num {
   }
 }
 
-/* SECCIÓN SERVICIOS */
-.services-section {
-  padding: 80px 0;
-  background: #f8f9fa;
-}
+/* SECCIÓN SERVICIOS - MEJORADA */
 
+.services-section {
+  padding: 80px 5%;
+  background: radial-gradient(circle at top right, rgba(249, 145, 9, 0.05), transparent), #fdfdfd;
+  overflow: hidden;}
+
+/* Títulos con tipografía fluida */
 .section-title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #333;
+  font-size: clamp(2rem, 5vw, 2.8rem); 
+  font-weight: 800;
+  color: #1a1a1a;
   margin-bottom: 1rem;
+  text-align: center;
 }
 
 .section-subtitle {
-  font-size: 1.2rem;
-  color: #666;
+  font-size: clamp(1rem, 2vw, 1.1rem);
+  color: #777;
   margin-bottom: 3rem;
-}
-
-.text-center {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
 }
 
+/* Grid responsivo real */
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
-  margin-top: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .service-card {
-  background: white;
-  padding: 2rem;
-  border-radius: 12px;
+  background: #ffffff;
+  padding: 3rem 2rem;
+  border-radius: 24px;
   text-align: center;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  transition: transform 0.35s ease, box-shadow 0.35s ease, filter 0.35s ease;
-  transform: translateY(10px) scale(0.98);
-  opacity: 0;
-  animation: cardFadeIn 0.6s ease forwards;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  opacity: 1; /* Cambié a 1 para que no desaparezcan si falla el JS */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%; /* Para que todas midan lo mismo */
 }
 
-.service-card:hover {
-  transform: translateY(-6px) scale(1.01);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
-  filter: saturate(1.05);
-}
-
+/* El icono o cuadrado naranja que se ve en tu imagen */
 .service-icon {
-  width: 80px;
-  height: 80px;
-  background: linear-gradient(135deg, rgba(249, 145, 9, 0.1), rgba(249, 145, 9, 0.25));
-  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  background: rgba(249, 145, 9, 0.1);
+  border-radius: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 1.5rem;
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  margin-bottom: 20px;
+  transition: 0.3s;
 }
 
 .service-icon i {
-  font-size: 2rem;
-  color: rgba(249, 145, 9, 0.85);
-  transition: transform 0.35s ease;
+  font-size: 28px;
+  color: #f99109;
+}
+
+/* Estado HOVER ) */
+.service-card:hover {
+  transform: translateY(-12px);
+  border-color: #f99109;
+  box-shadow: 0 20px 40px rgba(249, 145, 9, 0.1);
 }
 
 .service-card:hover .service-icon {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(249,145,9,0.25);
+  background: #f99109;
+  transform: scale(1.1) rotate(5deg);
 }
 
 .service-card:hover .service-icon i {
-  transform: scale(1.06) rotate(1deg);
+  color: #fff;
 }
 
-@keyframes cardFadeIn {
-  0% { opacity: 0; transform: translateY(14px) scale(0.98); }
-  60% { opacity: 1; transform: translateY(0) scale(1); }
-  100% { opacity: 1; transform: translateY(0) scale(1); }
+.service-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  color: #1a1a1a;
+  transition: 0.3s;
 }
+
+.service-card p {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Animación de entrada sutil */
+@keyframes cardFadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.services-grid .service-card {
+  animation: cardFadeIn 0.8s ease forwards;
+}
+
+/* Efecto de luz interna al hacer hover */
+.service-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 20px 40px rgba(249, 145, 9, 0.12);
+  border-color: rgba(249, 145, 9, 0.2);
+}
+/*MODIFICADO*/
+.service-icon {
+  width: 90px;
+  height: 90px;
+  background: #fff;
+  border-radius: 22px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 2rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+  position: relative;
+  z-index: 1; /* Asegura que el icono esté arriba */
+  transition: all 0.4s ease;
+}
+
+/* El aura sutil alrededor del icono */
+.service-icon::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(135deg, #f99109, #ffb347);
+  border-radius: 24px;
+  z-index: -1;
+  opacity: 0.2; /* Menos opacidad para que se vea fino */
+  transition: opacity 0.4s ease;
+}
+
+.service-icon i {
+  font-size: 2.2rem;
+  /* 1. Definimos el degradado */
+  background: linear-gradient(135deg, #f99109, #d87e07);
+  
+  /* 2. IMPORTANTE: Estas 3 líneas hacen que el icono sea visible con gradiente */
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent; 
+  
+  display: inline-block;
+  transition: all 0.4s ease;
+}
+
+/* --- Cambios al hacer hover --- */
+
+.service-card:hover .service-icon {
+  background: linear-gradient(135deg, #f99109, #ffb347);
+  transform: rotate(-5deg) scale(1.1);
+  box-shadow: 0 10px 25px rgba(249, 145, 9, 0.3);
+}
+
+.service-card:hover .service-icon i {
+  -webkit-text-fill-color: #ffffff;
+  color: #ffffff;
+  transform: rotate(5deg);
+}
+
+.service-card:hover .service-icon::after {
+  opacity: 0; 
+}
+.service-card h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 1rem;
+  transition: color 0.3s ease;
+}
+
+.service-card p {
+  color: #555;
+  line-height: 1.8;
+  font-size: 0.95rem;
+}
+
+/* Keyframes más fluidos */
+@keyframes cardFadeIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(30px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
 
 /* Entrada escalonada para tarjetas dentro del grid */
 .services-grid .service-card:nth-child(1) { animation-delay: 0.05s; }

@@ -140,40 +140,67 @@ nav ul li a:hover {
 }
 
 /* SECCIÓN CONTACTO PRINCIPAL */
+/*MODIFICADO*/
+
 .contacto-section {
-  padding: 60px 0;
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-  min-height: 100vh;
+  padding: 80px 0;
+  background: #f8f9fa; 
+  position: relative;
 }
 
 .contacto-header {
   text-align: center;
-  margin-bottom: 50px;
-  padding: 0 20px;
+  margin-bottom: 40px;
 }
 
 .contacto-header h2 {
-  font-size: 3rem;
-  color: var(--dark);
-  margin-bottom: 15px;
-  font-weight: 700;
+  font-size: 2.8rem;
+  color: #333;
+  margin-bottom: 10px;
+  font-weight: 800;
   display: flex;
+  flex-wrap: wrap; 
   align-items: center;
   justify-content: center;
   gap: 15px;
 }
 
 .contacto-header h2 i {
-  color: var(--primary);
-  font-size: 2.5rem;
+  color: #f49d32; 
+  font-size: 2.4rem;
+  /* Un pequeño movimiento*/
+  transition: transform 0.3s ease;
+}
+
+.contacto-header:hover h2 i {
+  transform: rotate(15deg) scale(1.1);
 }
 
 .contacto-subtitle {
-  font-size: 1.2rem;
-  color: #6c757d;
-  max-width: 600px;
+  font-size: 1.1rem;
+  color: #666;
+  max-width: 500px;
   margin: 0 auto;
-  font-weight: 400;
+  line-height: 1.5;
+}
+
+.contacto-header::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 4px;
+  background: #f49d32;
+  margin: 20px auto 0;
+  border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  .contacto-header h2 {
+    font-size: 2rem;
+  }
+  .contacto-header h2 i {
+    font-size: 1.8rem;
+  }
 }
 
 /* SECCIÓN DE CONFIANZA */

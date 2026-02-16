@@ -481,58 +481,117 @@ footer p {
 
 
 /* Servicios: grid y tarjetas */
+/*Modificacion*/
+/* Espaciado más generoso para que respire la sección */
 .services-section {
-  padding: 40px 0;
+  padding: 80px 0;
+  background-color: #fcfcfc; /* Un fondo casi blanco para que las tarjetas resalten */
 }
+
 .services-section h2 {
   text-align: center;
-  margin: 0 0 20px;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #222;
+  margin-bottom: 50px;
 }
+
+/* Ajuste para que en móviles no se rompa (grid responsivo) */
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(240px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px; /* Más espacio entre tarjetas */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
+
 .service-card {
-  background: #fff;
-  border: 1px solid rgba(0,0,0,0.08);
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-  transition: transform .2s ease, box-shadow .2s ease;
+  background: #ffffff;
+  border: none; /* Quitamos el borde para un look más limpio */
+  border-radius: 20px; /* Bordes más redondeados y modernos */
+  padding: 40px 30px;
+  text-align: left; /* Alineación a la izquierda se ve más profesional para listas */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* Sombra más suave y difuminada */
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  flex-direction: column;
 }
+
 .service-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
 }
+
+/* Contenedor para el icono */
 .service-card i {
-  font-size: 28px;
-  color: var(--primary);
+  font-size: 35px;
+  color: #f3a530;
+  margin-bottom: 20px;
+  display: inline-block;
 }
+
 .service-card h3 {
-  margin: 10px 0;
-  font-size: 1.4rem;
+  margin: 0 0 15px;
+  font-size: 1.6rem;
+  color: #1a1a1a;
+  font-weight: 700;
 }
+
 .service-card p {
-  margin: 0 0 10px;
+  margin-bottom: 20px;
+  color: #666;
+  line-height: 1.6;
 }
+
+/* Lista de beneficios más elegante */
 .benefits {
-  margin: 0 0 16px;
-  padding-left: 18px;
+  margin: 0 0 30px;
+  padding: 0;
+  list-style: none; /* Quitamos los puntos aburridos */
+  flex-grow: 1; /* Empuja el botón hacia abajo si el texto es corto */
 }
-.benefits li { list-style: disc; }
+
+.benefits li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 10px;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+/* Checkmark personalizado en lugar de disco */
+.benefits li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #f3a530;
+  font-weight: bold;
+}
+
+/* Botón CTA (Llamada a la acción) */
 .cta {
   display: inline-block;
-  padding: 10px 18px;
-  border-radius: 8px;
+  text-align: center;
+  padding: 14px 24px;
+  border-radius: 12px;
   background: #f3a530;
   color: #fff;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(243, 165, 48, 0.2);
 }
-.cta:hover { background: #d58f22; }
+
+.cta:hover {
+  background: #e6951d;
+  box-shadow: 0 6px 18px rgba(243, 165, 48, 0.4);
+  transform: scale(1.02);
+}
 
 /* Proceso */
+/*MODIFICADO*/
+
 .process-section { padding: 30px 0; }
 .process-section h2 { text-align: center; margin-bottom: 12px; }
 .process-steps {
@@ -589,38 +648,108 @@ footer p {
 }
 
 /* FAQ */
-.faq-section { padding: 30px 0; }
-.faq-section h2 { text-align: center; margin-bottom: 16px; }
-.faq-list { max-width: 900px; margin: 0 auto; }
+:root {
+  --faq-bg: #ffffff;
+  --faq-border: rgba(0, 0, 0, 0.06);
+  --faq-primary: #f99109; /* Tu color naranja */
+  --faq-text: #333333;
+  --faq-accent: rgba(249, 145, 9, 0.05);
+}
+
+.faq-section { 
+  padding: 80px 0; 
+  background-color: #fdfdfd;
+}
+
+.faq-section h2 { 
+  text-align: center; 
+  margin-bottom: 40px;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--faq-text);
+}
+
+.faq-list { 
+  max-width: 850px; 
+  margin: 0 auto; 
+  padding: 0 20px;
+}
+
+/* El contenedor del ítem para manejar sombras agrupadas */
+.faq-group {
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+}
+
 .faq-item {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
-  padding: 14px 16px;
-  margin: 8px 0 0;
-  border-radius: 10px;
-  border: 1px solid rgba(0,0,0,0.08);
-  background: #fff;
-  color: var(--dark);
+  gap: 15px;
+  padding: 20px 24px;
+  border-radius: 12px; 
+  border: 1px solid var(--faq-border);
+  background: var(--faq-bg);
+  color: var(--faq-text);
+  font-size: 1.1rem;
+  font-weight: 600;
   cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.02);
 }
-.faq-item[aria-expanded="true"] { border-color: var(--primary); }
-.faq-item i { transition: transform .2s ease; }
-.faq-item[aria-expanded="true"] i { transform: rotate(180deg); }
 
+.faq-item:hover {
+  border-color: var(--faq-primary);
+  background-color: var(--faq-accent);
+  transform: translateY(-2px);
+}
+
+
+.faq-item[aria-expanded="true"] { 
+  border-color: var(--faq-primary);
+  background-color: #fff;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+  color: var(--faq-primary);
+}
+
+.faq-item i { 
+  font-size: 0.9rem;
+  transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55); 
+  color: var(--faq-primary);
+}
+
+.faq-item[aria-expanded="true"] i { 
+  transform: rotate(180deg); 
+}
+
+/* Panel de respuesta */
+/*MODIFICADO*/
 .faq-panel {
   overflow: hidden;
   max-height: 0;
-  transition: max-height .25s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   background: #fff;
-  border: 1px solid rgba(0,0,0,0.05);
+  border: 1px solid var(--faq-primary);
   border-top: none;
-  border-radius: 0 0 10px 10px;
-  padding: 0 16px;
+  border-radius: 0 0 12px 12px;
+  padding: 0 24px;
+  opacity: 0;
 }
-.faq-panel p { margin: 10px 0 16px; }
+
+.faq-item[aria-expanded="true"] + .faq-panel {
+  opacity: 1;
+  padding-bottom: 10px; /* Espacio extra al final del texto */
+}
+
+.faq-panel p { 
+  margin: 15px 0; 
+  line-height: 1.7;
+  color: #666;
+  font-size: 1rem;
+}
 
 /* Animación de revelado */
 .reveal { opacity: 0; transform: translateY(12px); transition: opacity .25s ease, transform .25s ease; }

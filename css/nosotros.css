@@ -173,67 +173,82 @@ nav ul li a:hover {
   }
 }
 
-.banner img {
-  width: 100%;
-  display: block;
-}
+/*MODIFICADO*/
 
 .banner {
-  position: relative;
-  width: 100%;
-  height: 65vh; 
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: white;
-}
-
-/* Overlay para mejorar legibilidad sobre el banner */
-.banner::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.45) 100%);
-  z-index: 2;
-  pointer-events: none;
+    position: relative;
+    height: 80vh; 
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    color: white;
+    text-align: center;
 }
 
 .background-img {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: blur(5px) brightness(0.6);
-  z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    filter: brightness(0.5); 
 }
 
 .banner-content {
-  position: relative;
-  z-index: 3; /* por encima del overlay */
-  max-width: 800px;
-  padding: 10px;
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 0 20px;
 }
 
 .banner-content h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    margin-bottom: 20px;
+    line-height: 1.1;
 }
 
 .banner-content p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
+    font-size: clamp(1rem, 4vw, 1.25rem);
+    line-height: 1.6;
+    margin-bottom: 35px;
+    font-weight: 400;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* Ajuste de ancho de botones en la sección Nosotros */
-.banner .btn-group .btn {
-  /* Evita que los botones crezcan a todo el ancho por la regla global .btn-group .btn { flex: 1 } */
-  flex: 0 0 auto;
+.btn-group {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap; 
 }
 
-.title{
+.btn-group .btn {
+    padding: 15px 30px;
+    border-radius: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: 0.3s;
+    min-width: 200px;
+}
+
+.btn-primary { background: #f49d32; color: white; }
+.btn-secondary { background: #25D366; color: white; }
+
+.btn-group .btn:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.1);
+}
+
+
+.title {
   text-align: center;
+
 }
 
 .section {
@@ -361,51 +376,94 @@ footer p {
   box-shadow: 0 5px 15px rgba(251, 159, 46, 0.3);
 }
 
+/*MODIFICADO*/
+
+:root {
+  --gold: linear-gradient(135deg, #f49d32, #ffcc80);
+  --dark: #0d1c2f;
+}
+
 .valores {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  padding: 40px 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  padding: 80px 5%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .valor-card {
-  background-color: #fff;
-  border: 1px solid #dbe2ea;
-  border-radius: 10px;
-  padding: 30px 20px;
-  width: 300px;
+  background: #fff;
+  padding: 50px 30px;
+  border-radius: 20px;
   text-align: center;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.06);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  border: 1px solid rgba(0,0,0,0.03);
+}
+
+/* El truco dinámico: Un fondo que sube al hacer hover */
+.valor-card::before {
+  content: '';
+  position: absolute;
+  top: 100%; /* Escondido abajo */
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--dark);
+  z-index: -1;
+  transition: all 0.4s ease;
 }
 
 .valor-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transform: translateY(-15px);
+  color: #fff;
+}
+
+.valor-card:hover::before {
+  top: 0; /* Sube y cubre el fondo */
 }
 
 .valor-card i {
-  font-size: 40px;
-  color:  #f49d32;
-  margin-bottom: 15px;
-}
-
-.valor-card h3 {
-  font-size: 1.2rem;
-  color: #0d1c2f;
-  margin-bottom: 10px;
-}
-
-.valor-card p {
-  font-size: 1rem;
-  color: #333;
-  line-height: 1.5;
+  font-size: 45px;
+  /* 1. Definimos el degradado de fondo */
+  background: linear-gradient(135deg, #f49d32, #ffcc80);
+  
+  /* 2. Recortamos el fondo al texto (Versión Webkit y Estándar) */
+  -webkit-background-clip: text;
+  background-clip: text;
+  
+  /* 3. Hacemos el color del icono transparente para que se vea el fondo */
+  color: transparent;
+  
+  /* 4. Respaldo para navegadores muy viejos */
+  display: inline-block;
+  margin-bottom: 20px;
+  transition: transform 0.5s ease;
 }
 
 .valor-card:hover i {
-  color: #0d47a1;
-  transition: color 0.3s ease;
+  transform: scale(1.2) rotate(10deg);
+}
+
+.valor-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  transition: color 0.3s;
+}
+
+.valor-card p {
+  line-height: 1.6;
+  opacity: 0.9;
+  transition: color 0.3s;
+}
+
+/* En hover, el texto se adapta al fondo oscuro automáticamente */
+.valor-card:hover h3, .valor-card:hover p {
+  color: #fff;
 }
 
 /* WhatsApp Float Button */
