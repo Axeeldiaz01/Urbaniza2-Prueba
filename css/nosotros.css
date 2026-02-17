@@ -567,3 +567,44 @@ footer p {
   }
 }
 
+/*AGREGUE ESTO PQ SE ROMPIA EL HEADER*/
+@media (max-width: 1050px) {
+    header .container {
+        flex-direction: row; 
+        flex-wrap: wrap;
+        justify-content: space-between; 
+        align-items: center;
+        padding: 10px 20px;
+    }
+    .logo {
+        flex: 0 0 auto;
+    }
+
+    header nav {
+        flex: 1 1 auto;
+        display: flex;
+        justify-content: flex-end; 
+    }
+
+    header nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 12px;
+        margin: 0;
+        padding: 0;
+    }
+
+    header nav ul li a {
+        font-size: 0.85rem; /* Achicamos un poco más para que quepa */
+        padding: 4px 8px;
+    }
+}
+
+/*celulares pequeños */
+@media (max-width: 768px) {
+    header .container {
+        justify-content: space-between;
+    }
+    
+}

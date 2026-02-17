@@ -2291,7 +2291,52 @@ a:hover .whatsapp-num {
     min-height: 600px;
   }
 }
+/* ================================================= */
+/* ARREGLO PARA MANTENER LOGO A LA IZQUIERDA         */
+/* ================================================= */
 
+@media (max-width: 1050px) {
+    header .container {
+        /* Mantenemos el logo y el menú en la misma fila o permitimos que envuelvan */
+        flex-direction: row; 
+        flex-wrap: wrap;
+        justify-content: space-between; /* Logo a la izquierda, menú a la derecha */
+        align-items: center;
+        padding: 10px 20px;
+    }
 
+    /* Forzamos que el logo se quede en su sitio */
+    .logo {
+        flex: 0 0 auto;
+    }
 
+    header nav {
+        flex: 1 1 auto;
+        display: flex;
+        justify-content: flex-end; /* Empuja los enlaces a la derecha */
+    }
+
+    header nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 12px;
+        margin: 0;
+        padding: 0;
+    }
+
+    header nav ul li a {
+        font-size: 0.85rem; /* Achicamos un poco más para que quepa */
+        padding: 4px 8px;
+    }
+}
+
+/* Si de plano ya no caben en una línea (celulares pequeños) */
+@media (max-width: 768px) {
+    header .container {
+        justify-content: space-between;
+    }
+    
+    /* Aquí podrías ocultar el nav si usas el menu-toggle que tienes en el HTML */
+}
 
