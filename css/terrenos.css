@@ -14,16 +14,18 @@
 }
 
 body {
+  font-family: 'Poppins', Arial, sans-serif;
   margin: 0;
-  background: var(--bg);
-  color: var(--dark);
-  line-height: 1.6;
-  font-family: "Poppins", sans-serif;
+  padding: 0;
+  background: #fff;
+  color: #222;
 }
 
 /* Layout para footer pegado al fondo en la página de terrenos */
 html, body {
-  height: 100%;
+  margin: 0;
+  /* El padding debe ser igual o mayor al alto del header (aprox 80px-90px) */
+  padding-top: 49px !important;
 }
 
 body {
@@ -54,25 +56,31 @@ html {
 }
 
 /* Header y Navegación */
+
 header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  width: 100%;
   z-index: 999;
-  background: var(--primary);
+  background: rgba(249, 145, 9, 0.679);
   color: white;
   transition: all 0.3s ease;
-  padding: 0.3rem 0;
+  padding: 5px 0;
 }
 
+
 .logo {
-  height: 4rem;
+  height: 65px;
   transition: height 0.3s ease;
   border: 0.2rem solid black;
-  border-radius: 0.5rem;
+  border-radius: 8px;
+  height: 60px; /* Tamaño fijo para que no desaparezca */
+  display: block;
 }
 
 header.shrink .logo {
-  height: 2.5rem;
+  height: 45px;
 }
 
 header.shrink {
@@ -794,8 +802,6 @@ footer p {
         height: 40px;
         font-size: 20px;
     }
-    
-
 }
 
 /* Footer para móviles pequeños */
@@ -1557,9 +1563,6 @@ footer p {
 }
 
 
-
-
-
 /* Responsive para modales */
 @media (max-width: 768px) {
   .modal-content {
@@ -1584,4 +1587,100 @@ footer p {
     width: 80px;
     height: 60px;
   }
+}
+
+
+/* --- Ajustes para el Carrusel --- */
+.carrusel-container {
+    position: relative;
+    width: 100%;
+    /* Quitamos alturas fijas (como 500px) que causan el hueco blanco */
+    height: auto !important; 
+    min-height: auto !important;
+    /* Definimos una proporción (ejemplo 4:3) para que el cuadro sea flexible */
+    aspect-ratio: 4 / 3; 
+    overflow: hidden;
+    background-color: #f9f9f9;
+}
+
+.carrusel-slide img {
+    width: 100%;
+    height: 100%;
+    /* 'contain' asegura que la imagen de lavandería salga COMPLETA */
+    object-fit: contain !important;
+    display: block;
+}
+
+/* --- Ajuste para Celulares --- */
+@media (max-width: 768px) {
+    .section {
+        flex-direction: column !important;
+        gap: 0.5rem !important; /* Reduce la separación entre imagen y texto */
+        padding: 1rem !important;
+    }
+
+    .cardd, .texto {
+        flex: 1 1 auto !important;
+        max-width: 100% !important;
+    }
+
+    /* Modificamos al texto a subir eliminando márgenes superiores */
+    .texto {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+        text-align: center;
+    }
+
+    .texto h2 {
+        font-size: 1.5rem !important;
+        margin-top: 5px !important;
+        line-height: 1.2;
+    }
+
+    .texto p {
+        font-size: 1rem !important;
+        margin-bottom: 1rem !important;
+    }
+}
+
+/*AGREGUE ESTO PQ SE ROMPIA EL HEADER*/
+@media (max-width: 1050px) {
+    header .container {
+        flex-direction: row; 
+        flex-wrap: wrap;
+        justify-content: space-between; 
+        align-items: center;
+        padding: 10px 20px;
+    }
+    .logo {
+        flex: 0 0 auto;
+    }
+
+    header nav {
+        flex: 1 1 auto;
+        display: flex;
+        justify-content: flex-end; 
+    }
+
+    header nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 12px;
+        margin: 0;
+        padding: 0;
+    }
+
+    header nav ul li a {
+        font-size: 0.85rem; /* Achicamos un poco más para que quepa */
+        padding: 4px 8px;
+    }
+}
+
+/*celulares pequeños */
+@media (max-width: 768px) {
+    header .container {
+        justify-content: space-between;
+    }
+    
 }

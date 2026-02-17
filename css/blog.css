@@ -333,119 +333,139 @@ nav ul li a:hover {
   }
 }
 
-/* Preguntas Frecuentes (FAQ) */
-/*MODIFICADO*/
-.faq-section {
-  margin-top: 80px;
-  padding: 60px 20px;
-  background-color: #fff;
-  border-radius: 24px; 
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05); 
+/* --- DISEÑO DE PREGUNTAS FRECUENTES ESTÉTICO --- */
+
+:root {
+  --primary-orange: #f99109;
+  --text-dark: #2d3436;
+  --text-gray: #636e72;
+  --bg-white: #ffffff;
+  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.05);
+  --border-color: #f0f0f0;
 }
+
+.faq-section {
+  padding: 60px 20px;
+  background-color: #fdfdfd;
+}
+
 .faq-section h2 {
   text-align: center;
-  margin-bottom: 50px;
-  color: #0d1c2f;
   font-size: 2.2rem;
   font-weight: 800;
-  gap: 12px;
+  color: var(--text-dark);
+  margin-bottom: 50px;
 }
 
 .faq-container {
-  max-width: 850px;
+  max-width: 800px;
   margin: 0 auto;
 }
 
+/* Contenedor de cada pregunta (Separación entre ellas) */
 .faq-item {
-  border: 1px solid #f0f0f0; 
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+  background: var(--bg-white);
+  border: 1px solid var(--border-color);
   border-radius: 16px;
   overflow: hidden;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow-soft);
 }
 
-.faq-item:hover {
-  border-color: #f97109;
-  box-shadow: 0 8px 20px rgba(249, 113, 9, 0.08);
-}
-
+/* Botón de la Pregunta */
 .faq-question {
   width: 100%;
-  text-align: left;
-  background: #fff; 
-  border: none;
-  font-size: 1.15rem;
-  padding: 24px;
-  cursor: pointer;
-  font-weight: 700;
-  color: #222;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: all 0.3s ease;
-}
-
-.faq-question:hover {
-  color: #f97109;
-  background-color: rgba(249, 113, 9, 0.02);
+  padding: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  transition: color 0.3s ease;
 }
 
 .faq-question i {
-  color: #f97109; 
-  font-size: 1.2rem;
-  transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  color: var(--primary-orange);
+  font-size: 1rem;
+  transition: transform 0.4s ease;
 }
 
+/* ESTADO ACTIVO (Cuando se abre) */
+/* Si usas la clase .active en el faq-item mediante JS */
 .faq-item.active {
-  border-color: #f97109;
-  background-color: #fff;
+  border: 2px solid var(--primary-orange);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(249, 145, 9, 0.1);
 }
 
 .faq-item.active .faq-question {
-  color: #f97109;
-  padding-bottom: 15px;
+  color: var(--primary-orange);
 }
 
 .faq-item.active .faq-question i {
   transform: rotate(180deg);
 }
 
+/* Panel de Respuesta */
 .faq-answer {
   max-height: 0;
   overflow: hidden;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   padding: 0 24px;
-  color: #555;
-  font-size: 1rem;
-  line-height: 1.7;
+  opacity: 0;
+  transition: all 0.4s ease;
+  color: var(--text-gray);
+  line-height: 1.8;
 }
 
 .faq-item.active .faq-answer {
-  max-height: 1000px; 
+  max-height: 800px; /* Suficiente para el contenido */
   padding-bottom: 24px;
+  opacity: 1;
+}
+
+/* Estilos internos de la respuesta (listas) */
+.faq-answer ul, .faq-answer ol {
+  margin-top: 15px;
+  padding-left: 20px;
+}
+
+.faq-answer li {
+  margin-bottom: 8px;
+}
+
+.faq-answer strong {
+  color: var(--text-dark);
 }
 
 .faq-answer a {
-  color: #f97109; 
-  text-decoration: none;
+  color: var(--primary-orange);
   font-weight: 700;
-  border-bottom: 2px solid rgba(249, 113, 9, 0.2);
-  transition: all 0.3s;
+  text-decoration: none;
 }
 
-.faq-answer a:hover {
-  border-bottom-color: #f97109;
-  background: rgba(249, 113, 9, 0.05);
+/* Efecto hover suave */
+.faq-item:hover:not(.active) {
+  border-color: var(--primary-orange);
+  background-color: rgba(249, 145, 9, 0.02);
 }
 
-
-@media (max-width: 600px) {
+/* Responsivo */
+@media (max-width: 768px) {
   .faq-question {
-    font-size: 1rem;
     padding: 20px;
+    font-size: 1rem;
+  }
+  
+  .faq-section h2 {
+    font-size: 1.8rem;
   }
 }
-
 /* Modales para Artículos */
 .article-modal {
   display: none;
@@ -710,4 +730,46 @@ footer p {
   .scrollToHome:hover {
     transform: translateY(-2px) scale(1.03);
   }
+}
+
+/*AGREGUE ESTO PQ SE ROMPIA EL HEADER*/
+@media (max-width: 1050px) {
+    header .container {
+        flex-direction: row; 
+        flex-wrap: wrap;
+        justify-content: space-between; 
+        align-items: center;
+        padding: 10px 20px;
+    }
+    .logo {
+        flex: 0 0 auto;
+    }
+
+    header nav {
+        flex: 1 1 auto;
+        display: flex;
+        justify-content: flex-end; 
+    }
+
+    header nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 12px;
+        margin: 0;
+        padding: 0;
+    }
+
+    header nav ul li a {
+        font-size: 0.85rem; /* Achicamos un poco más para que quepa */
+        padding: 4px 8px;
+    }
+}
+
+/*celulares pequeños */
+@media (max-width: 768px) {
+    header .container {
+        justify-content: space-between;
+    }
+    
 }

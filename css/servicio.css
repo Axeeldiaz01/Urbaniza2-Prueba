@@ -199,11 +199,6 @@ nav ul li a:hover {
   flex-direction: row-reverse;
 }
 
-.card, .texto {
-  flex: 1 1 400px;
-  max-width: 500px;
-}
-
 .imagen {
   width: 100%;
   height: auto;
@@ -211,15 +206,23 @@ nav ul li a:hover {
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
-.texto h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
+.texto {
+    margin-top: -10px; /* Margen negativo opcional para pegarlo más */
+    padding-top: 0;
+    text-align: center; 
+  }
 
-.texto p {
-  font-size: 1.1rem;
-  margin-bottom: 1.5rem;
-}
+  .texto h2 {
+    font-size: 1.5rem;
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+
+  .texto p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+  }
 
 .texto a {
   display: inline-block;
@@ -496,7 +499,7 @@ footer p {
   margin-bottom: 50px;
 }
 
-/* Ajuste para que en móviles no se rompa (grid responsivo) */
+/* Ajuste para que en móviles no se rompa*/
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -590,7 +593,6 @@ footer p {
 }
 
 /* Proceso */
-/*MODIFICADO*/
 
 .process-section { padding: 30px 0; }
 .process-section h2 { text-align: center; margin-bottom: 12px; }
@@ -647,18 +649,24 @@ footer p {
   .process-steps li.highlight::after { animation: none; }
 }
 
-/* FAQ */
+/*FAQ SECTION ----- MODIFICADO*/
+/*  VARIABLES Y CONFIGURACIÓN BASE                 */
+
 :root {
   --faq-bg: #ffffff;
-  --faq-border: rgba(0, 0, 0, 0.06);
-  --faq-primary: #f99109; /* Tu color naranja */
+  --faq-border: rgba(0, 0, 0, 0.08);
+  --faq-primary: #f99109; /* Tu naranja Urbaniza2 */
   --faq-text: #333333;
   --faq-accent: rgba(249, 145, 9, 0.05);
 }
 
+/* Contenedor general de la sección */
 .faq-section { 
-  padding: 80px 0; 
-  background-color: #fdfdfd;
+  margin-top: 80px;
+  padding: 60px 20px;
+  background-color: #fcfcfc; /* Un gris casi blanco para que resalten las tarjetas */
+  border-radius: 24px; 
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05); 
 }
 
 .faq-section h2 { 
@@ -669,18 +677,20 @@ footer p {
   color: var(--faq-text);
 }
 
+
+/* LA LISTA DE PREGUNTAS */
+
 .faq-list { 
   max-width: 850px; 
   margin: 0 auto; 
   padding: 0 20px;
+  /* Usamos Flexbox para controlar el espacio entre tarjetas */
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /*  separa las preguntas entre sí */
 }
 
-/* El contenedor del ítem para manejar sombras agrupadas */
-.faq-group {
-  margin-bottom: 15px;
-  transition: all 0.3s ease;
-}
-
+/* La tarjeta de la pregunta */
 .faq-item {
   width: 100%;
   display: flex;
@@ -688,15 +698,13 @@ footer p {
   justify-content: space-between;
   gap: 15px;
   padding: 20px 24px;
-  border-radius: 12px; 
-  border: 1px solid var(--faq-border);
   background: var(--faq-bg);
+  border: 1px solid var(--faq-border);
+  border-radius: 12px; /* Bordes redondeados en los 4 lados */
   color: var(--faq-text);
-  font-size: 1.1rem;
-  font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
 }
 
 .faq-item:hover {
@@ -705,43 +713,55 @@ footer p {
   transform: translateY(-2px);
 }
 
-
+/* Cuando la pregunta está abierta */
 .faq-item[aria-expanded="true"] { 
   border-color: var(--faq-primary);
-  background-color: #fff;
+  color: var(--faq-primary);
+  /* Quitamos el redondeo de abajo para que encaje con la respuesta */
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-  color: var(--faq-primary);
+}
+
+/* Tipografía y Icono */
+.faq-item span {
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: left;
 }
 
 .faq-item i { 
-  font-size: 0.9rem;
-  transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55); 
+  font-size: 1.1rem;
   color: var(--faq-primary);
+  transition: transform 0.3s ease; 
 }
 
 .faq-item[aria-expanded="true"] i { 
   transform: rotate(180deg); 
 }
 
-/* Panel de respuesta */
-/*MODIFICADO*/
+
+/*  EL PANEL DE RESPUESTA                          */
+
 .faq-panel {
   overflow: hidden;
   max-height: 0;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   background: #fff;
   border: 1px solid var(--faq-primary);
   border-top: none;
   border-radius: 0 0 12px 12px;
   padding: 0 24px;
   opacity: 0;
+  transition: all 0.3s ease-out;
+  /* Ajuste para que no se separe de la tarjeta de arriba cuando abre */
+  margin-top: -20px; 
 }
 
 .faq-item[aria-expanded="true"] + .faq-panel {
   opacity: 1;
-  padding-bottom: 10px; /* Espacio extra al final del texto */
+  max-height: 500px; 
+  padding-bottom: 24px;
+  margin-top: 0; /* Se une a la tarjeta superior */
+  margin-bottom: 10px; /* Separa el bloque abierto del siguiente */
 }
 
 .faq-panel p { 
@@ -752,76 +772,92 @@ footer p {
 }
 
 /* Animación de revelado */
-.reveal { opacity: 0; transform: translateY(12px); transition: opacity .25s ease, transform .25s ease; }
+.reveal { opacity: 0; transform: translateY(12px); transition: 0.25s ease; }
 .reveal.visible { opacity: 1; transform: none; }
 
-/* Responsive */
-@media (max-width: 1024px) {
-  .services-grid { grid-template-columns: repeat(2, minmax(240px, 1fr)); }
-  .process-steps { grid-template-columns: repeat(3, minmax(120px, 1fr)); }
-}
-@media (max-width: 768px) {
-  .services-grid { grid-template-columns: 1fr; }
-  .process-steps { grid-template-columns: 1fr; }
-}
-
-
-/* Ajustes finos: accesibilidad y consistencia */
-.cta:focus, .cta:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(251, 159, 46, 0.45);
-}
-.faq-item:focus, .faq-item:focus-visible {
-  outline: none;
-  border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(251, 159, 46, 0.35);
-}
-
-/* Consistencia de bordes y sombras */
+/* Estilos de Pasos y Procesos */
 .process-steps li {
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.08);
 }
-.faq-item {
-  border-radius: 12px;
-}
-.faq-panel {
-  border-radius: 0 0 12px 12px;
+
+.cta:focus, .faq-item:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(249, 145, 9, 0.35);
 }
 
-/* Ajustes responsive específicos */
+/*  RESPONSIVE  */
+
+
+@media (max-width: 1024px) {
+  .services-grid { grid-template-columns: repeat(2, minmax(240px, 1fr)); }
+  .process-steps { grid-template-columns: repeat(3, minmax(120px, 1fr)); }
+}
+
 @media (max-width: 768px) {
-  .services-section { padding: 24px 0; }
-  .services-grid { gap: 16px; }
+  /* Servicios y Secciones */
+  .services-grid, .process-steps { grid-template-columns: 1fr; }
+  .services-section, .process-section { padding: 24px 0; }
   .service-card { padding: 16px; }
-  .service-card h3 { font-size: 1.2rem; }
-  .service-card p { font-size: 0.95rem; }
 
-  .process-section { padding: 24px 0; }
-  .process-steps { gap: 10px; }
-
-  .faq-list { padding: 0 12px; }
-  .faq-item { padding: 12px 14px; }
-}
-
-
-/* Tipografía del acordeón (FAQ) */
-.faq-item span {
-  font-size: 1rem;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  line-height: 1.4;
-}
-.faq-item i {
-  font-size: 18px;
-  color: var(--primary);
-}
-.faq-panel {
-  font-size: 0.95rem;
-  line-height: 1.6;
-}
-@media (max-width: 768px) {
+  /* FAQ en móviles */
+  .faq-list { padding: 0 12px; gap: 15px; }
+  .faq-item { padding: 15px; }
   .faq-item span { font-size: 0.98rem; }
-  .faq-panel { font-size: 0.95rem; }
+
+  /* El ajuste de imágenes y texto */
+  .card, .texto {
+    flex: 1 1 auto; 
+    max-width: 100%;
+    margin-bottom: 0;
+  }
+
+  .section, .contenedor-flex { 
+    display: flex;
+    flex-direction: column;
+    gap: 15px; 
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+/*AGREGUE ESTO PQ SE ROMPIA EL HEADER*/
+@media (max-width: 1050px) {
+    header .container {
+        flex-direction: row; 
+        flex-wrap: wrap;
+        justify-content: space-between; 
+        align-items: center;
+        padding: 10px 20px;
+    }
+    .logo {
+        flex: 0 0 auto;
+    }
+
+    header nav {
+        flex: 1 1 auto;
+        display: flex;
+        justify-content: flex-end; 
+    }
+
+    header nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 12px;
+        margin: 0;
+        padding: 0;
+    }
+
+    header nav ul li a {
+        font-size: 0.85rem; /* Achicamos un poco más para que quepa */
+        padding: 4px 8px;
+    }
 }
 
+/*celulares pequeños */
+@media (max-width: 768px) {
+    header .container {
+        justify-content: space-between;
+    }
+    
+}

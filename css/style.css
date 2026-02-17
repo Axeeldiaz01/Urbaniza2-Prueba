@@ -310,6 +310,9 @@ nav ul li a:focus-visible {
 }
 
 /* Controles del slider */
+
+
+
 .slider-controls {
   position: absolute;
   top: 50%;
@@ -347,6 +350,8 @@ nav ul li a:focus-visible {
 }
 
 /* Indicadores */
+
+
 .slider-indicators {
   position: absolute;
   bottom: 30px;
@@ -376,6 +381,7 @@ nav ul li a:focus-visible {
 .indicator:hover {
   background: rgba(255, 255, 255, 0.7);
 }
+
 
 /* Anuncio inferior */
 .hero-announcement {
@@ -2224,7 +2230,113 @@ a:hover .whatsapp-num {
     }
 }
 
+/* AGREGUE ESTO PORQUE SE ROMPIA CUANDO LA PAGINA SE MIRABA DESDE CELULAR */
+@media (max-width: 768px) {
+  .slider-container {
+    height: 90vh;
+    min-height: 550px;
+  }
+
+  .hero-content {
+    top: 45%; /* Subimos un poco el contenido */
+  }
+
+  .hero-title {
+    font-size: 1.6rem; /* Tamaño de fuente más humano para celular */
+    margin-bottom: 1rem;
+    padding: 0 10px;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+    line-height: 1.4;
+    margin-bottom: 1.5rem;
+    padding: 0 15px;
+  }
+
+  .hero-buttons {
+    flex-direction: column; /* Botones uno sobre otro */
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .btn {
+    width: 85%; 
+    padding: 12px 20px;
+    font-size: 1rem;
+  }
 
 
+  .slider-indicators {
+    bottom: 20px;
+  }
 
+  .slider-btn {
+    width: 40px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.3); 
+  }
+
+  .slider-controls {
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero-title {
+    font-size: 1.4rem;
+  }
+  
+  .slider-container {
+    min-height: 600px;
+  }
+}
+/* ================================================= */
+/* ARREGLO PARA MANTENER LOGO A LA IZQUIERDA         */
+/* ================================================= */
+
+@media (max-width: 1050px) {
+    header .container {
+        /* Mantenemos el logo y el menú en la misma fila o permitimos que envuelvan */
+        flex-direction: row; 
+        flex-wrap: wrap;
+        justify-content: space-between; /* Logo a la izquierda, menú a la derecha */
+        align-items: center;
+        padding: 10px 20px;
+    }
+
+    /* Forzamos que el logo se quede en su sitio */
+    .logo {
+        flex: 0 0 auto;
+    }
+
+    header nav {
+        flex: 1 1 auto;
+        display: flex;
+        justify-content: flex-end; /* Empuja los enlaces a la derecha */
+    }
+
+    header nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 12px;
+        margin: 0;
+        padding: 0;
+    }
+
+    header nav ul li a {
+        font-size: 0.85rem; /* Achicamos un poco más para que quepa */
+        padding: 4px 8px;
+    }
+}
+
+/* Si de plano ya no caben en una línea (celulares pequeños) */
+@media (max-width: 768px) {
+    header .container {
+        justify-content: space-between;
+    }
+    
+    /* Aquí podrías ocultar el nav si usas el menu-toggle que tienes en el HTML */
+}
 
