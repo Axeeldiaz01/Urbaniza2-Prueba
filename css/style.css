@@ -148,8 +148,10 @@ nav ul li a:focus-visible {
 /* Responsividad */
 @media (max-width: 768px) {
   nav {
+    margin: 0;
     position: fixed;
     top: 0;
+    bottom: 0;
     right: -100%;
     width: 70%;
     height: 100vh;
@@ -492,7 +494,7 @@ section {
   margin-bottom: 30px;
 }
 section h2 {
-  color: rgba(249, 145, 9, 0.679);
+  color: rgba(240, 161, 58, 0.679);
   font-size: 1.3rem;
   margin-bottom: 10px;
 }
@@ -505,7 +507,8 @@ section h2 {
   margin: 0 auto;
   border-radius: 15px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  height: 450px;
+  
+  aspect-ratio: 16 / 9;
 }
 
 .carrusel-imagenes {
@@ -534,7 +537,8 @@ section h2 {
 .slide img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  background: transparent;
   display: block;
   transition: transform 0.3s ease;
   border-radius: 15px;
@@ -628,6 +632,7 @@ section h2 {
 }
 
 /* Responsive ajustes */
+/*
 @media screen and (max-width: 768px) {
   .carrusel-terrenos {
     height: 350px;
@@ -637,7 +642,7 @@ section h2 {
 @media screen and (max-width: 480px) {
   .carrusel-terrenos {
     height: 280px;
-  }
+  }*/
   
   .slide-caption {
     padding: 1rem;
@@ -650,7 +655,7 @@ section h2 {
   .slide-caption p {
     font-size: 0.9rem;
   }
-}
+
 
 /* Footer */
 footer {
@@ -2317,6 +2322,5 @@ header.shrink {
 header.shrink .logo {
   height: 38px;
 }
-
 }
 

@@ -253,8 +253,14 @@ nav ul li a:hover {
 
 .title {
   text-align: center;
-
+  font-size: 50px;
+/*  background: linear-gradient(to right, #ebb84c, #f0bb59);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;*/
 }
+
+
 
 .section {
   display: flex;

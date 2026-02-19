@@ -463,6 +463,7 @@ nav ul li a:hover {
   .faq-question {
     padding: 20px;
     font-size: 1rem;
+    gap: 15px;
   }
   
   .faq-section h2 {
