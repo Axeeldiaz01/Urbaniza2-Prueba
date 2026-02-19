@@ -55,13 +55,13 @@ header.shrink {
   padding: 2px 0;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
-
+/*MODIFICACION*/
 header .container {
   display: flex;
-  align-items: center;
+  align-items: center;      /* centra verticalmente */
   justify-content: space-between;
-  padding: 5px 0;
 }
+
 nav {
   margin: 5px -70px;
 }
@@ -120,7 +120,7 @@ nav ul li a:focus-visible {
   z-index: 1101;
   font-size: 1.5rem;
 }
-
+/*MODIFICACION */
 .menu-toggle .bar {
   display: block;
   height: 3px;
@@ -132,9 +132,9 @@ nav ul li a:focus-visible {
   transform-origin: center;
   margin: 3px 0;
 }
-
+/*******************/
 .menu-toggle.active .bar:nth-child(1) {
-  transform: rotate(45deg) translateY(8px);
+  transform: rotate(45deg);
 }
 
 .menu-toggle.active .bar:nth-child(2) {
@@ -142,13 +142,16 @@ nav ul li a:focus-visible {
 }
 
 .menu-toggle.active .bar:nth-child(3) {
-  transform: rotate(-45deg) translateY(-8px);
+  transform: rotate(-45deg);
 }
+
 /* Responsividad */
 @media (max-width: 768px) {
   nav {
+    margin: 0;
     position: fixed;
     top: 0;
+    bottom: 0;
     right: -100%;
     width: 70%;
     height: 100vh;
@@ -164,9 +167,6 @@ nav ul li a:focus-visible {
 
   .menu-toggle {
     display: block;
-    position: fixed;
-    top: 26px;
-    right: 12px;
     z-index: 1101;
     font-size: 2rem;
     background: none;
@@ -494,7 +494,7 @@ section {
   margin-bottom: 30px;
 }
 section h2 {
-  color: rgba(249, 145, 9, 0.679);
+  color: rgba(240, 161, 58, 0.679);
   font-size: 1.3rem;
   margin-bottom: 10px;
 }
@@ -507,7 +507,8 @@ section h2 {
   margin: 0 auto;
   border-radius: 15px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  height: 450px;
+  
+  aspect-ratio: 16 / 9;
 }
 
 .carrusel-imagenes {
@@ -536,7 +537,8 @@ section h2 {
 .slide img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  background: transparent;
   display: block;
   transition: transform 0.3s ease;
   border-radius: 15px;
@@ -630,6 +632,7 @@ section h2 {
 }
 
 /* Responsive ajustes */
+/*
 @media screen and (max-width: 768px) {
   .carrusel-terrenos {
     height: 350px;
@@ -639,7 +642,7 @@ section h2 {
 @media screen and (max-width: 480px) {
   .carrusel-terrenos {
     height: 280px;
-  }
+  }*/
   
   .slide-caption {
     padding: 1rem;
@@ -652,7 +655,7 @@ section h2 {
   .slide-caption p {
     font-size: 0.9rem;
   }
-}
+
 
 /* Footer */
 footer {
@@ -2291,52 +2294,33 @@ a:hover .whatsapp-num {
     min-height: 600px;
   }
 }
-/* ================================================= */
-/* ARREGLO PARA MANTENER LOGO A LA IZQUIERDA         */
-/* ================================================= */
-
-@media (max-width: 1050px) {
-    header .container {
-        /* Mantenemos el logo y el menú en la misma fila o permitimos que envuelvan */
-        flex-direction: row; 
-        flex-wrap: wrap;
-        justify-content: space-between; /* Logo a la izquierda, menú a la derecha */
-        align-items: center;
-        padding: 10px 20px;
-    }
-
-    /* Forzamos que el logo se quede en su sitio */
-    .logo {
-        flex: 0 0 auto;
-    }
-
-    header nav {
-        flex: 1 1 auto;
-        display: flex;
-        justify-content: flex-end; /* Empuja los enlaces a la derecha */
-    }
-
-    header nav ul {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: flex-end;
-        gap: 12px;
-        margin: 0;
-        padding: 0;
-    }
-
-    header nav ul li a {
-        font-size: 0.85rem; /* Achicamos un poco más para que quepa */
-        padding: 4px 8px;
-    }
+/*MODIFICACION*/
+/* Arreglo para que el menú no empuje el contenido hacia abajo */
+@media (max-width: 768px) {
+ .menu-toggle {
+  display: flex;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
 }
 
-/* Si de plano ya no caben en una línea (celulares pequeños) */
-@media (max-width: 768px) {
-    header .container {
-        justify-content: space-between;
-    }
-    
-    /* Aquí podrías ocultar el nav si usas el menu-toggle que tienes en el HTML */
+header {
+  padding: 8px 0;
+}
+
+header.shrink {
+  padding: 4px 0;
+}
+
+.logo {
+  height: 55px;
+}
+
+header.shrink .logo {
+  height: 38px;
+}
 }
 

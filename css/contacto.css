@@ -41,7 +41,7 @@ body {
   margin: 0 auto;
 }
 
-/* Header y Navegación */
+/* DESDE STYLE ESTA ESTO Header y Navegación 
 header {
   position: sticky;
   top: 0;
@@ -137,7 +137,8 @@ nav ul li a:hover {
 
 .menu-toggle.active .bar:nth-child(3) {
   transform: rotate(-45deg) translateY(-8px);
-}
+}*/
+
 
 /* SECCIÓN CONTACTO PRINCIPAL */
 /*MODIFICADO*/
@@ -916,7 +917,7 @@ footer p {
   box-shadow: 0 5px 15px rgba(251, 159, 46, 0.3);
 }
 
-/* RESPONSIVIDAD */
+/* RESPONSIVIDAD igualmente
 @media (max-width: 768px) {
   nav {
     position: fixed;
@@ -1038,6 +1039,7 @@ footer p {
     font-size: 0.8rem;
   }
 }
+  */
 
 @media (max-width: 480px) {
   .contacto-header h2 {
@@ -1572,39 +1574,24 @@ input.invalid, select.invalid, textarea.invalid {
   }
 }
 
-/*AGREGUE ESTO PQ SE ROMPIA EL HEADER*/
-@media (max-width: 1050px) {
-    header .container {
-        flex-direction: row; 
-        flex-wrap: wrap;
-        justify-content: space-between; 
-        align-items: center;
-        padding: 10px 20px;
+/*MODIFICACION 
+@media (max-width: 768px) {
+    .header {
+        padding: 10px 0; 
+        position: relative;
     }
-    .logo {
-        flex: 0 0 auto;
-    }
-
-    header nav {
-        flex: 1 1 auto;
+    .navbar {
         display: flex;
-        justify-content: flex-end; 
+        justify-content: center;
+        gap: 10px; 
     }
+    .navbar a {
+        padding: 5px 8px;
+        font-size: 13px; 
+    }
+}*/
 
-    header nav ul {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: flex-end;
-        gap: 12px;
-        margin: 0;
-        padding: 0;
-    }
 
-    header nav ul li a {
-        font-size: 0.85rem; /* Achicamos un poco más para que quepa */
-        padding: 4px 8px;
-    }
-}
 
 /*celulares pequeños */
 @media (max-width: 768px) {
