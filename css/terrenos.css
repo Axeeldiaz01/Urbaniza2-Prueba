@@ -21,12 +21,6 @@ body {
   color: #222;
 }
 
-/* Layout para footer pegado al fondo en la página de terrenos */
-html, body {
-  margin: 0;
-  /* El padding debe ser igual o mayor al alto del header (aprox 80px-90px) */
-  padding-top: 49px !important;
-}
 
 body {
   display: flex;
@@ -57,107 +51,7 @@ html {
 
 /* Header y Navegación */
 
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 999;
-  background: rgba(249, 145, 9, 0.679);
-  color: white;
-  transition: all 0.3s ease;
-  padding: 5px 0;
-}
 
-
-.logo {
-  height: 65px;
-  transition: height 0.3s ease;
-  border: 0.2rem solid black;
-  border-radius: 8px;
-  height: 60px; /* Tamaño fijo para que no desaparezca */
-  display: block;
-}
-
-header.shrink .logo {
-  height: 45px;
-}
-
-header.shrink {
-  padding: 0.1rem 0;
-  box-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.2);
-}
-
-header .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.3rem 0;
-}
-
-nav {
-  margin: 0.3rem -4.4rem;
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 1.25rem;
-  margin: 0;
-  padding: 0;
-  flex-direction: row;
-}
-
-nav ul li a {
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  transition: color .3s;
-}
-
-nav ul li a:hover {
-  color: var(--dark);
-}
-
-.menu-toggle {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 2.5rem;
-  height: 2.5rem;
-  position: relative;
-  background: none;
-  color: white;
-  border: none;
-  cursor: pointer;
-  z-index: 1101;
-  font-size: 1.5rem;
-}
-
-.menu-toggle .bar {
-  display: block;
-  height: 0.2rem;
-  width: 1.9rem;
-  background-color: white;
-  border-radius: 0.1rem;
-  transition: all 0.3s ease;
-  position: relative;
-  transform-origin: center;
-  margin: 0.2rem 0;
-}
-
-.menu-toggle.active .bar:nth-child(1) {
-  transform: rotate(45deg) translateY(0.5rem);
-}
-
-.menu-toggle.active .bar:nth-child(2) {
-  opacity: 0;
-}
-
-.menu-toggle.active .bar:nth-child(3) {
-  transform: rotate(-45deg) translateY(-0.5rem);
-}
 
 /* Buscador */
 .buscador-inmuebles {
@@ -669,118 +563,7 @@ footer p {
   }
 }
 
-@media (max-width: 48rem) {
-  /* Navegación móvil */
-  nav {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 70%;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.533);
-    padding: 1.9rem 1.25rem;
-    transition: right 0.6s ease;
-    z-index: 1000;
-  }
 
-  nav.show {
-    right: 0;
-  }
-
-  .menu-toggle {
-    display: block;
-    position: fixed;
-    top: 1.6rem;
-    right: 0.75rem;
-    z-index: 1101;
-    font-size: 2rem;
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
-  }
-
-  body.menu-abierto {
-    overflow: hidden;
-  }
-
-  nav ul {
-    flex-direction: column;
-    gap: 1.25rem;
-  }
-  
-  /* Buscador móvil */
-  .buscador-inmuebles {
-    padding: 1.25rem 0 0.9rem 0;
-  }
-  
-  .buscador-inmuebles h1 {
-    font-size: 1.5rem;
-    margin-bottom: 0.9rem;
-  }
-  
-  .buscador-form {
-    padding: 0 1.2rem;
-  }
-  
-  /* Galería móvil */
-  .galeria {
-    grid-template-columns: 1fr;
-    gap: 0.9rem;
-    padding: 0 0.6rem;
-  }
-  
-  #terrenos h2 {
-    font-size: 1.5rem;
-    padding: 0.9rem;
-  }
-  
-  .container {
-    width: 95%;
-  }
-
-  .section, .section.reverse {
-    flex-direction: column;
-    text-align: center;
-    margin: 1.25rem 0.6rem;
-    padding: 1.9rem 0.9rem;
-  }
-  
-  .cardd, .texto {
-    max-width: 100%;
-    width: 100%;
-  }
-  
-  .carrusel-chorrillos {
-    max-width: 100%;
-    width: 100%;
-  }
-
-  .carrusel-container {
-    height: 15.625rem;
-  }
-  
-  .carrusel-chorrillos {
-    max-width: 100%;
-    width: 100%;
-    margin-bottom: 0;
-  }
-  
-  .carrusel-indicadores {
-    margin-top: 0.625rem;
-    margin-bottom: 0;
-  }
-
-  .scrollToHome {
-    width: 50px;
-    height: 50px;
-    font-size: 18px;
-    line-height: 50px;
-    border-radius: 18px;
-    bottom: 18px;
-    right: 18px;
-  }
-}
 
 /* Footer responsivo */
 @media (max-width: 768px) {
@@ -1643,44 +1426,56 @@ footer p {
     }
 }
 
-/*AGREGUE ESTO PQ SE ROMPIA EL HEADER*/
-@media (max-width: 1050px) {
-    header .container {
-        flex-direction: row; 
-        flex-wrap: wrap;
-        justify-content: space-between; 
-        align-items: center;
-        padding: 10px 20px;
-    }
-    .logo {
-        flex: 0 0 auto;
-    }
+/* ============================================================
+   REPARACIÓN DE MENÚ LATERAL Y BOTÓN DE CIERRE (X)
+   ============================================================ */
 
-    header nav {
-        flex: 1 1 auto;
-        display: flex;
-        justify-content: flex-end; 
-    }
-
-    header nav ul {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: flex-end;
-        gap: 12px;
-        margin: 0;
-        padding: 0;
-    }
-
-    header nav ul li a {
-        font-size: 0.85rem; /* Achicamos un poco más para que quepa */
-        padding: 4px 8px;
-    }
-}
-
-/*celulares pequeños */
 @media (max-width: 768px) {
-    header .container {
-        justify-content: space-between;
+    /* 1. El contenedor del menú (asegúrate de que esta sea tu clase) */
+    .nav-menu {
+        position: fixed !important;
+        top: 0;
+        right: 0;
+        width: 250px; /* Ancho del menú lateral */
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9); /* Fondo oscuro */
+        display: flex;
+        flex-direction: column;
+        padding: 60px 20px 20px 20px !important;
+        z-index: 10000;
+        transition: 0.3s;
     }
-    
+
+    /* 2. La "X" de cierre - LA VAMOS A POSICIONAR SOLA */
+    .close-menu {
+        position: absolute !important;
+        top: 15px !important;
+        right: 15px !important;
+        font-size: 28px !important;
+        color: white !important;
+        cursor: pointer;
+        line-height: 1;
+        z-index: 10001;
+        width: auto !important;
+        height: auto !important;
+    }
+
+    /* 3. Los enlaces del menú lateral */
+    .nav-menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex !important;
+        flex-direction: column !important; /* Texto uno debajo de otro */
+        align-items: flex-start !important; /* Alineado a la izquierda */
+        gap: 20px; /* Espacio entre cada palabra */
+    }
+
+    .nav-menu ul li a {
+        color: white !important;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: bold;
+        display: block;
+    }
 }

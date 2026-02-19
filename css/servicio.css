@@ -59,12 +59,12 @@ header .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 5px 0;
 }
 
+/*
 nav {
   margin: 5px -70px;
-}
+}*/
 
 nav ul {
   list-style: none;
@@ -93,14 +93,11 @@ nav ul li a:hover {
   align-items: center;
   width: 40px;
   height: 40px;
-  position: relative;
   background: none;
-  color: white;
   border: none;
   cursor: pointer;
-  z-index: 1101;
-  font-size: 1.5rem;
 }
+
 
 .menu-toggle .bar {
   display: block;
@@ -357,7 +354,11 @@ footer p {
   nav.show {
     right: 0;
   }
+.menu-toggle {
+  display: flex;
+}
 
+ /*
   .menu-toggle {
     display: block;
     position: fixed;
@@ -369,7 +370,7 @@ footer p {
     border: none;
     color: white;
     cursor: pointer;
-  }
+  }*/
 
   body.menu-abierto {
     overflow: hidden;
@@ -820,39 +821,24 @@ footer p {
     padding-bottom: 10px;
   }
 }
-/*AGREGUE ESTO PQ SE ROMPIA EL HEADER*/
-@media (max-width: 1050px) {
-    header .container {
-        flex-direction: row; 
-        flex-wrap: wrap;
-        justify-content: space-between; 
-        align-items: center;
-        padding: 10px 20px;
+/*MODIFICACION 
+/* Arreglo para que el menú no empuje el contenido hacia abajo 
+@media (max-width: 768px) {
+    .header {
+        padding: 10px 0; 
+        position: relative;
     }
-    .logo {
-        flex: 0 0 auto;
-    }
-
-    header nav {
-        flex: 1 1 auto;
+    .navbar {
         display: flex;
-        justify-content: flex-end; 
+        justify-content: center;
+        gap: 10px; 
     }
+    .navbar a {
+        padding: 5px 8px;
+        font-size: 13px; 
+    }
+}*/
 
-    header nav ul {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: flex-end;
-        gap: 12px;
-        margin: 0;
-        padding: 0;
-    }
-
-    header nav ul li a {
-        font-size: 0.85rem; /* Achicamos un poco más para que quepa */
-        padding: 4px 8px;
-    }
-}
 
 /*celulares pequeños */
 @media (max-width: 768px) {
@@ -861,3 +847,4 @@ footer p {
     }
     
 }
+
