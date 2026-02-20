@@ -1600,3 +1600,10 @@ input.invalid, select.invalid, textarea.invalid {
     }
     
 }
+@media (max-width: 768px) {
+
+  .contacto-section {
+    padding-top: 0;  /* antes era 80px */
+  }
+
+}

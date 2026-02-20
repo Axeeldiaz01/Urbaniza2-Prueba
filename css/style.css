@@ -147,19 +147,20 @@ nav ul li a:focus-visible {
 
 /* Responsividad */
 @media (max-width: 768px) {
-  nav {
+nav {
     margin: 0;
     position: fixed;
     top: 0;
-    bottom: 0;
-    right: -100%;
-    width: 70%;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.533);
+    right: -50%;              
+    width: 50%;               
+    height: 100vh;      
     padding: 30px 20px;
     transition: right 0.6s ease;
     z-index: 1000;
-  }
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.7); /* Un negro más elegante */
+}
 
   nav.show {
     right: 0;
@@ -195,7 +196,7 @@ nav ul li a:focus-visible {
 .slider-container {
   position: relative;
   width: 100%;
-  height: 70vh;
+  height: 83vh;
   min-height: 500px;
   overflow: hidden;
 }
@@ -406,8 +407,8 @@ nav ul li a:focus-visible {
 /* Responsive Design */
 @media (max-width: 768px) {
   .slider-container {
-    height: 83vh;
-    min-height: 400px;
+    height: 40vh;
+    min-height: unset;
   }
   
   .hero-title {
@@ -453,8 +454,8 @@ nav ul li a:focus-visible {
 
 @media (max-width: 480px) {
   .slider-container {
-    height: 50vh;
-    min-height: 350px;
+    height: 40vh;
+    min-height: unset;
   }
   
   .hero-title {
@@ -1795,7 +1796,7 @@ a:hover .whatsapp-num {
 
 /* Clases para reemplazar estilos inline */
 .slide-bg-1 {
-  background-image: url('../img/slider1.jpg');
+  background: url('../img/slider1.jpg') no-repeat center center/cover;
 }
 
 .slide-bg-2 {
@@ -2322,5 +2323,10 @@ header.shrink {
 header.shrink .logo {
   height: 38px;
 }
+}
+
+html, body {
+  height: 100%;
+  overflow-x: hidden;
 }
 
