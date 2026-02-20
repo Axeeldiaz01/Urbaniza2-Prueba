@@ -9,7 +9,16 @@
   --round: 5px;
   --font: 'Poppins', sans-serif;
 }
+h1 {
+  font-size: 32px;
+  font-weight: 700;
+}
 
+@media (max-width: 768px) {
+  h1 {
+    font-size: 26px;
+  }
+}
 * {
   box-sizing: border-box;
 }
@@ -178,7 +187,7 @@ nav ul li a:hover {
   background-color: #d58f22;
 }
 
-/* Secciones */
+/* Secciones 
 .section {
   display: flex;
   align-items: center;
@@ -191,7 +200,7 @@ nav ul li a:hover {
   margin: 30px 20px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.304);
 }
-
+*/
 .section.reverse {
   flex-direction: row-reverse;
 }
@@ -221,14 +230,16 @@ nav ul li a:hover {
     line-height: 1.4;
   }
 
-.texto a {
+.section .texto a {
   display: inline-block;
-  padding: 10px 20px;
+  width: auto;              /*  evita que ocupe todo el ancho */
+  align-self: flex-start;   /*  se ajusta al contenido */
+  padding: 10px 22px;
   background-color: #f3a530;
   color: white;
   text-decoration: none;
   border-radius: 8px;
-  font-weight: bold;
+  font-weight: 600;
   transition: background 0.3s ease;
 }
 
@@ -848,3 +859,65 @@ footer p {
     
 }
 
+/* Secciones Compra/Venta y Asesoría Legal */
+.section {
+  display: flex;
+  align-items: center; /* Centra verticalmente el contenido */
+  justify-content: center;
+  gap: 40px;
+  padding: 50px 20px;
+  flex-wrap: wrap;
+  background-color: #f2f2f2bb;
+  border-radius: 15px;
+  margin: 30px 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.section.reverse {
+  flex-direction: row-reverse;
+}
+
+.section .card {
+  flex: 1 1 45%; /* Ocupa hasta 45% de ancho en desktop */
+  max-width: 500px; /* Evita que la imagen se haga demasiado grande */
+}
+
+.section .card img.imagen {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.section .texto {
+  flex: 1 1 45%;
+  max-width: 500px;
+  text-align: left; /* Alinea texto a la izquierda en desktop */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra verticalmente */
+  gap: 15px;
+}
+
+.section.reverse .texto {
+  text-align: left; /* Sigue alineado a la izquierda aunque esté al lado derecho */
+}
+
+/* Móvil: todo en columna centrado */
+@media (max-width: 768px) {
+  .section, .section.reverse {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+  .section .texto, .section.reverse .texto {
+    max-width: 100%;
+    text-align: center;
+  }
+  .section .card, .section.reverse .card {
+    max-width: 100%;
+  }
+  .section .texto a {
+  align-self: center;
+}
+}
