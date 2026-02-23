@@ -197,8 +197,8 @@ nav ul li a:focus-visible {
 .slider-container {
   position: relative;
   width: 100%;
-  height: 83vh;
-  min-height: 500px;
+  height: 65vh;
+  min-height: 450px;
   overflow: hidden;
 }
 
@@ -539,7 +539,7 @@ section h2 {
 .slide img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   background: transparent;
   display: block;
   transition: transform 0.3s ease;
@@ -765,76 +765,92 @@ a:hover .whatsapp-num {
   box-shadow: 0 4px 15px rgba(244, 157, 50, 0.4);
 }
 
-/* CALCULADORA DE FINANCIAMIENTO */
+/* CALCULADORA PREMIUM */
+/* ============================= */
+
 .calculadora-section {
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-  padding: 40px 20px;
-  margin: 40px 0;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
+  padding: 80px 20px;
+  background:
+    radial-gradient(circle at top right, rgba(249, 145, 9, 0.05), transparent),
+    #fdfdfd;}
 
 .calculadora-section h2 {
   text-align: center;
-  color: #333;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
   margin-bottom: 10px;
-  font-size: 2.2rem;
+  font-weight: 700;
 }
 
 .calculadora-section p {
   text-align: center;
-  color: #666;
-  margin-bottom: 30px;
-  font-size: 1.1rem;
+  color: #6b7280;
+  margin-bottom: 50px;
 }
 
+/* CONTENEDOR PRINCIPAL */
 .calculadora-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
-  max-width: 1000px;
-  margin: 0 auto;
+  max-width: 1100px;
+  margin: auto;
+  background: #ffffff;
+  padding: 50px;
+  border-radius: 25px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
 }
-
-.calculadora-inputs {
-  background: white;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-}
-
-.input-group {
+/*******************************************************/
+.calculadora-inputs .input-group {
   margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
 }
 
-.input-group label {
-  display: block;
-  margin-bottom: 8px;
+.calculadora-inputs label {
   font-weight: 600;
-  color: #333;
+  margin-bottom: 8px;
+  color: #374151;
 }
 
-.input-group input,
-.input-group select {
-  width: 100%;
+.calculadora-inputs input,
+.calculadora-inputs select {
   padding: 12px 15px;
-  border: 2px solid #e1e5e9;
-  border-radius: 8px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
   font-size: 1rem;
-  transition: border-color 0.3s;
+  transition: all 0.3s ease;
+  background: #f9fafb;
 }
 
-.input-group input:focus,
-.input-group select:focus {
+.calculadora-inputs input:focus,
+.calculadora-inputs select:focus {
   outline: none;
   border-color: #f99109;
+  box-shadow: 0 0 0 3px rgba(249, 145, 9, 0.2);
+  background: #ffffff;
 }
 
-.input-group input[type="range"] {
-  padding: 0;
-  height: 8px;
-  background: #e1e5e9;
-  border-radius: 4px;
+/* SLIDER PERSONALIZADO */
+input[type="range"] {
+  -webkit-appearance: none;
+  height: 6px;
+  border-radius: 5px;
+  background: #e5e7eb;
+  margin-top: 10px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  background: #f99109;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
 }
 
 #cuota-inicial-valor {
@@ -845,50 +861,74 @@ a:hover .whatsapp-num {
 }
 
 .btn-calcular {
-  width: 100%;
-  background: linear-gradient(135deg, #f99109 0%, #d87e07 100%);
-  color: white;
+  margin-top: 20px;
+  padding: 14px;
   border: none;
-  padding: 15px;
-  border-radius: 8px;
-  font-size: 1.1rem;
+  border-radius: 14px;
   font-weight: 600;
+  font-size: 1rem;
   cursor: pointer;
-  transition: transform 0.2s;
+  background: linear-gradient(135deg, #f99109, #ff7a00);
+  color: white;
+  transition: all 0.3s ease;
 }
 
+
 .btn-calcular:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(249, 145, 9, 0.3);
 }
 
 .calculadora-resultados {
-  background: white;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* que empiece desde arriba */
+  gap: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  border: 1px solid #f1f1f1;
 }
 
 .calculadora-resultados h3 {
+  margin: 0 0 25px 0;
   text-align: center;
-  margin-bottom: 25px;
-  color: #333;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #f99109;
+  border-bottom: 2px solid #f99109;
+  padding-bottom: 10px;
 }
 
 .resultado-item {
   display: flex;
   justify-content: space-between;
-  padding: 15px 0;
-  border-bottom: 1px solid #f0f0f0;
+  align-items: center;
+  padding: 14px 0;
+  font-size: 1rem;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.resultado-item span:first-child {
+  color: #555;
+  font-weight: 500;
+}
+
+.resultado-item span:last-child {
+  font-weight: 600;
+  color: #111;
 }
 
 .resultado-item.total {
-  border-bottom: none;
-  font-weight: bold;
-  font-size: 1.2rem;
-  color: #f99109;
-  border-top: 2px solid #f99109;
-  margin-top: 10px;
-  padding-top: 20px;
+  margin-top: 25px;
+  padding: 18px;
+  background: linear-gradient(135deg, #f99109, #ffb347);
+  border-radius: 14px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #111;
+  box-shadow: 0 8px 20px rgba(249, 145, 9, 0.25);
 }
 
 .btn-comprar {
@@ -1214,7 +1254,7 @@ a:hover .whatsapp-num {
 
 .services-section {
   padding: 80px 5%;
-  background:
+    background:
     radial-gradient(circle at top right, rgba(249, 145, 9, 0.05), transparent),
     #fdfdfd;
   overflow: hidden;
@@ -1449,7 +1489,9 @@ a:hover .whatsapp-num {
 /* SECCIÓN INFORMACIÓN EDUCATIVA */
 .info-section {
   padding: 80px 0;
-  background: white;
+    background:
+    radial-gradient(circle at top right, rgba(249, 145, 9, 0.05), transparent),
+    #fdfdfd;
 }
 
 /* ===== MODAL DE COMPRA PROFESIONAL ===== */
@@ -2285,7 +2327,7 @@ a:hover .whatsapp-num {
 @media (max-width: 768px) {
   .slider-container {
     height: 90vh;
-    min-height: 550px;
+    min-height: 400px;
   }
 
   .hero-content {
@@ -2399,4 +2441,47 @@ body {
     font-size: 0.85rem;
   }
 
+}
+
+/* RESPONSIVE */
+/* ============================= */
+
+/* TABLET */
+@media (max-width: 1024px) {
+  .calculadora-container {
+    grid-template-columns: 1fr;
+    padding: 40px;
+  }
+
+  .calculadora-resultados {
+    margin-top: 20px;
+  }
+}
+
+/* CELULAR */
+@media (max-width: 600px) {
+  .calculadora-section {
+    padding: 60px 15px;
+  }
+
+  .calculadora-container {
+    padding: 25px;
+    border-radius: 18px;
+  }
+
+  .calculadora-resultados {
+    padding: 25px;
+  }
+
+  .resultado-item {
+    font-size: 0.9rem;
+  }
+
+  .resultado-item.total {
+    font-size: 1.1rem;
+  }
+
+  .btn-calcular {
+    font-size: 0.95rem;
+  }
 }

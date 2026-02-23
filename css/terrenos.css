@@ -51,116 +51,160 @@ html {
 
 /* Header y Navegación */
 
+/* =========================
+   BUSCADOR PREMIUM
+========================= */
 
-
-/* Buscador */
 .buscador-inmuebles {
-  background: #f7f7f7;
-  padding: 2rem 0 1.5rem 0;
+  background:
+    radial-gradient(circle at top right, rgba(249, 145, 9, 0.05), transparent),
+    #fdfdfd;  padding: 3rem 1rem 2.5rem;
   text-align: center;
-  margin-bottom: 1.9rem;
+  margin-bottom: 2rem;
 }
 
 .buscador-inmuebles h1 {
-  font-size: 2rem;
-  font-weight: 600;
-  margin-bottom: 1.1rem;
-  color: #222;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #1a1a1a;
+  letter-spacing: -0.5px;
 }
 
+/* CONTENEDOR FORM */
 .buscador-form {
+  background: #ffffff;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.8rem;
+  border-radius: 16px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.06);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 0.6rem;
-  padding: 0 0.9rem;
+  gap: 1.2rem;
 }
 
+/* FILA PRINCIPAL */
 .buscador-row {
   display: flex;
-  gap: 0.75rem;
+  gap: 1rem;
   width: 100%;
-  justify-content: center;
 }
 
-.buscador-row select {
-  min-width: 12.5rem;
-  padding: 0.6rem 0.75rem;
-  border: 0.06rem solid #ddd;
-  border-radius: 0.4rem;
-  font-size: 1rem;
-}
-
+/* SELECT E INPUT PRINCIPALES */
+.buscador-row select,
 .buscador-row input[type="text"] {
-  min-width: 25rem;
-  padding: 0.6rem 0.75rem;
-  border: 0.06rem solid #ddd;
-  border-radius: 0.4rem;
-  font-size: 1rem;
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  background: #f9fafb;
+  transition: all 0.25s ease;
 }
 
+/* EFECTO FOCUS */
+.buscador-row select:focus,
+.buscador-row input[type="text"]:focus,
+.precio-group select:focus,
+.precio-group input[type="text"]:focus {
+  outline: none;
+  border-color: #ff9800;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(255,152,0,0.15);
+}
+
+/* BOTÓN BUSCAR */
 .btn-buscar {
-  background: #ff9800;
+  background: linear-gradient(135deg, #ff9800, #ff7a00);
   color: #fff;
   border: none;
-  padding: 0.6rem 1.4rem;
-  border-radius: 0.4rem;
-  font-size: 1rem;
+  padding: 0.75rem 1.8rem;
+  border-radius: 10px;
+  font-size: 0.95rem;
   cursor: pointer;
   font-weight: 600;
   display: flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.5rem;
+  transition: all 0.25s ease;
 }
 
+.btn-buscar:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(255,152,0,0.35);
+}
+
+/* GRUPO PRECIO */
 .precio-group {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  justify-content: center;
-  width: 100%;
+  gap: 0.8rem;
+  flex-wrap: wrap;
 }
 
 .precio-group select,
 .precio-group input[type="text"] {
-  min-width: 7.5rem;
-  padding: 0.5rem 0.6rem;
-  border: 0.06rem solid #ddd;
-  border-radius: 0.4rem;
-  font-size: 1rem;
+  padding: 0.6rem 0.9rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  background: #f9fafb;
+  transition: all 0.25s ease;
 }
 
+/* CHECKBOX */
 .precio-group label {
-  font-size: 0.95rem;
-  color: #333;
+  font-size: 0.9rem;
+  color: #555;
   display: flex;
   align-items: center;
-  gap: 0.25rem;
+  gap: 0.4rem;
+  cursor: pointer;
 }
 
-/* Estilos para resaltado de búsqueda */
+.precio-group input[type="checkbox"] {
+  accent-color: #ff9800;
+}
+
+/* RESALTADO RESULTADOS */
 .resaltado-busqueda {
   transform: scale(1.02);
-  box-shadow: 0 8px 25px rgba(255, 193, 7, 0.4);
-  border: 2px solid #ffc107;
+  box-shadow: 0 12px 30px rgba(255, 152, 0, 0.3);
+  border: 2px solid #ff9800;
   transition: all 0.3s ease;
 }
 
-/* Mensaje de búsqueda sin resultados */
+/* MENSAJE SIN RESULTADOS */
 .mensaje-busqueda {
   grid-column: 1 / -1;
   width: 100%;
-  margin: 20px 0;
+  margin: 25px 0;
+  padding: 1.5rem;
+  background: #fff3e0;
+  border-radius: 12px;
 }
 
 .mensaje-busqueda h3 {
-  color: #666;
-  margin-bottom: 10px;
+  color: #ff7a00;
+  margin-bottom: 8px;
 }
 
 .mensaje-busqueda p {
-  color: #999;
-  font-size: 1rem;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .buscador-row {
+    flex-direction: column;
+  }
+
+  .btn-buscar {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 /* Galería de terrenos */
