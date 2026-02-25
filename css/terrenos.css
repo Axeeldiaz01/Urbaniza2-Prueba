@@ -50,11 +50,7 @@ html {
 }
 
 /* Header y Navegación */
-
-/* =========================
-   BUSCADOR PREMIUM
-========================= */
-
+/* BUSCADOR PREMIUM */
 .buscador-inmuebles {
   background:
     radial-gradient(circle at top right, rgba(249, 145, 9, 0.05), transparent),
@@ -228,8 +224,6 @@ html {
   border-radius: 0.3rem;
 }
 
-
-
 .card {
   background: #fff;
   border-radius: 0.6rem;
@@ -241,13 +235,6 @@ html {
 .card:hover {
   transform: translateY(-0.3rem);
 }
-
-/*
-.card img {
-  height: 11.25rem;
-  object-fit: cover;
-}*/
-
 
 .card h3 {
   margin: 0.6rem;
@@ -431,7 +418,6 @@ html {
   transition: all 0.1s ease;
 }
 
-
 /* Botón flotante de WhatsApp (para asegurar comportamiento en Terrenos) */
 .whatsapp-float {
   position: fixed;
@@ -456,8 +442,6 @@ html {
   transform: translateY(-3px) scale(1.05);
   box-shadow: 0 12px 30px rgba(37, 211, 102, 0.5);
 }
-
-
 
 /* Footer */
 footer {
@@ -503,8 +487,6 @@ footer p {
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(251, 159, 46, 0.3);
 }
-
-
 
 /* Estilos para el carrusel de Chorrillos */
 .carrusel-chorrillos {
@@ -605,8 +587,6 @@ footer p {
   }
 }
 
-
-
 /* Footer responsivo */
 @media (max-width: 768px) {
     footer {
@@ -706,10 +686,6 @@ footer p {
     margin: 0 0.5rem 0.75rem;
   }
   
-  /*.card img {
-    height: 9.4rem;
-  }*/
-
   .modal-contenido {
     max-width: 95%;
   }
@@ -778,10 +754,6 @@ footer p {
     margin: 0 0.125rem;
     text-align: center;
   }
-  
-/*  .card img {
-    height: 8.125rem;
-  }*/
   
   .section {
     margin: 0.625rem 0.125rem;
@@ -953,8 +925,6 @@ footer p {
   padding-top: 1.25rem;
 }
 
-
-
 /* MODAL DE COMPRA */
 .modal-compra {
   /* Centrado robusto usando grid para evitar desplazamientos laterales */
@@ -984,7 +954,6 @@ footer p {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  /* Garantiza centrado incluso si grid no aplica por alguna razón */
   margin-left: auto;
   margin-right: auto;
 }
@@ -1283,8 +1252,6 @@ footer p {
   padding: 30px;
 }
 
-
-
 /* Estilos para modal de comparación */
 .tabla-comparacion {
   overflow-x: auto;
@@ -1387,7 +1354,6 @@ footer p {
   background: #20b954;
 }
 
-
 /* Responsive para modales */
 @media (max-width: 768px) {
   .modal-content {
@@ -1413,7 +1379,6 @@ footer p {
     height: 60px;
   }
 }
-
 
 /* --- Ajustes para el Carrusel --- */
 .carrusel-container {
@@ -1468,9 +1433,7 @@ footer p {
     }
 }
 
-/* ============================================================
-   REPARACIÓN DE MENÚ LATERAL Y BOTÓN DE CIERRE (X)
-   ============================================================ */
+/* REPARACIÓN DE MENÚ LATERAL Y BOTÓN DE CIERRE  */
 
 @media (max-width: 768px) {
     /* 1. El contenedor del menú (asegúrate de que esta sea tu clase) */
@@ -1488,7 +1451,6 @@ footer p {
         transition: 0.3s;
     }
 
-    /* 2. La "X" de cierre - LA VAMOS A POSICIONAR SOLA */
     .close-menu {
         position: absolute !important;
         top: 15px !important;
@@ -1502,15 +1464,14 @@ footer p {
         height: auto !important;
     }
 
-    /* 3. Los enlaces del menú lateral */
     .nav-menu ul {
         list-style: none;
         padding: 0;
         margin: 0;
         display: flex !important;
-        flex-direction: column !important; /* Texto uno debajo de otro */
-        align-items: flex-start !important; /* Alineado a la izquierda */
-        gap: 20px; /* Espacio entre cada palabra */
+        flex-direction: column !important; 
+        align-items: flex-start !important; 
+        gap: 20px; 
     }
 
     .nav-menu ul li a {
@@ -1522,16 +1483,13 @@ footer p {
     }
 }
 
-
 .card img {
   width: 100%;
-  height: 180px;   /* un poco más pequeño */
-  object-fit: contain;  /* muestra toda la imagen */
-  background-color: #f4f4f4; /* relleno bonito */
+  height: 180px;   
+  object-fit: contain;  
+  background-color: #f4f4f4; 
   border-radius: 10px;
 }
-
-
 
 .card {
   display: flex;
@@ -1539,15 +1497,11 @@ footer p {
   justify-content: space-between;
 }
 
-
-/* ================================
-   CARRUSEL GRANDE EN TELÉFONO
-   ================================ */
+/* CARRUSEL GRANDE EN TELÉFONO*/
 @media (max-width: 768px) {
-
   .carrusel-container {
     width: 325px !important;
-    height: 29vh !important;   /* crece en largo */
+    height: 29vh !important;   
     max-height: none !important;
     aspect-ratio: auto !important;
 
@@ -1556,10 +1510,8 @@ footer p {
   .carrusel-slide img {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* no se corta */
+    object-fit: contain;
   }
-  
-
 }
 
 

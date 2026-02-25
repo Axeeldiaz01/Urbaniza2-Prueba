@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 /* Variables */
@@ -9,6 +8,7 @@
   --round: 5px;
   --font: 'Poppins', sans-serif;
 }
+
 h1 {
   font-size: 32px;
   font-weight: 700;
@@ -19,6 +19,7 @@ h1 {
     font-size: 26px;
   }
 }
+
 * {
   box-sizing: border-box;
 }
@@ -70,11 +71,6 @@ header .container {
   justify-content: space-between;
 }
 
-/*
-nav {
-  margin: 5px -70px;
-}*/
-
 nav ul {
   list-style: none;
   display: flex;
@@ -106,7 +102,6 @@ nav ul li a:hover {
   border: none;
   cursor: pointer;
 }
-
 
 .menu-toggle .bar {
   display: block;
@@ -187,20 +182,6 @@ nav ul li a:hover {
   background-color: #d58f22;
 }
 
-/* Secciones 
-.section {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 40px;
-  padding: 50px 20px;
-  flex-wrap: wrap;
-  background-color: #f2f2f2bb;
-  border-radius: 15px;
-  margin: 30px 20px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.304);
-}
-*/
 .section.reverse {
   flex-direction: row-reverse;
 }
@@ -369,20 +350,6 @@ footer p {
   display: flex;
 }
 
- /*
-  .menu-toggle {
-    display: block;
-    position: fixed;
-    top: 26px;
-    right: 12px;
-    z-index: 1101;
-    font-size: 2rem;
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
-  }*/
-
   body.menu-abierto {
     overflow: hidden;
   }
@@ -494,7 +461,6 @@ footer p {
   }
 }
 
-
 /* Servicios: grid y tarjetas */
 /*Modificacion*/
 /* Espaciado más generoso para que respire la sección */
@@ -604,11 +570,7 @@ footer p {
   transform: scale(1.02);
 }
 
-
-/* =========================
-   PROCESO NARANJA ELEGANTE
-========================= */
-
+/* PROCESO  */
 .process-section {
   padding: 90px 0;
     background:
@@ -628,34 +590,55 @@ footer p {
 .process-steps {
   list-style: none;
   display: flex;
-  justify-content: space-between;
+  gap: 50px;
+  margin: 100px 0;
   padding: 0;
-  counter-reset: step;
 }
 
-/* PASOS */
 .process-steps li {
   flex: 1;
+  background: #fff7f0;
+  border-radius: 30px;
+  padding: 60px 40px;
   text-align: center;
-  font-weight: 600;
-  color: #b7a089;
-  animation: texto 20s ease-in-out infinite;
+  box-shadow: 0 25px 70px rgba(0,0,0,0.12);
+  transition: 0.3s ease;
 }
 
-/* NÚMEROS GRANDES SIN CÍRCULO */
-.process-steps li::before {
-  counter-increment: step;
-  content: counter(step);
-  display: block;
-  font-size: 2.4rem;
-  font-weight: 800;
-  margin-bottom: 10px;
-  color: #ffd27a;
-  animation: numero 20s ease-in-out infinite;
+
+.process-steps li:hover {
+  transform: translateY(-15px);
+}
+
+.process-steps img {
+  width: 260px;
+  margin-bottom: 30px;
+}
+
+
+.process-steps span {
+  font-size: 26px;
+  font-weight: 700;
+  color: #222;
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+  .process-steps {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .process-steps li {
+    padding: 50px 30px;
+  }
+
+  .process-steps img {
+    width: 220px;
+  }
 }
 
 /* ANIMACIONES SUAVES */
-
 @keyframes numero {
   0%,15% {
     color: #f3a530;
@@ -681,7 +664,6 @@ footer p {
 }
 
 /* DELAYS EXACTOS (4s cada uno) */
-
 .process-steps li:nth-child(1){animation-delay:0s;}
 .process-steps li:nth-child(2){animation-delay:4s;}
 .process-steps li:nth-child(3){animation-delay:8s;}
@@ -704,7 +686,6 @@ footer p {
 
 /*FAQ SECTION ----- MODIFICADO*/
 /**********VARIABLES Y CONFIGURACIÓN BASE    */
-
 :root {
   --faq-bg: #ffffff;
   --faq-border: rgba(0, 0, 0, 0.08);
@@ -730,14 +711,11 @@ footer p {
   color: var(--faq-text);
 }
 
-
 /* LA LISTA DE PREGUNTAS */
-
 .faq-list { 
   max-width: 850px; 
   margin: 0 auto; 
   padding: 0 20px;
-  /* Usamos Flexbox para controlar el espacio entre tarjetas */
   display: flex;
   flex-direction: column;
   gap: 20px; /*  separa las preguntas entre sí */
@@ -770,7 +748,6 @@ footer p {
 .faq-item[aria-expanded="true"] { 
   border-color: var(--faq-primary);
   color: var(--faq-primary);
-  /* Quitamos el redondeo de abajo para que encaje con la respuesta */
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
@@ -792,9 +769,7 @@ footer p {
   transform: rotate(180deg); 
 }
 
-
-/*  EL PANEL DE RESPUESTA                          */
-
+/*  EL PANEL DE RESPUESTA */
 .faq-panel {
   overflow: hidden;
   max-height: 0;
@@ -805,7 +780,6 @@ footer p {
   padding: 0 24px;
   opacity: 0;
   transition: all 0.3s ease-out;
-  /* Ajuste para que no se separe de la tarjeta de arriba cuando abre */
   margin-top: -20px; 
 }
 
@@ -840,8 +814,6 @@ footer p {
 }
 
 /*  RESPONSIVE  */
-
-
 @media (max-width: 1024px) {
   .services-grid { grid-template-columns: repeat(2, minmax(240px, 1fr)); }
   .process-steps { grid-template-columns: repeat(3, minmax(120px, 1fr)); }
@@ -873,31 +845,12 @@ footer p {
     padding-bottom: 10px;
   }
 }
-/*MODIFICACION 
-/* Arreglo para que el menú no empuje el contenido hacia abajo 
-@media (max-width: 768px) {
-    .header {
-        padding: 10px 0; 
-        position: relative;
-    }
-    .navbar {
-        display: flex;
-        justify-content: center;
-        gap: 10px; 
-    }
-    .navbar a {
-        padding: 5px 8px;
-        font-size: 13px; 
-    }
-}*/
-
 
 /*celulares pequeños */
 @media (max-width: 768px) {
     header .container {
         justify-content: space-between;
     }
-    
 }
 
 /* Secciones Compra/Venta y Asesoría Legal */
@@ -946,19 +899,40 @@ footer p {
 
 /* Móvil: todo en columna centrado */
 @media (max-width: 768px) {
-  .section, .section.reverse {
+  .section,
+  .section.reverse {
     flex-direction: column;
     text-align: center;
     gap: 20px;
   }
-  .section .texto, .section.reverse .texto {
+
+  .section .card {
+    max-width: 70%;      /*  reduce tamaño */
+    margin: 0 auto;      /* centra la imagen */
+  }
+
+  .section .card img.imagen {
+    width: 100%;
+    border-radius: 12px;
+  }
+
+  .section .texto,
+  .section.reverse .texto {
     max-width: 100%;
     text-align: center;
   }
-  .section .card, .section.reverse .card {
-    max-width: 100%;
-  }
+
   .section .texto a {
-  align-self: center;
+    align-self: center;
+  }
 }
+
+/* Fondo uniforme para todas las secciones principales */
+.section,
+.services-section,
+.process-section,
+.faq-section {
+  background: 
+    radial-gradient(circle at top right, rgba(249, 145, 9, 0.05), transparent),
+    #fdfdfd !important;
 }

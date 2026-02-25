@@ -11,6 +11,7 @@
 * {
   box-sizing: border-box;
 }
+
 html {
   scroll-behavior: smooth;
 }
@@ -27,6 +28,7 @@ body {
   width: 85%;
   max-width: 1100px;
   margin: 0 auto;
+  padding: 0 20px;
 }
 
 /* Header y Navegación */
@@ -55,10 +57,12 @@ header.shrink {
   padding: 2px 0;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
+
 /*MODIFICACION*/
 header .container {
   display: flex;
-  align-items: center; /* centra verticalmente */
+  align-items: center;
+  /* centra verticalmente */
   justify-content: space-between;
 }
 
@@ -121,6 +125,7 @@ nav ul li a:focus-visible {
   z-index: 1101;
   font-size: 1.5rem;
 }
+
 /*MODIFICACION */
 .menu-toggle .bar {
   display: block;
@@ -133,6 +138,7 @@ nav ul li a:focus-visible {
   transform-origin: center;
   margin: 3px 0;
 }
+
 /*******************/
 .menu-toggle.active .bar:nth-child(1) {
   transform: rotate(45deg);
@@ -160,7 +166,8 @@ nav ul li a:focus-visible {
     z-index: 1000;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    background-color: rgba(0, 0, 0, 0.7); /* Un negro más elegante */
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Un negro más elegante */
   }
 
   nav.show {
@@ -178,7 +185,8 @@ nav ul li a:focus-visible {
   }
 
   body.menu-abierto {
-    overflow: hidden; /* Bloquea el scroll del fondo */
+    overflow: hidden;
+    /* Bloquea el scroll del fondo */
   }
 
   nav ul {
@@ -225,12 +233,10 @@ nav ul li a:focus-visible {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    135deg,
-    rgba(0, 0, 0, 0.6) 0%,
-    rgba(0, 0, 0, 0.3) 50%,
-    rgba(0, 0, 0, 0.5) 100%
-  );
+  background: linear-gradient(135deg,
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.3) 50%,
+      rgba(0, 0, 0, 0.5) 100%);
 }
 
 .hero-content {
@@ -312,7 +318,6 @@ nav ul li a:focus-visible {
 }
 
 /* Controles del slider */
-
 .slider-controls {
   position: absolute;
   top: 50%;
@@ -350,10 +355,9 @@ nav ul li a:focus-visible {
 }
 
 /* Indicadores */
-
 .slider-indicators {
   position: absolute;
-  bottom: 30px;
+  bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -383,11 +387,9 @@ nav ul li a:focus-visible {
 
 /* Anuncio inferior */
 .hero-announcement {
-  background: linear-gradient(
-    135deg,
-    rgba(249, 145, 9, 0.9),
-    rgba(249, 145, 9, 0.7)
-  );
+  background: linear-gradient(135deg,
+      rgba(249, 145, 9, 0.9),
+      rgba(249, 145, 9, 0.7));
   padding: 15px 0;
   text-align: center;
 }
@@ -403,54 +405,6 @@ nav ul li a:focus-visible {
 .announcement-text i {
   margin-right: 8px;
   color: #fff200;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .slider-container {
-    height: 40vh;
-    min-height: unset;
-  }
-
-  .hero-title {
-    font-size: 2.2rem;
-    margin-bottom: 1rem;
-  }
-
-  .hero-description {
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
-  }
-
-  .hero-buttons {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .btn {
-    padding: 12px 25px;
-    font-size: 1rem;
-    width: 100%;
-    max-width: 280px;
-  }
-
-  .slider-controls {
-    padding: 0 15px;
-  }
-
-  .slider-btn {
-    width: 40px;
-    height: 40px;
-  }
-
-  .slider-btn i {
-    font-size: 1rem;
-  }
-
-  .announcement-text {
-    font-size: 1rem;
-    padding: 0 15px;
-  }
 }
 
 @media (max-width: 480px) {
@@ -492,14 +446,20 @@ main.container {
   margin: 0 auto;
   padding: 20px 10px;
 }
+
 section {
   margin-bottom: 30px;
+  background:
+    radial-gradient(circle at top right, rgba(249, 145, 9, 0.05), transparent),
+    #fdfdfd;
 }
+
 section h2 {
   color: rgba(240, 161, 58, 0.679);
   font-size: 1.3rem;
   margin-bottom: 10px;
 }
+
 /*carrusel*/
 .carrusel-terrenos {
   position: relative;
@@ -509,7 +469,6 @@ section h2 {
   margin: 0 auto;
   border-radius: 15px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-
   aspect-ratio: 16 / 9;
 }
 
@@ -525,10 +484,11 @@ section h2 {
   left: 0;
   width: 100%;
   height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-  overflow: hidden;
-  z-index: 1;
+  transition: opacity 1s ease-in-out;
 }
 
 .slide.activo {
@@ -539,7 +499,7 @@ section h2 {
 .slide img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   background: transparent;
   display: block;
   transition: transform 0.3s ease;
@@ -633,19 +593,6 @@ section h2 {
   }
 }
 
-/* Responsive ajustes */
-/*
-@media screen and (max-width: 768px) {
-  .carrusel-terrenos {
-    height: 350px;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .carrusel-terrenos {
-    height: 280px;
-  }*/
-
 .slide-caption {
   padding: 1rem;
 }
@@ -729,9 +676,11 @@ footer p {
   transform: translateY(-3px) scale(1.05);
   box-shadow: 0 12px 30px rgba(37, 211, 102, 0.5);
 }
+
 a:hover .whatsapp-num {
   color: #25d366;
 }
+
 .scrollToHome {
   position: fixed;
   bottom: 20px;
@@ -766,13 +715,12 @@ a:hover .whatsapp-num {
 }
 
 /* CALCULADORA PREMIUM */
-/* ============================= */
-
 .calculadora-section {
   padding: 80px 20px;
   background:
     radial-gradient(circle at top right, rgba(249, 145, 9, 0.05), transparent),
-    #fdfdfd;}
+    #fdfdfd;
+}
 
 .calculadora-section h2 {
   text-align: center;
@@ -799,7 +747,9 @@ a:hover .whatsapp-num {
   border-radius: 25px;
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
 }
+
 /*******************************************************/
+
 .calculadora-inputs .input-group {
   margin-bottom: 25px;
   display: flex;
@@ -873,7 +823,6 @@ input[type="range"]::-webkit-slider-thumb:hover {
   transition: all 0.3s ease;
 }
 
-
 .btn-calcular:hover {
   transform: translateY(-3px);
   box-shadow: 0 10px 20px rgba(249, 145, 9, 0.3);
@@ -885,9 +834,10 @@ input[type="range"]::-webkit-slider-thumb:hover {
   padding: 40px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* que empiece desde arriba */
+  justify-content: flex-start;
+  /* que empiece desde arriba */
   gap: 10px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   border: 1px solid #f1f1f1;
 }
 
@@ -1208,6 +1158,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -1218,6 +1169,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
     transform: translateY(-50px);
     opacity: 0;
   }
+
   to {
     transform: translateY(0);
     opacity: 1;
@@ -1251,10 +1203,9 @@ input[type="range"]::-webkit-slider-thumb:hover {
 }
 
 /* SECCIÓN SERVICIOS - MEJORADA */
-
 .services-section {
   padding: 80px 5%;
-    background:
+  background:
     radial-gradient(circle at top right, rgba(249, 145, 9, 0.05), transparent),
     #fdfdfd;
   overflow: hidden;
@@ -1296,11 +1247,11 @@ input[type="range"]::-webkit-slider-thumb:hover {
   border: 1px solid rgba(0, 0, 0, 0.05);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  opacity: 1; /* Cambié a 1 para que no desaparezcan si falla el JS */
+  opacity: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%; /* Para que todas midan lo mismo */
+  height: 100%;
 }
 
 /* El icono o cuadrado naranja que se ve en tu imagen */
@@ -1321,7 +1272,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
   color: #f99109;
 }
 
-/* Estado HOVER ) */
+/* Estado HOVER  */
 .service-card:hover {
   transform: translateY(-12px);
   border-color: #f99109;
@@ -1356,6 +1307,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -1372,6 +1324,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
   box-shadow: 0 20px 40px rgba(249, 145, 9, 0.12);
   border-color: rgba(249, 145, 9, 0.2);
 }
+
 /*MODIFICADO*/
 .service-icon {
   width: 90px;
@@ -1384,7 +1337,8 @@ input[type="range"]::-webkit-slider-thumb:hover {
   margin: 0 auto 2rem;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
   position: relative;
-  z-index: 1; /* Asegura que el icono esté arriba */
+  z-index: 1;
+  /* Asegura que el icono esté arriba */
   transition: all 0.4s ease;
 }
 
@@ -1396,7 +1350,8 @@ input[type="range"]::-webkit-slider-thumb:hover {
   background: linear-gradient(135deg, #f99109, #ffb347);
   border-radius: 24px;
   z-index: -1;
-  opacity: 0.2; /* Menos opacidad para que se vea fino */
+  opacity: 0.2;
+  /* Menos opacidad para que se vea fino */
   transition: opacity 0.4s ease;
 }
 
@@ -1415,7 +1370,6 @@ input[type="range"]::-webkit-slider-thumb:hover {
 }
 
 /* --- Cambios al hacer hover --- */
-
 .service-card:hover .service-icon {
   background: linear-gradient(135deg, #f99109, #ffb347);
   transform: rotate(-5deg) scale(1.1);
@@ -1431,6 +1385,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
 .service-card:hover .service-icon::after {
   opacity: 0;
 }
+
 .service-card h3 {
   font-size: 1.5rem;
   font-weight: 700;
@@ -1451,6 +1406,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -1461,15 +1417,19 @@ input[type="range"]::-webkit-slider-thumb:hover {
 .services-grid .service-card:nth-child(1) {
   animation-delay: 0.05s;
 }
+
 .services-grid .service-card:nth-child(2) {
   animation-delay: 0.12s;
 }
+
 .services-grid .service-card:nth-child(3) {
   animation-delay: 0.19s;
 }
+
 .services-grid .service-card:nth-child(4) {
   animation-delay: 0.26s;
 }
+
 .services-grid .service-card:nth-child(5) {
   animation-delay: 0.33s;
 }
@@ -1489,12 +1449,12 @@ input[type="range"]::-webkit-slider-thumb:hover {
 /* SECCIÓN INFORMACIÓN EDUCATIVA */
 .info-section {
   padding: 80px 0;
-    background:
+  background:
     radial-gradient(circle at top right, rgba(249, 145, 9, 0.05), transparent),
     #fdfdfd;
 }
 
-/* ===== MODAL DE COMPRA PROFESIONAL ===== */
+/* ===== MODAL DE COMPRA ===== */
 .modal-compra {
   display: flex;
   position: fixed;
@@ -1676,43 +1636,33 @@ input[type="range"]::-webkit-slider-thumb:hover {
 
 /* Efectos especiales para campos específicos */
 .form-group[data-field="nombre"] {
-  background: linear-gradient(
-    135deg,
-    rgba(52, 152, 219, 0.1),
-    rgba(155, 89, 182, 0.1)
-  );
+  background: linear-gradient(135deg,
+      rgba(52, 152, 219, 0.1),
+      rgba(155, 89, 182, 0.1));
 }
 
 .form-group[data-field="email"] {
-  background: linear-gradient(
-    135deg,
-    rgba(231, 76, 60, 0.1),
-    rgba(230, 126, 34, 0.1)
-  );
+  background: linear-gradient(135deg,
+      rgba(231, 76, 60, 0.1),
+      rgba(230, 126, 34, 0.1));
 }
 
 .form-group[data-field="telefono"] {
-  background: linear-gradient(
-    135deg,
-    rgba(46, 204, 113, 0.1),
-    rgba(39, 174, 96, 0.1)
-  );
+  background: linear-gradient(135deg,
+      rgba(46, 204, 113, 0.1),
+      rgba(39, 174, 96, 0.1));
 }
 
 .form-group[data-field="tipo_pago"] {
-  background: linear-gradient(
-    135deg,
-    rgba(241, 196, 15, 0.1),
-    rgba(243, 156, 18, 0.1)
-  );
+  background: linear-gradient(135deg,
+      rgba(241, 196, 15, 0.1),
+      rgba(243, 156, 18, 0.1));
 }
 
 .form-group[data-field="mensaje"] {
-  background: linear-gradient(
-    135deg,
-    rgba(142, 68, 173, 0.1),
-    rgba(155, 89, 182, 0.1)
-  );
+  background: linear-gradient(135deg,
+      rgba(142, 68, 173, 0.1),
+      rgba(155, 89, 182, 0.1));
 }
 
 .form-actions {
@@ -1764,6 +1714,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -1774,6 +1725,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
     opacity: 0;
     transform: scale(0.9) translateY(-20px);
   }
+
   to {
     opacity: 1;
     transform: scale(1) translateY(0);
@@ -2323,57 +2275,6 @@ input[type="range"]::-webkit-slider-thumb:hover {
   }
 }
 
-/* AGREGUE ESTO PORQUE SE ROMPIA CUANDO LA PAGINA SE MIRABA DESDE CELULAR */
-@media (max-width: 768px) {
-  .slider-container {
-    height: 90vh;
-    min-height: 400px;
-  }
-
-  .hero-content {
-    top: 45%; /* Subimos un poco el contenido */
-  }
-
-  .hero-title {
-    font-size: 1.6rem; /* Tamaño de fuente más humano para celular */
-    margin-bottom: 1rem;
-    padding: 0 10px;
-  }
-
-  .hero-description {
-    font-size: 1rem;
-    line-height: 1.4;
-    margin-bottom: 1.5rem;
-    padding: 0 15px;
-  }
-
-  .hero-buttons {
-    flex-direction: column; /* Botones uno sobre otro */
-    align-items: center;
-    gap: 0.8rem;
-  }
-
-  .btn {
-    width: 85%;
-    padding: 12px 20px;
-    font-size: 1rem;
-  }
-
-  .slider-indicators {
-    bottom: 20px;
-  }
-
-  .slider-btn {
-    width: 40px;
-    height: 40px;
-    background: rgba(0, 0, 0, 0.3);
-  }
-
-  .slider-controls {
-    padding: 0 10px;
-  }
-}
-
 @media (max-width: 380px) {
   .hero-title {
     font-size: 1.4rem;
@@ -2383,6 +2284,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
     min-height: 600px;
   }
 }
+
 /*MODIFICACION*/
 /* Arreglo para que el menú no empuje el contenido hacia abajo */
 @media (max-width: 768px) {
@@ -2422,30 +2324,61 @@ body {
 @media (max-width: 768px) {
 
   .slider-container {
-    height: 60vh;
-    min-height: auto;
+    height: 75vh;
+    min-height: 500px;
+  }
+
+  .hero-content {
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0 20px;
   }
 
   .hero-title {
-    font-size: 1.4rem;
-    line-height: 1.2;
-  }
-
-  .hero-description {
-    font-size: 0.85rem;
+    font-size: 1.8rem;
+    line-height: 1.3;
     margin-bottom: 1rem;
   }
 
-  .hero-buttons .btn {
-    padding: 8px 16px;
-    font-size: 0.85rem;
+  .hero-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.8rem;
+    padding: 0 10px;
+  }
+
+  .hero-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .btn {
+    width: 90%;
+    max-width: 300px;
+    padding: 14px 20px;
+    font-size: 1rem;
+    border-radius: 12px;
+  }
+
+  .slider-controls {
+    padding: 0 15px;
+  }
+
+  .slider-btn {
+    width: 42px;
+    height: 42px;
+  }
+
+  .slider-indicators {
+    bottom: 15px;
   }
 
 }
 
 /* RESPONSIVE */
 /* ============================= */
-
 /* TABLET */
 @media (max-width: 1024px) {
   .calculadora-container {
@@ -2484,4 +2417,57 @@ body {
   .btn-calcular {
     font-size: 0.95rem;
   }
+}
+
+@media (max-width: 768px) {
+
+  section {
+    margin-bottom: 50px;
+  }
+
+  .services-section,
+  .info-section {
+    padding: 60px 0;
+  }
+
+  .services-grid {
+    gap: 1.8rem;
+  }
+
+  .service-card {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+    margin-bottom: 35px;
+  }
+}
+
+/* TÍTULOS UNIFICADOS */
+.title,
+.section h2,
+h2 {
+  font-size: 42px;        
+  font-weight: 700;       
+  text-align: center;    
+  color: var(--dark);     
+  margin-bottom: 50px;
+}
+
+.title::after,
+.section h2::after,
+h2::after {
+  content: "";
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(135deg, #f49d32, #ff6b35);
+  display: block;
+  margin: 15px auto 0;
+  border-radius: 10px;
 }
