@@ -62,7 +62,6 @@ header.shrink {
 header .container {
   display: flex;
   align-items: center;
-  /* centra verticalmente */
   justify-content: space-between;
 }
 
@@ -96,14 +95,12 @@ a:focus-visible {
   outline-offset: 2px;
 }
 
-/* Foco visible para enlaces de navegación en header */
 nav ul li a:focus-visible {
   outline: none;
   box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.6);
   border-radius: 6px;
 }
 
-/* Foco visible para botones estandarizados */
 .btn:focus-visible,
 [class^="btn-"]:focus-visible {
   outline: none;
@@ -126,7 +123,6 @@ nav ul li a:focus-visible {
   font-size: 1.5rem;
 }
 
-/*MODIFICACION */
 .menu-toggle .bar {
   display: block;
   height: 3px;
@@ -139,7 +135,6 @@ nav ul li a:focus-visible {
   margin: 3px 0;
 }
 
-/*******************/
 .menu-toggle.active .bar:nth-child(1) {
   transform: rotate(45deg);
 }
@@ -167,7 +162,6 @@ nav ul li a:focus-visible {
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     background-color: rgba(0, 0, 0, 0.7);
-    /* Un negro más elegante */
   }
 
   nav.show {
@@ -186,7 +180,6 @@ nav ul li a:focus-visible {
 
   body.menu-abierto {
     overflow: hidden;
-    /* Bloquea el scroll del fondo */
   }
 
   nav ul {
@@ -200,27 +193,15 @@ nav ul li a:focus-visible {
   position: relative;
   width: 100%;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .slider-container {
   position: relative;
   width: 100%;
-  height: 65vh;
-  min-height: 450px;
+  height: clamp(350px, 70vh, 750px);
   overflow: hidden;
-}
-
-.slide {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
 }
 
 .slide.active {
@@ -241,14 +222,16 @@ nav ul li a:focus-visible {
 
 .hero-content {
   position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  transform: translateY(-50%);
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   z-index: 10;
   color: white;
   text-align: center;
-  padding: 0 20px;
+  padding: 20px;
 }
 
 .hero-text {
@@ -281,40 +264,59 @@ nav ul li a:focus-visible {
   flex-wrap: wrap;
 }
 
+/*SISTEMA GLOBAL DE BOTONES*/
+
 .btn {
-  display: inline-block;
-  padding: 15px 30px;
-  border-radius: 8px;
-  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 14px 28px;
+  min-height: 48px;
+  border-radius: 10px;
+
+  font-size: 1rem;
   font-weight: 600;
-  font-size: 1.1rem;
-  transition: all 0.3s ease;
+  text-decoration: none;
+
   border: 2px solid transparent;
   cursor: pointer;
+
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.btn-sm {
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  min-height: 40px;
+}
+
+.btn-lg {
+  padding: 18px 36px;
+  font-size: 1.1rem;
+  min-height: 56px;
 }
 
 .btn-primary {
-  background: rgba(249, 145, 9, 0.9);
+  background: linear-gradient(135deg, #f99109, #ff7a00);
   color: white;
-  border-color: rgba(249, 145, 9, 0.9);
 }
 
 .btn-primary:hover {
-  background: rgba(249, 145, 9, 1);
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(249, 145, 9, 0.4);
+  box-shadow: 0 8px 20px rgba(249, 145, 9, 0.35);
 }
 
 .btn-secondary {
   background: #25d366;
   color: white;
-  border-color: #25d366;
 }
 
 .btn-secondary:hover {
-  background: #20b358;
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.35);
 }
 
 /* Controles del slider */
@@ -392,6 +394,7 @@ nav ul li a:focus-visible {
       rgba(249, 145, 9, 0.7));
   padding: 15px 0;
   text-align: center;
+  flex-shrink: 0;
 }
 
 .announcement-text {
@@ -490,7 +493,6 @@ section h2 {
   opacity: 0;
   transition: opacity 1s ease-in-out;
 }
-
 .slide.activo {
   opacity: 1;
   z-index: 2;
@@ -714,7 +716,7 @@ a:hover .whatsapp-num {
   box-shadow: 0 4px 15px rgba(244, 157, 50, 0.4);
 }
 
-/* CALCULADORA PREMIUM */
+/* CALCULADORA */
 .calculadora-section {
   padding: 80px 20px;
   background:
@@ -747,8 +749,6 @@ a:hover .whatsapp-num {
   border-radius: 25px;
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
 }
-
-/*******************************************************/
 
 .calculadora-inputs .input-group {
   margin-bottom: 25px;
@@ -835,7 +835,6 @@ input[type="range"]::-webkit-slider-thumb:hover {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  /* que empiece desde arriba */
   gap: 10px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   border: 1px solid #f1f1f1;
@@ -1202,7 +1201,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
   }
 }
 
-/* SECCIÓN SERVICIOS - MEJORADA */
+/* SECCIÓN SERVICIOS MEJORADA */
 .services-section {
   padding: 80px 5%;
   background:
@@ -1211,7 +1210,6 @@ input[type="range"]::-webkit-slider-thumb:hover {
   overflow: hidden;
 }
 
-/* Títulos con tipografía fluida */
 .section-title {
   font-size: clamp(2rem, 5vw, 2.8rem);
   font-weight: 800;
@@ -1230,7 +1228,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
   text-align: center;
 }
 
-/* Grid responsivo real */
+/* Grid responsivo */
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -1254,7 +1252,6 @@ input[type="range"]::-webkit-slider-thumb:hover {
   height: 100%;
 }
 
-/* El icono o cuadrado naranja que se ve en tu imagen */
 .service-icon {
   width: 70px;
   height: 70px;
@@ -1272,7 +1269,6 @@ input[type="range"]::-webkit-slider-thumb:hover {
   color: #f99109;
 }
 
-/* Estado HOVER  */
 .service-card:hover {
   transform: translateY(-12px);
   border-color: #f99109;
@@ -1325,7 +1321,6 @@ input[type="range"]::-webkit-slider-thumb:hover {
   border-color: rgba(249, 145, 9, 0.2);
 }
 
-/*MODIFICADO*/
 .service-icon {
   width: 90px;
   height: 90px;
@@ -1338,11 +1333,9 @@ input[type="range"]::-webkit-slider-thumb:hover {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
   position: relative;
   z-index: 1;
-  /* Asegura que el icono esté arriba */
   transition: all 0.4s ease;
 }
 
-/* El aura sutil alrededor del icono */
 .service-icon::after {
   content: "";
   position: absolute;
@@ -1351,25 +1344,19 @@ input[type="range"]::-webkit-slider-thumb:hover {
   border-radius: 24px;
   z-index: -1;
   opacity: 0.2;
-  /* Menos opacidad para que se vea fino */
   transition: opacity 0.4s ease;
 }
 
 .service-icon i {
   font-size: 2.2rem;
-  /* 1. Definimos el degradado */
   background: linear-gradient(135deg, #f99109, #d87e07);
-
-  /* 2. IMPORTANTE: Estas 3 líneas hacen que el icono sea visible con gradiente */
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-
   display: inline-block;
   transition: all 0.4s ease;
 }
 
-/* --- Cambios al hacer hover --- */
 .service-card:hover .service-icon {
   background: linear-gradient(135deg, #f99109, #ffb347);
   transform: rotate(-5deg) scale(1.1);
@@ -1413,7 +1400,6 @@ input[type="range"]::-webkit-slider-thumb:hover {
   }
 }
 
-/* Entrada escalonada para tarjetas dentro del grid */
 .services-grid .service-card:nth-child(1) {
   animation-delay: 0.05s;
 }
@@ -1454,7 +1440,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
     #fdfdfd;
 }
 
-/* ===== MODAL DE COMPRA ===== */
+/*  MODAL DE COMPRA  */
 .modal-compra {
   display: flex;
   position: fixed;
@@ -1634,7 +1620,6 @@ input[type="range"]::-webkit-slider-thumb:hover {
   font-family: inherit;
 }
 
-/* Efectos especiales para campos específicos */
 .form-group[data-field="nombre"] {
   background: linear-gradient(135deg,
       rgba(52, 152, 219, 0.1),
@@ -2276,17 +2261,20 @@ input[type="range"]::-webkit-slider-thumb:hover {
 }
 
 @media (max-width: 380px) {
-  .hero-title {
-    font-size: 1.4rem;
-  }
-
-  .slider-container {
-    min-height: 600px;
-  }
+.hero-title {
+  font-size: clamp(1.5rem, 5vw, 2.2rem);
 }
 
-/*MODIFICACION*/
-/* Arreglo para que el menú no empuje el contenido hacia abajo */
+.hero-description {
+  font-size: clamp(0.9rem, 3.5vw, 1.1rem);
+}
+
+.hero-buttons .btn {
+  padding: 10px 18px;
+  font-size: 0.9rem;
+}
+}
+
 @media (max-width: 768px) {
   .menu-toggle {
     display: flex;
@@ -2372,13 +2360,12 @@ body {
   }
 
   .slider-indicators {
-    bottom: 15px;
+    bottom: 10px;
   }
 
 }
 
 /* RESPONSIVE */
-/* ============================= */
 /* TABLET */
 @media (max-width: 1024px) {
   .calculadora-container {
@@ -2470,4 +2457,44 @@ h2::after {
   display: block;
   margin: 15px auto 0;
   border-radius: 10px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+
+  .slider-container {
+    height: auto;
+    min-height: 500px;
+  }
+
+  /* Quitamos absolute en móvil */
+  .hero-content {
+    position: relative;
+    transform: none;
+    top: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 60px 20px 40px 20px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .slider-indicators {
+  position: relative;
+  margin-top: 20px;
+
+  display: flex;
+  justify-content: center;   
+  align-items: center;
+
+  left: auto;
+  transform: none;
+}
+
 }

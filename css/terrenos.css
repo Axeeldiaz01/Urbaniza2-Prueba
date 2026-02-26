@@ -33,7 +33,6 @@ footer {
   margin-top: auto;
 }
 
-/* La sección principal de terrenos ocupa el espacio disponible */
 #terrenos-disponibles {
   flex: 1 0 auto;
 }
@@ -50,7 +49,7 @@ html {
 }
 
 /* Header y Navegación */
-/* BUSCADOR PREMIUM */
+/* BUSCADOR */
 .buscador-inmuebles {
   background:
     radial-gradient(circle at top right, rgba(249, 145, 9, 0.05), transparent),
@@ -99,7 +98,6 @@ html {
   transition: all 0.25s ease;
 }
 
-/* EFECTO FOCUS */
 .buscador-row select:focus,
 .buscador-row input[type="text"]:focus,
 .precio-group select:focus,
@@ -418,7 +416,7 @@ html {
   transition: all 0.1s ease;
 }
 
-/* Botón flotante de WhatsApp (para asegurar comportamiento en Terrenos) */
+/* Botón flotante de WhatsApp*/
 .whatsapp-float {
   position: fixed;
   bottom: 20px;
@@ -488,7 +486,6 @@ footer p {
     box-shadow: 0 5px 15px rgba(251, 159, 46, 0.3);
 }
 
-/* Estilos para el carrusel de Chorrillos */
 .carrusel-chorrillos {
   position: relative;
   width: 100%;
@@ -550,12 +547,10 @@ footer p {
   background: #999;
 }
 
-/* Clases para funcionalidades dinámicas de terrenos */
 .modal-visible {
   display: block !important;
 }
 
-/* Asegurar que el modal de compra se centre incluso con .modal-visible */
 .modal-compra.modal-visible {
   display: flex !important;
   align-items: center !important;
@@ -635,7 +630,6 @@ footer p {
 }
 
 @media (max-width: 30rem) {
-  /* Header pequeño */
   .logo {
     height: 3.1rem;
   }
@@ -644,7 +638,6 @@ footer p {
     height: 2.2rem;
   }
   
-  /* Buscador pequeño */
   .buscador-inmuebles h1 {
     font-size: 1.2rem;
     margin-bottom: 0.6rem;
@@ -927,7 +920,6 @@ footer p {
 
 /* MODAL DE COMPRA */
 .modal-compra {
-  /* Centrado robusto usando grid para evitar desplazamientos laterales */
   display: grid;
   place-items: center;
   position: fixed;
@@ -1137,7 +1129,6 @@ footer p {
   }
 }
 
-/* Animación específica del modal de compra */
 @keyframes modalFadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -1160,7 +1151,6 @@ footer p {
   }
 }
 
-/* Clases para funcionalidades dinámicas de terrenos */
 .modal-visible {
   display: block !important;
 }
@@ -1384,10 +1374,8 @@ footer p {
 .carrusel-container {
     position: relative;
     width: 100%;
-    /* Quitamos alturas fijas (como 500px) que causan el hueco blanco */
     height: auto !important; 
     min-height: auto !important;
-    /* Definimos una proporción (ejemplo 4:3) para que el cuadro sea flexible */
     aspect-ratio: 4 / 3; 
     overflow: hidden;
     background-color: #f9f9f9;
@@ -1396,7 +1384,6 @@ footer p {
 .carrusel-slide img {
     width: 100%;
     height: 100%;
-    /* 'contain' asegura que la imagen de lavandería salga COMPLETA */
     object-fit: contain !important;
     display: block;
 }
@@ -1405,7 +1392,7 @@ footer p {
 @media (max-width: 768px) {
     .section {
         flex-direction: column !important;
-        gap: 0.5rem !important; /* Reduce la separación entre imagen y texto */
+        gap: 0.5rem !important; 
         padding: 1rem !important;
     }
 
@@ -1414,7 +1401,6 @@ footer p {
         max-width: 100% !important;
     }
 
-    /* Modificamos al texto a subir eliminando márgenes superiores */
     .texto {
         margin-top: 0 !important;
         padding-top: 0 !important;
@@ -1436,14 +1422,13 @@ footer p {
 /* REPARACIÓN DE MENÚ LATERAL Y BOTÓN DE CIERRE  */
 
 @media (max-width: 768px) {
-    /* 1. El contenedor del menú (asegúrate de que esta sea tu clase) */
     .nav-menu {
         position: fixed !important;
         top: 0;
         right: 0;
-        width: 250px; /* Ancho del menú lateral */
+        width: 250px;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.9); /* Fondo oscuro */
+        background-color: rgba(0, 0, 0, 0.9); 
         display: flex;
         flex-direction: column;
         padding: 60px 20px 20px 20px !important;

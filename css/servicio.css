@@ -31,6 +31,40 @@ body {
   line-height: 1.6;
   font-family: "Poppins", sans-serif;
 }
+/* SISTEMA GLOBAL DE BOTONES */
+
+.btn {
+  display: inline-block;
+  padding: 12px 25px;
+  margin-right: 15px;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.btn-primary {
+  background: #f3a530;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #d58f22;
+  transform: translateY(-2px);
+}
+
+.btn-strong {
+  background: linear-gradient(135deg, #f49d32, #ff6b35);
+  color: #fff;
+}
+
+.btn-strong:hover {
+  transform: translateY(-3px) scale(1.03);
+}
 
 .container {
   width: 85%;
@@ -101,6 +135,7 @@ nav ul li a:hover {
   background: none;
   border: none;
   cursor: pointer;
+  z-index: 1101;
 }
 
 .menu-toggle .bar {
@@ -116,7 +151,7 @@ nav ul li a:hover {
 }
 
 .menu-toggle.active .bar:nth-child(1) {
-  transform: rotate(45deg) translateY(8px);
+  transform: rotate(45deg);
 }
 
 .menu-toggle.active .bar:nth-child(2) {
@@ -124,7 +159,7 @@ nav ul li a:hover {
 }
 
 .menu-toggle.active .bar:nth-child(3) {
-  transform: rotate(-45deg) translateY(-8px);
+  transform: rotate(-45deg);
 }
 
 /* Banner */
@@ -166,22 +201,6 @@ nav ul li a:hover {
   margin-bottom: 2rem;
 }
 
-.banner-buttons a {
-  display: inline-block;
-  padding: 12px 25px;
-  margin: 0 10px;
-  background-color: #f3a530;
-  color: #fff;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background 0.3s ease;
-}
-
-.banner-buttons a:hover {
-  background-color: #d58f22;
-}
-
 .section.reverse {
   flex-direction: row-reverse;
 }
@@ -194,7 +213,7 @@ nav ul li a:hover {
 }
 
 .texto {
-    margin-top: -10px; /* Margen negativo opcional para pegarlo más */
+    margin-top: -10px; 
     padding-top: 0;
     text-align: center; 
   }
@@ -210,23 +229,6 @@ nav ul li a:hover {
     margin-bottom: 1rem;
     line-height: 1.4;
   }
-
-.section .texto a {
-  display: inline-block;
-  width: auto;              /*  evita que ocupe todo el ancho */
-  align-self: flex-start;   /*  se ajusta al contenido */
-  padding: 10px 22px;
-  background-color: #f3a530;
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: 600;
-  transition: background 0.3s ease;
-}
-
-.texto a:hover {
-  background-color: #d58f22;
-}
 
 /* Botón scroll to home */
 .scrollToHome {
@@ -417,7 +419,6 @@ footer p {
 }
 
 @media (max-width: 480px) {
-  /* Footer para móviles pequeños */
   footer {
     padding: 20px 10px;
   }
@@ -462,11 +463,9 @@ footer p {
 }
 
 /* Servicios: grid y tarjetas */
-/*Modificacion*/
-/* Espaciado más generoso para que respire la sección */
 .services-section {
   padding: 80px 0;
-  background-color: #fcfcfc; /* Un fondo casi blanco para que las tarjetas resalten */
+  background-color: #fcfcfc; 
 }
 
 .services-section h2 {
@@ -481,7 +480,7 @@ footer p {
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 32px; /* Más espacio entre tarjetas */
+  gap: 32px; 
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
@@ -489,11 +488,11 @@ footer p {
 
 .service-card {
   background: #ffffff;
-  border: none; /* Quitamos el borde para un look más limpio */
-  border-radius: 20px; /* Bordes más redondeados y modernos */
+  border: none; 
+  border-radius: 20px; 
   padding: 40px 30px;
-  text-align: left; /* Alineación a la izquierda se ve más profesional para listas */
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* Sombra más suave y difuminada */
+  text-align: left; 
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   display: flex;
   flex-direction: column;
@@ -529,8 +528,8 @@ footer p {
 .benefits {
   margin: 0 0 30px;
   padding: 0;
-  list-style: none; /* Quitamos los puntos aburridos */
-  flex-grow: 1; /* Empuja el botón hacia abajo si el texto es corto */
+  list-style: none; 
+  flex-grow: 1;
 }
 
 .benefits li {
@@ -550,26 +549,6 @@ footer p {
   font-weight: bold;
 }
 
-/* Botón CTA (Llamada a la acción) */
-.cta {
-  display: inline-block;
-  text-align: center;
-  padding: 14px 24px;
-  border-radius: 12px;
-  background: #f3a530;
-  color: #fff;
-  text-decoration: none;
-  font-weight: 700;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(243, 165, 48, 0.2);
-}
-
-.cta:hover {
-  background: #e6951d;
-  box-shadow: 0 6px 18px rgba(243, 165, 48, 0.4);
-  transform: scale(1.02);
-}
-
 /* PROCESO  */
 .process-section {
   padding: 90px 0;
@@ -587,54 +566,91 @@ footer p {
 }
 
 /* CONTENEDOR */
+.process-section {
+  padding: 90px 0;
+  background:
+    radial-gradient(circle at top right, rgba(249, 145, 9, 0.05), transparent),
+    #fdfdfd;
+}
+
+.process-section h2 {
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: 800;
+  margin-bottom: 70px;
+  color: rgba(240, 161, 58, 0.679);
+}
+
+/* CONTENEDOR */
 .process-steps {
   list-style: none;
   display: flex;
+  flex-wrap: wrap;
   gap: 50px;
   margin: 100px 0;
   padding: 0;
+  justify-content: center;
 }
 
+/* TARJETAS */
 .process-steps li {
   flex: 1;
-  background: #fff7f0;
-  border-radius: 30px;
-  padding: 60px 40px;
+  min-width: 300px;
+  background: #ffffff;
+  border-radius: 35px;
+  padding: 70px 50px;
   text-align: center;
-  box-shadow: 0 25px 70px rgba(0,0,0,0.12);
-  transition: 0.3s ease;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.12);
+  transition: all 0.4s ease;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+  overflow: hidden;
 }
 
-
 .process-steps li:hover {
-  transform: translateY(-15px);
+  transform: translateY(-18px);
+  box-shadow: 0 35px 90px rgba(0,0,0,0.18);
 }
 
 .process-steps img {
-  width: 260px;
-  margin-bottom: 30px;
+  width: 320px;            
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 35px;
+  transition: transform 0.4s ease, filter 0.4s ease;
 }
 
+.process-steps li:hover img {
+  transform: scale(1.08);
+  filter: drop-shadow(0 20px 30px rgba(0,0,0,0.15));
+}
 
+/* TEXTO  */
 .process-steps span {
-  font-size: 26px;
-  font-weight: 700;
+  font-size: 28px;
+  font-weight: 800;
   color: #222;
+  letter-spacing: 1px;
 }
 
-/* RESPONSIVE */
 @media (max-width: 992px) {
+
   .process-steps {
     flex-direction: column;
-    gap: 40px;
+    gap: 50px;
   }
 
   .process-steps li {
-    padding: 50px 30px;
+    padding: 60px 40px;
   }
 
   .process-steps img {
-    width: 220px;
+    width: 260px;
   }
 }
 
@@ -663,7 +679,7 @@ footer p {
   }
 }
 
-/* DELAYS EXACTOS (4s cada uno) */
+/* DELAYS EXACTOS */
 .process-steps li:nth-child(1){animation-delay:0s;}
 .process-steps li:nth-child(2){animation-delay:4s;}
 .process-steps li:nth-child(3){animation-delay:8s;}
@@ -684,21 +700,19 @@ footer p {
   }
 }
 
-/*FAQ SECTION ----- MODIFICADO*/
-/**********VARIABLES Y CONFIGURACIÓN BASE    */
+/*FAQ SECTION */
 :root {
   --faq-bg: #ffffff;
   --faq-border: rgba(0, 0, 0, 0.08);
-  --faq-primary: #f99109; /* Tu naranja Urbaniza2 */
+  --faq-primary: #f99109; 
   --faq-text: #333333;
   --faq-accent: rgba(249, 145, 9, 0.05);
 }
 
-/* Contenedor general de la sección */
 .faq-section { 
   margin-top: 80px;
   padding: 60px 20px;
-  background-color: #fcfcfc; /* Un gris casi blanco para que resalten las tarjetas */
+  background-color: #fcfcfc; 
   border-radius: 24px; 
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05); 
 }
@@ -718,7 +732,7 @@ footer p {
   padding: 0 20px;
   display: flex;
   flex-direction: column;
-  gap: 20px; /*  separa las preguntas entre sí */
+  gap: 20px; 
 }
 
 /* La tarjeta de la pregunta */
@@ -731,7 +745,7 @@ footer p {
   padding: 20px 24px;
   background: var(--faq-bg);
   border: 1px solid var(--faq-border);
-  border-radius: 12px; /* Bordes redondeados en los 4 lados */
+  border-radius: 12px; 
   color: var(--faq-text);
   cursor: pointer;
   transition: all 0.3s ease;
@@ -752,7 +766,7 @@ footer p {
   border-bottom-right-radius: 0;
 }
 
-/* Tipografía y Icono */
+/* Tipografía e Icono */
 .faq-item span {
   font-size: 1.1rem;
   font-weight: 600;
@@ -787,8 +801,8 @@ footer p {
   opacity: 1;
   max-height: 500px; 
   padding-bottom: 24px;
-  margin-top: 0; /* Se une a la tarjeta superior */
-  margin-bottom: 10px; /* Separa el bloque abierto del siguiente */
+  margin-top: 0; 
+  margin-bottom: 10px; 
 }
 
 .faq-panel p { 
@@ -798,7 +812,6 @@ footer p {
   font-size: 1rem;
 }
 
-/* Animación de revelado */
 .reveal { opacity: 0; transform: translateY(12px); transition: 0.25s ease; }
 .reveal.visible { opacity: 1; transform: none; }
 
@@ -820,17 +833,24 @@ footer p {
 }
 
 @media (max-width: 768px) {
-  /* Servicios y Secciones */
   .services-grid, .process-steps { grid-template-columns: 1fr; }
   .services-section, .process-section { padding: 24px 0; }
-  .service-card { padding: 16px; }
-
+  .service-card {
+     padding: 16px; 
+    }
   /* FAQ en móviles */
-  .faq-list { padding: 0 12px; gap: 15px; }
-  .faq-item { padding: 15px; }
-  .faq-item span { font-size: 0.98rem; }
+  .faq-list { 
+    padding: 0 12px; gap: 15px;
+  }
 
-  /* El ajuste de imágenes y texto */
+  .faq-item { 
+    padding: 15px; 
+  }
+
+  .faq-item span { 
+    font-size: 0.98rem; 
+  }
+
   .card, .texto {
     flex: 1 1 auto; 
     max-width: 100%;
@@ -856,7 +876,7 @@ footer p {
 /* Secciones Compra/Venta y Asesoría Legal */
 .section {
   display: flex;
-  align-items: center; /* Centra verticalmente el contenido */
+  align-items: center; 
   justify-content: center;
   gap: 40px;
   padding: 50px 20px;
@@ -872,8 +892,8 @@ footer p {
 }
 
 .section .card {
-  flex: 1 1 45%; /* Ocupa hasta 45% de ancho en desktop */
-  max-width: 500px; /* Evita que la imagen se haga demasiado grande */
+  flex: 1 1 45%; 
+  max-width: 500px;
 }
 
 .section .card img.imagen {
@@ -886,18 +906,18 @@ footer p {
 .section .texto {
   flex: 1 1 45%;
   max-width: 500px;
-  text-align: left; /* Alinea texto a la izquierda en desktop */
+  text-align: left; 
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Centra verticalmente */
+  justify-content: center;
   gap: 15px;
 }
 
 .section.reverse .texto {
-  text-align: left; /* Sigue alineado a la izquierda aunque esté al lado derecho */
+  text-align: left; 
 }
 
-/* Móvil: todo en columna centrado */
+/* Móvil*/
 @media (max-width: 768px) {
   .section,
   .section.reverse {
@@ -907,8 +927,8 @@ footer p {
   }
 
   .section .card {
-    max-width: 70%;      /*  reduce tamaño */
-    margin: 0 auto;      /* centra la imagen */
+    max-width: 70%;      
+    margin: 0 auto;  
   }
 
   .section .card img.imagen {
@@ -927,7 +947,6 @@ footer p {
   }
 }
 
-/* Fondo uniforme para todas las secciones principales */
 .section,
 .services-section,
 .process-section,

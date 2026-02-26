@@ -59,11 +59,7 @@ body {
   color: #333;
   margin-bottom: 10px;
   font-weight: 800;
-  display: flex;
-  flex-wrap: wrap; 
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
+  text-align: center;
 }
 
 .contacto-header h2 i {
@@ -419,70 +415,76 @@ body {
 }
 
 /* FORMULARIO DE CONTACTO */
+/* FORMULARIO DE CONTACTO */
 .formulario-contacto-section {
-  background: linear-gradient(135deg, #ffffff 0%, #fff8f1 100%);
-  border-radius: 25px;
-  padding: 60px 40px;
-  margin: 80px auto;
-  max-width: 900px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+  background: linear-gradient(135deg, #ffffff 0%, #fff6ec 100%);
+  border-radius: 30px;
+  padding: 80px 50px;
+  margin: 100px auto;
+  max-width: 1000px;
+  box-shadow: 0 35px 90px rgba(0, 0, 0, 0.15);
   text-align: center;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 250px;
+
+  min-height: 300px;
   position: relative;
   overflow: hidden;
 
-  /* Animación elegante */
   animation: fadeUp 0.9s ease forwards;
   opacity: 0;
   transform: translateY(40px);
 }
 
-/* Glow decorativo más grande */
 .formulario-contacto-section::before {
   content: "";
   position: absolute;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(249,145,9,0.18) 0%, transparent 70%);
-  top: -120px;
-  right: -120px;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(249,145,9,0.20) 0%, transparent 70%);
+  top: -150px;
+  right: -150px;
   z-index: 0;
 }
 
 .formulario-contacto-section::after {
   content: "";
   position: absolute;
-  width: 300px;
-  height: 300px;
-  background: radial-gradient(circle, rgba(249,145,9,0.12) 0%, transparent 70%);
-  bottom: -120px;
-  left: -120px;
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(249,145,9,0.15) 0%, transparent 70%);
+  bottom: -150px;
+  left: -150px;
   z-index: 0;
 }
 
-/* Mantiene el contenido encima */
 .formulario-contacto-section * {
   position: relative;
   z-index: 1;
 }
 
-/* Imagen más grande y flotante */
+/* IMAGEN MÁS GRANDE E IMPACTANTE */
 .imagen-formulario {
-  width: 320px;
+  width: 420px;              /* 🔥 más grande */
   max-width: 100%;
-  margin-bottom: 30px;
-  border-radius: 25px;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.18);
-  transition: all 0.4s ease;
+  margin-bottom: 40px;
+  border-radius: 30px;
+
+  box-shadow: 
+    0 30px 80px rgba(0, 0, 0, 0.25),
+    0 0 0 8px rgba(249,145,9,0.08);
+
+  transition: all 0.5s ease;
 }
 
 .imagen-formulario:hover {
-  transform: scale(1.08) translateY(-5px);
-  box-shadow: 0 35px 80px rgba(0, 0, 0, 0.25);
+  transform: scale(1.12) translateY(-8px);
+  box-shadow: 
+    0 45px 110px rgba(0, 0, 0, 0.35),
+    0 0 0 12px rgba(249,145,9,0.15);
 }
 
 /* Animación */
@@ -493,48 +495,67 @@ body {
   }
 }
 
+/* TITULO MÁS FUERTE */
 .formulario-contacto-section h3 {
-  font-size: 1.8rem;
+  font-size: 2rem;
+  font-weight: 800;
   color: var(--dark);
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 12px;
 }
 
 .formulario-contacto-section h3 i {
   color: var(--primary);
 }
 
+/* SUBTITULO */
 .form-subtitle {
-  color: #6c757d;
-  margin-bottom: 30px;
-  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 40px;
+  font-size: 1.15rem;
 }
 
+/* BOTÓN MÁS IMPACTANTE */
 .boton-correo {
   background: linear-gradient(135deg, var(--primary), var(--primary-orange));
   color: white;
   border: none;
-  padding: 15px 30px;
-  border-radius: 12px;
-  font-size: 1.1rem;
-  font-weight: 600;
+  padding: 18px 40px;
+  border-radius: 14px;
+  font-size: 1.15rem;
+  font-weight: 700;
   cursor: pointer;
-  transition: all 0.3s ease;
+
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  box-shadow: var(--shadow-orange);
+  gap: 12px;
+
+  transition: all 0.3s ease;
+  box-shadow: 0 15px 40px rgba(249, 145, 9, 0.35);
 }
 
 .boton-correo:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(249, 145, 9, 0.4);
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 20px 55px rgba(249, 145, 9, 0.45);
 }
 
-/* MODAL MEJORADO */
+/* RESPONSIVE */
+@media (max-width: 768px) {
+
+  .formulario-contacto-section {
+    padding: 60px 30px;
+  }
+
+  .imagen-formulario {
+    width: 300px;
+  }
+
+}
+
+/* MODAL */
 .modal-enhanced {
   display: none;
   position: fixed;
@@ -1374,7 +1395,6 @@ input.invalid, select.invalid, textarea.invalid {
 }
 
 @media (max-width: 480px) {
-  /* Footer para móviles pequeños */
   footer {
     padding: 20px 10px;
   }
@@ -1414,7 +1434,81 @@ input.invalid, select.invalid, textarea.invalid {
 @media (max-width: 768px) {
 
   .contacto-section {
-    padding-top: 0;  /* antes era 80px */
+    padding-top: 0;  
   }
 
+}
+
+/*UNIFICAR TÍTULOS Y TEXTOS - CONTACTO*/
+/* TÍTULOS PRINCIPALES */
+.contacto-header h2,
+.confianza-section h3,
+.testimonios-section h3,
+.formulario-contacto-section h3 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--dark);
+}
+
+/* SUBTÍTULOS INTERNOS */
+.card-content h3,
+.certificaciones h3,
+.form-step h3 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  text-align: center;
+  color: var(--dark);
+}
+
+/* TEXTOS GENERALES */
+.contacto-subtitle,
+.stat-label,
+.contact-detail,
+.contact-status,
+.testimonio-content p,
+.cert-item span,
+.form-subtitle {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  text-align: center;
+  color: #555;
+}
+
+/* NÚMEROS DESTACADOS */
+.stat-number {
+  font-size: 2.6rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+
+  .contacto-header h2,
+  .confianza-section h3,
+  .testimonios-section h3,
+  .formulario-contacto-section h3 {
+    font-size: 1.8rem;
+  }
+
+  .card-content h3,
+  .certificaciones h3,
+  .form-step h3 {
+    font-size: 1.4rem;
+  }
+
+  .contacto-subtitle,
+  .stat-label,
+  .contact-detail,
+  .contact-status,
+  .testimonio-content p,
+  .cert-item span,
+  .form-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+  }
 }
