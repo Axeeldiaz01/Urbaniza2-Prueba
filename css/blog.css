@@ -70,7 +70,6 @@ body {
 }
 
 /* Tarjetas del Blog */
-/*MODIFICADO*/
 .blog-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -231,7 +230,6 @@ body {
   margin: 0 auto;
 }
 
-/* Contenedor de cada pregunta (Separación entre ellas) */
 .faq-item {
   margin-bottom: 20px;
   background: var(--bg-white);
@@ -265,8 +263,7 @@ body {
   transition: transform 0.4s ease;
 }
 
-/* ESTADO ACTIVO (Cuando se abre) */
-/* Si usas la clase .active en el faq-item mediante JS */
+/* ESTADO ACTIVO */
 .faq-item.active {
   border: 2px solid var(--primary-orange);
   transform: translateY(-2px);
@@ -293,12 +290,11 @@ body {
 }
 
 .faq-item.active .faq-answer {
-  max-height: 800px; /* Suficiente para el contenido */
+  max-height: 800px; 
   padding-bottom: 24px;
   opacity: 1;
 }
 
-/* Estilos internos de la respuesta (listas) */
 .faq-answer ul, .faq-answer ol {
   margin-top: 15px;
   padding-left: 20px;
@@ -318,7 +314,6 @@ body {
   text-decoration: none;
 }
 
-/* Efecto hover suave */
 .faq-item:hover:not(.active) {
   border-color: var(--primary-orange);
   background-color: rgba(249, 145, 9, 0.02);
@@ -576,7 +571,6 @@ footer p {
     }
 }
 
-/* Responsive para dispositivos muy pequeños */
 @media (max-width: 480px) {
   .scrollToHome {
     width: 45px;

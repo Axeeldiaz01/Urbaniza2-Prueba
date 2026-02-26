@@ -1,7 +1,4 @@
-/* ==============================================
-   ESTANDARIZACIÓN DE BOTONES - URBANIZA2
-   ============================================== */
-
+/*ESTANDARIZACIÓN DE BOTONES*/
 /* Variables CSS para consistencia */
 :root {
   --btn-padding-standard: 12px 24px;
@@ -49,7 +46,6 @@
   gap: 8px;
 }
 
-/* Accesibilidad: foco visible para botones */
 .btn:focus-visible,
 [class^="btn-"]:focus-visible {
   outline: none;
