@@ -7,9 +7,11 @@
     <link rel="icon" href="img/U2.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="css/terrenos.css">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/button-standardization.css">
+    <link rel="stylesheet" href="css/button-standardization.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/terrenos.css">
+    
+  
 </head>
 <body>
     <header>
@@ -32,10 +34,13 @@
       </div>
     </div>
   </header>
+
   <!--buscador-->
 <div id="buscador" class="buscador-inmuebles">
   <h1>Venta de departamentos e inmuebles en Perú</h1>
+
   <form class="buscador-form" id="form-buscador">
+
     <div class="buscador-row">
       <select id="tipo-inmueble">
         <option value="">TODOS</option>
@@ -43,19 +48,31 @@
         <option value="Casa">Casa</option>
         <option value="Terreno">Terreno</option>
       </select>
-      <input type="text" id="texto-busqueda" placeholder="Ingresa Departamento, Provincia, Distrito o Urbaniz">
-      <button type="submit" class="btn-buscar"><i class="fa fa-search"></i> BUSCAR</button>
+
+      <input type="text" id="texto-busqueda"
+        placeholder="Ingresa Departamento, Provincia, Distrito o Urbaniz">
     </div>
+
     <div class="precio-group">
       <select id="moneda">
         <option value="S/">S/</option>
         <option value="US$">US$</option>
       </select>
+
       <input type="text" id="precio-desde" placeholder="Precio desde">
       <input type="text" id="precio-hasta" placeholder="Precio hasta">
+
       <label>
-        <input type="checkbox" id="retirar-precio"> Retirar precio</label>
+        <input type="checkbox" id="retirar-precio">
+        Retirar precio
+      </label>
     </div>
+
+    <!-- AHORA SÍ ABAJO DE TODO -->
+    <button type="submit" class="btn-buscar">
+      <i class="fa fa-search"></i> BUSCAR
+    </button>
+
   </form>
 </div>
 

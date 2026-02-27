@@ -10,7 +10,6 @@
 
 * {
   box-sizing: border-box;
-  
 }
 
 body {
@@ -20,7 +19,6 @@ body {
   background: #fff;
   color: #222;
 }
-
 
 body {
   display: flex;
@@ -77,6 +75,8 @@ html {
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
+  margin-top: 20px;
+  text-align: center;
 }
 
 /* FILA PRINCIPAL */
@@ -625,8 +625,6 @@ footer p {
         height: 38px;
         font-size: 18px;
     }
-    
-
 }
 
 @media (max-width: 30rem) {
@@ -1419,8 +1417,6 @@ footer p {
     }
 }
 
-/* REPARACIÓN DE MENÚ LATERAL Y BOTÓN DE CIERRE  */
-
 @media (max-width: 768px) {
     .nav-menu {
         position: fixed !important;
@@ -1499,6 +1495,17 @@ footer p {
   }
 }
 
+/* FIX REAL BOTÓN BUSCADOR MÓVIL*/
+@media (max-width: 900px) {
+
+  .buscador-row .btn-buscar {
+    width: 100%;
+    min-width: 0 !important;
+    display: flex;
+    justify-content: center;
+  }
+
+}
 
 
 
