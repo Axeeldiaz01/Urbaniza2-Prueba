@@ -8,11 +8,11 @@
   --btn-font-size: 1rem;
   --btn-font-weight: 600;
   --btn-transition: all 0.3s ease;
-  --btn-min-width: 120px;
-  --btn-height-standard: 44px;
+  --btn-min-width: 160px;
+  --btn-height-standard: 48px;
 }
 
-/* ESTILOS BASE PARA TODOS LOS BOTONES */
+/* ESTILOS BASE PARA TODOS */
 .btn,
 .btn-primary,
 .btn-secondary,
@@ -24,10 +24,7 @@
 .btn-whatsapp-compra,
 .btn-calculadora-compra,
 .btn-contactar,
-.btn-favorito-modal,
-.btn-ver-mas,
-.btn-favorito,
-.btn-comparar-item {
+.btn-ver-mas {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -46,14 +43,36 @@
   gap: 8px;
 }
 
+/* BOTONES DE ICONO */
+.btn-favorito,
+.btn-comparar-item,
+.btn-favorito-modal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border-radius: 8px;
+  font-weight: 600;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: var(--btn-transition);
+  box-sizing: border-box;
+}
+
+/* FOCUS */
 .btn:focus-visible,
 [class^="btn-"]:focus-visible {
   outline: none;
   box-shadow: 0 0 0 3px rgba(249, 145, 9, 0.45);
 }
-.btn:focus { outline: none; }
 
-/* BOTONES PRINCIPALES */
+.btn:focus { 
+  outline: none;
+}
+
 .btn-primary {
   background: rgba(249, 145, 9, 0.9);
   color: white;
@@ -66,7 +85,6 @@
   box-shadow: 0 5px 15px rgba(249, 145, 9, 0.4);
 }
 
-/* BOTONES SECUNDARIOS (WhatsApp) */
 .btn-secondary,
 .btn-contact,
 .btn-whatsapp-compra {
@@ -83,7 +101,6 @@
   box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
 }
 
-/* BOTONES DE LECTURA */
 .btn-read {
   background-color: #0066cc;
   color: white;
@@ -96,7 +113,6 @@
   box-shadow: 0 5px 15px rgba(0, 102, 204, 0.4);
 }
 
-/* BOTONES DE COMPRA */
 .btn-comprar {
   background: linear-gradient(135deg, #27ae60, #2ecc71);
   color: white;
@@ -109,7 +125,6 @@
   box-shadow: 0 5px 15px rgba(39, 174, 96, 0.4);
 }
 
-/* BOTONES DE CALCULADORA */
 .btn-calcular,
 .btn-calculadora-compra {
   background: #3498db;
@@ -124,7 +139,6 @@
   box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
 }
 
-/* BOTÓN DE BÚSQUEDA */
 .btn-buscar {
   background: #e74c3c;
   color: white;
@@ -137,7 +151,6 @@
   box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
 }
 
-/* BOTONES DE CONTACTO */
 .btn-contactar {
   background: #25d366;
   color: white;
@@ -150,7 +163,6 @@
   box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
 }
 
-/* BOTONES DE VER MÁS */
 .btn-ver-mas {
   background: #f99109;
   color: white;
@@ -163,77 +175,23 @@
   box-shadow: 0 5px 15px rgba(249, 145, 9, 0.4);
 }
 
-/* BOTONES DE FAVORITOS */
-.btn-favorito,
-.btn-favorito-modal {
-  background: #f8f9fa;
-  color: #e74c3c;
-  border-color: #e74c3c;
-}
-
-.btn-favorito:hover,
-.btn-favorito-modal:hover {
-  background: #e74c3c;
-  color: white;
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
-}
-
-.btn-favorito.active,
-.btn-favorito-modal.active {
-  background: #e74c3c;
-  color: white;
-}
-
-/* BOTONES DE COMPARAR */
-.btn-comparar-item {
-  background: #f8f9fa;
-  color: #3498db;
-  border-color: #3498db;
-}
-
-.btn-comparar-item:hover {
-  background: #3498db;
-  color: white;
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
-}
-
-.btn-comparar-item.active {
-  background: #3498db;
-  color: white;
-}
-
-/* BOTONES PEQUEÑOS (para iconos) */
-.btn-favorito,
-.btn-comparar-item {
-  min-width: 44px;
-  width: 44px;
-  height: 44px;
-  padding: 0;
-  border-radius: 8px;
-}
-
-/* BOTONES GRANDES (para acciones principales) */
-.btn-large,
-.btn-comprar,
-.btn-whatsapp-compra,
-.btn-calculadora-compra {
+/* BOTONES GRANDES */
+.btn-large {
   padding: var(--btn-padding-large);
   font-size: 1.1rem;
-  min-width: 150px;
-  height: 50px;
+  min-width: 180px;
+  height: 54px;
 }
 
-/* BOTONES PEQUEÑOS (para acciones secundarias) */
+/* BOTONES SMALL */
 .btn-small {
   padding: var(--btn-padding-small);
   font-size: 0.9rem;
-  min-width: 100px;
+  min-width: 120px;
   height: 36px;
 }
 
-/* RESPONSIVE DESIGN */
+/* RESPONSIVE */
 @media (max-width: 768px) {
   .btn,
   .btn-primary,
@@ -246,26 +204,16 @@
   .btn-whatsapp-compra,
   .btn-calculadora-compra,
   .btn-contactar,
-  .btn-favorito-modal,
   .btn-ver-mas {
-    padding: 10px 20px;
-    font-size: 0.9rem;
-    min-width: 100px;
-    height: 40px;
+    min-width: 140px;
+    height: 42px;
+    font-size: 0.95rem;
   }
-  
-  .btn-large,
-  .btn-comprar,
-  .btn-whatsapp-compra,
-  .btn-calculadora-compra {
-    padding: 12px 24px;
-    font-size: 1rem;
-    min-width: 120px;
-    height: 44px;
-  }
+
 }
 
 @media (max-width: 480px) {
+
   .btn,
   .btn-primary,
   .btn-secondary,
@@ -277,26 +225,16 @@
   .btn-whatsapp-compra,
   .btn-calculadora-compra,
   .btn-contactar,
-  .btn-favorito-modal,
   .btn-ver-mas {
-    padding: 8px 16px;
-    font-size: 0.85rem;
-    min-width: 90px;
-    height: 36px;
-  }
-  
-  .btn-large,
-  .btn-comprar,
-  .btn-whatsapp-compra,
-  .btn-calculadora-compra {
-    padding: 10px 20px;
+    min-width: 120px;
+    height: 38px;
     font-size: 0.9rem;
-    min-width: 100px;
-    height: 40px;
+    padding: 8px 16px;
   }
+
 }
 
-/* ESTADOS ESPECIALES */
+/* ESTADOS */
 .btn:disabled,
 .btn-primary:disabled,
 .btn-secondary:disabled,
@@ -307,15 +245,6 @@
   box-shadow: none;
 }
 
-.btn:disabled:hover,
-.btn-primary:disabled:hover,
-.btn-secondary:disabled:hover,
-.btn-comprar:disabled:hover {
-  transform: none;
-  box-shadow: none;
-}
-
-/* ANIMACIONES ADICIONALES */
 .btn:active,
 .btn-primary:active,
 .btn-secondary:active,
@@ -324,7 +253,7 @@
   transition: transform 0.1s ease;
 }
 
-/* GRUPOS DE BOTONES */
+/* GRUPOS */
 .btn-group {
   display: flex;
   gap: 10px;
@@ -335,7 +264,7 @@
 
 .btn-group .btn {
   flex: 1;
-  min-width: 120px;
+  min-width: 160px;
 }
 
 @media (max-width: 768px) {
@@ -343,10 +272,9 @@
     flex-direction: column;
     gap: 8px;
   }
-  
+
   .btn-group .btn {
     width: 100%;
     flex: none;
   }
 }
-

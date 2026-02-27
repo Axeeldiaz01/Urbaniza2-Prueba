@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-:root { 
+:root {
   --primary: #fb9f2ee2;
   --primary-orange: rgba(249, 145, 9, 0.9);
   --primary-orange-light: rgba(249, 145, 9, 0.7);
@@ -63,7 +63,7 @@ body {
 }
 
 .contacto-header h2 i {
-  color: #f49d32; 
+  color: #f49d32;
   font-size: 2.4rem;
   transition: transform 0.3s ease;
 }
@@ -94,6 +94,7 @@ body {
   .contacto-header h2 {
     font-size: 2rem;
   }
+
   .contacto-header h2 i {
     font-size: 1.8rem;
   }
@@ -415,7 +416,6 @@ body {
 }
 
 /* FORMULARIO DE CONTACTO */
-/* FORMULARIO DE CONTACTO */
 .formulario-contacto-section {
   background: linear-gradient(135deg, #ffffff 0%, #fff6ec 100%);
   border-radius: 30px;
@@ -444,7 +444,7 @@ body {
   position: absolute;
   width: 450px;
   height: 450px;
-  background: radial-gradient(circle, rgba(249,145,9,0.20) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(249, 145, 9, 0.20) 0%, transparent 70%);
   top: -150px;
   right: -150px;
   z-index: 0;
@@ -455,7 +455,7 @@ body {
   position: absolute;
   width: 350px;
   height: 350px;
-  background: radial-gradient(circle, rgba(249,145,9,0.15) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(249, 145, 9, 0.15) 0%, transparent 70%);
   bottom: -150px;
   left: -150px;
   z-index: 0;
@@ -466,25 +466,22 @@ body {
   z-index: 1;
 }
 
-/* IMAGEN MÁS GRANDE E IMPACTANTE */
 .imagen-formulario {
-  width: 420px;              /* 🔥 más grande */
+  width: 420px;
   max-width: 100%;
   margin-bottom: 40px;
   border-radius: 30px;
-
-  box-shadow: 
+  box-shadow:
     0 30px 80px rgba(0, 0, 0, 0.25),
-    0 0 0 8px rgba(249,145,9,0.08);
-
+    0 0 0 8px rgba(249, 145, 9, 0.08);
   transition: all 0.5s ease;
 }
 
 .imagen-formulario:hover {
   transform: scale(1.12) translateY(-8px);
-  box-shadow: 
+  box-shadow:
     0 45px 110px rgba(0, 0, 0, 0.35),
-    0 0 0 12px rgba(249,145,9,0.15);
+    0 0 0 12px rgba(249, 145, 9, 0.15);
 }
 
 /* Animación */
@@ -495,7 +492,7 @@ body {
   }
 }
 
-/* TITULO MÁS FUERTE */
+/* TITULO */
 .formulario-contacto-section h3 {
   font-size: 2rem;
   font-weight: 800;
@@ -518,7 +515,7 @@ body {
   font-size: 1.15rem;
 }
 
-/* BOTÓN MÁS IMPACTANTE */
+/* BOTÓN */
 .boton-correo {
   background: linear-gradient(135deg, var(--primary), var(--primary-orange));
   color: white;
@@ -544,7 +541,6 @@ body {
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
-
   .formulario-contacto-section {
     padding: 60px 30px;
   }
@@ -552,7 +548,6 @@ body {
   .imagen-formulario {
     width: 300px;
   }
-
 }
 
 /* MODAL */
@@ -1030,7 +1025,7 @@ footer p {
   color: #d35400;
 }
 
-/* RESUMEN MEJORADO */
+/* RESUMEN */
 .resumen-contenido {
   background: #f8f9fa;
   padding: 0;
@@ -1075,7 +1070,7 @@ footer p {
   background: white;
   border-radius: 8px;
   border-left: 4px solid #e67e22;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .dato-item:last-child {
@@ -1168,9 +1163,20 @@ footer p {
 }
 
 @keyframes checkBounce {
-  0% { transform: scale(0); opacity: 0; }
-  50% { transform: scale(1.2); opacity: 1; }
-  100% { transform: scale(1); opacity: 1; }
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .confirmacion-header h3 {
@@ -1306,12 +1312,16 @@ footer p {
   font-weight: 500;
 }
 
-input.valid, select.valid, textarea.valid {
+input.valid,
+select.valid,
+textarea.valid {
   border-color: #27ae60;
   box-shadow: 0 0 0 2px rgba(39, 174, 96, 0.1);
 }
 
-input.invalid, select.invalid, textarea.invalid {
+input.invalid,
+select.invalid,
+textarea.invalid {
   border-color: #e74c3c;
   box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.1);
 }
@@ -1323,48 +1333,48 @@ input.invalid, select.invalid, textarea.invalid {
     text-align: center;
     gap: 10px;
   }
-  
+
   .checkbox-group {
     flex-direction: column;
     gap: 8px;
   }
-  
+
   .resumen-contenido {
     padding: 20px;
   }
-  
+
   .resumen-contenido strong {
     min-width: auto;
     display: block;
     margin-bottom: 5px;
   }
-  
+
   .dato-label {
     min-width: auto;
     margin-bottom: 5px;
   }
-  
+
   .dato-item {
     flex-direction: column;
     align-items: flex-start;
   }
-  
+
   .confirmacion-header {
     padding: 25px 20px;
   }
-  
+
   .confirmacion-header h3 {
     font-size: 1.3rem;
   }
-  
+
   .check-animation i {
     font-size: 3rem;
   }
-  
+
   .confirmacion-body {
     padding: 25px 20px;
   }
-  
+
   .mensaje-principal,
   .tiempo-respuesta,
   .contacto-directo {
@@ -1380,6 +1390,7 @@ input.invalid, select.invalid, textarea.invalid {
     opacity: 0;
     transform: translateY(-50px) scale(0.9);
   }
+
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -1426,21 +1437,20 @@ input.invalid, select.invalid, textarea.invalid {
 
 /*celulares pequeños */
 @media (max-width: 768px) {
-    header .container {
-        justify-content: space-between;
-    }
-    
-}
-@media (max-width: 768px) {
-
-  .contacto-section {
-    padding-top: 0;  
+  header .container {
+    justify-content: space-between;
   }
 
 }
 
-/*UNIFICAR TÍTULOS Y TEXTOS - CONTACTO*/
-/* TÍTULOS PRINCIPALES */
+@media (max-width: 768px) {
+
+  .contacto-section {
+    padding-top: 0;
+  }
+
+}
+
 .contacto-header h2,
 .confianza-section h3,
 .testimonios-section h3,
