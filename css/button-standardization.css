@@ -267,6 +267,32 @@
   min-width: 160px;
 }
 
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .btn-group {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .btn-group .btn {
+    width: 100%;
+    flex: none;
+  }
+}/* GRUPOS */
+.btn-group {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-group .btn {
+  flex: 1;
+  min-width: 160px;
+}
+
+/* RESPONSIVE */
 @media (max-width: 768px) {
   .btn-group {
     flex-direction: column;

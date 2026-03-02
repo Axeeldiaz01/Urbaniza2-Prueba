@@ -201,13 +201,10 @@ nav ul li a:focus-visible {
 .slider-container {
   position: relative;
   width: 100%;
-  height: 80vh; /* Altura base para desktop */
-  min-height: 600px;
-  max-height: 800px;
+  height: 700px; 
   overflow: hidden;
 }
 
-/* Slides con imágenes de fondo */
 .slide {
   position: absolute;
   top: 0;
@@ -281,13 +278,13 @@ nav ul li a:focus-visible {
   display: flex;
   gap: 1rem;
   justify-content: center;
-  flex-wrap: wrap;
 }
 
 .hero-buttons .btn {
-  min-width: 200px;
-  padding: 14px 28px;
-  font-size: 1.1rem;
+  flex: 1;             
+  max-width: 260px;     
+  text-align: center;
+  padding: 14px 20px;
 }
 
 /* Controles del slider */
@@ -451,18 +448,6 @@ section h2 {
   height: 100%;
 }
 
-.slide {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-}
 .slide.activo {
   opacity: 1;
   z-index: 2;
@@ -692,6 +677,7 @@ a:hover .whatsapp-num {
   background:
     radial-gradient(circle at top right, rgba(249, 145, 9, 0.05), transparent),
     #fdfdfd;
+    
 }
 
 .calculadora-section h2 {
@@ -1222,27 +1208,9 @@ input[type="range"]::-webkit-slider-thumb:hover {
   height: 100%;
 }
 
-.service-icon {
-  width: 70px;
-  height: 70px;
-  background: rgba(249, 145, 9, 0.1);
-  border-radius: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-  transition: 0.3s;
-}
-
 .service-icon i {
   font-size: 28px;
   color: #f99109;
-}
-
-.service-card:hover {
-  transform: translateY(-12px);
-  border-color: #f99109;
-  box-shadow: 0 20px 40px rgba(249, 145, 9, 0.1);
 }
 
 .service-card:hover .service-icon {
@@ -1254,18 +1222,6 @@ input[type="range"]::-webkit-slider-thumb:hover {
   color: #fff;
 }
 
-.service-card h3 {
-  font-size: 1.4rem;
-  margin-bottom: 15px;
-  color: #1a1a1a;
-  transition: 0.3s;
-}
-
-.service-card p {
-  font-size: 1rem;
-  color: #666;
-  line-height: 1.6;
-}
 
 /* Animación de entrada sutil */
 @keyframes cardFadeIn {
@@ -1342,7 +1298,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
 .service-card:hover .service-icon::after {
   opacity: 0;
 }
-
+/*ESTE NO */
 .service-card h3 {
   font-size: 1.5rem;
   font-weight: 700;
@@ -1351,24 +1307,13 @@ input[type="range"]::-webkit-slider-thumb:hover {
   transition: color 0.3s ease;
 }
 
+
 .service-card p {
-  color: #555;
-  line-height: 1.8;
   font-size: 0.95rem;
+  color: #555;
+  line-height: 1.7;
 }
 
-/* Keyframes más fluidos */
-@keyframes cardFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
 .services-grid .service-card:nth-child(1) {
   animation-delay: 0.05s;
@@ -1388,18 +1333,6 @@ input[type="range"]::-webkit-slider-thumb:hover {
 
 .services-grid .service-card:nth-child(5) {
   animation-delay: 0.33s;
-}
-
-.service-card h3 {
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: #333;
-  margin-bottom: 1rem;
-}
-
-.service-card p {
-  color: #666;
-  line-height: 1.6;
 }
 
 /* SECCIÓN INFORMACIÓN EDUCATIVA */
@@ -2436,8 +2369,6 @@ h2::after {
     height: auto;
     min-height: 500px;
   }
-
-  /* Quitamos absolute en móvil */
   .hero-content {
     position: relative;
     transform: none;
@@ -2466,13 +2397,4 @@ h2::after {
   left: auto;
   transform: none;
 }
-
-}
-
-.hero-buttons {
-  display: flex;
-  justify-content: center;   
-  align-items: center;
-  gap: 20px;                 
-  flex-wrap: wrap;         
 }
