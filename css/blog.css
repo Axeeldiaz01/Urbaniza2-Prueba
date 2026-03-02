@@ -50,10 +50,10 @@ body {
 }
 
 .blog-header h1 {
-  font-size: 2.8rem;
-  margin-bottom: 15px;
-  color: #333;
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
   font-weight: 700;
+  margin-bottom: 1.5rem;
+    line-height: 1.2;
 }
 
 .blog-header p {
@@ -203,7 +203,7 @@ body {
   }
 }
 
-/* --- DISEÑO DE PREGUNTAS FRECUENTES ESTÉTICO --- */
+/*  DISEÑO DE PREGUNTAS FRECUENTES ESTÉTICO */
 :root {
   --primary-orange: #f99109;
   --text-dark: #2d3436;
@@ -612,5 +612,15 @@ footer p {
 @media (max-width: 768px) {
   .blog-section {
     padding-top: 0;
+  }
+}
+@media (max-width: 1000px) {
+  .card-actions {
+    flex-direction: column;
+  }
+
+  .btn-read,
+  .btn-contact {
+    width: 100%;
   }
 }

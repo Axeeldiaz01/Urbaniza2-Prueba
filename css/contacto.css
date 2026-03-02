@@ -49,6 +49,7 @@ body {
   position: relative;
 }
 
+/*
 .contacto-header {
   text-align: center;
   margin-bottom: 40px;
@@ -99,6 +100,7 @@ body {
     font-size: 1.8rem;
   }
 }
+*/
 
 /* SECCIÓN DE CONFIANZA */
 .confianza-section {
@@ -892,6 +894,7 @@ footer p {
 }
 
 @media (max-width: 480px) {
+  /*
   .contacto-header h2 {
     font-size: 1.8rem;
   }
@@ -899,6 +902,7 @@ footer p {
   .contacto-header h2 i {
     font-size: 1.5rem;
   }
+  */
 
   .stat-number {
     font-size: 2.2rem;
@@ -1492,7 +1496,7 @@ textarea.invalid {
   text-align: center;
 }
 
-/* RESPONSIVE */
+/* RESPONSIVE 
 @media (max-width: 768px) {
 
   .contacto-header h2,
@@ -1522,3 +1526,4 @@ textarea.invalid {
     font-size: 2rem;
   }
 }
+  */
