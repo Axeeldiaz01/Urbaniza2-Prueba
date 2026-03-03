@@ -6,6 +6,7 @@
   --round: 5px;
   --bg: #f0eaea;
   --font: "Poppins", sans-serif;
+  --primary: #f99109;
 }
 
 * {
@@ -20,7 +21,7 @@ body {
   font-family: "Poppins", Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background: #fff;
+  background: linear-gradient(180deg, #f4f6f8 0%, #eef1f4 100%);
   color: #222;
 }
 
@@ -159,8 +160,8 @@ nav ul li a:focus-visible {
     padding: 30px 20px;
     transition: right 0.6s ease;
     z-index: 1000;
-    backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
     background-color: rgba(0, 0, 0, 0.7);
   }
 
@@ -177,7 +178,7 @@ nav ul li a:focus-visible {
     color: white;
     cursor: pointer;
   }
-  
+
   body.menu-abierto {
     overflow: hidden;
     padding-right: 15px;
@@ -201,7 +202,7 @@ nav ul li a:focus-visible {
 .slider-container {
   position: relative;
   width: 100%;
-  height: 700px; 
+  height: 700px;
   overflow: hidden;
 }
 
@@ -229,10 +230,12 @@ nav ul li a:focus-visible {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg,
-      rgba(0, 0, 0, 0.7) 0%,
-      rgba(0, 0, 0, 0.4) 50%,
-      rgba(0, 0, 0, 0.6) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0.4) 50%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
   z-index: 1;
 }
 
@@ -258,7 +261,7 @@ nav ul li a:focus-visible {
 
 .hero-title {
   font-size: clamp(2.2rem, 5vw, 3.5rem);
-  font-weight: 700;
+  font-weight: 800;
   margin-bottom: 1.5rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
   line-height: 1.2;
@@ -281,8 +284,8 @@ nav ul li a:focus-visible {
 }
 
 .hero-buttons .btn {
-  flex: 1;             
-  max-width: 260px;     
+  flex: 1;
+  max-width: 260px;
   text-align: center;
   padding: 14px 20px;
 }
@@ -311,7 +314,7 @@ nav ul li a:focus-visible {
   justify-content: center;
   cursor: pointer;
   transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.25);
 }
 
 .slider-btn:hover {
@@ -357,9 +360,11 @@ nav ul li a:focus-visible {
 
 /* Anuncio inferior */
 .hero-announcement {
-  background: linear-gradient(135deg,
-      rgba(249, 145, 9, 0.95),
-      rgba(249, 145, 9, 0.8));
+  background: linear-gradient(
+    135deg,
+    rgba(249, 145, 9, 0.95),
+    rgba(249, 145, 9, 0.8)
+  );
   padding: 15px 0;
   text-align: center;
 }
@@ -419,15 +424,13 @@ main.container {
 
 section {
   margin-bottom: 30px;
-  background:
-    radial-gradient(circle at top right, rgba(249, 145, 9, 0.05), transparent),
-    #fdfdfd;
+  background-color: #f8fafc;
 }
 
 section h2 {
   color: rgba(240, 161, 58, 0.679);
-  font-size: 1.3rem;
-  margin-bottom: 10px;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 700;
 }
 
 /*carrusel*/
@@ -477,6 +480,7 @@ section h2 {
   padding: 2rem;
   transform: translateY(100%);
   transition: transform 0.3s ease;
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
 }
 
@@ -674,15 +678,12 @@ a:hover .whatsapp-num {
 /* CALCULADORA */
 .calculadora-section {
   padding: 80px 20px;
-  background:
-    radial-gradient(circle at top right, rgba(249, 145, 9, 0.05), transparent),
-    #fdfdfd;
-    
+  background-color: #f8fafc;
 }
 
 .calculadora-section h2 {
   text-align: center;
-  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-size: clamp(2rem, 5vw, 2.8rem);
   margin-bottom: 10px;
   font-weight: 700;
 }
@@ -736,7 +737,7 @@ a:hover .whatsapp-num {
   background: #ffffff;
 }
 
-/* SLIDER PERSONALIZADO */
+/* SLIDER */
 input[type="range"] {
   -webkit-appearance: none;
   height: 6px;
@@ -1160,15 +1161,13 @@ input[type="range"]::-webkit-slider-thumb:hover {
 /* SECCIÓN SERVICIOS MEJORADA */
 .services-section {
   padding: 80px 5%;
-  background:
-    radial-gradient(circle at top right, rgba(249, 145, 9, 0.05), transparent),
-    #fdfdfd;
+  background: #f8fafc;
   overflow: hidden;
 }
 
 .section-title {
-  font-size: clamp(2rem, 5vw, 2.8rem);
-  font-weight: 800;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 700;
   color: #1a1a1a;
   margin-bottom: 1rem;
   text-align: center;
@@ -1221,7 +1220,6 @@ input[type="range"]::-webkit-slider-thumb:hover {
 .service-card:hover .service-icon i {
   color: #fff;
 }
-
 
 /* Animación de entrada sutil */
 @keyframes cardFadeIn {
@@ -1307,13 +1305,11 @@ input[type="range"]::-webkit-slider-thumb:hover {
   transition: color 0.3s ease;
 }
 
-
 .service-card p {
   font-size: 0.95rem;
   color: #555;
   line-height: 1.7;
 }
-
 
 .services-grid .service-card:nth-child(1) {
   animation-delay: 0.05s;
@@ -1338,9 +1334,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
 /* SECCIÓN INFORMACIÓN EDUCATIVA */
 .info-section {
   padding: 80px 0;
-  background:
-    radial-gradient(circle at top right, rgba(249, 145, 9, 0.05), transparent),
-    #fdfdfd;
+  background-color: #f8fafc;
 }
 
 /*  MODAL DE COMPRA  */
@@ -1353,6 +1347,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.8);
+  -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   align-items: center;
   justify-content: center;
@@ -1524,33 +1519,43 @@ input[type="range"]::-webkit-slider-thumb:hover {
 }
 
 .form-group[data-field="nombre"] {
-  background: linear-gradient(135deg,
-      rgba(52, 152, 219, 0.1),
-      rgba(155, 89, 182, 0.1));
+  background: linear-gradient(
+    135deg,
+    rgba(52, 152, 219, 0.1),
+    rgba(155, 89, 182, 0.1)
+  );
 }
 
 .form-group[data-field="email"] {
-  background: linear-gradient(135deg,
-      rgba(231, 76, 60, 0.1),
-      rgba(230, 126, 34, 0.1));
+  background: linear-gradient(
+    135deg,
+    rgba(231, 76, 60, 0.1),
+    rgba(230, 126, 34, 0.1)
+  );
 }
 
 .form-group[data-field="telefono"] {
-  background: linear-gradient(135deg,
-      rgba(46, 204, 113, 0.1),
-      rgba(39, 174, 96, 0.1));
+  background: linear-gradient(
+    135deg,
+    rgba(46, 204, 113, 0.1),
+    rgba(39, 174, 96, 0.1)
+  );
 }
 
 .form-group[data-field="tipo_pago"] {
-  background: linear-gradient(135deg,
-      rgba(241, 196, 15, 0.1),
-      rgba(243, 156, 18, 0.1));
+  background: linear-gradient(
+    135deg,
+    rgba(241, 196, 15, 0.1),
+    rgba(243, 156, 18, 0.1)
+  );
 }
 
 .form-group[data-field="mensaje"] {
-  background: linear-gradient(135deg,
-      rgba(142, 68, 173, 0.1),
-      rgba(155, 89, 182, 0.1));
+  background: linear-gradient(
+    135deg,
+    rgba(142, 68, 173, 0.1),
+    rgba(155, 89, 182, 0.1)
+  );
 }
 
 .form-actions {
@@ -2003,6 +2008,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
   padding: 15px;
   border-radius: 15px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   max-height: 400px;
@@ -2164,18 +2170,18 @@ input[type="range"]::-webkit-slider-thumb:hover {
 }
 
 @media (max-width: 380px) {
-.hero-title {
-  font-size: clamp(1.5rem, 5vw, 2.2rem);
-}
+  .hero-title {
+    font-size: clamp(1.5rem, 5vw, 2.2rem);
+  }
 
-.hero-description {
-  font-size: clamp(0.9rem, 3.5vw, 1.1rem);
-}
+  .hero-description {
+    font-size: clamp(0.9rem, 3.5vw, 1.1rem);
+  }
 
-.hero-buttons .btn {
-  padding: 10px 18px;
-  font-size: 0.9rem;
-}
+  .hero-buttons .btn {
+    padding: 10px 18px;
+    font-size: 0.9rem;
+  }
 }
 
 @media (max-width: 768px) {
@@ -2212,17 +2218,23 @@ body {
   overflow-x: hidden;
 }
 
+/*PRIMERO*/
 @media (max-width: 768px) {
 
   .slider-container {
-    height: 75vh;
+    height: 65vh;
     min-height: 500px;
   }
 
   .hero-content {
+    position: relative;
     top: 50%;
     transform: translateY(-50%);
     padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
   .hero-title {
@@ -2234,38 +2246,33 @@ body {
   .hero-description {
     font-size: 1rem;
     line-height: 1.6;
-    margin-bottom: 1.8rem;
+    margin-bottom: 1.5rem;
     padding: 0 10px;
   }
 
   .hero-buttons {
     display: flex;
-    flex-direction: row;
+    flex-direction: column; /* 👈 más limpio en mobile */
+    gap: 12px;
     align-items: center;
-    gap: 1rem;
   }
 
   .btn {
     width: 90%;
     max-width: 300px;
-    padding: 14px 20px;
-    font-size: 1rem;
+    padding: 12px 18px;
+    font-size: 0.95rem;
     border-radius: 12px;
   }
 
-  .slider-controls {
-    padding: 0 15px;
-  }
-
   .slider-btn {
-    width: 42px;
-    height: 42px;
+    width: 40px;
+    height: 40px;
   }
 
   .slider-indicators {
     bottom: 10px;
   }
-
 }
 
 /* RESPONSIVE */
@@ -2310,7 +2317,6 @@ body {
 }
 
 @media (max-width: 768px) {
-
   section {
     margin-bottom: 50px;
   }
@@ -2343,10 +2349,10 @@ body {
 .title,
 .section h2,
 h2 {
-  font-size: 42px;        
-  font-weight: 700;       
-  text-align: center;    
-  color: var(--dark);     
+  font-size: 42px;
+  font-weight: 700;
+  text-align: center;
+  color: var(--dark);
   margin-bottom: 50px;
 }
 
@@ -2360,41 +2366,4 @@ h2::after {
   display: block;
   margin: 15px auto 0;
   border-radius: 10px;
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-
-  .slider-container {
-    height: auto;
-    min-height: 500px;
-  }
-  .hero-content {
-    position: relative;
-    transform: none;
-    top: auto;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: 60px 20px 40px 20px;
-  }
-
-  .hero-buttons {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .slider-indicators {
-  position: relative;
-  margin-top: 20px;
-
-  display: flex;
-  justify-content: center;   
-  align-items: center;
-
-  left: auto;
-  transform: none;
-}
 }

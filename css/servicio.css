@@ -4,8 +4,10 @@
 :root {
   --primary: #fb9f2ee2;
   --dark: #333;
-  --bg: #f0eaea;
-  --round: 5px;
+  --bg-gradient: linear-gradient(180deg, #f4f6f8 0%, #eef1f4 100%);
+  --section-bg: #eef1f4;
+  --card-bg: #ffffff;
+  --round: 12px;
   --font: 'Poppins', sans-serif;
 }
 
@@ -26,7 +28,7 @@ h1 {
 
 body {
   margin: 0;
-  background: var(--bg);
+  background: linear-gradient(180deg, #f4f6f8 0%, #eef1f4 100%);
   color: var(--dark);
   line-height: 1.6;
   font-family: "Poppins", sans-serif;
@@ -131,9 +133,9 @@ nav ul li a:hover {
 /* Banner */
 .banner {
   position: relative;
-  width: auto;
-  height: 80vh;
-  overflow: hidden;
+  width: 100%;
+  min-height: 450px;
+  padding: 100px 20px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -160,7 +162,7 @@ nav ul li a:hover {
 
 .banner-content h1 {
   font-size: clamp(2.2rem, 5vw, 3.5rem);
-  font-weight: 700;
+  font-weight: 800;
   margin-bottom: 1.5rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
   line-height: 1.2;
@@ -338,13 +340,6 @@ footer p {
     padding: 15px;
   }
 
-  .background-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    filter: blur(5px) brightness(0.75);
-  }
 
   .banner-content {
     padding: 0 15px;
@@ -467,8 +462,8 @@ footer p {
 
 .services-section h2 {
   text-align: center;
-  font-size: 2.5rem;
-  font-weight: 800;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 700;
   color: #222;
   margin-bottom: 50px;
 }
@@ -521,7 +516,7 @@ footer p {
   line-height: 1.6;
 }
 
-/* Lista de beneficios más elegante */
+/* Lista de beneficios */
 .benefits {
   margin: 0 0 30px;
   padding: 0;
@@ -547,97 +542,76 @@ footer p {
 
 /* PROCESO DE TRABAJO */
 .process-section {
-  padding: 110px 20px;
-  background: linear-gradient(180deg, #ffffff 0%, #fff7ed 100%);
-  position: relative;
+  padding: 100px 20px;
+  background: #eef1f4;
 }
 
-.process-section h2 {
+.section-title {
   text-align: center;
-  font-size: 2.4rem;
-  font-weight: 800;
-  margin-bottom: 80px;
-  color: #333;
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  font-weight: 700;
+  margin-bottom: 70px;
+  color: #1f2937;
 }
 
 /* CONTENEDOR */
 .process-steps {
   list-style: none;
   display: flex;
-  flex-wrap: wrap;
-  gap: 70px;
-  margin: 0;
-  padding: 0;
   justify-content: center;
+  gap: 60px;
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap;
 }
 
 /* ITEM */
-.process-steps li {
-  flex: 1 1 280px;
-  max-width: 320px;
+.process-item {
+  flex: 1 1 260px;
+  max-width: 300px;
   text-align: center;
+}
+
+/* CONTENEDOR DE IMAGEN */
+.process-img {
+  width: 100%;
+  aspect-ratio: 1/1; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
   overflow: hidden;
-}
-
-.process-steps li img {
-  width: 260px;
-  max-width: 100%;
-  display: block;
-  margin: 0 auto 25px auto;
-
-  border-radius: 22px;
-  padding: 10px;
-
+  border-radius: 20px;
   background: linear-gradient(135deg, #ffffff, #fff7ed);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-
-  animation: pulseZoom 4s ease-in-out infinite;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
 }
 
-/* SECUENCIA */
-.process-steps li:nth-child(1) img {
-  animation-delay: 0s;
+/* IMAGEN */
+.process-img img {
+  width: 85%;
+  height: 85%;
+  object-fit: cover;
+  border-radius: 16px;
+  transition: transform 0.4s ease;
 }
 
-.process-steps li:nth-child(2) img {
-  animation-delay: 1.3s;
+/* HOVER */
+.process-img:hover img {
+  transform: scale(1.08);
 }
 
-.process-steps li:nth-child(3) img {
-  animation-delay: 2.6s;
-}
-
-/* ANIMACIÓN */
-@keyframes pulseZoom {
-  0% {
-    transform: scale(1);
-  }
-
-  25% {
-    transform: scale(1.10);
-  }
-
-  50% {
-    transform: scale(1);
-  }
-
-  100% {
-    transform: scale(1);
-  }
-}
-
-.process-steps span {
-  display: block;
-  font-size: 1.25rem;
+/* TEXTO */
+.process-item span {
+  font-size: 1.2rem;
   font-weight: 600;
-  color: #333;
+  color: #374151;
   position: relative;
 }
 
-.process-steps span::after {
+.process-item span::after {
   content: "";
   display: block;
-  width: 40px;
+  width: 45px;
   height: 4px;
   margin: 12px auto 0;
   background: linear-gradient(90deg, #f99109, #ffb347);
@@ -650,10 +624,6 @@ footer p {
     flex-direction: column;
     align-items: center;
     gap: 50px;
-  }
-
-  .process-steps li img {
-    width: 220px;
   }
 }
 
@@ -751,8 +721,7 @@ footer p {
 .faq-section {
   margin-top: 80px;
   padding: 60px 20px;
-  background-color: #fcfcfc;
-  border-radius: 24px;
+  background-color: #f8fafc;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
 }
 
@@ -894,6 +863,7 @@ footer p {
   .services-section,
   .process-section {
     padding: 24px 0;
+    background-color: #f8fafc;
   }
 
   .service-card {
@@ -946,10 +916,7 @@ footer p {
   gap: 40px;
   padding: 50px 20px;
   flex-wrap: wrap;
-  background-color: #f2f2f2bb;
-  border-radius: 15px;
-  margin: 30px 20px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  background-color: #f8fafc;
 }
 
 .section.reverse {
@@ -1007,24 +974,34 @@ footer p {
     max-width: 100%;
     text-align: center;
   }
-
 }
 
-.section,
 .services-section,
 .process-section,
-.faq-section {
-  background:
-    radial-gradient(circle at top right, rgba(249, 145, 9, 0.05), transparent),
-    #fdfdfd !important;
+.faq-section,
+.section {
+  background: var(--section-bg);
+  padding: 80px 20px;
+  margin: 0;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
 }
 
 @media (max-width: 768px) {
   .banner {
-    height: 50vh;
+    height: 60vh;
   }
 
   .background-img {
     object-position: center;
   }
+}
+
+.banner-buttons .btn {
+    min-width: 180px;
+    padding: 12px 24px;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
 }
