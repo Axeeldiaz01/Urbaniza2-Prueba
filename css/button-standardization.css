@@ -1,15 +1,15 @@
 /*ESTANDARIZACIÓN DE BOTONES*/
 /* Variables CSS para consistencia */
 :root {
-  --btn-padding-standard: 12px 24px;
+  --btn-padding-standard: 14px 28px;
   --btn-padding-large: 15px 30px;
   --btn-padding-small: 8px 16px;
   --btn-border-radius: 8px;
   --btn-font-size: 1rem;
   --btn-font-weight: 600;
   --btn-transition: all 0.3s ease;
-  --btn-min-width: 160px;
-  --btn-height-standard: 48px;
+  --btn-min-width: 180px;
+  --btn-height-standard: 52px;
 }
 
 /* ESTILOS BASE PARA TODOS */

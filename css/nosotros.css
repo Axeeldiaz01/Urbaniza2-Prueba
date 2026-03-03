@@ -4,7 +4,7 @@
   --dark: #333;
   --bg: #f0eaea;
   --round: 5px;
-  --font: 'Poppins', sans-serif;
+  --font: "Poppins", sans-serif;
 }
 
 * {
@@ -13,8 +13,8 @@
 
 body {
   margin: 0;
-  background: var(--bg);
-  color: var(--dark);
+  background: linear-gradient(180deg, #f4f6f8 0%, #eef1f4 100%);
+  color: #222;
   line-height: 1.6;
   font-family: "Poppins", sans-serif;
 }
@@ -26,57 +26,59 @@ body {
 }
 
 .banner {
-    position: relative;
-    height: 80vh; 
-    min-height: 500px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    color: white;
-    text-align: center;
+  position: relative;
+  width: 100%;
+  min-height: 450px;
+  padding: 100px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: white;
+  text-align: center;
 }
 
 .background-img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 1;
-    filter: brightness(0.5) blur(5px); 
-    transform: scale(1.1); 
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  filter: brightness(0.5) blur(5px);
+  transform: scale(1.1);
 }
 
 .banner-content {
-    position: relative;
-    z-index: 2;
-    max-width: 800px;
-    padding: 0 20px;
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 0 20px;
 }
 
 .banner-content h1 {
-    font-size: clamp(2.5rem, 8vw, 4rem);
-    margin-bottom: 20px;
-    line-height: 1.1;
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  margin-bottom: 20px;
+  line-height: 1.1;
 }
 
 .banner-content p {
-    font-size: clamp(1rem, 4vw, 1.25rem);
-    line-height: 1.6;
-    margin-bottom: 35px;
-    font-weight: 400;
-    max-width: 650px;
-    margin-left: auto;
-    margin-right: auto;
+  font-size: clamp(1rem, 4vw, 1.25rem);
+  line-height: 1.6;
+  margin-bottom: 35px;
+  font-weight: 400;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* TITULO */
 .title {
   text-align: center;
-  font-size: 3rem;
-  font-weight: 900;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 700;
   margin-bottom: 90px;
   letter-spacing: -1px;
   color: #111;
@@ -93,7 +95,8 @@ body {
   align-items: center;
   justify-content: center;
   gap: 80px;
-
+  background: #f8fafc;
+  border-radius: 20px;
   padding: 60px 20px;
   margin: 40px auto;
   max-width: 1200px;
@@ -110,19 +113,16 @@ body {
   border-radius: 4px;
 }
 
-/* CONTENEDORES */
 .card,
 .texto {
   flex: 1;
   max-width: 520px;
 }
 
-/* IMAGEN */
 .card {
   position: relative;
 }
 
-/* Marco decorativo */
 .card::before {
   content: "";
   position: absolute;
@@ -142,7 +142,9 @@ body {
   width: 100%;
   border-radius: 20px;
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.18);
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  transition:
+    transform 0.5s ease,
+    box-shadow 0.5s ease;
 }
 
 .imagen:hover {
@@ -160,14 +162,12 @@ body {
 
 /* RESPONSIVE */
 @media (max-width: 992px) {
-
   .section {
     flex-direction: column;
     gap: 50px;
     text-align: center;
   }
 
-  /* Quitamos línea vertical en móvil */
   .section::before {
     display: none;
   }
@@ -194,39 +194,39 @@ body {
 }
 
 .scrollToHome {
-    border-radius: 20px;
-    background: linear-gradient(135deg, #f49d32, #ff6b35);
-    bottom: 20px;
-    color: #ffffff;
-    display: none;
-    font-size: 20px;
-    height: 55px;
-    line-height: 55px;
-    padding: 0;
-    position: fixed;
-    right: 20px;
-    text-align: center;
-    width: 55px;
-    z-index: 99999;
-    box-shadow: 0 8px 25px rgba(244, 157, 50, 0.4);
-    border: none;
-    cursor: pointer;
-    font-family: 'Poppins', sans-serif;
-    -webkit-transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #f49d32, #ff6b35);
+  bottom: 20px;
+  color: #ffffff;
+  display: none;
+  font-size: 20px;
+  height: 55px;
+  line-height: 55px;
+  padding: 0;
+  position: fixed;
+  right: 20px;
+  text-align: center;
+  width: 55px;
+  z-index: 99999;
+  box-shadow: 0 8px 25px rgba(244, 157, 50, 0.4);
+  border: none;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .scrollToHome:hover {
-    transform: translateY(-3px) scale(1.05);
-    background: linear-gradient(135deg, #ff6b35, #e8890b);
-    box-shadow: 0 12px 35px rgba(244, 157, 50, 0.6);
-    color: #ffffff;
+  transform: translateY(-3px) scale(1.05);
+  background: linear-gradient(135deg, #ff6b35, #e8890b);
+  box-shadow: 0 12px 35px rgba(244, 157, 50, 0.6);
+  color: #ffffff;
 }
 
 .scrollToHome:active {
-    transform: translateY(-1px) scale(1.02);
-    transition: all 0.1s ease;
+  transform: translateY(-1px) scale(1.02);
+  transition: all 0.1s ease;
 }
 
 /* Footer */
@@ -278,79 +278,74 @@ footer p {
   --gold: linear-gradient(135deg, #f49d32, #ffcc80);
   --dark: #0d1c2f;
 }
+/* SECCIÓN VALORES */
+.valores {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 25px;
+  padding: 50px 5%;
+}
+
+.valores .title {
+  text-align: center;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 700;
+  margin-bottom: 50px;
+  color: #222;
+}
 
 .valores {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-  padding: 80px 5%;
-  max-width: 1200px;
-  margin: 0 auto;
+  grid-template-columns: 1fr;
 }
 
-.valor-card {
+.valores .valor-card {
   background: #fff;
   padding: 50px 30px;
   border-radius: 20px;
   text-align: center;
   position: relative;
-  z-index: 1;
   overflow: hidden;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-  border: 1px solid rgba(0,0,0,0.03);
-}
-
-.valor-card::before {
-  content: '';
-  position: absolute;
-  top: 100%; 
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: var(--dark);
-  z-index: -1;
-  transition: all 0.4s ease;
+  transition: all 0.35s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
 .valor-card:hover {
-  transform: translateY(-15px);
-  color: #fff;
-}
-
-.valor-card:hover::before {
-  top: 0; 
+  transform: translateY(-12px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
 }
 
 .valor-card i {
   font-size: 45px;
-  background: linear-gradient(135deg, #f49d32, #ffcc80);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  display: inline-block;
+  color: #f99109;
   margin-bottom: 20px;
-  transition: transform 0.5s ease;
+  transition: transform 0.4s ease;
 }
 
 .valor-card:hover i {
-  transform: scale(1.2) rotate(10deg);
+  transform: scale(1.2) rotate(8deg);
 }
 
 .valor-card h3 {
-  font-size: 1.5rem;
   margin-bottom: 15px;
-  transition: color 0.3s;
+  font-size: 1.4rem;
 }
 
 .valor-card p {
   line-height: 1.6;
-  opacity: 0.9;
-  transition: color 0.3s;
+  color: #555;
 }
 
-.valor-card:hover h3, .valor-card:hover p {
-  color: #fff;
+@media (min-width: 768px) {
+  .valores {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding: 80px 5%;
+  }
+
+  .valores .title {
+    grid-column: 1 / -1; 
+  }
 }
 
 /* WhatsApp Float Button */
@@ -361,7 +356,7 @@ footer p {
   z-index: 100;
   width: 60px;
   height: 60px;
-  background-color: #25D366;
+  background-color: #25d366;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -453,32 +448,32 @@ footer p {
 }
 
 @media (max-width: 768px) {
-    .header {
-        padding: 10px 0; 
-        position: relative;
-    }
-    .navbar {
-        display: flex;
-        justify-content: center;
-        gap: 10px; 
-    }
-    .navbar a {
-        padding: 5px 8px;
-        font-size: 13px; 
-    }
+  .header {
+    padding: 10px 0;
+    position: relative;
+  }
+  .navbar {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  .navbar a {
+    padding: 5px 8px;
+    font-size: 13px;
+  }
 }
 
 /*celulares pequeños */
 @media (max-width: 768px) {
-    header .container {
-        justify-content: space-between;
-    }
+  header .container {
+    justify-content: space-between;
+  }
 }
 
 @media (max-width: 768px) {
   .banner {
-    height: auto;              
-    min-height: 60vh;          
+    height: auto;
+    min-height: 60vh;
     padding: 40px 20px;
     display: flex;
     align-items: center;
@@ -501,13 +496,14 @@ footer p {
 /* ESTADÍSTICAS DE CONFIANZA */
 .confianza {
   padding: 80px 5%;
-  background: linear-gradient(135deg, #fff7f0, #ffffff);
+  background: #f8fafc;
 }
 
 /* TÍTULO SECCIÓN CONFIANZA */
 .confianza .title {
   text-align: center;
-  font-size: 42px;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 700;
   margin-bottom: 50px;
   position: relative;
   font-weight: 700;
@@ -604,16 +600,16 @@ footer p {
 
 @media (max-width: 768px) {
   .banner {
-    height: 40vh;              
-    min-height: 350px;        
+    height: 40vh;
+    min-height: 350px;
     padding: 30px 15px;
     display: flex;
     align-items: center;
   }
 
   .background-img {
-    filter: brightness(0.5) blur(4px); 
-    transform: scale(1.05);             
+    filter: brightness(0.5) blur(4px);
+    transform: scale(1.05);
   }
 
   .banner-content {
@@ -622,7 +618,7 @@ footer p {
   }
 
   .banner-content h1 {
-    font-size: 2rem;           
+    font-size: 2rem;
     margin-bottom: 15px;
     line-height: 1.2;
   }
@@ -640,15 +636,14 @@ footer p {
     height: 35vh;
     min-height: 280px;
   }
-  
+
   .banner-content h1 {
     font-size: 1.6rem;
   }
-  
+
   .banner-content p {
     font-size: 0.9rem;
   }
-  
 }
 
 @media (max-width: 768px) {
@@ -714,5 +709,4 @@ footer p {
     font-size: 0.95rem !important;
     margin-bottom: 25px !important;
   }
-
-  }
+}

@@ -10,8 +10,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/servicio.css" />
   <link rel="stylesheet" href="css/button-standardization.css" />
+  <link rel="stylesheet" href="css/servicio.css" />
 
 </head>
 
@@ -44,7 +44,7 @@
         Ofrecemos terrenos ubicados estratégicamente en zonas urbanas y
         rurales, ideales para vivienda, inversión o desarrollo comercial.
       </p>
-      <div class="btn-group banner-buttons">
+      <div class="btn-group hero-buttons">
         <a href="https://wa.me/51982664102" class="btn btn-secondary">Contáctanos Ahora</a>
         <a href="#compra-venta" class="btn btn-primary">Ver Servicios</a>
       </div>
@@ -53,7 +53,7 @@
 
   <div id="compra-venta" class="section">
     <div class="card" id="terrenos">
-      <img src="img/hazrealidad.jpeg" class="imagen" />
+      <img src="img/hazrealidad.jpeg" alt="Proceso de compra y venta de propiedades" class="imagen" />
     </div>
     <div class="texto">
       <h2>Compra y Venta de Propiedades</h2>
@@ -68,7 +68,7 @@
   </div>
   <div id="asesoria-legal" class="section reverse">
     <div class="card">
-      <img src="img/consultas.jpeg" class="imagen" />
+      <img src="img/consultas.jpeg" alt="Asesoría legal inmobiliaria" class="imagen" />
     </div>
     <div class="texto" id="terrenos">
       <h2>Asesoría Legal Inmobiliaria</h2>
@@ -131,28 +131,35 @@
     </div>
   </section>
 
-  <!-- Mejora: Proceso de trabajo -->
-  <section id="proceso" class="process-section">
-    <div class="container">
-      <h2>Proceso de Trabajo</h2>
-      <ol class="process-steps reveal">
-        <li>
+<!-- Proceso de trabajo -->
+<section id="proceso" class="process-section">
+  <div class="container">
+    <h2 class="section-title">Proceso de Trabajo</h2>
+
+    <ol class="process-steps">
+      <li class="process-item">
+        <div class="process-img">
           <img src="img/proceso1.jpeg" alt="Consulta">
-          <span>Consulta</span>
-        </li>
+        </div>
+        <span>Consulta</span>
+      </li>
 
-        <li>
+      <li class="process-item">
+        <div class="process-img">
           <img src="img/proceso2.jpeg" alt="Evaluación">
-          <span>Evaluación</span>
-        </li>
+        </div>
+        <span>Evaluación</span>
+      </li>
 
-        <li>
+      <li class="process-item">
+        <div class="process-img">
           <img src="img/proceso3.jpeg" alt="Propuesta">
-          <span>Propuesta</span>
-        </li>
-      </ol>
-    </div>
-  </section>
+        </div>
+        <span>Propuesta</span>
+      </li>
+    </ol>
+  </div>
+</section>
 
   <!-- Mejora: FAQ -->
   <section id="faq" class="faq-section">
