@@ -13,8 +13,7 @@
 
 body {
   margin: 0;
-  background: linear-gradient(180deg, #f4f6f8 0%, #eef1f4 100%);
-  color: #222;
+  background: radial-gradient(circle at top right, rgba(249, 145, 9, 0.05), transparent), #fdfdfd;  color: #222;
   line-height: 1.6;
   font-family: "Poppins", sans-serif;
 }

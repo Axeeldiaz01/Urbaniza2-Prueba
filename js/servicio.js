@@ -72,29 +72,26 @@ if (scrollToHomeBtn) {
   });
 }
 
-// Acordeón de FAQ
-const faqButtons = document.querySelectorAll('.faq-item');
-faqButtons.forEach(btn => {
-  // Si no es un botón o enlace, añade rol y tabIndex
-  if (!['BUTTON','A'].includes(btn.tagName)) {
-    btn.setAttribute('role', 'button');
-    btn.setAttribute('tabindex', '0');
-  }
+// Script para animar FAQ como acordeón
+document.addEventListener("DOMContentLoaded", () => {
+  const faqItems = document.querySelectorAll(".faq-item");
 
-  btn.addEventListener('click', () => {
-    const expanded = btn.getAttribute('aria-expanded') === 'true';
-    const panel = btn.nextElementSibling;
-    btn.setAttribute('aria-expanded', String(!expanded));
-    panel.style.maxHeight = !expanded ? panel.scrollHeight + 'px' : '0';
-  });
+  faqItems.forEach(item => {
+    const question = item.querySelector(".faq-question");
 
-  btn.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      btn.click();
-    }
+    question.addEventListener("click", () => {
+      item.classList.toggle("active");
+
+      // Cierra los otros
+      faqItems.forEach(other => {
+        if (other !== item) {
+          other.classList.remove("active");
+        }
+      });
+    });
   });
 });
+
 
 // Revelado al hacer scroll
 const revealEls = document.querySelectorAll('.reveal');
