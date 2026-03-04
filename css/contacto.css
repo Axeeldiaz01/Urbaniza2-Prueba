@@ -29,8 +29,7 @@
 
 body {
   margin: 0;
-  background: var(--bg);
-  color: var(--dark);
+background: radial-gradient(circle at top right, rgba(249, 145, 9, 0.05), transparent), #fdfdfd;  color: var(--dark);
   line-height: 1.6;
   font-family: "Poppins", sans-serif;
 }
