@@ -11,6 +11,9 @@
   --font: 'Poppins', sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
 
 h1 {
   font-size: 32px;
@@ -861,10 +864,6 @@ footer p {
   }
 }
 
-/* ============================= */
-/* OTRAS SECCIONES (SIN TOCAR .section) */
-/* ============================= */
-
 .services-section,
 .process-section,
 .faq-section {
@@ -876,9 +875,8 @@ footer p {
   border-radius: 0;
 }
 
-/* ============================= */
-/* BANNER FIX */
-/* ============================= */
+/* BANNER  */
+
 
 @media (max-width: 768px) {
   .banner {
