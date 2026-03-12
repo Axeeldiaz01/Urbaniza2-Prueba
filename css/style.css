@@ -325,7 +325,7 @@ nav ul li a:focus-visible {
 /* Indicadores */
 .slider-indicators {
   position: absolute;
-  bottom: 80px;  /* Ajusta este valor: antes era 20px, ahora 80px los sube */
+  bottom: 90px;  /* Ajusta este valor: antes era 20px, ahora 80px los sube */
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -353,14 +353,14 @@ nav ul li a:focus-visible {
   background: rgba(255, 255, 255, 0.7);
 }
 
-/* Anuncio inferior */
-.hero-announcement {
-  background: #f99109;
-  padding: 10px 0;   /* Reducir el padding vertical */
-  margin-top: -30px; /* Valor negativo para subirlo y que se superponga ligeramente */
-  text-align: center;
+.hero-announcement{
+  background:#f99109;
+  padding:10px 0;
+  margin-top:0;
+  text-align:center;
+  position:relative;
+  z-index:10;
 }
-
 .announcement-text {
   color: white;
   font-size: 1.1rem;
@@ -2263,7 +2263,7 @@ body {
   }
 
   .slider-indicators {
-    bottom: 10px;
+    bottom: 50px;
   }
 
 }
@@ -2388,7 +2388,7 @@ h2::after {
 
   .slider-indicators {
   position: relative;
-  margin-top: 20px;
+  margin-top: 40px;
 
   display: flex;
   justify-content: center;   
@@ -2399,54 +2399,53 @@ h2::after {
 }
 }
 
-/* === AJUSTE HERO: SUBIR TODO === */
 .hero-slider {
-  margin-bottom: -40px; /* Aumentado de -30px a -40px */
+  margin-bottom: 0; 
 }
 
 .slider-container {
-  height: 500px !important; /* Reducido de 550px a 500px */
+  height: 500px !important;
 }
 
 .hero-content {
-  padding-top: 20px !important; /* Reducido de 40px a 20px */
+  padding-top: 20px !important; 
   align-items: flex-start !important;
 }
 
 .slider-indicators {
-  bottom: 60px !important; /* Reducido de 80px a 60px */
+  bottom: 5px !important; 
 }
 
 .hero-announcement {
-  margin-top: -40px !important; /* Aumentado de -30px a -40px */
-  padding: 8px 0 !important; /* Reducido de 10px a 8px */
+  margin-top: 0 !important;
+  padding: 10px 0 !important;
   position: relative;
-  z-index: 10;
+  z-index: 20;
 }
 
 /* ===== FIX RESPONSIVE HERO ===== */
 @media (max-width: 768px) {
 
   .hero-slider {
-    margin-bottom: 0; /* quitamos el negativo en móvil */
+    margin-bottom: 0; 
   }
 
   .slider-container {
-    height: auto !important;   /* que se adapte al contenido */
-    min-height: 420px;         /* altura mínima estable */
+    height: auto !important;  
+    min-height: 420px;         
   }
 
   .hero-content {
-    padding-top: 60px !important; /* más espacio en móvil */
-    align-items: center !important; /* centrado natural en móvil */
+    padding-top: 60px !important; 
+    align-items: center !important; 
   }
 
   .slider-indicators {
-    bottom: 20px !important; /* más abajo para que no choque */
+    bottom: 20px; 
   }
 
   .hero-announcement {
-    margin-top: 0 !important; /* quitamos el negativo */
+    margin-top: 0 !important;
     padding: 10px 0 !important;
   }
 
