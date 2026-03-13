@@ -177,7 +177,7 @@ nav ul li a:focus-visible {
     color: white;
     cursor: pointer;
   }
-  
+
   body.menu-abierto {
     overflow: hidden;
     padding-right: 15px;
@@ -201,7 +201,7 @@ nav ul li a:focus-visible {
 .slider-container {
   position: relative;
   width: 100%;
-  height: 600px;  /* Reducir de 700px a 600px si quieres menos altura */
+  height: 600px; /* Reducir de 700px a 600px si quieres menos altura */
   overflow: hidden;
 }
 
@@ -229,10 +229,12 @@ nav ul li a:focus-visible {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg,
-      rgba(0, 0, 0, 0.7) 0%,
-      rgba(0, 0, 0, 0.4) 50%,
-      rgba(0, 0, 0, 0.6) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0.4) 50%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
   z-index: 1;
 }
 
@@ -279,8 +281,8 @@ nav ul li a:focus-visible {
 }
 
 .hero-buttons .btn {
-  flex: 1;             
-  max-width: 260px;     
+  flex: 1;
+  max-width: 260px;
   text-align: center;
   padding: 14px 20px;
 }
@@ -325,41 +327,39 @@ nav ul li a:focus-visible {
 /* Indicadores */
 .slider-indicators {
   position: absolute;
-  bottom: 90px;  /* Ajusta este valor: antes era 20px, ahora 80px los sube */
+  bottom: 90px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  gap: 12px;
+  gap: 10px;
   z-index: 15;
 }
 
 .indicator {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.4);
+  width: 35px;
+  height: 4px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.4);
   cursor: pointer;
   transition: all 0.3s ease;
-  border: 2px solid rgba(255, 255, 255, 0.6);
 }
 
 .indicator.active {
   background: #f99109;
-  border-color: white;
-  transform: scale(1.2);
+  width: 55px;
 }
 
 .indicator:hover {
   background: rgba(255, 255, 255, 0.7);
 }
 
-.hero-announcement{
-  background:#f99109;
-  padding:10px 0;
-  margin-top:0;
-  text-align:center;
-  position:relative;
-  z-index:10;
+.hero-announcement {
+  background: #f99109;
+  padding: 10px 0;
+  margin-top: 0;
+  text-align: center;
+  position: relative;
+  z-index: 10;
 }
 .announcement-text {
   color: white;
@@ -432,36 +432,52 @@ section h2 {
   position: relative;
   overflow: hidden;
   width: 100%;
-  max-width: 800px;
+  max-width: 900px;         /* Un poco más ancho para verse mejor */
   margin: 0 auto;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  aspect-ratio: 16 / 9;
+  border-radius: 20px;       /* Más moderno, bordes más grandes */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25); /* Sombra más pronunciada */
+  background: linear-gradient(145deg, #f5f5f5, #ffffff); /* Fondo suave para relleno */
+  aspect-ratio: auto;        /* Anula cualquier aspect-ratio heredado */
 }
 
 .carrusel-imagenes {
   position: relative;
   width: 100%;
-  height: 100%;
+  background: inherit; /* Hereda el fondo del contenedor */
 }
 
-.slide.activo {
-  opacity: 1;
-  z-index: 2;
-}
-
-.slide img {
+.carrusel-imagenes .slide {
+  position: relative;
   width: 100%;
-  height: 100%;
-  object-fit: contain;
-  background: transparent;
-  display: block;
-  transition: transform 0.3s ease;
-  border-radius: 15px;
+  display: none; /* Se controla con JS, pero aquí lo importante es la imagen */
+  /* Reseteamos propiedades heredadas del .slide global (hero) */
+  top: auto;
+  left: auto;
+  height: auto;
+  opacity: 1;
+  background: none;
+  transition: none;
 }
 
-.slide:hover img {
-  transform: scale(1.05);
+.carrusel-imagenes .slide.activo {
+  display: block;
+}
+
+.carrusel-imagenes .slide img {
+  width: 100%;
+  height: auto;            /* Altura automática para mantener proporción */
+  object-fit: contain;     /* Muestra la imagen completa, sin recortes */
+  display: block;
+  border: none;
+  margin: 0;
+  padding: 0;
+  border-radius: 20px;      /* Bordes redondeados también en la imagen */
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.carrusel-imagenes .slide:hover img {
+  transform: scale(1.02);   /* Efecto sutil al pasar el mouse */
+  box-shadow: 0 10px 30px rgba(249, 145, 9, 0.3);
 }
 
 .slide-caption {
@@ -469,12 +485,14 @@ section h2 {
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
   color: white;
-  padding: 2rem;
+  padding: 2rem 1.5rem 1.5rem;
   transform: translateY(100%);
-  transition: transform 0.3s ease;
-  backdrop-filter: blur(10px);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(8px);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
 .slide:hover .slide-caption {
@@ -677,7 +695,6 @@ a:hover .whatsapp-num {
   background:
     radial-gradient(circle at top right, rgba(249, 145, 9, 0.05), transparent),
     #fdfdfd;
-    
 }
 
 .calculadora-section h2 {
@@ -1222,7 +1239,6 @@ input[type="range"]::-webkit-slider-thumb:hover {
   color: #fff;
 }
 
-
 /* Animación de entrada sutil */
 @keyframes cardFadeIn {
   from {
@@ -1307,13 +1323,11 @@ input[type="range"]::-webkit-slider-thumb:hover {
   transition: color 0.3s ease;
 }
 
-
 .service-card p {
   font-size: 0.95rem;
   color: #555;
   line-height: 1.7;
 }
-
 
 .services-grid .service-card:nth-child(1) {
   animation-delay: 0.05s;
@@ -1336,11 +1350,9 @@ input[type="range"]::-webkit-slider-thumb:hover {
 }
 
 /* SECCIÓN INFORMACIÓN EDUCATIVA */
-.info-section {
-  padding: 80px 0;
-  background:
-    radial-gradient(circle at top right, rgba(249, 145, 9, 0.05), transparent),
-    #fdfdfd;
+.info-section{
+  padding:80px 0;
+  background:#f7f7f7;
 }
 
 /*  MODAL DE COMPRA  */
@@ -1524,33 +1536,43 @@ input[type="range"]::-webkit-slider-thumb:hover {
 }
 
 .form-group[data-field="nombre"] {
-  background: linear-gradient(135deg,
-      rgba(52, 152, 219, 0.1),
-      rgba(155, 89, 182, 0.1));
+  background: linear-gradient(
+    135deg,
+    rgba(52, 152, 219, 0.1),
+    rgba(155, 89, 182, 0.1)
+  );
 }
 
 .form-group[data-field="email"] {
-  background: linear-gradient(135deg,
-      rgba(231, 76, 60, 0.1),
-      rgba(230, 126, 34, 0.1));
+  background: linear-gradient(
+    135deg,
+    rgba(231, 76, 60, 0.1),
+    rgba(230, 126, 34, 0.1)
+  );
 }
 
 .form-group[data-field="telefono"] {
-  background: linear-gradient(135deg,
-      rgba(46, 204, 113, 0.1),
-      rgba(39, 174, 96, 0.1));
+  background: linear-gradient(
+    135deg,
+    rgba(46, 204, 113, 0.1),
+    rgba(39, 174, 96, 0.1)
+  );
 }
 
 .form-group[data-field="tipo_pago"] {
-  background: linear-gradient(135deg,
-      rgba(241, 196, 15, 0.1),
-      rgba(243, 156, 18, 0.1));
+  background: linear-gradient(
+    135deg,
+    rgba(241, 196, 15, 0.1),
+    rgba(243, 156, 18, 0.1)
+  );
 }
 
 .form-group[data-field="mensaje"] {
-  background: linear-gradient(135deg,
-      rgba(142, 68, 173, 0.1),
-      rgba(155, 89, 182, 0.1));
+  background: linear-gradient(
+    135deg,
+    rgba(142, 68, 173, 0.1),
+    rgba(155, 89, 182, 0.1)
+  );
 }
 
 .form-actions {
@@ -2164,18 +2186,18 @@ input[type="range"]::-webkit-slider-thumb:hover {
 }
 
 @media (max-width: 380px) {
-.hero-title {
-  font-size: clamp(1.5rem, 5vw, 2.2rem);
-}
+  .hero-title {
+    font-size: clamp(1.5rem, 5vw, 2.2rem);
+  }
 
-.hero-description {
-  font-size: clamp(0.9rem, 3.5vw, 1.1rem);
-}
+  .hero-description {
+    font-size: clamp(0.9rem, 3.5vw, 1.1rem);
+  }
 
-.hero-buttons .btn {
-  padding: 10px 18px;
-  font-size: 0.9rem;
-}
+  .hero-buttons .btn {
+    padding: 10px 18px;
+    font-size: 0.9rem;
+  }
 }
 
 @media (max-width: 768px) {
@@ -2213,7 +2235,6 @@ body {
 }
 
 @media (max-width: 768px) {
-
   .slider-container {
     height: 75vh;
     min-height: 500px;
@@ -2265,7 +2286,6 @@ body {
   .slider-indicators {
     bottom: 50px;
   }
-
 }
 
 /* RESPONSIVE */
@@ -2310,7 +2330,6 @@ body {
 }
 
 @media (max-width: 768px) {
-
   section {
     margin-bottom: 50px;
   }
@@ -2343,10 +2362,10 @@ body {
 .title,
 .section h2,
 h2 {
-  font-size: 42px;        
-  font-weight: 700;       
-  text-align: center;    
-  color: var(--dark);     
+  font-size: 42px;
+  font-weight: 700;
+  text-align: center;
+  color: var(--dark);
   margin-bottom: 50px;
 }
 
@@ -2364,7 +2383,6 @@ h2::after {
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
-
   .slider-container {
     height: auto;
     min-height: 500px;
@@ -2387,20 +2405,20 @@ h2::after {
   }
 
   .slider-indicators {
-  position: relative;
-  margin-top: 40px;
+    position: relative;
+    margin-top: 40px;
 
-  display: flex;
-  justify-content: center;   
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-  left: auto;
-  transform: none;
-}
+    left: auto;
+    transform: none;
+  }
 }
 
 .hero-slider {
-  margin-bottom: 0; 
+  margin-bottom: 0;
 }
 
 .slider-container {
@@ -2408,12 +2426,12 @@ h2::after {
 }
 
 .hero-content {
-  padding-top: 20px !important; 
+  padding-top: 20px !important;
   align-items: flex-start !important;
 }
 
 .slider-indicators {
-  bottom: 5px !important; 
+  bottom: 5px !important;
 }
 
 .hero-announcement {
@@ -2425,28 +2443,55 @@ h2::after {
 
 /* ===== FIX RESPONSIVE HERO ===== */
 @media (max-width: 768px) {
-
   .hero-slider {
-    margin-bottom: 0; 
+    margin-bottom: 0;
   }
 
   .slider-container {
-    height: auto !important;  
-    min-height: 420px;         
+    height: auto !important;
+    min-height: 420px;
   }
 
   .hero-content {
-    padding-top: 60px !important; 
-    align-items: center !important; 
+    padding-top: 60px !important;
+    align-items: center !important;
   }
 
   .slider-indicators {
-    bottom: 20px; 
+    bottom: 20px;
   }
 
   .hero-announcement {
     margin-top: 0 !important;
     padding: 10px 0 !important;
   }
+}
 
+/* resaltar texto */
+.hero-highlight{
+  color:#f99109;
+}
+
+/* botones más modernos */
+.hero-buttons .btn{
+  border-radius:30px;
+  padding:14px 26px;
+  font-weight:600;
+  transition:all .3s ease;
+}
+
+.hero-buttons .btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 8px 20px rgba(0,0,0,0.25);
+}
+
+/* icono whatsapp */
+.btn-secondary i{
+  margin-right:8px;
+}
+
+/* anuncio inferior más moderno */
+.hero-announcement{
+  background:linear-gradient(90deg,#f99109,#ffb347);
+  font-weight:600;
 }
