@@ -1456,3 +1456,14 @@ textarea.invalid {
   font-weight: 700;
   text-align: center;
 }
+
+.reveal{
+  opacity:0;
+  transform:translateY(40px);
+  transition:all .8s ease;
+}
+
+.reveal.visible{
+  opacity:1;
+  transform:translateY(0);
+}

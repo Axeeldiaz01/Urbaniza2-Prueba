@@ -39,14 +39,12 @@ body {
 
 .background-img {
   position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 20%;
+  filter: blur(5px) brightness(0.75);
   z-index: 1;
-  filter: brightness(0.5) blur(5px);
-  transform: scale(1.1);
 }
 
 .banner-content {
@@ -708,4 +706,15 @@ footer p {
     font-size: 0.95rem !important;
     margin-bottom: 25px !important;
   }
+}
+
+.reveal{
+opacity:0;
+transform:translateY(60px);
+transition:all .8s ease;
+}
+
+.reveal.visible{
+opacity:1;
+transform:translateY(0);
 }

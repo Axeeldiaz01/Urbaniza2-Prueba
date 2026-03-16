@@ -1,41 +1,47 @@
+// =============================
+// MENU RESPONSIVE
+// =============================
 const toggle = document.querySelector('.menu-toggle'); 
-  const menu = document.querySelector('nav');
+const menu = document.querySelector('nav');
 
-  // Abrir o cerrar menú con el botón ☰
-  toggle.addEventListener('click', () => {
-    menu.classList.toggle('show');
-    toggle.classList.toggle('active'); // <- Esto activa la animación de la X
-    document.body.classList.toggle('menu-abierto');
+// Abrir o cerrar menú
+toggle.addEventListener('click', () => {
+  menu.classList.toggle('show');
+  toggle.classList.toggle('active');
+  document.body.classList.toggle('menu-abierto');
 
-    // Guardamos en el historial para poder retroceder
-    if (menu.classList.contains('show')) {
-      history.pushState({ menuOpen: true }, '', '');
-    }
-  });
+  if (menu.classList.contains('show')) {
+    history.pushState({ menuOpen: true }, '', '');
+  }
+});
 
-  // Cerrar menú al hacer clic fuera del nav (solo si está abierto)
-  document.addEventListener('click', (e) => {
-    if (
-      menu.classList.contains('show') &&
-      !menu.contains(e.target) &&
-      !toggle.contains(e.target)
-    ) {
-      menu.classList.remove('show');
-      toggle.classList.remove('active');
-      document.body.classList.remove('menu-abierto');
-      history.back(); // para "limpiar" el pushState anterior
-    }
-  });
+// Cerrar menú si se hace clic fuera
+document.addEventListener('click', (e) => {
+  if (
+    menu.classList.contains('show') &&
+    !menu.contains(e.target) &&
+    !toggle.contains(e.target)
+  ) {
+    menu.classList.remove('show');
+    toggle.classList.remove('active');
+    document.body.classList.remove('menu-abierto');
+    history.back();
+  }
+});
 
-  // Cerrar menú si se presiona el botón de retroceso del navegador
-  window.addEventListener('popstate', (e) => {
-    if (menu.classList.contains('show')) {
-      menu.classList.remove('show');
-      toggle.classList.remove('active');
-      document.body.classList.remove('menu-abierto');
-    }
-  });
-//Contraer scroll
+// Cerrar menú con botón atrás del navegador
+window.addEventListener('popstate', () => {
+  if (menu.classList.contains('show')) {
+    menu.classList.remove('show');
+    toggle.classList.remove('active');
+    document.body.classList.remove('menu-abierto');
+  }
+});
+
+
+// =============================
+// HEADER QUE SE CONTRAE AL SCROLL
+// =============================
 window.addEventListener('scroll', function () {
   const header = document.querySelector('header');
   if (window.scrollY > 50) {
@@ -46,9 +52,11 @@ window.addEventListener('scroll', function () {
 });
 
 
-
-// Script para animar FAQ como acordeón
+// =============================
+// FAQ ACORDEON
+// =============================
 document.addEventListener("DOMContentLoaded", () => {
+
   const faqItems = document.querySelectorAll(".faq-item");
 
   faqItems.forEach(item => {
@@ -57,7 +65,6 @@ document.addEventListener("DOMContentLoaded", () => {
     question.addEventListener("click", () => {
       item.classList.toggle("active");
 
-      // Cierra los otros
       faqItems.forEach(other => {
         if (other !== item) {
           other.classList.remove("active");
@@ -65,26 +72,39 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   });
+
 });
 
 
-// Revelado al hacer scroll
+// =============================
+// ANIMACIONES AL HACER SCROLL
+// =============================
 const revealEls = document.querySelectorAll('.reveal');
-const observer = new IntersectionObserver(entries => {
+
+const revealObserver = new IntersectionObserver((entries) => {
+
   entries.forEach(entry => {
+
     if (entry.isIntersecting) {
       entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
+      revealObserver.unobserve(entry.target);
     }
+
   });
+
 }, { threshold: 0.1 });
 
-revealEls.forEach(el => observer.observe(el));
+revealEls.forEach(el => revealObserver.observe(el));
 
-// Brillo secuencial en "Proceso de trabajo"
+
+// =============================
+// BRILLO SECUENCIAL EN PROCESO
+// =============================
 (() => {
+
   const stepsContainer = document.querySelector('.process-steps');
   if (!stepsContainer) return;
+
   const steps = Array.from(stepsContainer.querySelectorAll('li'));
   if (!steps.length) return;
 
@@ -101,6 +121,7 @@ revealEls.forEach(el => observer.observe(el));
     tick();
     timer = setInterval(tick, 1800);
   };
+
   const stop = () => {
     if (!timer) return;
     clearInterval(timer);
@@ -108,16 +129,20 @@ revealEls.forEach(el => observer.observe(el));
     steps.forEach(li => li.classList.remove('highlight'));
   };
 
-  // Inicia cuando el bloque es visible en el viewport
   const io = new IntersectionObserver(entries => {
+
     entries.forEach(entry => {
+
       if (entry.isIntersecting) start();
       else stop();
+
     });
+
   }, { threshold: 0.2 });
 
   io.observe(stepsContainer);
 
-  // Limpieza
   window.addEventListener('beforeunload', stop);
+
 })();
+
