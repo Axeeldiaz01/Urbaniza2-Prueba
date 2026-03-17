@@ -2492,7 +2492,7 @@ h2::after {
 
 /* anuncio inferior más moderno */
 .hero-announcement{
-  background:linear-gradient(90deg,#f99109,#ffb347);
+  background:linear-gradient(135deg, rgba(249, 145, 9, 0.9), rgba(249, 145, 9, 0.7));
   font-weight:600;
 }
 
