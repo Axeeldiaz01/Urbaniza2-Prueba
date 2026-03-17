@@ -561,6 +561,7 @@ footer p {
 }
 
 /* PROCESO DE TRABAJO */
+/* PROCESO DE TRABAJO */
 .process-section {
   padding: 100px 20px;
   background: #eef1f4;
@@ -574,28 +575,30 @@ footer p {
   color: #1f2937;
 }
 
-/* CONTENEDOR */
+/* ========================= */
+/* CONTENEDOR (MEJORADO 🔥) */
+/* ========================= */
 .process-steps {
   list-style: none;
-  display: flex;
-  justify-content: center;
-  gap: 60px;
+  display: grid; /* 🔥 CAMBIO CLAVE */
+  grid-template-columns: repeat(3, 1fr); /* 🔥 3 iguales */
+  gap: 40px;
   padding: 0;
-  margin: 0;
-  flex-wrap: wrap;
+  margin: 0 auto;
+  max-width: 1200px;
 }
 
 /* ITEM */
 .process-item {
-  flex: 1 1 260px;
-  max-width: 300px;
+  width: 100%;
+  max-width: none; /* 🔥 ya no limita tamaño */
   text-align: center;
 }
 
 /* CONTENEDOR DE IMAGEN */
 .process-img {
   width: 100%;
-  aspect-ratio: 1/1; 
+  aspect-ratio: 1/1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -608,8 +611,8 @@ footer p {
 
 /* IMAGEN */
 .process-img img {
-  width: 85%;
-  height: 85%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   border-radius: 16px;
   transition: transform 0.4s ease;
@@ -622,7 +625,7 @@ footer p {
 
 /* TEXTO */
 .process-item span {
-  font-size: 1.2rem;
+  font-size: clamp(1.2rem, 1.5vw, 1.5rem);
   font-weight: 600;
   color: #374151;
   position: relative;
@@ -638,27 +641,32 @@ footer p {
   border-radius: 10px;
 }
 
-/* RESPONSIVE */
+/* ========================= */
+/* RESPONSIVE 🔥 */
+/* ========================= */
 @media (max-width: 992px) {
   .process-steps {
-    flex-direction: column;
-    align-items: center;
-    gap: 50px;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-/* ANIMACIONES SUAVES */
-@keyframes numero {
+@media (max-width: 600px) {
+  .process-steps {
+    grid-template-columns: 1fr;
+  }
+}
 
-  0%,
-  15% {
+/* ========================= */
+/* ANIMACIONES (NO TOCADO) */
+/* ========================= */
+@keyframes numero {
+  0%, 15% {
     color: #f3a530;
     transform: scale(1.2);
     text-shadow: 0 6px 25px rgba(243, 165, 48, .45);
   }
 
-  20%,
-  100% {
+  20%, 100% {
     color: #ffd27a;
     transform: scale(1);
     text-shadow: none;
@@ -666,15 +674,12 @@ footer p {
 }
 
 @keyframes texto {
-
-  0%,
-  15% {
+  0%, 15% {
     color: #c97c10;
     transform: translateY(-4px);
   }
 
-  20%,
-  100% {
+  20%, 100% {
     color: #b7a089;
     transform: translateY(0);
   }
@@ -719,6 +724,29 @@ footer p {
 
 .process-steps li:nth-child(5)::before {
   animation-delay: 16s;
+}
+
+/* EXTRA (no tocado) */
+.process-steps li {
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.cta:focus,
+.faq-item:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(249, 145, 9, 0.35);
+}
+
+/* OTRO RESPONSIVE QUE TENÍAS */
+@media (max-width: 1024px) {
+  .services-grid {
+    grid-template-columns: repeat(2, minmax(240px, 1fr));
+  }
+
+  .process-steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 /* RESPONSIVE */

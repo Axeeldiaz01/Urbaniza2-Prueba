@@ -399,34 +399,10 @@ html{
   transform: translateY(40px);
 }
 
-.formulario-contacto-section::before {
-  content: "";
-  position: absolute;
-  width: 450px;
-  height: 450px;
-  background: radial-gradient(
-    circle,
-    rgba(249, 145, 9, 0.2) 0%,
-    transparent 70%
-  );
-  top: -150px;
-  right: -150px;
-  z-index: 0;
-}
-
+/* ❌ ELIMINAMOS MANCHAS NARANJAS */
+.formulario-contacto-section::before,
 .formulario-contacto-section::after {
-  content: "";
-  position: absolute;
-  width: 350px;
-  height: 350px;
-  background: radial-gradient(
-    circle,
-    rgba(249, 145, 9, 0.15) 0%,
-    transparent 70%
-  );
-  bottom: -150px;
-  left: -150px;
-  z-index: 0;
+  display: none;
 }
 
 .formulario-contacto-section * {
@@ -434,25 +410,44 @@ html{
   z-index: 1;
 }
 
+/* IMAGEN MODERNA */
 .imagen-formulario {
   width: 420px;
   max-width: 100%;
   margin-bottom: 40px;
-  border-radius: 30px;
-  box-shadow:
-    0 30px 80px rgba(0, 0, 0, 0.25),
-    0 0 0 8px rgba(249, 145, 9, 0.08);
-  transition: all 0.5s ease;
+
+  border-radius: 20px;
+  overflow: hidden;
+
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
+/* SI USAS IMG DENTRO */
+.imagen-formulario img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+
+  transition: transform 0.6s ease;
+}
+
+/* HOVER SUAVE */
 .imagen-formulario:hover {
-  transform: scale(1.12) translateY(-8px);
-  box-shadow:
-    0 45px 110px rgba(0, 0, 0, 0.35),
-    0 0 0 12px rgba(249, 145, 9, 0.15);
+  transform: translateY(-6px);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.18);
 }
 
-/* Animación */
+.imagen-formulario:hover img {
+  transform: scale(1.05);
+}
+
+/* ANIMACIÓN */
 @keyframes fadeUp {
   to {
     opacity: 1;
@@ -460,7 +455,8 @@ html{
   }
 }
 
-/* TITULO */
+/* TITULO  */
+
 .formulario-contacto-section h3 {
   font-size: clamp(1.3rem, 2.5vw, 1.6rem);
   font-weight: 600;
@@ -476,14 +472,17 @@ html{
   color: var(--primary);
 }
 
+
 /* SUBTITULO */
+
 .form-subtitle {
   color: #555;
   margin-bottom: 40px;
   font-size: 1.15rem;
 }
 
-/* BOTÓN */
+/* BOTÓN  */
+
 .boton-correo {
   background: linear-gradient(135deg, var(--primary), var(--primary-orange));
   color: white;
@@ -517,7 +516,6 @@ html{
     width: 300px;
   }
 }
-
 /* MODAL */
 .modal-enhanced {
   display: none;
