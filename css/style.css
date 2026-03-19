@@ -201,7 +201,7 @@ nav ul li a:focus-visible {
 .slider-container {
   position: relative;
   width: 100%;
-  height: 600px; /* Reducir de 700px a 600px si quieres menos altura */
+  height: 600px; 
   overflow: hidden;
 }
 
@@ -354,24 +354,94 @@ nav ul li a:focus-visible {
 }
 
 .hero-announcement {
-  background: #f99109;
-  padding: 10px 0;
-  margin-top: 0;
+  background: linear-gradient(90deg, #f99109, #ffb347);
+  padding: 12px 0;
   text-align: center;
   position: relative;
+  overflow: hidden;
   z-index: 10;
-}
-.announcement-text {
-  color: white;
-  font-size: 1.1rem;
-  font-weight: 500;
-  margin: 0;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
 }
 
-.announcement-text i {
-  margin-right: 8px;
-  color: #fff200;
+.announcement-link {
+  text-decoration: none;
+  display: block;
+  transition: transform 0.2s ease;
+}
+
+.announcement-link:hover {
+  transform: scale(1.01);
+}
+
+/* Efecto brillo animado (mejorado) */
+.hero-announcement::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 30%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transform: skewX(-25deg);
+  animation: shine 5s infinite;
+}
+
+@keyframes shine {
+  0% { left: -150%; }
+  30% { left: 150%; }
+  100% { left: 150%; }
+}
+
+.announcement-text {
+  color: white;
+  font-size: 1.05rem;
+  font-weight: 500;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.badge {
+  background: rgba(255, 255, 255, 0.25);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  border: 1px solid white;
+  letter-spacing: 1px;
+}
+
+.announcement-text strong {
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Ver detalles */
+.cta {
+  background: white;
+  color: #f99109;
+  padding: 5px 15px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-left: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.announcement-link:hover .cta {
+  background: #2d2d2d;
+  color: white;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
 }
 
 @media (max-width: 480px) {
@@ -428,124 +498,98 @@ section h2 {
   margin-bottom: 10px;
 }
 
-/*carrusel*/
-.carrusel-terrenos {
+/*  NUEVO  */
+
+.guia-terrenos {
   position: relative;
-  overflow: hidden;
-  width: 100%;
-  max-width: 600px; /* antes 900px */
+  max-width: 1000px;
   margin: 0 auto;
-  border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
-  background: linear-gradient(145deg, #f5f5f5, #ffffff);
+  padding: 80px 0;
 }
 
-.carrusel-imagenes {
-  position: relative;
-  width: 100%;
-  background: inherit; /* Hereda el fondo del contenedor */
-}
-
-.carrusel-imagenes .slide {
-  position: relative;
-  width: 100%;
-  display: none; /* Se controla con JS, pero aquí lo importante es la imagen */
-  /* Reseteamos propiedades heredadas del .slide global (hero) */
-  top: auto;
-  left: auto;
-  height: auto;
-  opacity: 1;
-  background: none;
-  transition: none;
-}
-
-.carrusel-imagenes .slide.activo {
-  display: block;
-}
-
-.carrusel-imagenes .slide img {
-  width: 100%;
-  height: auto;            /* Altura automática para mantener proporción */
-  object-fit: contain;     /* Muestra la imagen completa, sin recortes */
-  display: block;
-  border: none;
-  margin: 0;
-  padding: 0;
-  border-radius: 20px;      /* Bordes redondeados también en la imagen */
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.carrusel-imagenes .slide:hover img {
-  transform: scale(1.02);   /* Efecto sutil al pasar el mouse */
-  box-shadow: 0 10px 30px rgba(249, 145, 9, 0.3);
-}
-
-.slide-caption {
+/* camino en zigzag */
+.guia-terrenos::before {
+  content: "";
   position: absolute;
+  left: 50%;
+  top: 0;
   bottom: 0;
+  width: 6px;
+  background: repeating-linear-gradient(
+    to bottom,
+    #f39c12,
+    #f39c12 20px,
+    transparent 20px,
+    transparent 40px
+  );
+  transform: translateX(-50%);
+}
+
+/* pasos */
+.paso {
+  width: 40%;
+  margin-bottom: 120px;
+  position: relative;
+}
+
+/* alternancia */
+.paso:nth-child(odd) {
   left: 0;
-  right: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
-  color: white;
-  padding: 2rem 1.5rem 1.5rem;
-  transform: translateY(100%);
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  backdrop-filter: blur(8px);
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
 }
 
-.slide:hover .slide-caption {
-  transform: translateY(0);
+.paso:nth-child(even) {
+  left: 60%;
 }
 
-.slide-caption h3 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: #f39c12;
-}
-
-.slide-caption p {
-  font-size: 1.4rem;
-  opacity: 0.9;
-  line-height: 1.4;
-  margin: 0;
-}
-
-/* Botones de navegación del carrusel */
-.carrusel-btn {
+/* punto del camino */
+.paso::before {
+  content: "";
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.9);
-  border: none;
-  width: 50px;
-  height: 50px;
+  top: 40px;
+  width: 20px;
+  height: 20px;
+  background: #f39c12;
   border-radius: 50%;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-  color: #333;
-  transition: all 0.3s ease;
-  z-index: 10;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-.carrusel-btn:hover {
-  background: rgba(243, 156, 18, 0.9);
-  color: white;
-  transform: translateY(-50%) scale(1.1);
+.paso:nth-child(odd)::before {
+  right: -50px;
 }
 
-.carrusel-btn.anterior {
-  left: 20px;
+.paso:nth-child(even)::before {
+  left: -50px;
 }
 
-.carrusel-btn.siguiente {
-  right: 20px;
+/* imagen completa */
+.paso img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 14px;
+}
+
+/* texto */
+.paso h3 {
+  margin: 12px 0 4px;
+  color: #f39c12;
+  font-size: 1.6rem;
+}
+
+.paso p {
+  margin: 0;
+  font-size: 1.4rem;
+  color: #444;
+}
+
+.paso {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all .6s ease;
+}
+
+.paso.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Responsive para botones */
@@ -1173,16 +1217,18 @@ input[type="range"]::-webkit-slider-thumb:hover {
     height: 60px;
   }
 }
-
 /* SECCIÓN SERVICIOS MEJORADA */
 .services-section {
   padding: 80px 5%;
   background:
-    radial-gradient(circle at top right, rgba(249, 145, 9, 0.05), transparent),
-    #fdfdfd;
+    linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.92)),
+    url("https://www.transparenttextures.com/patterns/cubes.png");
+  background-size: 220px;
+  background-repeat: repeat;
   overflow: hidden;
 }
 
+/* TITULOS */
 .section-title {
   font-size: clamp(2rem, 5vw, 2.8rem);
   font-weight: 800;
@@ -1201,7 +1247,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
   text-align: center;
 }
 
-/* Grid responsivo */
+/* GRID */
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -1210,117 +1256,96 @@ input[type="range"]::-webkit-slider-thumb:hover {
   margin: 0 auto;
 }
 
+/* CARD BASE */
 .service-card {
+  position: relative;
   background: #ffffff;
-  padding: 3rem 2rem;
   border-radius: 24px;
   text-align: center;
   border: 1px solid rgba(0, 0, 0, 0.05);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  opacity: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 280px; 
+  overflow: hidden;
+  cursor: pointer;
+  perspective: 1000px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* CARD INTERNA PARA FLIP */
+.service-card-inner {
+  width: 100%;
   height: 100%;
+  transition: transform 0.8s ease;
+  transform-style: preserve-3d;
+  border-radius: 24px;
 }
 
-.service-icon i {
-  font-size: 28px;
-  color: #f99109;
+.service-card:hover .service-card-inner {
+  transform: rotateY(180deg);
 }
 
-.service-card:hover .service-icon {
-  background: #f99109;
-  transform: scale(1.1) rotate(5deg);
+/* CARA FRONTAL Y TRASERA */
+.service-card-front,
+.service-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
 }
 
-.service-card:hover .service-icon i {
-  color: #fff;
+/* FRONTAL */
+.service-card-front {
+  background: #ffffff;
 }
 
-/* Animación de entrada sutil */
-@keyframes cardFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.services-grid .service-card {
-  animation: cardFadeIn 0.8s ease forwards;
-}
-
-/* Efecto de luz interna al hacer hover */
-.service-card:hover {
-  transform: translateY(-12px);
-  box-shadow: 0 20px 40px rgba(249, 145, 9, 0.12);
-  border-color: rgba(249, 145, 9, 0.2);
-}
-
-.service-icon {
+/* ICONO FRONTAL */
+.service-card-front .service-icon {
   width: 90px;
   height: 90px;
+  margin-bottom: 1.5rem;
   background: #fff;
   border-radius: 22px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 2rem;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
-  position: relative;
-  z-index: 1;
-  transition: all 0.4s ease;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.04);
 }
 
-.service-icon::after {
-  content: "";
-  position: absolute;
-  inset: -2px;
-  background: linear-gradient(135deg, #f99109, #ffb347);
-  border-radius: 24px;
-  z-index: -1;
-  opacity: 0.2;
-  transition: opacity 0.4s ease;
-}
-
-.service-icon i {
+.service-card-front .service-icon i {
   font-size: 2.2rem;
   background: linear-gradient(135deg, #f99109, #d87e07);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  display: inline-block;
   transition: all 0.4s ease;
 }
 
-.service-card:hover .service-icon {
+/* TRASERA */
+.service-card-back {
   background: linear-gradient(135deg, #f99109, #ffb347);
-  transform: rotate(-5deg) scale(1.1);
-  box-shadow: 0 10px 25px rgba(249, 145, 9, 0.3);
+  color: #fff;
+  transform: rotateY(180deg);
+  justify-content: center;
+  padding: 1.5rem;
+  text-align: center;
 }
 
-.service-card:hover .service-icon i {
-  -webkit-text-fill-color: #ffffff;
-  color: #ffffff;
-  transform: rotate(5deg);
-}
-
-.service-card:hover .service-icon::after {
-  opacity: 0;
-}
-/*ESTE NO */
+/* TEXTO */
 .service-card h3 {
   font-size: 1.5rem;
   font-weight: 700;
   color: #222;
   margin-bottom: 1rem;
-  transition: color 0.3s ease;
 }
 
 .service-card p {
@@ -1329,32 +1354,38 @@ input[type="range"]::-webkit-slider-thumb:hover {
   line-height: 1.7;
 }
 
-.services-grid .service-card:nth-child(1) {
-  animation-delay: 0.05s;
+/* Glow dinámico: se deja pero no afecta flip */
+.service-card::after {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(249,145,9,0.4) 0%, transparent 60%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  border-radius: 50%;
+  opacity: 0;
+  transition: transform 0.1s ease, opacity 0.3s ease;
+  z-index: 0;
 }
 
-.services-grid .service-card:nth-child(2) {
-  animation-delay: 0.12s;
+/* Animación de entrada */
+@keyframes cardFadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.services-grid .service-card:nth-child(3) {
-  animation-delay: 0.19s;
+.services-grid .service-card {
+  animation: cardFadeIn 0.8s ease forwards;
 }
 
-.services-grid .service-card:nth-child(4) {
-  animation-delay: 0.26s;
-}
-
-.services-grid .service-card:nth-child(5) {
-  animation-delay: 0.33s;
-}
-
-/* SECCIÓN INFORMACIÓN EDUCATIVA */
-.info-section{
-  padding:80px 0;
-  background:#f7f7f7;
-}
-
+.services-grid .service-card:nth-child(1) { animation-delay: 0.05s; }
+.services-grid .service-card:nth-child(2) { animation-delay: 0.12s; }
+.services-grid .service-card:nth-child(3) { animation-delay: 0.19s; }
+.services-grid .service-card:nth-child(4) { animation-delay: 0.26s; }
+.services-grid .service-card:nth-child(5) { animation-delay: 0.33s; }
 /*  MODAL DE COMPRA  */
 .modal-compra {
   display: flex;
@@ -2511,4 +2542,116 @@ opacity:1;
 transform:translateY(0);
 }
 
-/* Animación en escalera para services */
+/*  SECCIÓN TERRENOS  */
+#terrenos-disponibles {
+  padding: 80px 0;
+  background-color: #ffffff;
+}
+
+#terrenos-disponibles h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+  color: #1a1a1a;
+  position: relative;
+}
+
+/* Galería en Grid */
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Card de Terreno */
+.galeria .card {
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #f0f0f0;
+  display: flex;
+  flex-direction: column;
+}
+
+.galeria .card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Imagen con efecto */
+.galeria .card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.galeria .card img:hover {
+  opacity: 0.9;
+}
+
+/* Contenido de la Card */
+.galeria .card h3 {
+  padding: 20px 25px 5px;
+  font-size: 1.5rem;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.galeria .card .linea-decorativa {
+  width: 40px;
+  height: 3px;
+  background: #f3a530;
+  margin: 10px 25px;
+  border-radius: 2px;
+}
+
+.galeria .card p {
+  padding: 0 25px;
+  margin: 5px 0;
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.galeria .card .precio {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #f3a530;
+  padding: 15px 25px;
+  margin-top: auto; 
+}
+
+/* Botón de Comprar */
+.card-actions {
+  padding: 0 25px 25px;
+}
+
+.btn-comprar {
+  width: 100%;
+  background-color: #1a1a1a; 
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: background 0.3s;
+}
+
+.btn-comprar:hover {
+  background-color: #f3a530; 
+}
+
+.btn-comprar i {
+  font-size: 0.9rem;
+}
