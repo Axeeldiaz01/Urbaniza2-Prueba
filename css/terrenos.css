@@ -293,8 +293,7 @@ footer {
 }
 
 /* Estilos generales para imágenes: borde suave por defecto */
-img {
-  border: 1px solid #ddd;       /* Borde gris claro */
+img {      /* Borde gris claro */
   border-radius: 4px;           /* Pequeño redondeo */
   outline: none;
 }
@@ -372,8 +371,6 @@ img {
   object-fit: contain;           /* Imagen completa, sin recortes */
   display: block;
   background-color: transparent; /* Fondo transparente */
-  border: 1px solid #ccc;        /* Borde gris */
-  border-radius: 8px;            /* Bordes redondeados */
 }
 
 .carrusel-indicadores {

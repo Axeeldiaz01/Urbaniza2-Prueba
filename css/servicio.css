@@ -608,6 +608,8 @@ footer p {
   padding: 0;
   margin: 0 auto;
   max-width: 1200px;
+  margin: 0 auto;
+  max-width: 1200px;
 }
 
 /* ITEM*/
@@ -637,6 +639,8 @@ footer p {
 .process-item:nth-child(5) .process-img { animation-delay: 2.6s; }
 
 .process-img img {
+  width: 100%;
+  height: 100%;
   width: 100%;
   height: 100%;
   object-fit: cover;
