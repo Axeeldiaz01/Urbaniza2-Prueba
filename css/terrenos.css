@@ -190,8 +190,10 @@ footer {
 
 .galeria {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15.6rem, 1fr));
-  gap: 1.25rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.8rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .linea-decorativa {
@@ -208,6 +210,9 @@ footer {
   overflow: hidden;
   box-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  display: flex;
+  flex-direction: column;
 }
 
 .card:hover {
@@ -239,6 +244,7 @@ footer {
 .card .card-actions {
   padding: 0.9rem;
   text-align: center;
+  margin-top: auto;
 }
 
 .card .btn-comprar {
@@ -260,16 +266,30 @@ footer {
   box-shadow: 0 0.25rem 0.75rem rgba(39, 174, 96, 0.3);
 }
 
-/* Imágenes de tarjetas: completas, sin marcos no deseados, con borde */
+/* Imágenes de tarjetas adaptadas a tus tamaños reales */
+/* Contenedor de imagen estable */
 .card img {
   width: 100%;
-  height: 200px;
-  object-fit: contain;          /* Imagen completa, sin recortes */
-  background-color: transparent; /* Fondo transparente */
-  border-radius: 8px 8px 0 0;   /* Bordes redondeados solo arriba */
-  border: 1px solid #e0e0e0;    /* Borde gris suave */
+
+  height: 220px;          /* altura estable */
+  object-fit: cover;      /* llena sin deformar */
+
   display: block;
-  transition: none;              /* Sin efectos al hover */
+}
+
+/* Ajuste fino cuando la ventana se reduce */
+/* Cuando la ventana está a la mitad (pantallas intermedias) */
+@media (max-width: 1200px) {
+
+  .galeria {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 900px;
+  }
+
+  .card img {
+    height: 210px;
+  }
+
 }
 
 /* --- SECCIÓN SURCO (CARRUSEL + TEXTO) --- */
@@ -1139,7 +1159,37 @@ footer p {
     display: block;
   }
 }
+/* -------- PANTALLA MEDIA (ventana a la mitad) -------- */
+@media (max-width: 1200px) {
 
+  .galeria {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+}
+
+/* -------- TABLET -------- */
+@media (max-width: 768px) {
+
+  .galeria {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .card img {
+    height: 200px;
+  }
+
+}
+@media (max-width: 480px) {
+
+  .card img {
+    height: 180px;
+  }
+
+}
 @media (max-width: 480px) {
   .scrollToHome {
     width: 45px;
@@ -1189,6 +1239,16 @@ footer p {
   .container {
     width: 90%;
   }
+}
+.logo {
+  height: 100px;
+  width: auto;
+  display: block;
+  transition: height 0.3s ease;
+}
+
+header.shrink .logo {
+  height: 74px;
 }
 
 @media (max-width: 30rem) {

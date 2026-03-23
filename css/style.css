@@ -43,14 +43,14 @@ header {
 }
 
 .logo {
-  height: 65px;
+  height: 100px;
+  width: auto;
+  display: block;
   transition: height 0.3s ease;
-  border: 3px solid black;
-  border-radius: 8px;
 }
 
 header.shrink .logo {
-  height: 40px;
+  height: 74px;
 }
 
 header.shrink {
@@ -499,7 +499,6 @@ section h2 {
 }
 
 /*  NUEVO  */
-
 .guia-terrenos {
   position: relative;
   max-width: 1000px;
@@ -532,7 +531,7 @@ section h2 {
   position: relative;
 }
 
-/* alternancia */
+/* alternancia desktop */
 .paso:nth-child(odd) {
   left: 0;
 }
@@ -560,7 +559,7 @@ section h2 {
   left: -50px;
 }
 
-/* imagen completa */
+/* imagen */
 .paso img {
   width: 100%;
   height: auto;
@@ -581,6 +580,7 @@ section h2 {
   color: #444;
 }
 
+/* animación */
 .paso {
   opacity: 0;
   transform: translateY(40px);
@@ -590,6 +590,34 @@ section h2 {
 .paso.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* ============================= */
+/* RESPONSIVE FIX REAL */
+/* ============================= */
+
+@media (max-width: 768px) {
+
+  /* posición exacta del eje */
+  .guia-terrenos::before {
+    left: 28px;
+    transform: none;
+    width: 4px;
+  }
+
+  /* pasos en columna */
+  .paso {
+    width: 100%;
+    left: 0 !important;
+    margin-bottom: 60px;
+    padding-left: 70px; /* espacio para la línea */
+  }
+
+  /* puntos centrados sobre la línea */
+  .paso::before {
+    display: none;
+  }
+
 }
 
 /* Responsive para botones */
@@ -2251,11 +2279,11 @@ input[type="range"]::-webkit-slider-thumb:hover {
   }
 
   .logo {
-    height: 55px;
+    height: 64px;
   }
 
   header.shrink .logo {
-    height: 38px;
+    height: 46px;
   }
 }
 
@@ -2655,3 +2683,5 @@ transform:translateY(0);
 .btn-comprar i {
   font-size: 0.9rem;
 }
+
+
