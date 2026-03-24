@@ -59,23 +59,23 @@
         <div class="container">
           <div class="hero-text">
 
-            <h1 class="hero-title">
+            <h1 class="hero-title reveal">
               Cambia tu alquiler por <br>
               <span class="hero-highlight">tu propio terreno hoy</span> 🏡
             </h1>
 
-            <p class="hero-description">
+            <p class="hero-description reveal">
               Invierte con seguridad en <strong>Chorrillos, Chancay y Végueta</strong>.
               Precios exclusivos de <strong>preventa</strong> con asesoría legal completa.
               Tu futuro comienza en <strong>Urbaniza2 Inmobiliaria</strong>.
             </p>
 
             <div class="btn-group hero-buttons">
-              <a href="terrenos.html" class="btn btn-primary">
+              <a href="terrenos.html" class="btn btn-primary reveal">
                 Ver Proyectos
               </a>
 
-              <a href="https://wa.me/51982664102" class="btn btn-secondary">
+              <a href="https://wa.me/51982664102" class="btn btn-secondary reveal">
                 <i class="fab fa-whatsapp"></i>
                 Contáctanos
               </a>
@@ -109,7 +109,7 @@
 
     <div class="hero-announcement">
       <div class="container">
-        <a href="#terrenos-disponibles" class="announcement-link">
+        <a href="terrenos.html#chorrillos" class="announcement-link">
           <p class="announcement-text">
             <span class="badge">NUEVO</span>
             ¡Oportunidad única!
@@ -123,66 +123,111 @@
   </section>
 
   <main>
+
     <section id="terrenos-disponibles">
-      <div class="container">
-        <h2 class="reveal">Terrenos Disponibles</h2>
-        <p class="section-subtitle">
-          ¡No dejes pasar la oportunidad! Asegura el patrimonio de tu familia con precios de preventa y ubicación
-          privilegiada. 🔑
-        </p>
-        <div class="galeria reveal">
+  <div class="container">
+    <h2 class="reveal">Terrenos Disponibles</h2>
 
-          <div class="card" data-tipo="Terreno" data-ubicacion="Chorrillos" data-precio="120000" data-moneda="S/">
-            <img src="img/chorrillos1.jpeg" alt="Terreno en Chorrillos" onclick="ampliarImagen(this)">
-            <div class="linea-decorativa"></div>
-            <h3>Chorrillos</h3>
-            <p>200 m².</p>
-            <p>Ubicado en zona residencial estratégica.</p>
-            <p>Ideal para vivienda familiar.</p>
-            <p class="precio">S/ 120,000</p>
-            <div class="card-actions">
-              <button class="btn-comprar" data-ubicacion="Chorrillos" data-precio="120000" data-area="200 m²"
-                data-terreno-id="5">
-                <i class="fas fa-shopping-cart"></i> Comprar
-              </button>
-            </div>
-          </div>
+    <p class="section-subtitle reveal">
+      ¡No dejes pasar la oportunidad! Asegura el patrimonio de tu familia con precios de preventa y ubicación
+      privilegiada. 🔑
+    </p>
 
-          <div class="card" data-tipo="Terreno" data-ubicacion="Chancay" data-precio="95000" data-moneda="S/">
-            <img src="img/chancay.jpg" alt="Terreno en Chancay" onclick="ampliarImagen(this)">
-            <div class="linea-decorativa"></div>
-            <h3>Chancay</h3>
-            <p>180 m².</p>
-            <p>Excelente ubicación cerca del centro.</p>
-            <p>Documentos en regla.</p>
-            <p class="precio">S/ 95,000</p>
-            <div class="card-actions">
-              <button class="btn-comprar" data-ubicacion="Chancay" data-precio="95000" data-area="180 m²"
-                data-terreno-id="6">
-                <i class="fas fa-shopping-cart"></i> Comprar
-              </button>
-            </div>
-          </div>
+    <div class="galeria reveal">
 
-          <div class="card" data-tipo="Terreno" data-ubicacion="Végueta" data-precio="85000" data-moneda="S/">
-            <img src="img/vegueta.jpg" alt="Terreno en Végueta" onclick="ampliarImagen(this)">
-            <div class="linea-decorativa"></div>
-            <h3>Végueta</h3>
-            <p>220 m².</p>
-            <p>Zona tranquila y en crecimiento.</p>
-            <p>Perfecto para inversión.</p>
-            <p class="precio">S/ 85,000</p>
-            <div class="card-actions">
-              <button class="btn-comprar" data-ubicacion="Végueta" data-precio="85000" data-area="220 m²"
-                data-terreno-id="7">
-                <i class="fas fa-shopping-cart"></i> Comprar
-              </button>
-            </div>
-          </div>
+      <!-- CARD 1 -->
+      <div class="card" data-tipo="Terreno" data-ubicacion="Chorrillos" data-precio="120000" data-moneda="S/">
 
+        <div class="img-container">
+          <img src="img/chorrillos1.jpeg" alt="Terreno en Chorrillos" onclick="ampliarImagen(this)">
         </div>
+
+        <div class="linea-decorativa"></div>
+
+        <h3>Chorrillos</h3>
+        <p>200 m².</p>
+        <p>Ubicado en zona residencial estratégica.</p>
+        <p>Ideal para vivienda familiar.</p>
+
+        <p class="precio">S/ 120,000</p>
+
+        <div class="card-actions">
+          <button class="btn-comprar"
+            data-ubicacion="Chorrillos"
+            data-precio="120000"
+            data-area="200 m²"
+            data-terreno-id="5">
+
+            <i class="fas fa-shopping-cart"></i> Comprar
+
+          </button>
+        </div>
+
       </div>
-    </section>
+
+      <!-- CARD 2 -->
+      <div class="card" data-tipo="Terreno" data-ubicacion="Chancay" data-precio="95000" data-moneda="S/">
+
+        <div class="img-container">
+          <img src="img/chancay1.jpeg" alt="Terreno en Chancay" onclick="ampliarImagen(this)">
+        </div>
+
+        <div class="linea-decorativa"></div>
+
+        <h3>Chancay</h3>
+        <p>180 m².</p>
+        <p>Excelente ubicación cerca del centro.</p>
+        <p>Documentos en regla.</p>
+
+        <p class="precio">S/ 95,000</p>
+
+        <div class="card-actions">
+          <button class="btn-comprar"
+            data-ubicacion="Chancay"
+            data-precio="95000"
+            data-area="180 m²"
+            data-terreno-id="6">
+
+            <i class="fas fa-shopping-cart"></i> Comprar
+
+          </button>
+        </div>
+
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="card" data-tipo="Terreno" data-ubicacion="Végueta" data-precio="85000" data-moneda="S/">
+
+        <div class="img-container">
+          <img src="img/vegueta.jpg" alt="Terreno en Végueta" onclick="ampliarImagen(this)">
+        </div>
+
+        <div class="linea-decorativa"></div>
+
+        <h3>Végueta</h3>
+        <p>220 m².</p>
+        <p>Zona tranquila y en crecimiento.</p>
+        <p>Perfecto para inversión.</p>
+
+        <p class="precio">S/ 85,000</p>
+
+        <div class="card-actions">
+          <button class="btn-comprar"
+            data-ubicacion="Végueta"
+            data-precio="85000"
+            data-area="220 m²"
+            data-terreno-id="7">
+
+            <i class="fas fa-shopping-cart"></i> Comprar
+
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
     <!-- SECCIÓN SERVICIOS -->
     <section id="servicios" class="services-section reveal">
       <div class="container services-section">
@@ -405,6 +450,10 @@
   <script src="js/script.js"></script>
   <script src="js/scroll-animaciones.js"></script>
   <script src="js/scripts.js"></script>
+
+
+
+  <script src="js/terreno.js"></script>
 </body>
 
 </html>
