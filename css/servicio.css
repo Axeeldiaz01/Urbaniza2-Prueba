@@ -57,6 +57,7 @@ body {
   width: 85%;
   max-width: 1100px;
   margin: 0 auto;
+  padding: 0 20px;
 }
 
 /* Header y Navegación */
@@ -64,27 +65,12 @@ header {
   position: sticky;
   top: 0;
   z-index: 999;
-  background: var(--primary);
+  background: rgba(249, 145, 9, 0.679);
   color: white;
   transition: all 0.3s ease;
   padding: 5px 0;
 }
 
-.logo {
-  height: 100px;
-  width: auto;
-  display: block;
-  transition: height 0.3s ease;
-}
-
-header.shrink .logo {
-  height: 74px;
-}
-
-header.shrink {
-  padding: 2px 0;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
 
 header .container {
   display: flex;
@@ -628,6 +614,7 @@ footer p {
   margin-bottom: 70px;
   color: #1f2937;
 }
+
 /* PROCESS STEPS */
 
 .process-steps {
@@ -662,11 +649,25 @@ footer p {
 }
 
 /* secuencia tipo clic */
-.process-item:nth-child(1) .process-img { animation-delay: 0.2s; }
-.process-item:nth-child(2) .process-img { animation-delay: 0.8s; }
-.process-item:nth-child(3) .process-img { animation-delay: 1.4s; }
-.process-item:nth-child(4) .process-img { animation-delay: 2s; }
-.process-item:nth-child(5) .process-img { animation-delay: 2.6s; }
+.process-item:nth-child(1) .process-img {
+  animation-delay: 0.2s;
+}
+
+.process-item:nth-child(2) .process-img {
+  animation-delay: 0.8s;
+}
+
+.process-item:nth-child(3) .process-img {
+  animation-delay: 1.4s;
+}
+
+.process-item:nth-child(4) .process-img {
+  animation-delay: 2s;
+}
+
+.process-item:nth-child(5) .process-img {
+  animation-delay: 2.6s;
+}
 
 .process-img img {
   width: 100%;
@@ -676,6 +677,7 @@ footer p {
   object-fit: cover;
   display: block;
 }
+
 /*TEXTO*/
 
 .process-item span {
@@ -690,11 +692,25 @@ footer p {
   animation: textFade 0.4s ease forwards;
 }
 
-.process-item:nth-child(1) span { animation-delay: 0.5s; }
-.process-item:nth-child(2) span { animation-delay: 1.1s; }
-.process-item:nth-child(3) span { animation-delay: 1.7s; }
-.process-item:nth-child(4) span { animation-delay: 2.3s; }
-.process-item:nth-child(5) span { animation-delay: 2.9s; }
+.process-item:nth-child(1) span {
+  animation-delay: 0.5s;
+}
+
+.process-item:nth-child(2) span {
+  animation-delay: 1.1s;
+}
+
+.process-item:nth-child(3) span {
+  animation-delay: 1.7s;
+}
+
+.process-item:nth-child(4) span {
+  animation-delay: 2.3s;
+}
+
+.process-item:nth-child(5) span {
+  animation-delay: 2.9s;
+}
 
 .process-item span::after {
   content: "";
@@ -713,10 +729,12 @@ footer p {
     opacity: 0;
     transform: scale(0.5);
   }
+
   60% {
     opacity: 1;
-    transform: scale(1.1); 
+    transform: scale(1.1);
   }
+
   100% {
     opacity: 1;
     transform: scale(1);
@@ -859,7 +877,11 @@ footer p {
   .section,
   .section.reverse {
     flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    /* CLAVE: arriba */
     text-align: center;
+
     gap: 20px;
     padding: 40px 20px;
     margin: 40px 20px;
@@ -907,7 +929,7 @@ footer p {
   display: inline-block;
   text-align: center;
   vertical-align: middle;
-  
+
 }
 
 /* FORZAR CENTRADO REAL DEL BOTÓN EN RESPONSIVE */
@@ -971,17 +993,17 @@ footer p {
 }
 
 /* Cuando está activado */
-.faq-item input:checked ~ .faq-answer {
+.faq-item input:checked~.faq-answer {
   max-height: 500px;
   padding-bottom: 24px;
   opacity: 1;
 }
 
-.faq-item input:checked ~ .faq-question i {
+.faq-item input:checked~.faq-question i {
   transform: rotate(180deg);
 }
 
-.faq-item input:checked ~ .faq-question {
+.faq-item input:checked~.faq-question {
   color: #f99109;
 }
 
@@ -1089,16 +1111,25 @@ footer p {
   }
 }
 
-.reveal{
-opacity:0;
-transform:translateY(60px);
-transition:all .8s ease;
+.reveal {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all .8s ease;
 }
 
-.reveal.visible{
-opacity:1;
-transform:translateY(0);
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
-.service-card:nth-child(1) { transition-delay: 0.1s; }
-.service-card:nth-child(2) { transition-delay: 0.3s; }
-.service-card:nth-child(3) { transition-delay: 0.5s; }
+
+.service-card:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.service-card:nth-child(2) {
+  transition-delay: 0.3s;
+}
+
+.service-card:nth-child(3) {
+  transition-delay: 0.5s;
+}

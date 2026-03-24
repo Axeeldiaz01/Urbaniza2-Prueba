@@ -37,20 +37,29 @@ header {
   top: 0;
   z-index: 999;
   background: rgba(249, 145, 9, 0.679);
-  color: white;
-  transition: all 0.3s ease;
-  padding: 5px 0;
+  padding: 2px 0;
+  width: 100%;
+
+  height: 90px; /* fuerza altura consistente */
+  display: flex;
+  align-items: center;
 }
 
 .logo {
-  height: 100px;
+  height: 85px !important;
   width: auto;
   display: block;
-  transition: height 0.3s ease;
+  object-fit: contain;
+
+  margin-top: -8px;   /* lo mantiene arriba igual que en desktop */
+
+  transition: height 0.3s ease, margin-top 0.3s ease;
 }
 
+/* Cuando haces scroll */
 header.shrink .logo {
-  height: 74px;
+  height: 60px;
+  margin-top: -6px;
 }
 
 header.shrink {
@@ -58,12 +67,67 @@ header.shrink {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
+
+@media (max-width: 480px) {
+  header {
+    padding: 0; /* Eliminamos cualquier espacio del header */
+  }
+
+  .logo {
+    height: 80px; /* Tamaño grande para que destaque en móvil */
+    width: auto;
+    margin-top: -10px; /* Lo sube lo suficiente para eliminar el espacio superior */
+    margin-bottom: -5px; /* Ajusta el espacio inferior para que no quede "volando" */
+    display: block;
+    transition: all 0.3s ease;
+  }
+
+  header .container {
+    min-height: 75px; /* Altura mínima ajustada al logo grande */
+  }
+}
+
+@media (max-width: 768px) {
+
+  header {
+    padding: 0;
+  }
+
+  header .container {
+    display: flex;
+    align-items: center;       /* mantiene centrado */
+    justify-content: space-between;
+    min-height: 70px;
+  }
+
+  .logo {
+    height: 85px;      /* mismo tamaño visual que desktop */
+    margin-top: -8px;  /* misma posición arriba */
+  }
+
+  header.shrink .logo {
+    height: 60px;
+    margin-top: -6px;
+  }
+
+}
+
+
+/* Ajuste extra por si el header se achica al hacer scroll en móvil */
+@media (max-width: 480px) {
+  header.shrink .logo {
+    height: 60px;
+    margin-top: -5px;
+  }
+}
 /*MODIFICACION*/
 header .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+
+
 
 nav {
   margin: 0;
@@ -2277,14 +2341,6 @@ input[type="range"]::-webkit-slider-thumb:hover {
   header.shrink {
     padding: 4px 0;
   }
-
-  .logo {
-    height: 64px;
-  }
-
-  header.shrink .logo {
-    height: 46px;
-  }
 }
 
 html,
@@ -2593,7 +2649,7 @@ transform:translateY(0);
   margin: 0 auto;
 }
 
-/* Card de Terreno */
+/* Card */
 .galeria .card {
   background: #fff;
   border-radius: 20px;
@@ -2601,8 +2657,10 @@ transform:translateY(0);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border: 1px solid #f0f0f0;
+
   display: flex;
   flex-direction: column;
+  padding: 0;
 }
 
 .galeria .card:hover {
@@ -2610,11 +2668,18 @@ transform:translateY(0);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
-/* Imagen con efecto */
+/* IMAGEN — ancho completo del card */
 .galeria .card img {
   width: 100%;
-  height: 220px;
-  object-fit: cover;
+  height: auto;           /* la imagen mantiene proporción */
+  display: block;         /* elimina espacio fantasma */
+  object-fit: contain;    /* imagen completa */
+
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+
   cursor: pointer;
   transition: opacity 0.3s;
 }
@@ -2623,7 +2688,7 @@ transform:translateY(0);
   opacity: 0.9;
 }
 
-/* Contenido de la Card */
+/* Contenido */
 .galeria .card h3 {
   padding: 20px 25px 5px;
   font-size: 1.5rem;
@@ -2652,36 +2717,66 @@ transform:translateY(0);
   font-weight: 800;
   color: #f3a530;
   padding: 15px 25px;
-  margin-top: auto; 
+  margin-top: auto;
 }
 
-/* Botón de Comprar */
+/* Botón */
 .card-actions {
   padding: 0 25px 25px;
 }
 
 .btn-comprar {
   width: 100%;
-  background-color: #1a1a1a; 
+  background-color: #1a1a1a;
   color: #fff;
   border: none;
   padding: 12px;
   border-radius: 10px;
   font-weight: 700;
   cursor: pointer;
+
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
+
   transition: background 0.3s;
 }
 
 .btn-comprar:hover {
-  background-color: #f3a530; 
+  background-color: #f3a530;
 }
 
 .btn-comprar i {
   font-size: 0.9rem;
 }
 
+/* ============================= */
+/* RESPONSIVE */
+/* ============================= */
 
+@media (max-width: 1024px) {
+
+  .galeria {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .galeria {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+header .logo {
+  height: 85px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+header.shrink .logo {
+  height: 60px;
+}

@@ -37,7 +37,7 @@
   </header>
 
   <!--buscador-->
-  <div id="buscador" class="buscador-inmuebles">
+  <div id="buscador" class="buscador-inmuebles reveal">
     <h1>Venta de departamentos e inmuebles en Perú</h1>
 
     <form class="buscador-form" id="form-buscador">
@@ -79,7 +79,9 @@
       <div class="galeria reveal">
 
         <div class="card" data-tipo="Terreno" data-ubicacion="Chorrillos" data-precio="120000" data-moneda="S/">
-          <img src="img/chorrillos1.jpeg" alt="Terreno en Chorrillos" onclick="ampliarImagen(this)">
+          <div class="img-container">
+            <img src="img/chorrillos1.jpeg" alt="Terreno en Chorrillos" onclick="ampliarImagen(this)">
+          </div>
           <div class="linea-decorativa"></div>
           <h3>Chorrillos</h3>
           <p>200 m².</p>
@@ -95,7 +97,9 @@
         </div>
 
         <div class="card" data-tipo="Terreno" data-ubicacion="Chancay" data-precio="95000" data-moneda="S/">
-          <img src="img/chancay.jpg" alt="Terreno en Chancay" onclick="ampliarImagen(this)">
+          <div class="img-container">
+            <img src="img/chancay1.jpeg" alt="Terreno en Chancay" onclick="ampliarImagen(this)">
+          </div>
           <div class="linea-decorativa"></div>
           <h3>Chancay</h3>
           <p>180 m².</p>
@@ -111,7 +115,9 @@
         </div>
 
         <div class="card" data-tipo="Terreno" data-ubicacion="Végueta" data-precio="85000" data-moneda="S/">
-          <img src="img/vegueta.jpg" alt="Terreno en Végueta" onclick="ampliarImagen(this)">
+          <div class="img-container">
+            <img src="img/vegueta.jpg" alt="Terreno en Végueta" onclick="ampliarImagen(this)">
+          </div>
           <div class="linea-decorativa"></div>
           <h3>Végueta</h3>
           <p>220 m².</p>
@@ -172,6 +178,11 @@
         proyecto inmobiliario!
       </p>
       <a href="contacto.html">Cotizar ahora</a>
+      <!-- PRUEBA-->
+      <a href="https://www.google.com/maps/dir/?api=1&destination=-12.1785,-77.0196" target="_blank" class="btn-maps">
+        Ver cómo llegar
+      </a>
+      <!--     -->
     </div>
   </div>
   <div id="surco" class="section reveal">
