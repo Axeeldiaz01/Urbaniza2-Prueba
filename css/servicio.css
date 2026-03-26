@@ -141,61 +141,81 @@ nav ul li a:hover {
 
 .banner {
   position: relative;
-  height: 500px;
-  overflow: hidden;
-
+  width: 100%;
+  min-height: 500px;
   display: flex;
-  align-items: center;      /* centra vertical */
-  justify-content: center;  /* centra horizontal */
-
+  align-items: center;
+  justify-content: center;
   text-align: center;
   color: white;
-  padding: 0 20px;
+  padding: 60px 20px;
+  overflow: hidden;
 }
+
+/* =========================
+   IMAGEN DE FONDO
+========================= */
 
 .background-img {
   position: absolute;
-  width: 100%;
-  height: auto;
-  top: -120px; /* AJUSTA AQUÍ */
+  top: 0;
   left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 1;
+
+  /* fuerza a que el navegador recalcule en resize */
+  min-width: 100%;
+  min-height: 100%;
 }
 
-/* OVERLAY */
+/* =========================
+   OVERLAY
+========================= */
+
 .overlay {
   position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.6);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.65);
   z-index: 2;
 }
 
-/* CONTENIDO */
+/* =========================
+   CONTENIDO
+========================= */
+
 .banner-content {
   position: relative;
   z-index: 3;
-  max-width: 600px;
-
-  transform: translateY(-40px);
+  max-width: 800px;
+  width: 100%;
+  transform: translateY(-70px);
 }
 
-/* TITULO */
+/* =========================
+   TEXTO
+========================= */
+
 .hero-title {
-  font-size: clamp(2.4rem, 5vw, 3.5rem);
-  font-weight: 800;
-  margin-bottom: 20px;
-  margin-top: -10px;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
   line-height: 1.2;
-
-  color: white;
-  text-shadow: 0 4px 15px rgba(0,0,0,0.9);
 }
 
-/* TEXTO */
 .hero-description {
-  font-size: 1.1rem;
-  margin-bottom: 30px;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
   line-height: 1.6;
-  color: #eaeaea;
+  margin-bottom: 25px;
+}
+
+.hero-description strong {
+  color: #f99109;
 }
 
 /* =========================
@@ -210,53 +230,24 @@ nav ul li a:hover {
 }
 
 /* =========================
-   ANIMACIÓN
-========================= */
-
-.banner-content > * {
-  opacity: 0;
-  transform: translateY(25px);
-  animation: fadeUp 0.8s ease forwards;
-}
-
-.banner-content > *:nth-child(1) { animation-delay: 0.1s; }
-.banner-content > *:nth-child(2) { animation-delay: 0.2s; }
-.banner-content > *:nth-child(3) { animation-delay: 0.3s; }
-
-@keyframes fadeUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* =========================
    RESPONSIVE
 ========================= */
 
 @media (max-width: 768px) {
-
   .banner {
-    min-height: 75vh;
-    padding: 40px 15px;
+    min-height: 80vh;
   }
 
-  .hero-title {
-    font-size: 2rem;
-  }
-
-  .hero-description {
-    font-size: 1rem;
+  .banner-content {
+    transform: translateY(0);
   }
 
   .hero-buttons {
     flex-direction: column;
     align-items: center;
-    gap: 12px;
   }
-
-
 }
+
 
 .section.reverse {
   flex-direction: row-reverse;
@@ -1197,4 +1188,133 @@ footer p {
 
 .service-card:nth-child(3) {
   transition-delay: 0.5s;
+}
+
+/* PRUEBA */
+/* =========================
+   SECCIÓN TIKTOK - CASA DE CAMPO
+========================= */
+
+.tiktok-section {
+  padding: 100px 20px;
+  background: radial-gradient(circle at top right, rgba(249, 145, 9, 0.05), transparent), #fdfdfd;
+  text-align: center;
+}
+
+/* Título */
+.tiktok-title {
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+/* Descripción */
+.tiktok-desc {
+  max-width: 750px;
+  margin: 0 auto 40px auto;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #555;
+}
+
+/* Contenedor del video */
+.tiktok-video {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 35px;
+}
+
+/* Iframe con sombra y bordes modernos */
+.tiktok-video iframe {
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  max-width: 100%;
+}
+
+/* Botón */
+.tiktok-btn {
+  margin-top: 10px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+  .tiktok-section {
+    padding: 80px 15px;
+  }
+
+  .tiktok-desc {
+    font-size: 0.95rem;
+  }
+}
+/* =========================
+   TELÉFONO PARA VIDEO TIKTOK
+========================= */
+
+.phone {
+  width: 320px;
+  height: 620px;
+  background: #111;
+  border-radius: 40px;
+  padding: 12px;
+  position: relative;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+}
+
+/* Borde interior */
+.phone-screen {
+  width: 100%;
+  height: 100%;
+  background: #000;
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+/* Video ocupa toda la pantalla */
+.phone-screen iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Notch superior */
+.phone::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 20px;
+  background: #000;
+  border-radius: 10px;
+}
+
+/* Botón lateral */
+.phone::after {
+  content: "";
+  position: absolute;
+  right: -4px;
+  top: 120px;
+  width: 4px;
+  height: 60px;
+  background: #222;
+  border-radius: 2px;
+}
+
+/* Centrado */
+.tiktok-video {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 35px;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .phone {
+    width: 260px;
+    height: 520px;
+  }
 }
