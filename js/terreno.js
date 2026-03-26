@@ -40,6 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // Ampliar imagen al hacer click
+/*
   window.ampliarImagen = function(img) {
     const modal = document.getElementById("modal");
     const modalImg = document.getElementById("img-ampliada");
@@ -51,6 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
       captionText.textContent = img.alt;
     }
   };
+*/
 
   // Cerrar modal al hacer click en la "x"
   const cerrarBtn = document.querySelector(".cerrar");

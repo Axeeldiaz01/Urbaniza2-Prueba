@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/button-standardization.css" />
+  <link rel="stylesheet" href="css/modal-imagen.css" />
 </head>
 
 <body>
@@ -40,7 +41,6 @@
   <!-- HERO SLIDER SECTION -->
   <section id="inicio" class="hero-slider">
     <div class="slider-container">
-
       <!-- Slides -->
       <div class="slide active slide-bg-1">
         <div class="slide-overlay"></div>
@@ -58,16 +58,17 @@
       <div class="hero-content">
         <div class="container">
           <div class="hero-text">
-
             <h1 class="hero-title reveal">
-              Cambia tu alquiler por <br>
+              Cambia tu alquiler por <br />
               <span class="hero-highlight">tu propio terreno hoy</span> 🏡
             </h1>
 
             <p class="hero-description reveal">
-              Invierte con seguridad en <strong>Chorrillos, Chancay y Végueta</strong>.
-              Precios exclusivos de <strong>preventa</strong> con asesoría legal completa.
-              Tu futuro comienza en <strong>Urbaniza2 Inmobiliaria</strong>.
+              Invierte con seguridad en
+              <strong>Chorrillos, Chancay y Végueta</strong>. Precios
+              exclusivos de <strong>preventa</strong> con asesoría legal
+              completa. Tu futuro comienza en
+              <strong>Urbaniza2 Inmobiliaria</strong>.
             </p>
 
             <div class="btn-group hero-buttons">
@@ -80,14 +81,12 @@
                 Contáctanos
               </a>
             </div>
-
           </div>
         </div>
       </div>
 
       <!-- Controles del slider -->
       <div class="slider-controls">
-
         <button type="button" class="slider-btn prev-btn" id="prevBtn" aria-label="Anterior">
           <i class="fas fa-chevron-left"></i>
         </button>
@@ -95,7 +94,6 @@
         <button type="button" class="slider-btn next-btn" id="nextBtn" aria-label="Siguiente">
           <i class="fas fa-chevron-right"></i>
         </button>
-
       </div>
 
       <!-- Indicadores -->
@@ -104,7 +102,6 @@
         <span class="indicator" data-slide="1"></span>
         <span class="indicator" data-slide="2"></span>
       </div>
-
     </div>
 
     <div class="hero-announcement">
@@ -119,115 +116,108 @@
         </a>
       </div>
     </div>
-
   </section>
 
   <main>
-
     <section id="terrenos-disponibles">
-  <div class="container">
-    <h2 class="reveal">Terrenos Disponibles</h2>
+      <div class="container">
+        <h2 class="reveal">Terrenos Disponibles</h2>
 
-    <p class="section-subtitle reveal">
-      ¡No dejes pasar la oportunidad! Asegura el patrimonio de tu familia con precios de preventa y ubicación
-      privilegiada. 🔑
-    </p>
+        <p class="section-subtitle reveal">
+          ¡No dejes pasar la oportunidad! Asegura el patrimonio de tu familia
+          con precios de preventa y ubicación privilegiada. 🔑
+        </p>
 
-    <div class="galeria reveal">
+        <div class="galeria reveal">
+          <!-- CARD 1 -->
+          <div class="card" data-tipo="Terreno" data-ubicacion="Chorrillos" data-precio="120000" data-moneda="S/">
+            <div class="img-container">
+              <img src="img/chorrillos1.jpeg" alt="Terreno en Chorrillos" />
+            </div>
 
-      <!-- CARD 1 -->
-      <div class="card" data-tipo="Terreno" data-ubicacion="Chorrillos" data-precio="120000" data-moneda="S/">
+            <div class="linea-decorativa"></div>
 
-        <div class="img-container">
-          <img src="img/chorrillos1.jpeg" alt="Terreno en Chorrillos" onclick="ampliarImagen(this)">
+            <h3>Chorrillos</h3>
+            <p>200 m².</p>
+            <p>Ubicado en zona residencial estratégica.</p>
+            <p>Ideal para vivienda familiar.</p>
+
+            <p class="precio">S/ 120,000</p>
+
+            <div class="card-actions">
+              <button class="btn-comprar" data-ubicacion="Chorrillos" data-precio="120000" data-area="200 m²"
+                data-terreno-id="5">
+                <i class="fas fa-shopping-cart"></i> Comprar
+              </button>
+
+              <!-- la ubicacion aun esta en proceso -->
+              <a href="https://www.google.com/maps/dir/?api=1&destination=-12.1780,-77.0135" target="_blank"
+                class="btn-ubicacion">
+                <i class="fas fa-map-marker-alt"></i> Ver ubicación
+              </a>
+            </div>
+          </div>
+
+          <!-- CARD 2 -->
+          <div class="card" data-tipo="Terreno" data-ubicacion="Chancay" data-precio="95000" data-moneda="S/">
+            <div class="img-container">
+              <img src="img/chancay1.jpeg" alt="Terreno en Chancay" />
+            </div>
+
+            <div class="linea-decorativa"></div>
+
+            <h3>Chancay</h3>
+            <p>180 m².</p>
+            <p>Excelente ubicación cerca del centro.</p>
+            <p>Documentos en regla.</p>
+
+            <p class="precio">S/ 95,000</p>
+
+            <div class="card-actions">
+              <button class="btn-comprar" data-ubicacion="Chancay" data-precio="95000" data-area="180 m²"
+                data-terreno-id="6">
+                <i class="fas fa-shopping-cart"></i> Comprar
+              </button>
+              <!-- la ubicacion aun esta en proceso -->
+              <a href="https://www.google.com/maps/dir/?api=1&destination=-11.5717,-77.2670" target="_blank"
+                class="btn-ubicacion">
+                <i class="fas fa-map-marker-alt"></i> Ver ubicación
+              </a>
+            </div>
+          </div>
+
+          <!-- CARD 3 -->
+          <div class="card" data-tipo="Terreno" data-ubicacion="Végueta" data-precio="85000" data-moneda="S/">
+            <div class="img-container">
+              <img src="img/vegueta.jpg" alt="Terreno en Végueta" />
+            </div>
+
+            <div class="linea-decorativa"></div>
+
+            <h3>Végueta</h3>
+            <p>220 m².</p>
+            <p>Zona tranquila y en crecimiento.</p>
+            <p>Perfecto para inversión.</p>
+
+            <p class="precio">S/ 85,000</p>
+
+            <div class="card-actions">
+              <button class="btn-comprar" data-ubicacion="Végueta" data-precio="85000" data-area="220 m²"
+                data-terreno-id="7">
+                <i class="fas fa-shopping-cart"></i> Comprar
+              </button>
+              <!-- la ubicacion aun esta en proceso -->
+              <a href="https://www.google.com/maps/dir/?api=1&destination=-11.0283,-77.6465" target="_blank"
+                class="btn-ubicacion">
+
+                <i class="fas fa-map-marker-alt"></i> Ver ubicación
+
+              </a>
+            </div>
+          </div>
         </div>
-
-        <div class="linea-decorativa"></div>
-
-        <h3>Chorrillos</h3>
-        <p>200 m².</p>
-        <p>Ubicado en zona residencial estratégica.</p>
-        <p>Ideal para vivienda familiar.</p>
-
-        <p class="precio">S/ 120,000</p>
-
-        <div class="card-actions">
-          <button class="btn-comprar"
-            data-ubicacion="Chorrillos"
-            data-precio="120000"
-            data-area="200 m²"
-            data-terreno-id="5">
-
-            <i class="fas fa-shopping-cart"></i> Comprar
-
-          </button>
-        </div>
-
       </div>
-
-      <!-- CARD 2 -->
-      <div class="card" data-tipo="Terreno" data-ubicacion="Chancay" data-precio="95000" data-moneda="S/">
-
-        <div class="img-container">
-          <img src="img/chancay1.jpeg" alt="Terreno en Chancay" onclick="ampliarImagen(this)">
-        </div>
-
-        <div class="linea-decorativa"></div>
-
-        <h3>Chancay</h3>
-        <p>180 m².</p>
-        <p>Excelente ubicación cerca del centro.</p>
-        <p>Documentos en regla.</p>
-
-        <p class="precio">S/ 95,000</p>
-
-        <div class="card-actions">
-          <button class="btn-comprar"
-            data-ubicacion="Chancay"
-            data-precio="95000"
-            data-area="180 m²"
-            data-terreno-id="6">
-
-            <i class="fas fa-shopping-cart"></i> Comprar
-
-          </button>
-        </div>
-
-      </div>
-
-      <!-- CARD 3 -->
-      <div class="card" data-tipo="Terreno" data-ubicacion="Végueta" data-precio="85000" data-moneda="S/">
-
-        <div class="img-container">
-          <img src="img/vegueta.jpg" alt="Terreno en Végueta" onclick="ampliarImagen(this)">
-        </div>
-
-        <div class="linea-decorativa"></div>
-
-        <h3>Végueta</h3>
-        <p>220 m².</p>
-        <p>Zona tranquila y en crecimiento.</p>
-        <p>Perfecto para inversión.</p>
-
-        <p class="precio">S/ 85,000</p>
-
-        <div class="card-actions">
-          <button class="btn-comprar"
-            data-ubicacion="Végueta"
-            data-precio="85000"
-            data-area="220 m²"
-            data-terreno-id="7">
-
-            <i class="fas fa-shopping-cart"></i> Comprar
-
-          </button>
-        </div>
-
-      </div>
-
-    </div>
-  </div>
-</section>
+    </section>
     <!-- SECCIÓN SERVICIOS -->
     <section id="servicios" class="services-section reveal">
       <div class="container services-section">
@@ -240,11 +230,16 @@
           <div class="service-card reveal">
             <div class="service-card-inner">
               <div class="service-card-front">
-                <div class="service-icon"><i class="fas fa-file-contract"></i></div>
+                <div class="service-icon">
+                  <i class="fas fa-file-contract"></i>
+                </div>
                 <h3>Documentos en Regla</h3>
               </div>
               <div class="service-card-back">
-                <p>Seguridad jurídica total con procesos de verificación notarial en cada etapa del proyecto.</p>
+                <p>
+                  Seguridad jurídica total con procesos de verificación
+                  notarial en cada etapa del proyecto.
+                </p>
               </div>
             </div>
           </div>
@@ -252,7 +247,9 @@
           <div class="service-card reveal">
             <div class="service-card-inner">
               <div class="service-card-front">
-                <div class="service-icon"><i class="fas fa-handshake"></i></div>
+                <div class="service-icon">
+                  <i class="fas fa-handshake"></i>
+                </div>
                 <h3>Facilidades</h3>
               </div>
               <div class="service-card-back">
@@ -264,7 +261,9 @@
           <div class="service-card reveal">
             <div class="service-card-inner">
               <div class="service-card-front">
-                <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+                <div class="service-icon">
+                  <i class="fas fa-chart-line"></i>
+                </div>
                 <h3>Plusvalía</h3>
               </div>
               <div class="service-card-back">
@@ -276,11 +275,16 @@
           <div class="service-card reveal">
             <div class="service-card-inner">
               <div class="service-card-front">
-                <div class="service-icon"><i class="fas fa-user-tie"></i></div>
+                <div class="service-icon">
+                  <i class="fas fa-user-tie"></i>
+                </div>
                 <h3>Asesoría Especializada</h3>
               </div>
               <div class="service-card-back">
-                <p>Consultoría personalizada para maximizar el retorno de tu inversión inmobiliaria.</p>
+                <p>
+                  Consultoría personalizada para maximizar el retorno de tu
+                  inversión inmobiliaria.
+                </p>
               </div>
             </div>
           </div>
@@ -292,7 +296,10 @@
                 <h3>Pavimentación e Infraestructura</h3>
               </div>
               <div class="service-card-back">
-                <p>Urbanización de alto nivel con accesos pavimentados y servicios básicos garantizados.</p>
+                <p>
+                  Urbanización de alto nivel con accesos pavimentados y
+                  servicios básicos garantizados.
+                </p>
               </div>
             </div>
           </div>
@@ -302,49 +309,50 @@
     <!-- SECCIÓN INFORMACIÓN EDUCATIVA -->
     <section id="guia" class="info-section">
       <div class="container">
-        <h2 class="section-title text-center reveal">Guía para Compradores</h2>
+        <h2 class="section-title text-center reveal">
+          Guía para Compradores
+        </h2>
         <p class="section-subtitle text-center reveal-right">
           Todo lo que necesitas saber antes de invertir
         </p>
 
         <div class="guia-terrenos">
           <div class="paso">
-            <img src="img/saber.jpeg" alt="">
+            <img src="img/saber.jpeg" alt="" />
             <h3>¿Qué Saber?</h3>
             <p>Aspectos importantes antes de comprar</p>
           </div>
 
           <div class="paso">
-            <img src="img/4razones.jpeg" alt="">
+            <img src="img/4razones.jpeg" alt="" />
             <h3>4 Razones</h3>
             <p>Por qué invertir en terrenos</p>
           </div>
 
           <div class="paso">
-            <img src="img/finanzas.jpeg" alt="">
+            <img src="img/finanzas.jpeg" alt="" />
             <h3>Finanzas</h3>
             <p>Planifica tu inversión correctamente</p>
           </div>
 
           <div class="paso">
-            <img src="img/aspectos sociales.jpeg" alt="">
+            <img src="img/aspectos sociales.jpeg" alt="" />
             <h3>Aspectos Sociales</h3>
             <p>Considera el entorno y la comunidad</p>
           </div>
 
           <div class="paso">
-            <img src="img/investigacion.jpeg" alt="">
+            <img src="img/investigacion.jpeg" alt="" />
             <h3>Investigación</h3>
             <p>Analiza el mercado inmobiliario</p>
           </div>
 
           <div class="paso">
-            <img src="img/consultas.jpeg" alt="">
+            <img src="img/consultas.jpeg" alt="" />
             <h3>Consultas</h3>
             <p>Asesoría profesional especializada</p>
           </div>
         </div>
-
       </div>
     </section>
 
@@ -354,7 +362,9 @@
         <h2 class="reveal">
           <i class="fas fa-calculator"></i> Calculadora de Financiamiento
         </h2>
-        <p class="reveal">Simula tu plan de pago y descubre cuánto puedes invertir</p>
+        <p class="reveal">
+          Simula tu plan de pago y descubre cuánto puedes invertir
+        </p>
         <div class="calculadora-container reveal">
           <div class="calculadora-inputs">
             <div class="input-group">
@@ -451,9 +461,7 @@
   <script src="js/scroll-animaciones.js"></script>
   <script src="js/scripts.js"></script>
 
-
-
-  <script src="js/terreno.js"></script>
+  <script src="js/modal-imagen.js"></script>
 </body>
 
 </html>
