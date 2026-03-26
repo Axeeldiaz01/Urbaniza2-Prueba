@@ -2789,7 +2789,6 @@ header.shrink .logo {
   text-decoration: none;
   font-weight: 600;
   font-size: 0.9rem;
-
   background: #ffffff;
   color: #333;
 
@@ -2800,4 +2799,75 @@ header.shrink .logo {
   background: #f49d32;
   color: white;
   transform: translateY(-2px);
+}
+
+/*  PRUEBA  */
+
+/* =========================
+   INSTAGRAM REEL - CARD
+========================= */
+.reel-clean {
+  padding: 100px 20px;
+  background: radial-gradient(circle at top right, rgba(249, 145, 9, 0.05), transparent), #fdfdfd;
+  text-align: center;
+}
+
+.reel-box {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.reel-box blockquote {
+  border-radius: 16px !important;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  overflow: hidden;
+}
+
+.reel-card-section {
+  padding: 100px 20px;
+  background: #f5f7fa;
+  text-align: center;
+}
+
+.reel-title {
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #1a1a1a !important;
+}
+
+.reel-desc {
+  max-width: 750px;
+  margin: 0 auto 40px auto;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* Card contenedora del video */
+.reel-card {
+  display: flex;
+  justify-content: center;
+}
+
+/* Estilo del embed */
+.reel-card blockquote {
+  margin: 0 auto !important;
+  border-radius: 16px !important;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.18);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover moderno */
+.reel-card blockquote:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 35px 70px rgba(0,0,0,0.25);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .reel-card-section {
+    padding: 80px 15px;
+  }
 }

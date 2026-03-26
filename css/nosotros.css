@@ -24,78 +24,138 @@ body {
   margin: 0 auto;
 }
 
+.hero-title {
+  font-size: clamp(2.4rem, 5.5vw, 3.8rem);
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  line-height: 1.15;
+  letter-spacing: 0.5px;
+
+  color: #ffffff;
+
+  text-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.9),
+    0 6px 12px rgba(0, 0, 0, 0.7),
+    0 12px 24px rgba(0, 0, 0, 0.5);
+}
+
+
+
+/* BANNER */
+
+/* =========================
+   BANNER NOSOTROS
+========================= */
+
 .banner {
   position: relative;
-  height: 550px; 
-  overflow: hidden;
-
+  width: 100%;
+  min-height: 500px; /* Igual que servicios */
   display: flex;
   align-items: center;
   justify-content: center;
-
-  padding: 0 20px;
-  color: white;
   text-align: center;
+  color: white;
+  padding: 0 20px;
+  overflow: hidden;
 }
 
-.banner-content {
-  position: relative;
-  z-index: 3;
-  max-width: 600px;
-
-  transform: translateY(-40px); 
-}
+/* =========================
+   IMAGEN
+========================= */
 
 .background-img {
   position: absolute;
+  inset: 0;
   width: 100%;
-  height: auto;
-  top: -120px; /* AJUSTA AQUÍ */
-  left: 0;
+  height: 100%;
+
+  /* Igual que servicios */
+  object-fit: cover;
+  object-position: center;
+
+  z-index: 1;
 }
+
+/* =========================
+   OVERLAY
+========================= */
 
 .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.65);
   z-index: 2;
+  background: rgba(0, 0, 0, 0.65);
 }
 
-/* H1 más sólido */
+/* =========================
+   CONTENIDO
+========================= */
+
 .banner-content {
-  transform: translateY(-80px);
+  position: relative;
+  z-index: 3;
+  max-width: 800px; /* Un poco más ancho para desktop */
 }
 
-.banner-content h1 {
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
-  font-weight: 800;
-  margin-bottom: 20px;
+/* =========================
+   TITULO
+========================= */
+
+.hero-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  margin-bottom: 1rem;   /* antes 10rem */
+  line-height: 1.2;
 }
 
-.banner-content p {
-  font-size: 1.1rem;
-  margin-bottom: 30px;
-  color: #eaeaea;
+/* COLOR NARANJA EN PALABRAS CLAVE */
+
+.hero-description strong {
+  color: #f99109;
+  font-weight: 700;
 }
 
-.banner-content h1 {
-  transform: translateY(-30px);
+/* =========================
+   TEXTO NARANJA (IGUAL QUE SERVICIOS)
+========================= */
+
+.banner-content strong {
+  color: #f99109;
+  font-weight: 700;
 }
 
-.banner-content p {
-  transform: translateY(-50px);
+/* =========================
+   BOTONES
+========================= */
+
+.btn-group {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
 }
 
+/* =========================
+   RESPONSIVE — IGUAL QUE SERVICIOS
+========================= */
 
 @media (max-width: 768px) {
+
   .banner {
-    justify-content: center;
-    text-align: center;
+    min-height: 80vh;
   }
 
   .banner-content {
-    text-align: center;
+    transform: translateY(-25px);
   }
+
+  .btn-group {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
 }
 
 /* TITULO */
@@ -106,6 +166,7 @@ body {
   margin-bottom: 90px;
   letter-spacing: -1px;
   color: #111;
+  margin-top: 90px !important;
 }
 
 .title::after {
@@ -742,12 +803,12 @@ transition:all .8s ease;
 }
 
 .reveal.visible{
-opacity:1;
-transform:translateY(0);
+  opacity: 1;
+  transform: translateY(-30px);
 }
 .btn,
 .btn-primary,
 .btn-secondary {
   border-radius: 999px !important;
-  transform: translateY(-60px);
+
 }
