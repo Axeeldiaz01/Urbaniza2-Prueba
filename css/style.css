@@ -2780,3 +2780,24 @@ header .logo {
 header.shrink .logo {
   height: 60px;
 }
+
+.btn-ubicacion {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+
+  background: #ffffff;
+  color: #333;
+
+  transition: all 0.3s ease;
+}
+
+.btn-ubicacion:hover {
+  background: #f49d32;
+  color: white;
+  transform: translateY(-2px);
+}
