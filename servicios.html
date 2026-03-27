@@ -59,10 +59,11 @@
     </div>
   </div>
 
-  <!-- PRUEBA -->
-  <section id="tiktok" class="tiktok-section">
-    <div class="container">
+  <section id="tiktok" class="tiktok-section reveal">
+  <div class="container grid-two-columns">
 
+    <!-- TEXTO + BENEFICIOS -->
+    <div class="tiktok-texto">
       <h2 class="tiktok-title">Casa de Campo Las Reinas</h2>
 
       <p class="tiktok-desc">
@@ -72,21 +73,38 @@
         Ubicada cerca de las Lomas de Lachay, Huacho y el Megapuerto de Chancay.
       </p>
 
-      <div class="tiktok-video">
-        <div class="phone">
-          <div class="phone-screen">
-            <iframe src="https://www.tiktok.com/player/v1/7465696581983997189" frameborder="0" allowfullscreen>
-            </iframe>
-          </div>
-        </div>
-      </div>
+      <ul class="beneficios-list">
+        <li>
+          <span class="icon">🏊</span>
+          <span>Piscina</span>
+        </li>
+        <li>
+          <span class="icon">🍖</span>
+          <span>Zona de Parrilla</span>
+        </li>
+        <li>
+          <span class="icon">🌳</span>
+          <span>Áreas Verdes</span>
+        </li>
+      </ul>
 
       <a href="https://wa.me/51982664102" class="btn btn-primary tiktok-btn" target="_blank">
         Consultar disponibilidad
       </a>
-
     </div>
-  </section>
+
+    <!-- VIDEO -->
+    <div class="tiktok-video">
+      <div class="phone">
+        <div class="phone-screen">
+          <iframe src="https://www.tiktok.com/player/v1/7465696581983997189" frameborder="0" allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
 
 
   <div id="compra-venta" class="section reveal">
@@ -110,23 +128,26 @@
   </div>
 </div>
 
-  <div id="asesoria-legal" class="section reverse reveal">
-    <div class="card">
-      <img src="img/asesorialegal.jpeg" alt="Asesoría legal inmobiliaria" class="imagen" />
-    </div>
-    <div class="texto" id="terrenos">
-      <h2>Asesoría Legal Inmobiliaria</h2>
-      <p>
-        Contamos con asesoría legal especializada para garantizar
-        transacciones seguras, revisión de títulos de propiedad, saneamiento
-        físico-legal y trámites notariales.
-      </p>
-      <a href="terrenos.html" class="btn btn-primary">
-        Ver Servicios
-      </a>
-    </div>
+  <section id="asesoria-legal" class="asesoria-section reveal">
+  <div class="container">
+    <h2 class="asesoria-title">Proceso de Asesoría Legal</h2>
 
+    <div class="proceso-steps">
+      <div class="step">
+        <span class="icon">🔍</span>
+        <p>Revisión de Títulos</p>
+      </div>
+      <div class="step">
+        <span class="icon">✒️</span>
+        <p>Firma de Contrato</p>
+      </div>
+      <div class="step">
+        <span class="icon">🗝️</span>
+        <p>Entrega de Lote</p>
+      </div>
+    </div>
   </div>
+</section>
 
   <!-- Mejora: Grid de Servicios -->
   <section id="servicios-lista" class="services-section reveal">
@@ -175,6 +196,8 @@
       </div>
     </div>
   </section>
+
+  
 
   <!-- Proceso de trabajo -->
   <section id="proceso" class="process-section reveal">

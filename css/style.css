@@ -1,5 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-
+header .logo {
+  height: 85px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+header.shrink .logo {
+  height: 60px;
+}
 /* Variables */
 :root {
   --dark: #333;
@@ -2626,6 +2634,7 @@ opacity:1;
 transform:translateY(0);
 }
 
+
 /*  SECCIÓN TERRENOS  */
 #terrenos-disponibles {
   padding: 80px 0;
@@ -2643,13 +2652,16 @@ transform:translateY(0);
 /* Galería en Grid */
 .galeria {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 30px;
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 100%;
+  align-items: stretch;
 }
 
-/* Card */
+/* ============================= */
+/* CARD */
+/* ============================= */
+
 .galeria .card {
   background: #fff;
   border-radius: 20px;
@@ -2658,9 +2670,11 @@ transform:translateY(0);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border: 1px solid #f0f0f0;
 
+  width: 100%;
+  height: 100%;
+
   display: flex;
   flex-direction: column;
-  padding: 0;
 }
 
 .galeria .card:hover {
@@ -2668,32 +2682,63 @@ transform:translateY(0);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
-/* IMAGEN — ancho completo del card */
-.galeria .card img {
+/* ============================= */
+/* IMAGEN — TODAS COMPLETAS */
+/* ============================= */
+
+.img-container {
+
   width: 100%;
-  height: auto;           /* la imagen mantiene proporción */
-  display: block;         /* elimina espacio fantasma */
-  object-fit: contain;    /* imagen completa */
+  height: 220px;        /* MISMO ALTO PARA TODAS */
 
-  margin: 0;
-  padding: 0;
-  border: none;
-  background: transparent;
+  position: relative;
 
-  cursor: pointer;
-  transition: opacity 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  padding: 2px;         /* marco mínimo casi invisible */
+
 }
 
-.galeria .card img:hover {
-  opacity: 0.9;
+/* IMAGEN */
+
+.galeria .card img {
+
+  max-width: 100%;
+  max-height: 100%;
+
+  width: auto;
+  height: auto;
+
+  object-fit: contain;   /* CLAVE: imagen completa */
+
+  display: block;
+
+  transition: transform 0.3s ease;
+
 }
 
-/* Contenido */
+/* EFECTO HOVER SUAVE */
+
+.galeria .card:hover img {
+
+  transform: scale(1.03);
+
+}
+
+/* ============================= */
+/* CONTENIDO FLEXIBLE */
+/* ============================= */
+
 .galeria .card h3 {
   padding: 20px 25px 5px;
   font-size: 1.5rem;
   color: #1a1a1a;
   margin: 0;
+  min-height: 40px;   /* asegura alineación */
 }
 
 .galeria .card .linea-decorativa {
@@ -2712,6 +2757,10 @@ transform:translateY(0);
   line-height: 1.4;
 }
 
+/* ============================= */
+/* PRECIO — SIEMPRE AL FONDO */
+/* ============================= */
+
 .galeria .card .precio {
   font-size: 1.4rem;
   font-weight: 800;
@@ -2720,9 +2769,13 @@ transform:translateY(0);
   margin-top: auto;
 }
 
-/* Botón */
+/* ============================= */
+/* BOTONES */
+/* ============================= */
+
 .card-actions {
-  padding: 0 25px 25px;
+  padding: 0 20px 20px 20px;
+  margin-top: auto;
 }
 
 .btn-comprar {
@@ -2751,6 +2804,26 @@ transform:translateY(0);
   font-size: 0.9rem;
 }
 
+.btn-ubicacion {
+  display: block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  background: #ffffff;
+  color: #333;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.btn-ubicacion:hover {
+  background: #f49d32;
+  color: white;
+  transform: translateY(-2px);
+}
+
 /* ============================= */
 /* RESPONSIVE */
 /* ============================= */
@@ -2771,103 +2844,167 @@ transform:translateY(0);
 
 }
 
-header .logo {
-  height: 85px;
-  width: auto;
-  object-fit: contain;
-  display: block;
-}
-header.shrink .logo {
-  height: 60px;
-}
-
-.btn-ubicacion {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 10px 20px;
-  border-radius: 999px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.9rem;
-  background: #ffffff;
-  color: #333;
-
-  transition: all 0.3s ease;
-}
-
-.btn-ubicacion:hover {
-  background: #f49d32;
-  color: white;
-  transform: translateY(-2px);
-}
-
-/*  PRUEBA  */
-
 /* =========================
    INSTAGRAM REEL - CARD
 ========================= */
-.reel-clean {
-  padding: 100px 20px;
-  background: radial-gradient(circle at top right, rgba(249, 145, 9, 0.05), transparent), #fdfdfd;
+
+/* =========================
+   TITULO Y DESCRIPCION
+========================= */
+
+.reel-title {
+  font-size: clamp(26px, 4vw, 38px);
   text-align: center;
+
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+ color: #1a1a1a !important;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  line-height: 1.2;
 }
 
-.reel-box {
+
+
+.reel-desc {
+  font-size: clamp(16px, 2.2vw, 18px);
+  text-align: center;
+
+  max-width: 750px;
+  margin: 18px auto 0;
+
+  padding-left: 20px;
+  padding-right: 20px;
+
+  line-height: 1.6;
+}
+
+/* CONTENEDOR DEL TELEFONO */
+
+.phone-wrapper {
   display: flex;
   justify-content: center;
   margin-top: 40px;
 }
 
-.reel-box blockquote {
-  border-radius: 16px !important;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-  overflow: hidden;
+
+
+/* TELEFONO */
+
+.phone {
+  position: relative;
+  width: 320px;
+  height: 620px;
+  background: #000;
+  border-radius: 40px;
+  padding: 12px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.25);
 }
 
-.reel-card-section {
-  padding: 100px 20px;
-  background: #f5f7fa;
+.phone::after {
+  content: "";
+  position: absolute;
+  right: -4px;
+  top: 120px;
+  width: 4px;
+  height: 60px;
+  background: #222;
+  border-radius: 2px;
+}
+
+
+
+/* PANTALLA */
+
+.screen {
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+
+  border-radius: 30px;
+
+  background: #000;
+}
+
+
+
+/* INSTAGRAM VIDEO */
+
+.phone .instagram-media {
+  min-width: 100% !important;
+  max-width: 100% !important;
+
+  height: 100% !important;
+
+  margin: 0 !important;
+}
+
+
+/* ============================= */
+/* CONTENEDOR BOTÓN */
+/* ============================= */
+
+.ver-todos-terrenos {
+
+  width: 100%;
+
   text-align: center;
-}
 
-.reel-title {
-  font-size: clamp(1.8rem, 4vw, 2.4rem);
-  font-weight: 700;
+  margin-top: 50px;
   margin-bottom: 10px;
-  color: #1a1a1a !important;
+
 }
 
-.reel-desc {
-  max-width: 750px;
-  margin: 0 auto 40px auto;
-  line-height: 1.6;
-  color: #555;
+/* ============================= */
+/* BOTÓN */
+/* ============================= */
+
+.ver-todos-terrenos{
+  background: none;
 }
 
-/* Card contenedora del video */
-.reel-card {
-  display: flex;
-  justify-content: center;
+.ver-todos-terrenos a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  background: #fb9f2e;      /* color principal */
+  color: #fff;
+
+  padding: 14px 26px;
+
+  border-radius: 8px;
+
+  font-weight: 600;
+  font-size: 16px;
+
+  text-decoration: none;
+
+  transition: all 0.25s ease;
+
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
 }
 
-/* Estilo del embed */
-.reel-card blockquote {
-  margin: 0 auto !important;
-  border-radius: 16px !important;
-  box-shadow: 0 25px 50px rgba(0,0,0,0.18);
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.ver-todos-terrenos a:hover {
+  background: #e68a1f;
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 10px 24px rgba(0,0,0,0.2);
 }
 
-/* Hover moderno */
-.reel-card blockquote:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 35px 70px rgba(0,0,0,0.25);
-}
 
-/* Responsive */
-@media (max-width: 768px) {
-  .reel-card-section {
-    padding: 80px 15px;
-  }
+/* HOVER */
+
+.ver-todos-terrenos a:hover {
+
+  background-color: #f3a530;   /* naranja al pasar el mouse */
+
+  transform: translateY(-3px);
+
+  box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+
 }
