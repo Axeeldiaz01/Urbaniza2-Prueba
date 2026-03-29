@@ -1,4 +1,5 @@
-document.addEventListener("DOMContentLoaded", () => {
+//scroll-animaciones.js
+/**document.addEventListener("DOMContentLoaded", () => {
 
   const elements = document.querySelectorAll(".reveal");
 
@@ -17,4 +18,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
   elements.forEach(el => observer.observe(el));
 
-});
+}); */

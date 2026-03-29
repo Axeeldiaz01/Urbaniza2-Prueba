@@ -1,4 +1,5 @@
-const toggle = document.querySelector('.menu-toggle');
+/* 
+ const toggle = document.querySelector('.menu-toggle');
 const menu = document.querySelector('nav');
 
 // Abrir o cerrar menú con el botón ☰
@@ -121,7 +122,7 @@ window.addEventListener('scroll', function () {
   }
 });
 
-/*carrusel */
+/*carrusel 
 document.addEventListener("DOMContentLoaded", function () {
   let indice = 0;
   const carruselSlides = document.querySelectorAll('.carrusel-terrenos .slide');
@@ -298,3 +299,5 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+
+ */

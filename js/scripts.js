@@ -1,3 +1,4 @@
+//scripts.js
 document.addEventListener("DOMContentLoaded", () => {
   const pasos = document.querySelectorAll(".paso");
 

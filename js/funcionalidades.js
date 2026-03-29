@@ -1,3 +1,5 @@
+/**
+ //funcionalidades.js
 // CALCULADORA DE FINANCIAMIENTO
 document.addEventListener('DOMContentLoaded', function() {
     // Inicializar carrusel
@@ -1054,3 +1056,4 @@ document.addEventListener('DOMContentLoaded', function() {
         initializeComprarButtons();
     }
 });
+ */
