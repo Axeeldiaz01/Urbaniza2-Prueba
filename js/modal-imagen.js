@@ -1,4 +1,5 @@
-(function () {
+//modal-imagen.js
+/**(function () {
 
     document.addEventListener("DOMContentLoaded", () => {
         document.querySelectorAll(".img-container img").forEach(img => {
@@ -28,4 +29,4 @@
         });
     });
 
-})();
+})(); */

@@ -2634,6 +2634,17 @@ opacity:1;
 transform:translateY(0);
 }
 
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.6s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 
 /*  SECCIÓN TERRENOS  */
 #terrenos-disponibles {
@@ -3007,4 +3018,69 @@ transform:translateY(0);
 
   box-shadow: 0 10px 20px rgba(0,0,0,0.12);
 
+}
+
+.guia-scroll {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 20px 10px;
+  scroll-snap-type: x mandatory;
+
+  /* Oculta scrollbar bonito */
+  scrollbar-width: none;
+}
+.guia-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* TARJETAS */
+.guia-card {
+  flex: 0 0 auto;
+  width: 300px;
+
+  background: #fff;
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+
+  scroll-snap-align: center;
+}
+
+/* 🔥 IMPORTANTE: imagen completa sin recorte */
+.guia-card img {
+  width: 100%;
+  height: auto;            /* 👈 esto evita recorte */
+  object-fit: contain;     /* 👈 asegura imagen completa */
+  border-radius: 15px;
+  margin-bottom: 15px;
+
+  background: #f5f5f5;     /* opcional: relleno elegante */
+}
+
+/* TEXTO */
+.guia-card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.guia-card p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.4;
+}
+
+/* HOVER SUAVE */
+.guia-card:hover {
+  transform: translateY(-5px);
+  transition: 0.3s ease;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .guia-card {
+    width: 85%;
+  }
 }

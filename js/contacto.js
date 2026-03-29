@@ -1,3 +1,4 @@
+//contacto.js
 // Envolver todo el código en DOMContentLoaded
 document.addEventListener('DOMContentLoaded', function() {
   // Mostrar/ocultar menú en móviles

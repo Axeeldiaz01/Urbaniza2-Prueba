@@ -1163,18 +1163,26 @@ footer p {
 }
 
 /* ACTIVO */
-.faq-item.active {
-  border: 2px solid var(--primary-orange);
+
+/* ACTIVO REAL (REEMPLAZO CORRECTO) */
+.faq-item:has(input:checked) {
+  border: 2px solid #f99109;
   transform: translateY(-2px);
   box-shadow: 0 10px 25px rgba(249, 145, 9, 0.1);
 }
 
-.faq-item.active .faq-question {
-  color: var(--primary-orange);
+.faq-item:has(input:checked) .faq-question {
+  color: #f99109;
 }
 
-.faq-item.active .faq-question i {
+.faq-item:has(input:checked) .faq-question i {
   transform: rotate(180deg);
+}
+
+.faq-item:has(input:checked) .faq-answer {
+  max-height: 800px;
+  padding-bottom: 24px;
+  opacity: 1;
 }
 
 .faq-answer {
@@ -1187,11 +1195,6 @@ footer p {
   line-height: 1.8;
 }
 
-.faq-item.active .faq-answer {
-  max-height: 800px;
-  padding-bottom: 24px;
-  opacity: 1;
-}
 
 /* Responsive */
 @media (max-width: 768px) {
@@ -1282,218 +1285,106 @@ footer p {
 }
 
 /* =========================
-   TELEFONO ULTRA FLUIDO
+   VIDEO PREMIUM (SIN TELÉFONO)
 ========================= */
 
 .tiktok-video {
   display: flex;
   justify-content: center;
-  margin-bottom: 35px;
   width: 100%;
 }
 
-.phone {
+/* 🔥 CARD MODERNO */
+.video-card {
   width: 100%;
-  max-width: 360px;         /* máximo ancho en desktop */
-  aspect-ratio: 9 / 16;     /* mantiene proporción exacta */
-  background: #111;
-  border-radius: 40px;
-  padding: 12px;
-  position: relative;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.25);
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-}
+  max-width: 280px; /* 👈 más pequeño y elegante */
+  aspect-ratio: 9 / 16;
 
-/* Pantalla que siempre llena el teléfono */
-.phone-screen {
-  position: relative;
-  width: 100%;
-  flex: 1;
-  border-radius: 30px;
+  border-radius: 25px;
   overflow: hidden;
-  background: #000;
+
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(10px);
+
+  box-shadow: 
+    0 15px 40px rgba(0,0,0,0.15),
+    inset 0 1px 1px rgba(255,255,255,0.5);
+
+  transition: all 0.4s ease;
 }
 
-/* Video dentro de la pantalla */
-.phone-screen iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
+/* 🎥 VIDEO */
+.video-card iframe {
   width: 100%;
   height: 100%;
   border: none;
-  display: block;
 }
 
-/* Notch superior */
-.phone::before {
-  content: "";
-  position: absolute;
-  top: 8px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 30%;
-  max-width: 120px;
-  height: 20px;
-  background: #000;
-  border-radius: 10px;
-  z-index: 10;
-}
-
-/* Botones laterales */
-.phone::after {
-  content: "";
-  position: absolute;
-  right: -4px;
-  top: 18%;
-  width: 4px;
-  height: 10%;
-  background: #222;
-  border-radius: 2px;
-  z-index: 10;
+/* ✨ HOVER PRO */
+.video-card:hover {
+  transform: scale(1.05);
+  box-shadow: 
+    0 25px 60px rgba(0,0,0,0.2);
 }
 
 /* =========================
-   RESPONSIVE ULTRA FLUIDO
+   GRID (MEJORADO)
+========================= */
+
+.tiktok-section .grid-two-columns {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr; /* 👈 mejor balance */
+  gap: 60px;
+  align-items: center;
+}
+
+/* =========================
+   TEXTO MEJORADO
+========================= */
+
+.tiktok-title {
+  font-size: clamp(28px, 3vw, 38px);
+  margin-bottom: 16px;
+}
+
+.tiktok-desc {
+  font-size: clamp(15px, 1.8vw, 17px);
+  line-height: 1.7;
+  color: #555;
+}
+
+/* BENEFICIOS MÁS PRO */
+.beneficios-list li {
+  font-size: 15px;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.beneficios-list li:hover {
+  transform: translateY(-3px);
+}
+
+/* =========================
+   RESPONSIVE
 ========================= */
 
 @media (max-width: 992px) {
-  .phone {
-    max-width: 280px;       /* reduce en tablet */
-  }
-}
-
-@media (max-width: 768px) {
-  .tiktok-section {
-    padding: 80px 15px;
-  }
-
-  .phone {
-    max-width: 90%;         /* ocupa casi todo el ancho del móvil */
-    aspect-ratio: auto;     /* escala proporcionalmente */
-    min-height: 400px;      /* altura mínima para móvil */
-  }
-
-  .phone::before {
-    width: 30%;
-  }
-
-  .phone::after {
-    top: 15%;
-    height: 10%;
-  }
-
-  .tiktok-desc {
-    font-size: 0.95rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .phone {
-    min-height: 350px;
+  .tiktok-section .grid-two-columns {
+    grid-template-columns: 1fr;
+    text-align: center;
   }
 
   .beneficios-list {
-    flex-direction: column;
-    gap: 10px;
+    justify-content: center;
+  }
+
+  .video-card {
+    max-width: 240px;
   }
 }
 
-/*************************/
-.beneficios-servicio {
-
-  display: flex;
-  gap: 20px;
-  margin-top: 20px;
-  flex-wrap: wrap;
-
-}
-
-.beneficio {
-
-  display: flex;
-  align-items: center;
-  gap: 10px;
-
-  background: #f5f5f5;
-
-  padding: 12px 16px;
-
-  border-radius: 10px;
-
-  font-weight: 600;
-
-}
-
-.beneficio i {
-
-  color: #f3a530;
-
-  font-size: 18px;
-
-}
-.tiktok-section .grid-two-columns {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  align-items: center;
-}
-
-.tiktok-section .tiktok-title {
-  font-size: clamp(28px, 3vw, 36px);
-  margin-bottom: 16px;
-  color: #1a1a1a;
-}
-
-.tiktok-section .tiktok-desc {
-  font-size: clamp(16px, 2vw, 18px);
-  margin-bottom: 20px;
-  line-height: 1.6;
-}
-
-.beneficios-list {
-  list-style: none;
-  padding: 0;
-  margin-bottom: 20px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.beneficios-list li {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 1.2rem;
-  background: #f9f9f9;
-  padding: 10px 14px;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.beneficios-list .icon {
-  font-size: 1.8rem;
-}
-
-.tiktok-video .phone {
-  max-width: 320px;
-  margin: 0 auto;
-}
-
-.tiktok-video iframe {
-  width: 100%;
-  height: 570px;
-  border-radius: 20px;
-}
-
-@media screen and (max-width: 900px) {
-  .tiktok-section .grid-two-columns {
-    grid-template-columns: 1fr;
-  }
-
-  .tiktok-video iframe {
-    height: 450px;
+@media (max-width: 600px) {
+  .video-card {
+    max-width: 200px;
   }
 }
