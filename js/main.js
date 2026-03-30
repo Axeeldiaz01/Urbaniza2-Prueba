@@ -1,4 +1,11 @@
-// SCROLL ANIMACIONES
+/**
+ * URBANIZA2 - Script Principal (main.js)
+ * Maneja: Animaciones de Scroll, Modal de Imágenes y Menú Responsive
+ */
+
+// =============================
+// 1. SCROLL ANIMACIONES (REVEAL)
+// =============================
 function initScrollAnimaciones() {
     const elements = document.querySelectorAll(".reveal");
     if (!elements.length) return;
@@ -10,14 +17,19 @@ function initScrollAnimaciones() {
                 observer.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.2 });
+    }, {
+        threshold: 0.15
+    });
 
     elements.forEach(el => observer.observe(el));
 }
 
-// MODAL IMAGEN
+
+// =============================
+// 2. MODAL IMAGEN (ZOOM)
+// =============================
 function initModalImagen() {
-    const images = document.querySelectorAll(".img-container img");
+    const images = document.querySelectorAll(".img-container img, .galeria img");
     if (!images.length) return;
 
     images.forEach(img => {
@@ -43,8 +55,104 @@ function initModalImagen() {
     });
 }
 
+
+// =============================
+// 3. MENU HAMBURGUESA (RESPONSIVE)
+// =============================
+function initMenuHamburguesa() {
+
+    const menuToggle = document.getElementById("menuToggle");
+    const nav = document.querySelector("nav");
+    const navMenu = document.querySelector("nav ul");
+    const body = document.body;
+
+    if (!menuToggle || !nav || !navMenu) return;
+
+    let menuAbierto = false;
+
+    function abrirMenu() {
+        menuToggle.classList.add("active");
+        navMenu.classList.add("active");
+        nav.classList.add("show");
+        body.classList.add("menu-abierto");
+        menuAbierto = true;
+    }
+
+    function cerrarMenu() {
+        menuToggle.classList.remove("active");
+        navMenu.classList.remove("active");
+        nav.classList.remove("show");
+        body.classList.remove("menu-abierto");
+        menuAbierto = false;
+    }
+
+    function toggleMenu(e) {
+        e.stopPropagation();
+
+        if (menuAbierto) {
+            cerrarMenu();
+        } else {
+            abrirMenu();
+        }
+    }
+
+    // Click botón hamburguesa
+    menuToggle.addEventListener("click", toggleMenu);
+
+    // Click en enlaces
+    const links = document.querySelectorAll("nav ul li a");
+
+    links.forEach(link => {
+        link.addEventListener("click", () => {
+            cerrarMenu();
+        });
+    });
+
+    // Click fuera del menú
+    document.addEventListener("click", (e) => {
+
+        if (
+            menuAbierto &&
+            !nav.contains(e.target) &&
+            !menuToggle.contains(e.target)
+        ) {
+            cerrarMenu();
+        }
+
+    });
+
+}
+
+
+// =============================
+// 4. HEADER SHRINK
+// =============================
+function initHeaderScroll() {
+    const header = document.querySelector("header");
+    if (!header) return;
+
+    window.addEventListener("scroll", () => {
+
+        if (window.scrollY > 50) {
+            header.classList.add("shrink");
+        } else {
+            header.classList.remove("shrink");
+        }
+
+    });
+}
+
+
+// =============================
 // INIT GLOBAL
+// =============================
 document.addEventListener("DOMContentLoaded", () => {
+
     initScrollAnimaciones();
     initModalImagen();
+    initMenuHamburguesa();
+    initHeaderScroll();
+
+    console.log("Urbaniza2: Scripts cargados correctamente.");
+
 });
