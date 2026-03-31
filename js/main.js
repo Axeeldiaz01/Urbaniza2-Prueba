@@ -1,5 +1,5 @@
 /**
- * URBANIZA2 - Script Principal (main.js)
+
  * Maneja: Animaciones de Scroll, Modal de Imágenes y Menú Responsive
  */
 
@@ -152,7 +152,7 @@ document.addEventListener("DOMContentLoaded", () => {
     initModalImagen();
     initMenuHamburguesa();
     initHeaderScroll();
-
+    initHeaderSlider();
     console.log("Urbaniza2: Scripts cargados correctamente.");
 
 });
