@@ -399,7 +399,7 @@ html{
   transform: translateY(40px);
 }
 
-/* ❌ ELIMINAMOS MANCHAS NARANJAS */
+
 .formulario-contacto-section::before,
 .formulario-contacto-section::after {
   display: none;
@@ -480,6 +480,7 @@ html{
   margin-bottom: 40px;
   font-size: 1.15rem;
 }
+
 
 /* BOTÓN  */
 
@@ -1431,7 +1432,7 @@ font-size: clamp(2.2rem, 5vw, 3.5rem);
   font-weight: 800; 
   line-height: 1.2;
   color: rgba(240, 161, 58, 0.679);
-  margin: 0;             /* elimina margen por defecto */
+  margin: 0;           
 }
 
 
@@ -1475,4 +1476,14 @@ font-size: clamp(2.2rem, 5vw, 3.5rem);
 .reveal.visible{
   opacity:1;
   transform:translateY(0);
+}
+
+/* =========================
+   CONTACTO - RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  .contacto-section {
+    padding-top: 20px;  
+    padding-bottom: 20px;
+  }
 }

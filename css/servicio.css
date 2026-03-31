@@ -136,110 +136,87 @@ nav ul li a:hover {
 }
 
 /* =========================
-   BANNER SERVICIOS PRO
+   BANNER RESPONSIVE CORREGIDO
 ========================= */
 
 .banner {
   position: relative;
   width: 100%;
+  height: 85vh;
   min-height: 500px;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: white;
-  padding: 60px 20px;
-  overflow: hidden;
 }
 
-/* =========================
-   IMAGEN DE FONDO
-========================= */
 
-.background-img {
+.banner img {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
-  z-index: 1;
-
-  /* fuerza a que el navegador recalcule en resize */
-  min-width: 100%;
-  min-height: 100%;
 }
 
-/* =========================
-   OVERLAY
-========================= */
-
+/* CAPA OSCURA */
 .overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.65);
+  inset: 0;
+  background: rgba(0,0,0,0.6);
   z-index: 2;
 }
 
-/* =========================
-   CONTENIDO
-========================= */
-
+/* CONTENIDO */
 .banner-content {
   position: relative;
   z-index: 3;
-  max-width: 800px;
-  width: 100%;
-  transform: translateY(-70px);
+  max-width: 900px;
+  padding: 0 20px;
+  color: white;
 }
 
-/* =========================
-   TEXTO
-========================= */
-
+/* TITULO */
 .hero-title {
   font-size: clamp(2rem, 5vw, 3.5rem);
-  font-weight: 700;
-  margin-bottom: 1rem;
+  margin-bottom: 20px;
   line-height: 1.2;
 }
 
+/* DESCRIPCION */
 .hero-description {
-  font-size: clamp(1rem, 2.5vw, 1.2rem);
-  line-height: 1.6;
-  margin-bottom: 25px;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  margin-bottom: 30px;
 }
 
-.hero-description strong {
-  color: #f99109;
-}
-
-/* =========================
-   BOTONES
-========================= */
-
+/* BOTONES */
 .hero-buttons {
   display: flex;
   justify-content: center;
   gap: 15px;
   flex-wrap: wrap;
 }
-
 /* =========================
-   RESPONSIVE
+   TABLET Y MÓVIL
 ========================= */
-
 @media (max-width: 768px) {
+
   .banner {
-    min-height: 80vh;
+    height: 70vh;
+    min-height: 0;
   }
 
   .banner-content {
     transform: translateY(0);
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-description {
+    font-size: 0.95rem;
   }
 
   .hero-buttons {
@@ -247,7 +224,6 @@ nav ul li a:hover {
     align-items: center;
   }
 }
-
 
 .section.reverse {
   flex-direction: row-reverse;
@@ -414,13 +390,6 @@ footer p {
     flex-direction: column;
     gap: 20px;
   }
-
-  .banner {
-    height: 40vh;
-    min-height: 350px;
-    padding: 15px;
-  }
-
 
   .banner-content {
     padding: 0 15px;
@@ -1006,16 +975,6 @@ footer p {
 
 /* BANNER  */
 
-
-@media (max-width: 768px) {
-  .banner {
-    height: 60vh;
-  }
-
-  .background-img {
-    object-position: center;
-  }
-}
 
 .banner-buttons .btn {
   min-width: 180px;
