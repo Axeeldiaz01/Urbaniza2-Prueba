@@ -1243,8 +1243,7 @@ footer p {
   font-size: 1.5rem;
 }
 
-/* =========================
-   VIDEO PREMIUM (SIN TELÉFONO)
+/* VIDEO PREMIUM
 ========================= */
 
 .tiktok-video {
@@ -1279,7 +1278,7 @@ footer p {
   border: none;
 }
 
-/* ✨ HOVER PRO */
+/* HOVER PRO */
 .video-card:hover {
   transform: scale(1.05);
   box-shadow: 
@@ -1292,7 +1291,7 @@ footer p {
 
 .tiktok-section .grid-two-columns {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr; /* 👈 mejor balance */
+  grid-template-columns: 1.1fr 0.9fr; 
   gap: 60px;
   align-items: center;
 }
