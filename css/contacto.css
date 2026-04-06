@@ -29,7 +29,7 @@
 
 body {
   margin: 0;
-background: radial-gradient(circle at top right, rgba(249, 145, 9, 0.05), transparent), #fdfdfd;  color: var(--dark);
+  background-color:rgba(249, 145, 9, 0.03)!important;
   line-height: 1.6;
   font-family: "Poppins", sans-serif;
 }
@@ -44,105 +44,6 @@ html{
   margin: 0 auto;
 }
 
-/* SECCIÓN CONTACTO PRINCIPAL */
-.contacto-section {
-  padding: 80px 0;
-  background-color: transparent;
-  position: relative;
-}
-
-/* SECCIÓN DE CONFIANZA */
-.confianza-section {
-  background: white;
-  border-radius: 20px;
-  padding: 40px;
-  margin: 40px auto;
-  max-width: 1200px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-.confianza-stats {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 30px;
-  margin-bottom: 40px;
-}
-
-.stat-item {
-  text-align: center;
-  padding: 20px;
-  border-radius: 15px;
-  background: linear-gradient(
-    135deg,
-    var(--primary-orange-light),
-    var(--primary)
-  );
-  color: white;
-  transition: transform 0.3s ease;
-}
-
-.stat-item:hover {
-  transform: translateY(-5px);
-}
-
-.stat-number {
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-
-.stat-label {
-  font-size: 1.1rem;
-  font-weight: 500;
-}
-
-.certificaciones h3 {
-  text-align: center;
-  font-size: 1.8rem;
-  color: var(--dark);
-  margin-bottom: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-}
-
-.certificaciones h3 i {
-  color: var(--primary);
-}
-
-.cert-items {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
-
-.cert-item {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  padding: 20px;
-  background: #f8f9fa;
-  border-radius: 12px;
-  border-left: 4px solid var(--primary);
-  transition: all 0.3s ease;
-}
-
-.cert-item:hover {
-  background: white;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  transform: translateX(5px);
-}
-
-.cert-item i {
-  font-size: 1.5rem;
-  color: var(--primary);
-}
-
-.cert-item span {
-  font-weight: 500;
-  color: var(--dark);
-}
 
 /* SECCIÓN DE TESTIMONIOS */
 .testimonios-section {
@@ -377,7 +278,7 @@ html{
 
 /* FORMULARIO DE CONTACTO */
 .formulario-contacto-section {
-  background: linear-gradient(135deg, #ffffff 0%, #fff6ec 100%);
+  background: #ffffff;
   border-radius: 30px;
   padding: 80px 50px;
   margin: 100px auto;
@@ -1432,7 +1333,7 @@ font-size: clamp(2.2rem, 5vw, 3.5rem);
   font-weight: 800; 
   line-height: 1.2;
   color: rgba(240, 161, 58, 0.679);
-  margin: 0;           
+  margin: 100;           
 }
 
 

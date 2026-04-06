@@ -47,7 +47,7 @@ h1 {
 
 body {
   margin: 0;
-  background: radial-gradient(circle at top right, rgba(249, 145, 9, 0.05), transparent), #fdfdfd;
+  background-color:rgba(249, 145, 9, 0.03)!important;
   color: var(--dark);
   line-height: 1.6;
   font-family: "Poppins", sans-serif;
@@ -507,7 +507,7 @@ footer p {
 /* grid y tarjetas */
 .services-section {
   padding: 80px 0;
-  background: radial-gradient(circle at top right, rgba(249, 145, 9, 0.05), transparent), #fdfdfd;
+  background: transparent;
 }
 
 .services-section h2 {
@@ -634,6 +634,7 @@ footer p {
 /* PROCESO DE TRABAJO */
 .process-section {
   padding: 100px 20px;
+  background-color: none !important;
 
 }
 
@@ -803,7 +804,7 @@ footer p {
   .services-section,
   .process-section {
     padding: 24px 0;
-    background-color: #f8fafc;
+    background-color: none !important;
   }
 
   .service-card {
@@ -859,20 +860,42 @@ footer p {
 /* COMPRA / VENTA Y ASESORÍA LEGAL */
 
 
+/* ================================= */
+/* CARD BASE PARA TODAS LAS SECCIONES */
+/* ================================= */
+
 .section {
+
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 40px;
-  padding: 60px 40px;
+
+  padding: 50px 40px;
+
   flex-wrap: wrap;
 
-  /* Estilo tarjeta */
   background: #ffffff;
-  max-width: 1200px;
+
+  max-width: 1100px;
+
   margin: 60px auto;
-  border-radius: 20px;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+
+  border-radius: 24px;
+
+  box-shadow:
+    0 20px 50px rgba(0,0,0,0.08);
+
+  transition: all 0.3s ease;
+}
+
+.section:hover {
+
+  transform: translateY(-8px);
+
+  box-shadow:
+    0 30px 70px rgba(0,0,0,0.12);
+
 }
 
 .section.reverse {
@@ -880,6 +903,7 @@ footer p {
 }
 
 .section .card {
+  background: #ffffff;
   flex: 1 1 45%;
   max-width: 500px;
 }
@@ -903,7 +927,7 @@ footer p {
 
 .asesoria-section {
   padding: 60px 0;
-  background: #f7f7f7;
+  background: transparent;
 }
 
 .asesoria-title {
@@ -965,7 +989,7 @@ footer p {
 .services-section,
 .process-section,
 .faq-section {
-  background: radial-gradient(circle at top right, rgba(249, 145, 9, 0.05), transparent), #fdfdfd;
+  background: none !important;
   padding: 80px 20px;
   margin: 0;
   border: none;
@@ -1197,7 +1221,7 @@ footer p {
 
 .tiktok-section {
   padding: 100px 20px;
-  background: radial-gradient(circle at top right, rgba(249, 145, 9, 0.05), transparent), #fdfdfd;
+  background: transparent;
   text-align: center;
 }
 
@@ -1252,16 +1276,16 @@ footer p {
   width: 100%;
 }
 
-/* 🔥 CARD MODERNO */
+/* CARD MODERNO */
 .video-card {
   width: 100%;
-  max-width: 280px; /* 👈 más pequeño y elegante */
+  max-width: 280px; 
   aspect-ratio: 9 / 16;
 
   border-radius: 25px;
   overflow: hidden;
 
-  background: rgba(255,255,255,0.6);
+  background: transparent;
   backdrop-filter: blur(10px);
 
   box-shadow: 
@@ -1271,7 +1295,7 @@ footer p {
   transition: all 0.4s ease;
 }
 
-/* 🎥 VIDEO */
+/*  VIDEO */
 .video-card iframe {
   width: 100%;
   height: 100%;
@@ -1345,4 +1369,59 @@ footer p {
   .video-card {
     max-width: 200px;
   }
+}
+
+/* ================================= */
+/* CARD CONTENEDORA DEL SERVICIO */
+/* ================================= */
+
+.service-card {
+  background: #ffffff;
+
+  border-radius: 24px;
+
+  padding: 50px 40px;
+
+  max-width: 1100px;
+
+  margin: 0 auto;
+
+  box-shadow:
+    0 20px 50px rgba(0,0,0,0.08);
+
+  transition: all 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+
+  box-shadow:
+    0 30px 70px rgba(0,0,0,0.12);
+}
+
+/* GRID INTERNO */
+
+.service-card-grid {
+  display: grid;
+
+  grid-template-columns: 1.1fr 0.9fr;
+
+  gap: 60px;
+
+  align-items: center;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 992px) {
+
+  .service-card {
+    padding: 40px 25px;
+  }
+
+  .service-card-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
 }
