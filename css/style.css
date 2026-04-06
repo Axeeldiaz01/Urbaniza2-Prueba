@@ -25,14 +25,14 @@ html {
   scroll-behavior: smooth;
 }
 
+
 body {
   font-family: "Poppins", Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background: #fff;
+  background-color:rgba(249, 145, 9, 0.03)!important;
   color: #222;
 }
-
 .container {
   width: 85%;
   max-width: 1100px;
@@ -569,9 +569,7 @@ main.container {
 
 section {
   margin-bottom: 30px;
-  background:
-    radial-gradient(circle at top right, rgba(249, 145, 9, 0.05), transparent),
-    #fdfdfd;
+  background: transparent;
 }
 
 section h2 {
@@ -846,9 +844,7 @@ a:hover .whatsapp-num {
 /* CALCULADORA */
 .calculadora-section {
   padding: 80px 20px;
-  background:
-    radial-gradient(circle at top right, rgba(249, 145, 9, 0.05), transparent),
-    #fdfdfd;
+  background: transparent;
 }
 
 .calculadora-section h2 {
@@ -1330,9 +1326,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
 /* SECCIÓN SERVICIOS MEJORADA */
 .services-section {
   padding: 80px 5%;
-  background:
-    linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.92)),
-    url("https://www.transparenttextures.com/patterns/cubes.png");
+  background: transparent;
   background-size: 220px;
   background-repeat: repeat;
   overflow: hidden;
@@ -2659,7 +2653,7 @@ transform:translateY(0);
 /*  SECCIÓN TERRENOS  */
 #terrenos-disponibles {
   padding: 80px 0;
-  background-color: #ffffff;
+  background-color: transparent;
 }
 
 #terrenos-disponibles h2 {
@@ -2862,6 +2856,17 @@ transform:translateY(0);
   .galeria {
     grid-template-columns: 1fr;
   }
+
+}
+
+.reel-clean {
+    background: #ffffff;
+    border-radius: 30px;
+    padding: 80px 50px;
+    margin: 100px auto;
+    max-width: 1000px;
+    box-shadow: 0 35px 90px rgba(0, 0, 0, 0.15);
+    text-align: center;
 
 }
 
@@ -3134,3 +3139,4 @@ transform:translateY(0);
     width: 85%;
   }
 }
+

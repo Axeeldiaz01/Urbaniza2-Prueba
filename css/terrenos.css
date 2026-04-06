@@ -20,7 +20,7 @@ body {
   font-family: "Poppins", Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background: radial-gradient(circle at top right, rgba(249, 145, 9, 0.05), transparent), #fdfdfd;
+    background-color:rgba(249, 145, 9, 0.03)!important;
   color: #222;
   display: flex;
   min-height: 100vh;
@@ -34,6 +34,7 @@ footer {
 #terrenos-disponibles {
   width: 100%;
   padding: 60px 40px;
+  background-color: none !important;
 }
 
 .container {
@@ -49,7 +50,7 @@ footer {
 
 /* --- BUSCADOR --- */
 .buscador-inmuebles {
-  background: radial-gradient(circle at top right, rgba(249, 145, 9, 0.05), transparent), #fdfdfd;
+  background: none;
   padding: 3rem 1rem 2.5rem;
   text-align: center;
   margin-bottom: 2rem;
@@ -300,7 +301,7 @@ footer {
   gap: 2.5rem;
   padding: 3.1rem 1.25rem;
   flex-wrap: wrap;
-  background-color: #f2f2f2bb;
+  background-color: #ffffff;
   border-radius: 0.9rem;
   margin: 1.9rem 1.25rem;
   box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.304);
@@ -1447,7 +1448,7 @@ transform:translateY(0);
 /*  SECCIÓN TERRENOS  */
 #terrenos-disponibles {
   padding: 80px 0;
-  background-color: #ffffff;
+  background-color: none;
 }
 
 #terrenos-disponibles h2 {
