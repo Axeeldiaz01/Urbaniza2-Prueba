@@ -37,142 +37,212 @@
     </div>
   </header>
 
-  <!--buscador-->
-  <div id="buscador" class="buscador-inmuebles reveal">
-    <h1>Venta de departamentos e inmuebles en Perú</h1>
+  <!-- BUSCADOR DE INMUEBLES -->
+  <section id="buscador" class="buscador-inmuebles reveal">
 
-    <form class="buscador-form" id="form-buscador">
-      <div class="buscador-row">
-        <select id="tipo-inmueble" title="Seleccionar tipo de inmueble">
-          <option value="">TODOS</option>
-          <option value="Departamento">Departamento</option>
-          <option value="Casa">Casa</option>
-          <option value="Terreno">Terreno</option>
-        </select>
+    <div class="container"> 
+      <h1 class="titulo">Venta de departamentos e inmuebles en Perú</h1>
+      <!-- TÍTULO ESTÁNDAR -->
+      <h2 class="section-title">
+        Busca tu inmueble ideal
+      </h2>
 
-        <input type="text" id="texto-busqueda" placeholder="Ingresa Departamento, Provincia, Distrito o Urbaniz" />
-      </div>
+      <p class="section-subtitle">
+        Encuentra departamentos, casas o terrenos según tu presupuesto y ubicación.
+      </p>
 
-      <div class="precio-group">
-        <select id="moneda" title="Seleccionar moneda">
-          <option value="S/">S/</option>
-          <option value="US$">US$</option>
-        </select>
+      <form class="buscador-form" id="form-buscador">
 
-        <input type="text" id="precio-desde" placeholder="Precio desde" />
-        <input type="text" id="precio-hasta" placeholder="Precio hasta" />
+        <div class="buscador-row">
 
-        <label>
-          <input type="checkbox" id="retirar-precio" />
-          Retirar precio
-        </label>
-      </div>
-      <button type="submit" class="btn-buscar">
-        <i class="fa fa-search"></i> BUSCAR
-      </button>
-    </form>
-  </div>
+          <select id="tipo-inmueble" title="Seleccionar tipo de inmueble">
+            <option value="">TODOS</option>
+            <option value="Departamento">Departamento</option>
+            <option value="Casa">Casa</option>
+            <option value="Terreno">Terreno</option>
+          </select>
 
-  <section id="terrenos-disponibles">
-    <div class="container">
-      <h2 class="reveal">Terrenos Disponibles</h2>
+          <input type="text" id="texto-busqueda"
+            placeholder="Ingresa Departamento, Provincia, Distrito o Urbanización" />
 
-      <div class="galeria reveal">
-
-
-        <!-- CARD 1 UBICACION: Benjamin vizquerra-->
-        <div class="card" data-tipo="Terreno" data-ubicacion="Chancay" data-precio="95000" data-moneda="S/">
-          <div class="img-container">
-            <img src="img/chancay1.jpeg" alt="Terreno en Chancay" />
-          </div>
-
-          <div class="linea-decorativa"></div>
-
-          <h3>Chancay</h3>
-          <p>180 m².</p>
-          <p>Excelente ubicación cerca del centro.</p>
-          <p>Documentos en regla.</p>
-
-          <p class="precio">Consultar</p>
-
-          <div class="card-actions">
-            <button class="btn-comprar" data-ubicacion="Chancay" data-precio="95000" data-area="180 m²"
-              data-terreno-id="6">
-              <i class="fas fa-shopping-cart"></i> Comprar
-            </button>
-            <!-- la ubicacion aun esta en proceso -->
-            <a href="https://www.google.com/maps/dir/?api=1&destination=-11.5717,-77.2670" target="_blank"
-              class="btn-ubicacion">
-              <i class="fas fa-map-marker-alt"></i> Ver ubicación
-            </a>
-          </div>
         </div>
 
-        <!-- CARD 2 -->
-        <div class="card" data-tipo="Terreno" data-ubicacion="Végueta" data-precio="85000" data-moneda="S/">
-          <div class="img-container">
-            <img src="img/vegueta.jpg" alt="Terreno en Végueta" />
-          </div>
+        <div class="precio-group">
 
-          <div class="linea-decorativa"></div>
+          <select id="moneda" title="Seleccionar moneda">
+            <option value="S/">S/</option>
+            <option value="US$">US$</option>
+          </select>
 
-          <h3>Végueta</h3>
-          <p>220 m².</p>
-          <p>Zona tranquila y en crecimiento.</p>
-          <p>Perfecto para inversión.</p>
+          <input type="text" id="precio-desde" placeholder="Precio desde" />
+          <input type="text" id="precio-hasta" placeholder="Precio hasta" />
 
-          <p class="precio">Consultar</p>
+          <label>
+            <input type="checkbox" id="retirar-precio" />
+            Retirar precio
+          </label>
 
-          <div class="card-actions">
-            <button class="btn-comprar" data-ubicacion="Végueta" data-precio="85000" data-area="220 m²"
-              data-terreno-id="7">
-              <i class="fas fa-shopping-cart"></i> Comprar
-            </button>
-            <a href="https://www.google.com/maps/dir/?api=1&origin=My+Location&destination=-10.994598,-77.6302965"
-              target="_blank" class="btn-ubicacion">
-              <i class="fas fa-map-marker-alt"></i>
-              Ver ubicación
-            </a>
-          </div>
         </div>
 
-        <!-- CARD 3 -->
-        <div class="card" data-tipo="Departamento" data-ubicacion="Huacho" data-precio="0" data-moneda="S/">
-          <div class="img-container">
-            <img src="img/huacho.jpeg" alt="Departamento cerca a parque infantil" />
-          </div>
+        <button type="submit" class="btn-buscar">
+          <i class="fa fa-search"></i>
+          Buscar
+        </button>
 
-          <div class="linea-decorativa"></div>
+      </form>
 
-          <h3>Huacho</h3>
-          <p>120 m² – 3er piso.</p>
-          <p>Costado a parque infantil.</p>
-          <p>Cerca a Tottus y Poder Judicial.</p>
-
-          <p class="precio">Consultar</p>
-
-          <div class="card-actions">
-            <button class="btn-comprar" data-ubicacion="Huacho" data-precio="0" data-area="120 m²" data-terreno-id="8">
-
-              <i class="fas fa-shopping-cart"></i>
-              Consultar
-            </button>
-
-            <a href="https://www.google.com/maps/dir/?api=1&origin=My+Location&destination=-11.1088904495936,-77.60287508220146&travelmode=driving"
-              target="_blank" class="btn-ubicacion">
-
-              <i class="fas fa-map-marker-alt"></i>
-              Ver ubicación
-            </a>
-          </div>
-        </div>
-
-
-
-      </div>
     </div>
+
   </section>
 
+  
+  <!-- TERRENOS DISPONIBLES - TERRENOS -->
+      <section id="terrenos-disponibles">
+
+        <div class="container">
+
+          <!-- CARD PRINCIPAL -->
+          <div class="terrenos-wrapper reveal">
+
+            <h2>Terrenos Disponibles</h2>
+
+            <p class="section-subtitle">
+              ¡No dejes pasar la oportunidad! Asegura el patrimonio de tu familia
+              con precios de preventa y ubicación privilegiada. 🔑
+            </p>
+
+            <!-- GALERIA -->
+            <div class="galeria">
+
+              <!-- CARD 1 -->
+              <div class="card" data-tipo="Terreno" data-ubicacion="Chancay" data-precio="95000" data-moneda="S/">
+
+                <div class="img-container">
+                  <img src="img/chancay1.webp" alt="Terreno en Chancay" loading="lazy" decoding="async" width="400"
+                    height="220" />
+                </div>
+
+                <div class="linea-decorativa"></div>
+
+                <h3>Chancay</h3>
+
+                <p>180 m².</p>
+                <p>Excelente ubicación cerca del centro.</p>
+                <p>Documentos en regla.</p>
+
+                <p class="precio">Consultar</p>
+
+                <div class="card-actions">
+
+                  <button class="btn-comprar" data-ubicacion="Chancay" data-precio="95000" data-area="180 m²"
+                    data-terreno-id="6">
+
+                    <i class="fas fa-shopping-cart"></i>
+                    Comprar
+
+                  </button>
+
+                  <a href="https://www.google.com/maps/dir/?api=1&destination=-11.5717,-77.2670" target="_blank"
+                    class="btn-ubicacion">
+
+                    <i class="fas fa-map-marker-alt"></i>
+                    Ver ubicación
+
+                  </a>
+
+                </div>
+
+              </div>
+
+              <!-- CARD 2 -->
+              <div class="card" data-tipo="Terreno" data-ubicacion="Végueta" data-precio="85000" data-moneda="S/">
+
+                <div class="img-container">
+                  <img src="img/vegueta.jpg" alt="Terreno en Végueta" loading="lazy" decoding="async" width="400"
+                    height="220" />
+                </div>
+
+                <div class="linea-decorativa"></div>
+
+                <h3>Végueta</h3>
+
+                <p>220 m².</p>
+                <p>Zona tranquila y en crecimiento.</p>
+                <p>Perfecto para inversión.</p>
+
+                <p class="precio">Consultar</p>
+
+                <div class="card-actions">
+
+                  <button class="btn-comprar" data-ubicacion="Végueta" data-precio="85000" data-area="220 m²"
+                    data-terreno-id="7">
+
+                    <i class="fas fa-shopping-cart"></i>
+                    Comprar
+
+                  </button>
+
+                  <a href="https://www.google.com/maps/dir/?api=1&destination=-11.0283,-77.6465" target="_blank"
+                    class="btn-ubicacion">
+
+                    <i class="fas fa-map-marker-alt"></i>
+                    Ver ubicación
+
+                  </a>
+
+                </div>
+
+              </div>
+
+              <!-- CARD 3 -->
+              <div class="card" data-tipo="Departamento" data-ubicacion="Vaya" data-precio="0" data-moneda="S/">
+
+                <div class="img-container">
+                  <img src="img/huacho.webp" alt="Departamento en Huacho" loading="lazy" decoding="async" width="400"
+                    height="220" />
+                </div>
+
+                <div class="linea-decorativa"></div>
+
+                <h3>Huacho</h3>
+
+                <p>120 m² – 3er piso.</p>
+                <p>Costado a parque infantil.</p>
+                <p>Cerca a Tottus y Poder Judicial.</p>
+
+                <p class="precio">Consultar</p>
+
+                <div class="card-actions">
+
+                  <button class="btn-comprar" data-ubicacion="Vaya" data-precio="0" data-area="120 m²"
+                    data-terreno-id="8">
+
+                    <i class="fas fa-shopping-cart"></i>
+                    Consultar
+
+                  </button>
+
+                  <a href="https://www.google.com/maps/dir/?api=1&origin=My+Location&destination=-11.1088904495936,-77.60287508220146&travelmode=driving"
+                    target="_blank" class="btn-ubicacion">
+
+                    <i class="fas fa-map-marker-alt"></i>
+                    Ver ubicación
+
+                  </a>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+  <!-- CARRUSEL 1 -->
   <div id="chorrillos" class="section reveal">
     <div class="cardd">
       <div class="carrusel-chorrillos">
@@ -203,6 +273,7 @@
         </div>
       </div>
     </div>
+
     <div class="texto">
       <h2>CHORRILLOS</h2>
       <p>
@@ -214,15 +285,28 @@
         para escriturar. ¡Una excelente oportunidad para hacer realidad tu
         proyecto inmobiliario!
       </p>
-      <a href="contacto.html">Cotizar ahora</a>
-      <!-- PRUEBA-->
-      <a href="https://www.google.com/maps/dir/?api=1&destination=-12.1785,-77.0196" target="_blank" class="btn-maps">
-        <span class="icon">📍</span>
-        Ver ubicación y tiempo de llegada
-      </a>
+      <!-- AUN NO ESTA L AUBI ORIGINAL -->
+      <div class="botones">
+        <a href="contacto.html" class="btn-principal">
+          Cotizar ahora
+        </a>
+
+        <a href="https://www.google.com/maps/dir/?api=1&destination=-12.1785,-77.0196" target="_blank"
+          class="btn-ubicacion">
+
+          <span class="icon">📍</span>
+          Ver ubicación y tiempo de llegada
+
+        </a>
+      </div>
+
       <!--     -->
     </div>
+
   </div>
+  <!--                               -->
+
+  <!-- CARRUSEL 2 -->
   <div id="surco" class="section reveal">
     <div class="cardd">
       <div class="carrusel-chorrillos">
@@ -277,14 +361,24 @@
         • Baño principal<br />
         • Baño de visita
       </p>
-      <a href="contacto.html">Cotizar ahora</a>
-      <a href="https://www.google.com/maps/dir/?api=1&destination=-12.159472528923171,-76.98963627116467"
-        target="_blank" class="btn-ubicacion">
-        <span class="icon">📍</span>
-        Ver ubicación y tiempo de llegada
-      </a>
+      <!--UBICACION ORIGINAL-->
+      <div class="botones">
+        <a href="contacto.html" class="btn-principal">
+          Cotizar ahora
+        </a>
+
+        <a href="https://www.google.com/maps/dir/?api=1&destination=-12.159472528923171,-76.98963627116467"
+          target="_blank" class="btn-ubicacion">
+
+          <span class="icon">📍</span>
+          Ver ubicación y tiempo de llegada
+
+        </a>
+      </div>
     </div>
   </div>
+
+  <!--           -->
 
   <div id="modal" class="modal">
     <span class="cerrar">&times;</span>

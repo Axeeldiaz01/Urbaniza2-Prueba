@@ -69,7 +69,7 @@
           <div class="hero-text">
             <h1 class="hero-title reveal">
               Cambia tu alquiler por <br />
-              <span class="hero-highlight">tu propio terreno hoy</span> 
+              <span class="hero-highlight">tu propio terreno hoy</span>
             </h1>
             <p class="hero-description reveal">
               Invierte con seguridad en
@@ -120,98 +120,170 @@
     </div>
 
     <main>
-      <!-- TERRENOS DISPONIBLES -->
+
+      <!-- TERRENOS DISPONIBLES - INDEX -->
       <section id="terrenos-disponibles">
+
         <div class="container">
-          <h2 class="reveal">Terrenos Disponibles</h2>
-          <p class="section-subtitle reveal">
-            ¡No dejes pasar la oportunidad! Asegura el patrimonio de tu familia
-            con precios de preventa y ubicación privilegiada. 🔑
-          </p>
-          <div class="galeria reveal">
 
-            <!-- CARD 1 -->
-            <div class="card" data-tipo="Terreno" data-ubicacion="Chancay" data-precio="95000" data-moneda="S/">
-              <div class="img-container">
-                <img src="img/chancay1.webp" alt="Terreno en Chancay" loading="lazy" decoding="async" width="400"
-                  height="220" />
+          <!-- CARD PRINCIPAL -->
+          <div class="terrenos-wrapper reveal">
+
+            <h2>Terrenos Disponibles</h2>
+
+            <p class="section-subtitle">
+              ¡No dejes pasar la oportunidad! Asegura el patrimonio de tu familia
+              con precios de preventa y ubicación privilegiada. 🔑
+            </p>
+
+            <!-- GALERIA -->
+            <div class="galeria">
+
+              <!-- CARD 1 -->
+              <div class="card" data-tipo="Terreno" data-ubicacion="Chancay" data-precio="95000" data-moneda="S/">
+
+                <div class="img-container">
+                  <img src="img/chancay1.webp" alt="Terreno en Chancay" loading="lazy" decoding="async" width="400"
+                    height="220" />
+                </div>
+
+                <div class="linea-decorativa"></div>
+
+                <h3>Chancay</h3>
+
+                <p>180 m².</p>
+                <p>Excelente ubicación cerca del centro.</p>
+                <p>Documentos en regla.</p>
+
+                <p class="precio">Consultar</p>
+
+                <div class="card-actions">
+
+                  <button class="btn-comprar" data-ubicacion="Chancay" data-precio="95000" data-area="180 m²"
+                    data-terreno-id="6">
+
+                    <i class="fas fa-shopping-cart"></i>
+                    Comprar
+
+                  </button>
+
+                  <a href="https://www.google.com/maps/dir/?api=1&destination=-11.5717,-77.2670" target="_blank"
+                    class="btn-ubicacion">
+
+                    <i class="fas fa-map-marker-alt"></i>
+                    Ver ubicación
+
+                  </a>
+
+                </div>
+
               </div>
-              <div class="linea-decorativa"></div>
-              <h3>Chancay</h3>
-              <p>180 m².</p>
-              <p>Excelente ubicación cerca del centro.</p>
-              <p>Documentos en regla.</p>
-              <p class="precio">S/ 95,000</p>
-              <div class="card-actions">
-                <button class="btn-comprar" data-ubicacion="Chancay" data-precio="95000" data-area="180 m²"
-                  data-terreno-id="6">
-                  <i class="fas fa-shopping-cart"></i> Comprar
-                </button>
-                <a href="https://www.google.com/maps/dir/?api=1&destination=-11.5717,-77.2670" target="_blank"
-                  class="btn-ubicacion">
-                  <i class="fas fa-map-marker-alt"></i> Ver ubicación
-                </a>
+
+              <!-- CARD 2 -->
+              <div class="card" data-tipo="Terreno" data-ubicacion="Végueta" data-precio="85000" data-moneda="S/">
+
+                <div class="img-container">
+                  <img src="img/vegueta.jpg" alt="Terreno en Végueta" loading="lazy" decoding="async" width="400"
+                    height="220" />
+                </div>
+
+                <div class="linea-decorativa"></div>
+
+                <h3>Végueta</h3>
+
+                <p>220 m².</p>
+                <p>Zona tranquila y en crecimiento.</p>
+                <p>Perfecto para inversión.</p>
+
+                <p class="precio">Consultar</p>
+
+                <div class="card-actions">
+
+                  <button class="btn-comprar" data-ubicacion="Végueta" data-precio="85000" data-area="220 m²"
+                    data-terreno-id="7">
+
+                    <i class="fas fa-shopping-cart"></i>
+                    Comprar
+
+                  </button>
+
+                  <a href="https://www.google.com/maps/dir/?api=1&destination=-11.0283,-77.6465" target="_blank"
+                    class="btn-ubicacion">
+
+                    <i class="fas fa-map-marker-alt"></i>
+                    Ver ubicación
+
+                  </a>
+
+                </div>
+
               </div>
+
+              <!-- CARD 3 -->
+              <div class="card" data-tipo="Departamento" data-ubicacion="Vaya" data-precio="0" data-moneda="S/">
+
+                <div class="img-container">
+                  <img src="img/huacho.webp" alt="Departamento en Huacho" loading="lazy" decoding="async" width="400"
+                    height="220" />
+                </div>
+
+                <div class="linea-decorativa"></div>
+
+                <h3>Huacho</h3>
+
+                <p>120 m² – 3er piso.</p>
+                <p>Costado a parque infantil.</p>
+                <p>Cerca a Tottus y Poder Judicial.</p>
+
+                <p class="precio">Consultar</p>
+
+                <div class="card-actions">
+
+                  <button class="btn-comprar" data-ubicacion="Vaya" data-precio="0" data-area="120 m²"
+                    data-terreno-id="8">
+
+                    <i class="fas fa-shopping-cart"></i>
+                    Consultar
+
+                  </button>
+
+                  <a href="https://www.google.com/maps/dir/?api=1&origin=My+Location&destination=-11.1088904495936,-77.60287508220146&travelmode=driving"
+                    target="_blank" class="btn-ubicacion">
+
+                    <i class="fas fa-map-marker-alt"></i>
+                    Ver ubicación
+
+                  </a>
+
+                </div>
+
+              </div>
+
             </div>
 
-            <!-- CARD 2 -->
-            <div class="card" data-tipo="Terreno" data-ubicacion="Végueta" data-precio="85000" data-moneda="S/">
-              <div class="img-container">
-                <img src="img/vegueta.jpg" alt="Terreno en Végueta" loading="lazy" decoding="async" width="400"
-                  height="220" />
-              </div>
-              <div class="linea-decorativa"></div>
-              <h3>Végueta</h3>
-              <p>220 m².</p>
-              <p>Zona tranquila y en crecimiento.</p>
-              <p>Perfecto para inversión.</p>
-              <p class="precio">S/ 85,000</p>
-              <div class="card-actions">
-                <button class="btn-comprar" data-ubicacion="Végueta" data-precio="85000" data-area="220 m²"
-                  data-terreno-id="7">
-                  <i class="fas fa-shopping-cart"></i> Comprar
-                </button>
-                <a href="https://www.google.com/maps/dir/?api=1&destination=-11.0283,-77.6465" target="_blank"
-                  class="btn-ubicacion">
-                  <i class="fas fa-map-marker-alt"></i> Ver ubicación
-                </a>
-              </div>
+            <!-- FOOTER DEL CARD -->
+            <div class="terrenos-footer">
+
+              <a href="https://wa.me/51982664102?text=Hola,%20quiero%20información." class="btn btn-secondary"
+                target="_blank">
+
+                Consultar por WhatsApp
+
+              </a>
+
+              <a href="terrenos.html" class="btn-ver-todos">
+                Ver todos los terrenos disponibles
+                <i class="fas fa-arrow-right"></i>
+              </a>
+
+
+
             </div>
 
-            <!-- CARD 3 -->
-            <div class="card" data-tipo="Departamento" data-ubicacion="Vaya" data-precio="0" data-moneda="S/">
-              <div class="img-container">
-                <img src="img/huacho.webp" alt="Departamento cerca a parque infantil" loading="lazy" decoding="async"
-                  width="400" height="220" />
-              </div>
-              <div class="linea-decorativa"></div>
-              <h3>Huacho</h3>
-              <p>120 m² – 3er piso.</p>
-              <p>Costado a parque infantil.</p>
-              <p>Cerca a Tottus y Poder Judicial.</p>
-              <p class="precio">Consultar</p>
-              <div class="card-actions">
-                <button class="btn-comprar" data-ubicacion="Vaya" data-precio="0" data-area="120 m²"
-                  data-terreno-id="8">
-                  <i class="fas fa-shopping-cart"></i> Consultar
-                </button>
-                <a href="https://www.google.com/maps/dir/?api=1&origin=My+Location&destination=-11.1088904495936,-77.60287508220146&travelmode=driving"
-                  target="_blank" class="btn-ubicacion">
-                  <i class="fas fa-map-marker-alt"></i> Ver ubicación
-                </a>
-              </div>
-            </div>
           </div>
+
         </div>
-        <div class="ver-todos-terrenos reveal">
-          <a href="terrenos.html">Ver todos los terrenos disponibles <i class="fas fa-arrow-right"></i></a>
-        </div>
-        <div class="reveal" style="text-align:center; margin-top:20px;">
-          <a href="https://wa.me/51982664102?text=Hola,%20quiero%20información."
-            class="btn btn-secondary" target="_blank">
-            Consultar por WhatsApp
-          </a>
-        </div>
+
       </section>
 
 
@@ -241,11 +313,11 @@
 
             <!-- BOTÓN -->
             <div class="reveal" style="text-align:center; margin-top:20px;">
-          <a href="https://wa.me/51982664102?text=Hola,%20quiero%20información."
-            class="btn btn-secondary" target="_blank">
-            Consultar por WhatsApp
-          </a>
-        </div>
+              <a href="https://wa.me/51982664102?text=Hola,%20quiero%20información." class="btn btn-secondary"
+                target="_blank">
+                Consultar por WhatsApp
+              </a>
+            </div>
           </div>
 
           <!-- VIDEO -->
@@ -417,6 +489,7 @@
     <!-- Scripts al final con atributo defer para no bloquear renderizado -->
     <script src="js/main.js" defer></script>
     <script src="js/slider.js" defer></script>
+    <script src="js/terreno.js" ></script>
 </body>
 
 </html>

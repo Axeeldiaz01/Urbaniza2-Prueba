@@ -30,7 +30,7 @@ body {
   font-family: "Poppins", Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color:rgba(249, 145, 9, 0.03)!important;
+  background: rgba(249, 145, 9, 0.06) !important;
   color: #222;
 }
 .container {
@@ -1006,9 +1006,9 @@ input[type="range"]::-webkit-slider-thumb:hover {
 .btn-comprar {
   background: linear-gradient(135deg, #27ae60, #2ecc71);
   color: white;
-  border: none;
+  border: 1px solid #e5e5e5 !important;
   padding: 12px 24px;
-  border-radius: 8px;
+  border-radius: 999px;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
@@ -1363,15 +1363,25 @@ input[type="range"]::-webkit-slider-thumb:hover {
 /* CARD BASE */
 .service-card {
   position: relative;
-  background: #ffffff;
+
+  /* NUEVO COLOR SUAVE QUE RESALTA DEL FONDO */
+  background: linear-gradient(
+    135deg,
+    rgba(249, 145, 9, 0.08),
+    rgba(255, 179, 71, 0.12)
+  );
+
   border-radius: 24px;
   text-align: center;
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+
+  border: 1px solid rgba(249, 145, 9, 0.15);
+
+  box-shadow: 0 12px 28px rgba(249, 145, 9, 0.08);
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 280px; 
+  height: 280px;
   overflow: hidden;
   cursor: pointer;
   perspective: 1000px;
@@ -1409,7 +1419,11 @@ input[type="range"]::-webkit-slider-thumb:hover {
 
 /* FRONTAL */
 .service-card-front {
-  background: #ffffff;
+  background: linear-gradient(
+    135deg,
+    rgba(249, 145, 9, 0.08),
+    rgba(255, 179, 71, 0.12)
+  );
 }
 
 /* ICONO FRONTAL */
@@ -2650,85 +2664,145 @@ transform:translateY(0);
 }
 
 
-/*  SECCIÓN TERRENOS  */
+/* SECCIÓN TERRENOS */
+
+
 #terrenos-disponibles {
   padding: 80px 0;
   background-color: transparent;
+  margin-top: -20px;
+}
+
+
+/* CARD PRINCIPAL DE LA SECCIÓN */
+
+.terrenos-wrapper {
+
+  background: #ffffff;
+
+  border-radius: 28px;
+
+  padding: 50px 40px;
+
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.05);
+
+  border: 1px solid rgba(0, 0, 0, 0.04);
+padding-top: 10px;
 }
 
 #terrenos-disponibles h2 {
   text-align: center;
   font-size: 2.5rem;
-  margin-bottom: 50px;
+  margin-bottom: 15px;
   color: #1a1a1a;
   position: relative;
 }
 
-/* Galería en Grid */
-.galeria {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 30px;
-  width: 100%;
-  align-items: stretch;
+.section-subtitle {
+  text-align: center;
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 40px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* ============================= */
+/* ===================================================== */
+/* GALERÍA */
+/* ===================================================== */
+
+.galeria {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 30px;
+
+  width: 100%;
+
+  align-items: stretch;
+
+}
+
+/* ===================================================== */
 /* CARD */
-/* ============================= */
+/* ===================================================== */
 
 .galeria .card {
+
   background: #fff;
+
   border-radius: 20px;
+
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.05);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+
   border: 1px solid #f0f0f0;
 
   width: 100%;
+
   height: 100%;
 
   display: flex;
+
   flex-direction: column;
+
 }
 
 .galeria .card:hover {
+
   transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.1);
+
 }
 
-/* ============================= */
-/* IMAGEN — TODAS COMPLETAS */
-/* ============================= */
+/* ===================================================== */
+/* IMAGEN */
+/* ===================================================== */
 
 .img-container {
 
   width: 100%;
-  height: 220px;        /* MISMO ALTO PARA TODAS */
+
+  height: 220px;
 
   position: relative;
 
   display: flex;
+
   align-items: center;
+
   justify-content: center;
 
   overflow: hidden;
 
-  padding: 2px;         /* marco mínimo casi invisible */
+  padding: 2px;
 
 }
-
-/* IMAGEN */
 
 .galeria .card img {
 
   max-width: 100%;
+
   max-height: 100%;
 
   width: auto;
+
   height: auto;
 
-  object-fit: contain;   /* CLAVE: imagen completa */
+  object-fit: contain;
 
   display: block;
 
@@ -2736,125 +2810,250 @@ transform:translateY(0);
 
 }
 
-/* EFECTO HOVER SUAVE */
-
 .galeria .card:hover img {
 
   transform: scale(1.03);
 
 }
 
-/* ============================= */
-/* CONTENIDO FLEXIBLE */
-/* ============================= */
+/* ===================================================== */
+/* CONTENIDO */
+/* ===================================================== */
 
 .galeria .card h3 {
+
   padding: 20px 25px 5px;
+
   font-size: 1.5rem;
+
   color: #1a1a1a;
+
   margin: 0;
-  min-height: 40px;   /* asegura alineación */
+
+  min-height: 40px;
+
 }
 
 .galeria .card .linea-decorativa {
+
   width: 40px;
+
   height: 3px;
+
   background: #f3a530;
+
   margin: 10px 25px;
+
   border-radius: 2px;
+
 }
 
 .galeria .card p {
+
   padding: 0 25px;
+
   margin: 5px 0;
+
   color: #666;
+
   font-size: 0.95rem;
+
   line-height: 1.4;
+
 }
 
-/* ============================= */
-/* PRECIO — SIEMPRE AL FONDO */
-/* ============================= */
+/* ===================================================== */
+/* PRECIO */
+/* ===================================================== */
 
 .galeria .card .precio {
+
   font-size: 1.4rem;
+
   font-weight: 800;
+
   color: #f3a530;
+
   padding: 15px 25px;
+  justify-content: center !important; 
+  text-align: center !important; 
   margin-top: auto;
+
 }
 
-/* ============================= */
-/* BOTONES */
-/* ============================= */
+/* ===================================================== */
+/* BOTONES DENTRO DE LA CARD */
+/* ===================================================== */
+
+.card-actions {
+
+  padding: 0 20px 20px 20px;
+
+  margin-top: auto;
+
+}
+
+/* BOTÓN COMPRAR */
+
+/* ===== IGUALAR TAMAÑO DE BOTONES EN LAS CARDS ===== */
 
 .card-actions {
   padding: 0 20px 20px 20px;
   margin-top: auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.btn-comprar {
+/* BOTÓN WHATSAPP (ANTES COMPRAR) */
+.card-actions .btn {
   width: 100%;
-  background-color: #1a1a1a;
-  color: #fff;
-  border: none;
-  padding: 12px;
-  border-radius: 10px;
-  font-weight: 700;
-  cursor: pointer;
+  height: 48px;
 
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
 
-  transition: background 0.3s;
+  text-decoration: none;
 }
 
-.btn-comprar:hover {
-  background-color: #f3a530;
+/* BOTÓN UBICACIÓN */
+.btn-ubicacion {
+  width: 100%;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 0; /* evita doble separación */
 }
 
-.btn-comprar i {
-  font-size: 0.9rem;
-}
+/* BOTÓN UBICACIÓN */
 
 .btn-ubicacion {
+
   display: block;
+
   margin-top: 10px;
+
   padding: 10px 20px;
+
   border-radius: 999px;
+
   text-decoration: none;
+
   font-weight: 600;
+
   font-size: 0.9rem;
+
   background: #ffffff;
+
   color: #333;
+
   text-align: center;
+
   transition: all 0.3s ease;
+
+  border: 1px solid #eee;
+
 }
 
 .btn-ubicacion:hover {
+
   background: #f49d32;
+
   color: white;
+
   transform: translateY(-2px);
+
 }
 
-/* ============================= */
+/* ===================================================== */
+/* FOOTER DE LA SECCIÓN */
+/* ===================================================== */
+
+.terrenos-footer {
+
+  margin-top: 40px;
+
+  padding-top: 25px;
+
+  border-top: 1px solid #eee;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 15px;
+
+}
+
+/* BOTÓN VER TODOS */
+
+.btn-ver-todos {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 12px 22px;
+
+  border-radius: 999px;
+
+  background: #f3a530;
+
+  color: white;
+
+  font-weight: 700;
+
+  text-decoration: none;
+
+  transition: all 0.3s ease;
+
+}
+
+.btn-ver-todos:hover {
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 20px rgba(243, 165, 48, 0.3);
+
+}
+
+/* ===================================================== */
 /* RESPONSIVE */
-/* ============================= */
+/* ===================================================== */
 
 @media (max-width: 1024px) {
 
   .galeria {
+
     grid-template-columns: repeat(2, 1fr);
+
   }
 
 }
 
 @media (max-width: 768px) {
 
+  .terrenos-wrapper {
+
+    padding: 40px 25px;
+
+  }
+
   .galeria {
+
     grid-template-columns: 1fr;
+
   }
 
 }
@@ -3078,25 +3277,35 @@ transform:translateY(0);
 .guia-scroll {
   display: flex;
   gap: 20px;
+
   overflow-x: auto;
+
   padding: 20px 10px;
+
   scroll-snap-type: x mandatory;
 
-  /* Oculta scrollbar bonito */
+  /* SOLO ESTO CENTRA LAS CARDS */
+  justify-content: center;
+
+  /* Mantiene el comportamiento normal */
   scrollbar-width: none;
 }
+
 .guia-scroll::-webkit-scrollbar {
   display: none;
 }
 
-/* TARJETAS */
+/* TARJETAS — SIN CAMBIOS DE TAMAÑO */
 .guia-card {
   flex: 0 0 auto;
+
   width: 300px;
 
   background: #fff;
   border-radius: 20px;
+
   padding: 20px;
+
   text-align: center;
 
   box-shadow: 0 10px 25px rgba(0,0,0,0.08);
@@ -3104,18 +3313,21 @@ transform:translateY(0);
   scroll-snap-align: center;
 }
 
-/* 🔥 IMPORTANTE: imagen completa sin recorte */
+/* IMAGEN — SIN CAMBIOS */
 .guia-card img {
   width: 100%;
-  height: auto;            /* 👈 esto evita recorte */
-  object-fit: contain;     /* 👈 asegura imagen completa */
+  height: auto;
+
+  object-fit: contain;
+
   border-radius: 15px;
+
   margin-bottom: 15px;
 
-  background: #f5f5f5;     /* opcional: relleno elegante */
+  background: transparent; /* sin marco */
 }
 
-/* TEXTO */
+/* TEXTO — SIN CAMBIOS */
 .guia-card h3 {
   font-size: 20px;
   margin-bottom: 10px;
@@ -3127,16 +3339,38 @@ transform:translateY(0);
   line-height: 1.4;
 }
 
-/* HOVER SUAVE */
+/* HOVER — SIN CAMBIOS */
 .guia-card:hover {
   transform: translateY(-5px);
   transition: 0.3s ease;
 }
 
-/* RESPONSIVE */
+/* RESPONSIVE — SIN CAMBIOS */
 @media (max-width: 768px) {
   .guia-card {
     width: 85%;
   }
 }
+.btn-comprar {
+  background: #2ea65c !important; /* verde sólido */
+  color: #fff !important;
 
+  border: 2px solid #e5e5e5 !important; /* borde suave gris */
+  border-radius: 999px !important; /* forma pill */
+
+  padding: 12px 20px;
+  font-weight: 600;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  transition: all 0.3s ease;
+}
+
+/* HOVER (como el de la imagen) */
+.btn-comprar:hover {
+  background: #279653 !important;
+  transform: translateY(-2px);
+}

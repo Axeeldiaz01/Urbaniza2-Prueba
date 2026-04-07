@@ -47,7 +47,7 @@ h1 {
 
 body {
   margin: 0;
-  background-color:rgba(249, 145, 9, 0.03)!important;
+  background: rgba(249, 145, 9, 0.06) !important;
   color: var(--dark);
   line-height: 1.6;
   font-family: "Poppins", sans-serif;

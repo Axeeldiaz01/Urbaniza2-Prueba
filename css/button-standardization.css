@@ -278,7 +278,9 @@
     width: 100%;
     flex: none;
   }
-}/* GRUPOS */
+}
+
+/* GRUPOS */
 .btn-group {
   display: flex;
   gap: 10px;

@@ -13,7 +13,7 @@
 
 body {
   margin: 0;
-  background-color:rgba(249, 145, 9, 0.03)!important;
+  background: rgba(249, 145, 9, 0.06) !important;
   line-height: 1.6;
   font-family: "Poppins", sans-serif;
 }
@@ -182,7 +182,7 @@ body {
 
 /* SECCIÓN DE CONFIANZA */
 .confianza-section {
-  background: transparent;
+  background: #ffffff;
   border-radius: 20px;
   padding: 40px;
   margin: 40px auto;
@@ -486,19 +486,23 @@ footer p {
 }
 
 .valores .valor-card {
-  background: #fff;
+  background: #ffffff;
   padding: 50px 30px;
   border-radius: 20px;
   text-align: center;
   position: relative;
   overflow: hidden;
-  transition: all 0.35s ease;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.08);
 }
 
 .valor-card:hover {
-  transform: translateY(-12px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  transform: translateY(-10px);
+  box-shadow:
+    0 28px 60px rgba(0, 0, 0, 0.12);
 }
 
 .valor-card i {
@@ -762,26 +766,196 @@ footer p {
     font-size: 16px;
   }
 }
+/* SECCION QUIENES SOMOS */
 
-#quienes-somos {
+/* =========================
+   QUIENES SOMOS
+========================= */
+
+.quienes-section {
+
+  width: 100%;
+
+  max-width: 1100px;
+
+  margin: 50px auto;
+
+  padding: 0 20px;
+
+}
+
+/* CARD PRINCIPAL */
+
+.quienes-card {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 50px;
+
+  background: #ffffff;
+
+  padding: 40px;
+
+  border-radius: 24px;
+
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.08);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+
+}
+
+.quienes-card:hover {
+
+  transform: translateY(-6px);
+
+  box-shadow:
+    0 28px 60px rgba(0, 0, 0, 0.12);
+
+}
+
+/* IMAGEN */
+
+.quienes-img {
+
+  flex: 0 0 260px;
+
+  display: flex;
+
   justify-content: center;
-  text-align: center;
+
+  align-items: center;
+
 }
 
-#quienes-somos .card,
-#quienes-somos .texto {
-  margin: 0 auto;
+.quienes-img img {
+
+  width: 100%;
+
+  max-width: 240px;
+
+  height: auto;
+
+  object-fit: contain;
+
 }
 
-#quienes-somos .imagen {
-  display: block;
-  margin: 0 auto;
+/* CONTENIDO */
+
+.quienes-content {
+
+  flex: 1;
+
 }
 
-#quienes-somos .texto p {
-  text-align: center;
-  max-width: 600px;
-  margin: 0 auto;
+.quienes-content h3 {
+
+  font-size: 28px;
+
+  font-weight: 700;
+
+  margin-bottom: 15px;
+
+  color: #333;
+
+}
+
+.quienes-desc {
+
+  font-size: 16px;
+
+  line-height: 1.6;
+
+  color: #555;
+
+  margin-bottom: 25px;
+
+}
+
+/* BENEFICIOS */
+
+.quienes-features {
+
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 12px;
+
+  margin-bottom: 25px;
+
+}
+
+.feature {
+
+  background: rgba(249, 145, 9, 0.08);
+
+  padding: 12px 16px;
+
+  border-radius: 12px;
+
+  font-size: 14px;
+
+  font-weight: 500;
+
+  color: #444;
+
+}
+
+/* BOTON */
+
+.quienes-btn {
+
+  display: inline-block;
+
+  background: #f99109;
+
+  color: #ffffff;
+
+  padding: 12px 22px;
+
+  border-radius: 10px;
+
+  text-decoration: none;
+
+  font-weight: 600;
+
+  transition: 0.3s;
+
+}
+
+.quienes-btn:hover {
+
+  background: #e68100;
+
+  transform: translateY(-2px);
+
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+
+  .quienes-card {
+
+    flex-direction: column;
+
+    text-align: center;
+
+    gap: 25px;
+
+  }
+
+  .quienes-features {
+
+    grid-template-columns: 1fr;
+
+  }
+
 }
 
 @media (max-width: 768px) {
