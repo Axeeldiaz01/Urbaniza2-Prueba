@@ -1,18 +1,39 @@
+/* ============================================================
+   1. VARIABLES GLOBALES Y RESET BASE
+   ============================================================ */
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-/* Variables */
 :root {
   --primary: #fb9f2ee2;
+  --primary-orange: #f99109;
   --dark: #333;
+  --text-dark: #2d3436;
+  --text-gray: #636e72;
   --bg-gradient: linear-gradient(180deg, #f4f6f8 0%, #eef1f4 100%);
   --section-bg: #eef1f4;
   --card-bg: #ffffff;
+  --bg-white: #ffffff;
+  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.05);
+  --border-color: #f0f0f0;
   --round: 12px;
   --font: 'Poppins', sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: rgba(249, 145, 9, 0.06) !important;
+  color: var(--dark);
+  line-height: 1.6;
+  font-family: "Poppins", sans-serif;
 }
 
 h1 {
@@ -26,33 +47,6 @@ h1 {
   }
 }
 
-* {
-  box-sizing: border-box;
-}
-
-.hero-title {
-  font-size: clamp(2.4rem, 5.5vw, 3.8rem);
-  font-weight: 800;
-  margin-bottom: 1.5rem;
-  line-height: 1.15;
-  letter-spacing: 0.5px;
-
-  color: #ffffff;
-
-  text-shadow:
-    0 2px 4px rgba(0, 0, 0, 0.9),
-    0 6px 12px rgba(0, 0, 0, 0.7),
-    0 12px 24px rgba(0, 0, 0, 0.5);
-}
-
-body {
-  margin: 0;
-  background: rgba(249, 145, 9, 0.06) !important;
-  color: var(--dark);
-  line-height: 1.6;
-  font-family: "Poppins", sans-serif;
-}
-
 .container {
   width: 85%;
   max-width: 1100px;
@@ -60,7 +54,11 @@ body {
   padding: 0 20px;
 }
 
-/* Header y Navegación */
+
+/* ============================================================
+   2. HEADER Y NAVEGACIÓN
+   ============================================================ */
+
 header {
   position: sticky;
   top: 0;
@@ -70,7 +68,6 @@ header {
   transition: all 0.3s ease;
   padding: 5px 0;
 }
-
 
 header .container {
   display: flex;
@@ -98,6 +95,7 @@ nav ul li a:hover {
   color: var(--dark);
 }
 
+/* Botón hamburguesa */
 .menu-toggle {
   display: none;
   flex-direction: column;
@@ -135,232 +133,7 @@ nav ul li a:hover {
   transform: rotate(-45deg);
 }
 
-/* =========================
-   BANNER RESPONSIVE CORREGIDO
-========================= */
-
-.banner {
-  position: relative;
-  width: 100%;
-  height: 85vh;
-  min-height: 500px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-
-.banner img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* CAPA OSCURA */
-.overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.6);
-  z-index: 2;
-}
-
-/* CONTENIDO */
-.banner-content {
-  position: relative;
-  z-index: 3;
-  max-width: 900px;
-  padding: 0 20px;
-  color: white;
-}
-
-/* TITULO */
-.hero-title {
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  margin-bottom: 20px;
-  line-height: 1.2;
-}
-
-/* DESCRIPCION */
-.hero-description {
-  font-size: clamp(1rem, 2vw, 1.2rem);
-  margin-bottom: 30px;
-}
-
-/* BOTONES */
-.hero-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  flex-wrap: wrap;
-}
-/* =========================
-   TABLET Y MÓVIL
-========================= */
-@media (max-width: 768px) {
-
-  .banner {
-    height: 70vh;
-    min-height: 0;
-  }
-
-  .banner-content {
-    transform: translateY(0);
-  }
-
-  .hero-title {
-    font-size: 2rem;
-  }
-
-  .hero-description {
-    font-size: 0.95rem;
-  }
-
-  .hero-buttons {
-    flex-direction: column;
-    align-items: center;
-  }
-}
-
-.section.reverse {
-  flex-direction: row-reverse;
-}
-
-.imagen {
-
-  width: 100%;
-
-  max-width: 420px;   /* controla el tamaño */
-
-  height: auto;
-
-  border-radius: 12px;
-
-}
-
-.texto {
-  margin-top: -10px;
-  padding-top: 0;
-  text-align: center;
-}
-
-.texto h2 {
-  font-size: 1.5rem;
-  margin-top: 5px;
-  margin-bottom: 10px;
-}
-
-.texto p {
-  font-size: 1rem;
-  margin-bottom: 1rem;
-  line-height: 1.4;
-}
-
-/* Botón scroll to home */
-.scrollToHome {
-  border-radius: 20px;
-  background: linear-gradient(135deg, #f49d32, #ff6b35);
-  bottom: 20px;
-  color: #ffffff;
-  display: none;
-  font-size: 20px;
-  height: 55px;
-  line-height: 55px;
-  padding: 0;
-  position: fixed;
-  right: 20px;
-  text-align: center;
-  width: 55px;
-  z-index: 99999;
-  box-shadow: 0 8px 25px rgba(244, 157, 50, 0.4);
-  border: none;
-  cursor: pointer;
-  font-family: 'Poppins', sans-serif;
-  transition: all 0.3s ease-in-out;
-}
-
-.scrollToHome:hover {
-  transform: translateY(-3px) scale(1.05);
-  background: linear-gradient(135deg, #ff6b35, #e8890b);
-  box-shadow: 0 12px 35px rgba(244, 157, 50, 0.6);
-  color: #ffffff;
-}
-
-.scrollToHome:active {
-  transform: translateY(-1px) scale(1.02);
-  transition: all 0.1s ease;
-}
-
-/* WhatsApp float */
-.whatsapp-float {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  z-index: 100;
-  width: 60px;
-  height: 60px;
-  background-color: #25D366;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease;
-}
-
-.whatsapp-float:hover {
-  transform: scale(1.1);
-}
-
-/* Footer */
-footer {
-  background: var(--dark);
-  color: white;
-  text-align: center;
-  padding: 20px 0;
-  margin-top: 40px;
-}
-
-footer p {
-  margin: 0 0 15px 0;
-  font-size: 1rem;
-  font-weight: 400;
-}
-
-.redes-sociales {
-  margin-top: 15px;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
-
-.redes-sociales a {
-  color: white;
-  font-size: 24px;
-  transition: all 0.3s ease;
-  text-decoration: none;
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.1);
-  border: 2px solid transparent;
-}
-
-.redes-sociales a:hover {
-  color: var(--primary);
-  background: rgba(251, 159, 46, 0.1);
-  border-color: var(--primary);
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(251, 159, 46, 0.3);
-}
-
-/* Responsividad 1 */
+/* Responsivo — menú móvil */
 @media (max-width: 768px) {
   nav {
     position: fixed;
@@ -391,8 +164,110 @@ footer p {
     gap: 20px;
   }
 
+  header .container {
+    justify-content: space-between;
+  }
+}
+
+
+/* ============================================================
+   3. BANNER / HERO
+   ============================================================ */
+
+.banner {
+  position: relative;
+  width: 100%;
+  height: 85vh;
+  min-height: 500px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.banner img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Capa oscura sobre el fondo */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 2;
+}
+
+/* Contenido del banner */
+.banner-content {
+  position: relative;
+  z-index: 3;
+  max-width: 900px;
+  padding: 0 20px;
+  color: white;
+}
+
+.hero-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  line-height: 1.15;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+  text-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.9),
+    0 6px 12px rgba(0, 0, 0, 0.7),
+    0 12px 24px rgba(0, 0, 0, 0.5);
+}
+
+.hero-description {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  margin-bottom: 30px;
+}
+
+/* Botones del banner */
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.banner-buttons .btn {
+  min-width: 180px;
+  padding: 12px 24px;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* Responsivo — banner */
+@media (max-width: 768px) {
+  .banner {
+    height: 70vh;
+    min-height: 0;
+  }
+
   .banner-content {
+    transform: translateY(0);
     padding: 0 15px;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-description {
+    font-size: 0.95rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
   }
 
   .banner-content h1 {
@@ -411,421 +286,266 @@ footer p {
     align-items: center;
     gap: 12px;
   }
-
-
-  /* SECCIONES GENERALES */
-  .section,
-  .section.reverse {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  /* FOOTER */
-  footer {
-    padding: 25px 15px;
-  }
-
-  footer p {
-    font-size: 0.9rem;
-    margin-bottom: 20px;
-  }
-
-  .redes-sociales {
-    gap: 15px;
-  }
-
-  .redes-sociales a {
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
-  }
-
-  /* BOTONES FLOTANTES */
-  .whatsapp-float {
-    width: 55px;
-    height: 55px;
-    font-size: 22px;
-    bottom: 15px;
-    left: 15px;
-  }
-
-  .scrollToHome {
-    width: 50px;
-    height: 50px;
-    font-size: 18px;
-    line-height: 50px;
-    border-radius: 18px;
-    bottom: 18px;
-    right: 18px;
-  }
 }
 
-@media (max-width: 480px) {
-  footer {
-    padding: 20px 10px;
-  }
 
-  footer p {
-    font-size: 0.85rem;
-    line-height: 1.4;
-  }
+/* ============================================================
+   4. SECCIÓN TIKTOK — CASA DE CAMPO LAS REINAS
+   ============================================================ */
 
-  .redes-sociales {
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-
-  .redes-sociales a {
-    width: 38px;
-    height: 38px;
-    font-size: 18px;
-  }
-
-  .whatsapp-float {
-    width: 50px;
-    height: 50px;
-    font-size: 20px;
-    bottom: 12px;
-    left: 12px;
-  }
-
-  .scrollToHome {
-    width: 45px;
-    height: 45px;
-    font-size: 16px;
-    line-height: 45px;
-    border-radius: 15px;
-    bottom: 15px;
-    right: 15px;
-  }
-
-  .scrollToHome:hover {
-    transform: translateY(-2px) scale(1.03);
-  }
-}
-
-/* grid y tarjetas */
-.services-section {
-  padding: 80px 0;
+.tiktok-section {
+  padding: 100px 20px;
   background: transparent;
-}
-
-.services-section h2 {
   text-align: center;
-  font-size: clamp(1.8rem, 4vw, 2.5rem);
-  font-weight: 700;
-  color: #222;
-  margin-bottom: 50px;
 }
 
-/* Ajuste para que en móviles*/
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 32px;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
+/* Card contenedora principal */
 .service-card {
   background: #ffffff;
-  border-radius: 20px;
-  padding: 40px 30px;
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border-radius: 24px;
+  padding: 50px 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.08);
   transition: all 0.3s ease;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-
-  height: 100%;
 }
 
 .service-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 30px 70px rgba(0,0,0,0.12);
 }
 
-/* ICONO */
-
-.service-card i {
-  font-size: 36px;
-  color: #f3a530;
-  margin-bottom: 20px;
-}
-
-/* TITULO*/
-
-.service-card h3 {
-  font-size: 1.5rem;
-  margin-bottom: 15px;
-  color: #1a1a1a;
-}
-
-/* DESCRIPCION */
-
-.service-card p {
-  font-size: 0.95rem;
-  color: #666;
-  margin-bottom: 20px;
-  min-height: 60px;
-}
-
-/*LISTA BENEFICIOS*/
-
-.benefits {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 25px 0;
-
-  flex-grow: 1;
-}
-
-.benefits li {
-  position: relative;
-  padding-left: 22px;
-  margin-bottom: 10px;
-  color: #555;
-  font-size: 0.9rem;
-  text-align: left;
-}
-
-.benefits li::before {
-  content: "✓";
-  position: absolute;
-  left: 0;
-  color: #f3a530;
-  font-weight: bold;
-}
-
-/* BOTON*/
-
-.service-card .btn {
-  margin-top: auto;
-  width: 100%;
-  max-width: 220px;
-}
-
-/* RESPONSIVE*/
-
-@media (max-width: 992px) {
-  .services-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 600px) {
-  .services-section {
-    padding: 60px 15px;
-  }
-
-  .services-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .services-section h2 {
-    font-size: 2rem;
-  }
-}
-
-/* PROCESO DE TRABAJO */
-.process-section {
-  padding: 100px 20px;
-  background-color: none !important;
-
-}
-
-.section-title {
-  text-align: center;
-  font-size: clamp(1.8rem, 4vw, 2.4rem);
-  font-weight: 700;
-  margin-bottom: 70px;
-  color: #1f2937;
-}
-
-/* PROCESS STEPS */
-
-.process-steps {
-  list-style: none;
+/* Grid interno de la card */
+.service-card-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* Título y descripción */
+.tiktok-title {
+  font-size: clamp(28px, 3vw, 38px);
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.tiktok-desc {
+  max-width: 750px;
+  margin: 0 auto 40px auto;
+  font-size: clamp(15px, 1.8vw, 17px);
+  line-height: 1.7;
+  color: #555;
+}
+
+/* Lista de beneficios */
+.beneficios-list {
+  list-style: none;
   padding: 0;
-  margin: 0 auto;
-  max-width: 1200px;
-  margin: 0 auto;
-  max-width: 1200px;
+  margin: 0 auto 30px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
 }
 
-/* ITEM*/
-
-.process-item {
-  text-align: center;
-}
-
-/* IMAGEN*/
-
-.process-img {
-  width: 100%;
-  aspect-ratio: 1/1;
-  overflow: hidden;
+.beneficios-list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  background: #f9f9f9;
+  padding: 8px 12px;
   border-radius: 12px;
-
-  opacity: 0;
-  transform: scale(0.5);
-  animation: clickGrow 0.5s ease forwards;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: all 0.2s ease;
 }
 
-/* secuencia tipo clic */
-.process-item:nth-child(1) .process-img {
-  animation-delay: 0.2s;
+.beneficios-list li:hover {
+  transform: translateY(-3px);
 }
 
-.process-item:nth-child(2) .process-img {
-  animation-delay: 0.8s;
+.beneficios-list .icon {
+  font-size: 1.5rem;
 }
 
-.process-item:nth-child(3) .process-img {
-  animation-delay: 1.4s;
+/* Video TikTok */
+.tiktok-video {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
-.process-item:nth-child(4) .process-img {
-  animation-delay: 2s;
+.video-card {
+  width: 100%;
+  max-width: 280px;
+  aspect-ratio: 9 / 16;
+  border-radius: 25px;
+  overflow: hidden;
+  background: transparent;
+  backdrop-filter: blur(10px);
+  box-shadow:
+    0 15px 40px rgba(0,0,0,0.15),
+    inset 0 1px 1px rgba(255,255,255,0.5);
+  transition: all 0.4s ease;
 }
 
-.process-item:nth-child(5) .process-img {
-  animation-delay: 2.6s;
-}
-
-.process-img img {
+.video-card iframe {
   width: 100%;
   height: 100%;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+  border: none;
 }
 
-/*TEXTO*/
-
-.process-item span {
-  font-size: clamp(1.1rem, 1.4vw, 1.4rem);
-  font-weight: 600;
-  color: #374151;
-  display: block;
-  margin-top: 12px;
-
-  opacity: 0;
-  transform: translateY(10px);
-  animation: textFade 0.4s ease forwards;
+.video-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.2);
 }
 
-.process-item:nth-child(1) span {
-  animation-delay: 0.5s;
-}
-
-.process-item:nth-child(2) span {
-  animation-delay: 1.1s;
-}
-
-.process-item:nth-child(3) span {
-  animation-delay: 1.7s;
-}
-
-.process-item:nth-child(4) span {
-  animation-delay: 2.3s;
-}
-
-.process-item:nth-child(5) span {
-  animation-delay: 2.9s;
-}
-
-.process-item span::after {
-  content: "";
-  display: block;
-  width: 40px;
-  height: 3px;
-  margin: 10px auto 0;
-  background: #f99109;
-  border-radius: 4px;
-}
-
-/*ANIMACIONES*/
-
-@keyframes clickGrow {
-  0% {
-    opacity: 0;
-    transform: scale(0.5);
+/* Responsivo — sección TikTok */
+@media (max-width: 992px) {
+  .service-card {
+    padding: 40px 25px;
   }
 
-  60% {
-    opacity: 1;
-    transform: scale(1.1);
+  .service-card-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
   }
 
-  100% {
-    opacity: 1;
-    transform: scale(1);
+  .beneficios-list {
+    justify-content: center;
   }
-}
 
-@keyframes textFade {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* RESPONSIVE */
-
-@media (max-width: 1024px) {
-  .process-steps {
-    grid-template-columns: repeat(2, 1fr);
+  .video-card {
+    max-width: 240px;
   }
 }
 
 @media (max-width: 600px) {
-  .process-steps {
-    grid-template-columns: 1fr;
+  .video-card {
+    max-width: 200px;
   }
 }
 
-/* móviles */
+
+/* ============================================================
+   5. SECCIÓN COMPRA Y VENTA DE PROPIEDADES (#compra-venta)
+   ============================================================ */
+
+.section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 50px 40px;
+  flex-wrap: wrap;
+  background: #ffffff;
+  max-width: 1100px;
+  margin: 60px auto;
+  border-radius: 24px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+}
+
+.section:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 70px rgba(0,0,0,0.12);
+}
+
+.section.reverse {
+  flex-direction: row-reverse;
+}
+
+/* Imagen dentro de la card */
+.section .card {
+  background: #ffffff;
+  flex: 1 1 45%;
+  max-width: 500px;
+}
+
+.imagen {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  border-radius: 12px;
+}
+
+.section .card img.imagen {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Texto de la card */
+.texto {
+  margin-top: -10px;
+  padding-top: 0;
+  text-align: center;
+}
+
+.section .texto {
+  flex: 1 1 45%;
+  max-width: 500px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+}
+
+.texto h2 {
+  font-size: 1.5rem;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.texto p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+/* Responsivo — sección compra/venta */
 @media (max-width: 768px) {
-
-  .services-grid,
-  .process-steps {
-    grid-template-columns: 1fr;
+  .section,
+  .section.reverse {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    gap: 20px;
+    padding: 40px 20px;
+    margin: 40px 20px;
+    border-radius: 16px;
   }
 
-  .services-section,
-  .process-section {
-    padding: 24px 0;
-    background-color: none !important;
+  .section .card {
+    max-width: 80%;
+    margin: 0 auto;
   }
 
-  .service-card {
-    padding: 16px;
+  .section .texto {
+    max-width: 100%;
+    text-align: center;
   }
 
-  /* FAQ */
-  .faq-list {
-    padding: 0 12px;
-    gap: 15px;
+  /* Forzar centrado del botón en móvil */
+  .section .texto {
+    display: flex;
+    flex-direction: column;
+    align-items: center !important;
   }
 
-  .faq-item {
-    padding: 15px;
+  .section .texto .btn,
+  .section .texto a {
+    display: inline-flex !important;
+    justify-content: center;
+    align-items: center;
+    margin: 15px auto 0 auto !important;
   }
 
-  .faq-item span {
-    font-size: 0.98rem;
-  }
-
-  /* layout flexibles */
+  /* Layout flex general para secciones */
   .card,
   .texto {
     flex: 1 1 auto;
@@ -843,87 +563,9 @@ footer p {
   }
 }
 
-/* pantallas muy pequeñas */
-@media (max-width: 600px) {
-  .process-steps {
-    grid-template-columns: 1fr;
-  }
-}
-
-/*celulares pequeños */
-@media (max-width: 768px) {
-  header .container {
-    justify-content: space-between;
-  }
-}
-
-/* COMPRA / VENTA Y ASESORÍA LEGAL */
-
-
-/* ================================= */
-/* CARD BASE PARA TODAS LAS SECCIONES */
-/* ================================= */
-
-.section {
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 40px;
-
-  padding: 50px 40px;
-
-  flex-wrap: wrap;
-
-  background: #ffffff;
-
-  max-width: 1100px;
-
-  margin: 60px auto;
-
-  border-radius: 24px;
-
-  box-shadow:
-    0 20px 50px rgba(0,0,0,0.08);
-
-  transition: all 0.3s ease;
-}
-
-.section:hover {
-
-  transform: translateY(-8px);
-
-  box-shadow:
-    0 30px 70px rgba(0,0,0,0.12);
-
-}
-
-.section.reverse {
-  flex-direction: row-reverse;
-}
-
-.section .card {
-  background: #ffffff;
-  flex: 1 1 45%;
-  max-width: 500px;
-}
-
-.section .card img.imagen {
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-}
-
-.section .texto {
-  flex: 1 1 45%;
-  max-width: 500px;
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 15px;
-}
+/* ============================================================
+   6. SECCIÓN ASESORÍA LEGAL — PROCESO (#asesoria-legal)
+   ============================================================ */
 
 .asesoria-section {
   padding: 60px 0;
@@ -958,147 +600,289 @@ footer p {
   margin-bottom: 10px;
   display: block;
 }
-/* RESPONSIVE */
-@media (max-width: 768px) {
 
-  .section,
-  .section.reverse {
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    /* CLAVE: arriba */
-    text-align: center;
+/* ============================================================
+   7. SECCIÓN GRID DE SERVICIOS (#servicios-lista)
+   ============================================================ */
 
-    gap: 20px;
-    padding: 40px 20px;
-    margin: 40px 20px;
-    border-radius: 16px;
-  }
-
-  .section .card {
-    max-width: 80%;
-    margin: 0 auto;
-  }
-
-  .section .texto {
-    max-width: 100%;
-    text-align: center;
-  }
-}
-
-.services-section,
-.process-section,
-.faq-section {
+.services-section {
+  padding: 80px 0;
   background: none !important;
-  padding: 80px 20px;
   margin: 0;
   border: none;
   box-shadow: none;
   border-radius: 0;
 }
 
-/* BANNER  */
-
-
-.banner-buttons .btn {
-  min-width: 180px;
-  padding: 12px 24px;
-  display: inline-block;
+.services-section h2 {
   text-align: center;
-  vertical-align: middle;
-
-}
-
-/* FORZAR CENTRADO REAL DEL BOTÓN EN RESPONSIVE */
-@media (max-width: 768px) {
-
-  .section .texto {
-    display: flex;
-    flex-direction: column;
-    align-items: center !important;
-    text-align: center;
-  }
-
-  .section .texto .btn,
-  .section .texto a {
-    display: inline-flex !important;
-    justify-content: center;
-    align-items: center;
-    margin: 15px auto 0 auto !important;
-  }
-
-}
-
-/* Oculta los checkboxes */
-.faq-item input {
-  display: none;
-}
-
-/* Estilo base */
-.faq-item {
-  margin-bottom: 20px;
-  background: white;
-  border: 1px solid #eee;
-  border-radius: 16px;
-  overflow: hidden;
-  transition: 0.3s ease;
-}
-
-/* Botón */
-.faq-question {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 24px;
-  cursor: pointer;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
   font-weight: 700;
-  font-size: 1.1rem;
+  color: #222;
+  margin-bottom: 50px;
 }
 
-/* Flecha */
-.faq-question i {
-  transition: transform 0.3s ease;
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
-/* Respuesta cerrada */
-.faq-answer {
-  max-height: 0;
+/* Tarjetas individuales del grid */
+.services-grid .service-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 40px 30px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+.services-grid .service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* Icono */
+.service-card i {
+  font-size: 36px;
+  color: #f3a530;
+  margin-bottom: 20px;
+}
+
+/* Título de la tarjeta */
+.service-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #1a1a1a;
+}
+
+/* Descripción de la tarjeta */
+.service-card p {
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 20px;
+  min-height: 60px;
+}
+
+/* Lista de beneficios de la tarjeta */
+.benefits {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 25px 0;
+  flex-grow: 1;
+}
+
+.benefits li {
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 10px;
+  color: #555;
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+.benefits li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #f3a530;
+  font-weight: bold;
+}
+
+/* Botón al fondo de la tarjeta */
+.service-card .btn {
+  margin-top: auto;
+  width: 100%;
+  max-width: 220px;
+}
+
+/* Animación escalonada de tarjetas al aparecer */
+.service-card:nth-child(1) { transition-delay: 0.1s; }
+.service-card:nth-child(2) { transition-delay: 0.3s; }
+.service-card:nth-child(3) { transition-delay: 0.5s; }
+
+/* Responsivo — grid de servicios */
+@media (max-width: 992px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .services-section {
+    padding: 24px 0;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .services-section h2 {
+    font-size: 2rem;
+  }
+
+  .service-card {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .services-section {
+    padding: 60px 15px;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
+   8. SECCIÓN PROCESO DE TRABAJO (#proceso)
+   ============================================================ */
+
+.process-section {
+  padding: 80px 20px;
+  background: none !important;
+  margin: 0;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.section-title {
+  text-align: center;
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  font-weight: 700;
+  margin-bottom: 70px;
+  color: #1f2937;
+}
+
+/* Lista de pasos */
+.process-steps {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.process-item {
+  text-align: center;
+}
+
+/* Imagen del paso */
+.process-img {
+  width: 100%;
+  aspect-ratio: 1/1;
   overflow: hidden;
-  padding: 0 24px;
+  border-radius: 12px;
   opacity: 0;
-  transition: all 0.4s ease;
+  transform: scale(0.5);
+  animation: clickGrow 0.5s ease forwards;
 }
 
-/* Cuando está activado */
-.faq-item input:checked~.faq-answer {
-  max-height: 500px;
-  padding-bottom: 24px;
-  opacity: 1;
+/* Animación escalonada de imágenes */
+.process-item:nth-child(1) .process-img { animation-delay: 0.2s; }
+.process-item:nth-child(2) .process-img { animation-delay: 0.8s; }
+.process-item:nth-child(3) .process-img { animation-delay: 1.4s; }
+.process-item:nth-child(4) .process-img { animation-delay: 2.0s; }
+.process-item:nth-child(5) .process-img { animation-delay: 2.6s; }
+
+.process-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
-.faq-item input:checked~.faq-question i {
-  transform: rotate(180deg);
+/* Texto del paso */
+.process-item span {
+  font-size: clamp(1.1rem, 1.4vw, 1.4rem);
+  font-weight: 600;
+  color: #374151;
+  display: block;
+  margin-top: 12px;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: textFade 0.4s ease forwards;
 }
 
-.faq-item input:checked~.faq-question {
-  color: #f99109;
+/* Animación escalonada de textos */
+.process-item:nth-child(1) span { animation-delay: 0.5s; }
+.process-item:nth-child(2) span { animation-delay: 1.1s; }
+.process-item:nth-child(3) span { animation-delay: 1.7s; }
+.process-item:nth-child(4) span { animation-delay: 2.3s; }
+.process-item:nth-child(5) span { animation-delay: 2.9s; }
+
+/* Línea decorativa debajo del texto */
+.process-item span::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 3px;
+  margin: 10px auto 0;
+  background: #f99109;
+  border-radius: 4px;
 }
 
-
-/* ===== FAQ===== */
-
-:root {
-  --primary-orange: #f99109;
-  --text-dark: #2d3436;
-  --text-gray: #636e72;
-  --bg-white: #ffffff;
-  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.05);
-  --border-color: #f0f0f0;
+/* Keyframes de animación */
+@keyframes clickGrow {
+  0%   { opacity: 0; transform: scale(0.5); }
+  60%  { opacity: 1; transform: scale(1.1); }
+  100% { opacity: 1; transform: scale(1); }
 }
+
+@keyframes textFade {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsivo — proceso de trabajo */
+@media (max-width: 1024px) {
+  .process-steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .process-section {
+    padding: 24px 0;
+  }
+
+  .process-steps {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .process-steps {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
+   9. SECCIÓN FAQ (#faq)
+   ============================================================ */
 
 .faq-section {
   padding: 60px 20px;
-  background-color: #fdfdfd;
+  background: none !important;
+  margin: 0;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
 }
 
 .faq-section h2 {
@@ -1114,6 +898,12 @@ footer p {
   margin: 0 auto;
 }
 
+/* Ocultar checkboxes nativos */
+.faq-item input {
+  display: none;
+}
+
+/* Tarjeta de pregunta */
 .faq-item {
   margin-bottom: 20px;
   background: var(--bg-white);
@@ -1124,6 +914,7 @@ footer p {
   box-shadow: var(--shadow-soft);
 }
 
+/* Etiqueta / botón de la pregunta */
 .faq-question {
   width: 100%;
   display: flex;
@@ -1140,14 +931,24 @@ footer p {
   transition: color 0.3s ease;
 }
 
+/* Flecha del FAQ */
 .faq-question i {
   color: var(--primary-orange);
   transition: transform 0.4s ease;
 }
 
-/* ACTIVO */
+/* Respuesta colapsada */
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 24px;
+  opacity: 0;
+  transition: all 0.4s ease;
+  color: var(--text-gray);
+  line-height: 1.8;
+}
 
-/* ACTIVO REAL (REEMPLAZO CORRECTO) */
+/* Estado activo — FAQ abierto */
 .faq-item:has(input:checked) {
   border: 2px solid #f99109;
   transform: translateY(-2px);
@@ -1168,18 +969,7 @@ footer p {
   opacity: 1;
 }
 
-.faq-answer {
-  max-height: 0;
-  overflow: hidden;
-  padding: 0 24px;
-  opacity: 0;
-  transition: all 0.4s ease;
-  color: var(--text-gray);
-  line-height: 1.8;
-}
-
-
-/* Responsive */
+/* Responsivo — FAQ */
 @media (max-width: 768px) {
   .faq-question {
     padding: 20px;
@@ -1189,7 +979,222 @@ footer p {
   .faq-section h2 {
     font-size: 1.8rem;
   }
+
+  .faq-item {
+    padding: 15px;
+  }
+
+  .faq-item span {
+    font-size: 0.98rem;
+  }
 }
+
+/* ============================================================
+   10. FOOTER
+   ============================================================ */
+
+footer {
+  background: var(--dark);
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 40px;
+}
+
+footer p {
+  margin: 0 0 15px 0;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+/* Redes sociales */
+.redes-sociales {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.redes-sociales a {
+  color: white;
+  font-size: 24px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid transparent;
+}
+
+.redes-sociales a:hover {
+  color: var(--primary);
+  background: rgba(251, 159, 46, 0.1);
+  border-color: var(--primary);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(251, 159, 46, 0.3);
+}
+
+/* Responsivo — footer */
+@media (max-width: 768px) {
+  footer {
+    padding: 25px 15px;
+  }
+
+  footer p {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+  }
+
+  .redes-sociales {
+    gap: 15px;
+  }
+
+  .redes-sociales a {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  footer {
+    padding: 20px 10px;
+  }
+
+  footer p {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+
+  .redes-sociales {
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .redes-sociales a {
+    width: 38px;
+    height: 38px;
+    font-size: 18px;
+  }
+}
+
+/* ============================================================
+   11. BOTONES FLOTANTES — WHATSAPP Y SCROLL TO TOP
+   ============================================================ */
+
+/* WhatsApp */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 100;
+  width: 60px;
+  height: 60px;
+  background-color: #25D366;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+
+/* Scroll to top */
+.scrollToHome {
+  border-radius: 20px;
+  background: linear-gradient(135deg, #f49d32, #ff6b35);
+  bottom: 20px;
+  color: #ffffff;
+  display: none;
+  font-size: 20px;
+  height: 55px;
+  line-height: 55px;
+  padding: 0;
+  position: fixed;
+  right: 20px;
+  text-align: center;
+  width: 55px;
+  z-index: 99999;
+  box-shadow: 0 8px 25px rgba(244, 157, 50, 0.4);
+  border: none;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.3s ease-in-out;
+}
+
+.scrollToHome:hover {
+  transform: translateY(-3px) scale(1.05);
+  background: linear-gradient(135deg, #ff6b35, #e8890b);
+  box-shadow: 0 12px 35px rgba(244, 157, 50, 0.6);
+  color: #ffffff;
+}
+
+.scrollToHome:active {
+  transform: translateY(-1px) scale(1.02);
+  transition: all 0.1s ease;
+}
+
+/* Responsivo — botones flotantes */
+@media (max-width: 768px) {
+  .whatsapp-float {
+    width: 55px;
+    height: 55px;
+    font-size: 22px;
+    bottom: 15px;
+    left: 15px;
+  }
+
+  .scrollToHome {
+    width: 50px;
+    height: 50px;
+    font-size: 18px;
+    line-height: 50px;
+    border-radius: 18px;
+    bottom: 18px;
+    right: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .whatsapp-float {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    bottom: 12px;
+    left: 12px;
+  }
+
+  .scrollToHome {
+    width: 45px;
+    height: 45px;
+    font-size: 16px;
+    line-height: 45px;
+    border-radius: 15px;
+    bottom: 15px;
+    right: 15px;
+  }
+
+  .scrollToHome:hover {
+    transform: translateY(-2px) scale(1.03);
+  }
+}
+
+/* Clase visible para mostrar el botón via JS */
+.scroll-to-home-visible {
+  display: block;
+}
+
+/* ============================================================
+   12. ANIMACIÓN REVEAL (scroll reveal global)
+   ============================================================ */
 
 .reveal {
   opacity: 0;
@@ -1202,226 +1207,6 @@ footer p {
   transform: translateY(0);
 }
 
-.service-card:nth-child(1) {
-  transition-delay: 0.1s;
-}
-
-.service-card:nth-child(2) {
-  transition-delay: 0.3s;
-}
-
-.service-card:nth-child(3) {
-  transition-delay: 0.5s;
-}
-
-
-/* =========================
-   SECCIÓN TIKTOK - CASA DE CAMPO (ULTRA FLUIDA)
-========================= */
-
-.tiktok-section {
-  padding: 100px 20px;
-  background: transparent;
-  text-align: center;
-}
-
-/* Título */
-.tiktok-title {
-  font-size: clamp(1.8rem, 4vw, 2.4rem);
-  font-weight: 700;
-  margin-bottom: 15px;
-}
-
-/* Descripción */
-.tiktok-desc {
-  max-width: 750px;
-  margin: 0 auto 40px auto;
-  font-size: 1rem;
-  line-height: 1.7;
-  color: #555;
-}
-
-/* Beneficios */
-.beneficios-list {
-  list-style: none;
-  padding: 0;
-  margin: 0 auto 30px auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 15px;
-}
-
-.beneficios-list li {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 1rem;
-  background: #f9f9f9;
-  padding: 8px 12px;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-}
-
-.beneficios-list .icon {
-  font-size: 1.5rem;
-}
-
-/* VIDEO PREMIUM
-========================= */
-
-.tiktok-video {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
-
-/* CARD MODERNO */
-.video-card {
-  width: 100%;
-  max-width: 280px; 
-  aspect-ratio: 9 / 16;
-
-  border-radius: 25px;
-  overflow: hidden;
-
-  background: transparent;
-  backdrop-filter: blur(10px);
-
-  box-shadow: 
-    0 15px 40px rgba(0,0,0,0.15),
-    inset 0 1px 1px rgba(255,255,255,0.5);
-
-  transition: all 0.4s ease;
-}
-
-/*  VIDEO */
-.video-card iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-
-/* HOVER PRO */
-.video-card:hover {
-  transform: scale(1.05);
-  box-shadow: 
-    0 25px 60px rgba(0,0,0,0.2);
-}
-
-/* =========================
-   GRID (MEJORADO)
-========================= */
-
-.tiktok-section .grid-two-columns {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr; 
-  gap: 60px;
-  align-items: center;
-}
-
-/* =========================
-   TEXTO MEJORADO
-========================= */
-
-.tiktok-title {
-  font-size: clamp(28px, 3vw, 38px);
-  margin-bottom: 16px;
-}
-
-.tiktok-desc {
-  font-size: clamp(15px, 1.8vw, 17px);
-  line-height: 1.7;
-  color: #555;
-}
-
-/* BENEFICIOS MÁS PRO */
-.beneficios-list li {
-  font-size: 15px;
-  border-radius: 12px;
-  transition: all 0.2s ease;
-}
-
-.beneficios-list li:hover {
-  transform: translateY(-3px);
-}
-
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media (max-width: 992px) {
-  .tiktok-section .grid-two-columns {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .beneficios-list {
-    justify-content: center;
-  }
-
-  .video-card {
-    max-width: 240px;
-  }
-}
-
-@media (max-width: 600px) {
-  .video-card {
-    max-width: 200px;
-  }
-}
-
-/* ================================= */
-/* CARD CONTENEDORA DEL SERVICIO */
-/* ================================= */
-
-.service-card {
-  background: #ffffff;
-
-  border-radius: 24px;
-
-  padding: 50px 40px;
-
-  max-width: 1100px;
-
-  margin: 0 auto;
-
-  box-shadow:
-    0 20px 50px rgba(0,0,0,0.08);
-
-  transition: all 0.3s ease;
-}
-
-.service-card:hover {
-  transform: translateY(-8px);
-
-  box-shadow:
-    0 30px 70px rgba(0,0,0,0.12);
-}
-
-/* GRID INTERNO */
-
-.service-card-grid {
-  display: grid;
-
-  grid-template-columns: 1.1fr 0.9fr;
-
-  gap: 60px;
-
-  align-items: center;
-}
-
-/* RESPONSIVE */
-
-@media (max-width: 992px) {
-
-  .service-card {
-    padding: 40px 25px;
-  }
-
-  .service-card-grid {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
+.btn-primary{
+  border-radius: 999px;
 }

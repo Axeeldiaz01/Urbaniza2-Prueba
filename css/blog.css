@@ -625,3 +625,8 @@ transform:translateY(0);
 .blog-card:nth-child(7){transition-delay:.7s;}
 .blog-card:nth-child(8){transition-delay:.8s;}
 .blog-card:nth-child(9){transition-delay:.9s;}
+
+.btn-read, .btn-contact{
+  border-radius: 999px;
+}
+

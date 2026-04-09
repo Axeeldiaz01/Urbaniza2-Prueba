@@ -233,6 +233,7 @@ html{
   transition: all 0.3s ease;
   border: none;
   cursor: pointer;
+  border-radius: 999px;
 }
 
 .whatsapp-card .btn-contact-primary {
@@ -261,7 +262,7 @@ html{
   color: var(--dark);
   border: 2px solid #e9ecef;
   padding: 12px 20px;
-  border-radius: 10px;
+  border-radius: 999px;
   font-weight: 600;
   display: flex;
   align-items: center;
@@ -390,7 +391,7 @@ html{
   color: white;
   border: none;
   padding: 18px 40px;
-  border-radius: 14px;
+  border-radius: 999px;
   font-size: 1.15rem;
   font-weight: 700;
   cursor: pointer;
@@ -1387,4 +1388,15 @@ font-size: clamp(2.2rem, 5vw, 3.5rem);
     padding-top: 20px;  
     padding-bottom: 20px;
   }
+}
+
+/* BAJAR BOTONES Y EMPAREJAR VISUALMENTE */
+.contacto-card .card-actions {
+  margin-top: 20px;
+}
+
+/* Opcional: empuja un poco más en las primeras cards */
+.whatsapp-card .card-actions,
+.email-card .card-actions {
+  margin-top: 50px;
 }
