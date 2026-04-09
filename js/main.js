@@ -152,7 +152,77 @@ document.addEventListener("DOMContentLoaded", () => {
     initModalImagen();
     initMenuHamburguesa();
     initHeaderScroll();
-    initHeaderSlider();
+  //  initHeaderSlider();
+    initCalculadora();
     console.log("Urbaniza2: Scripts cargados correctamente.");
 
 });
+
+// =============================
+// 5. CALCULADORA
+// =============================
+function initCalculadora() {
+
+    const precioInput = document.getElementById("precio-terreno");
+    const cuotaRange = document.getElementById("cuota-inicial");
+    const cuotaValor = document.getElementById("cuota-inicial-valor");
+    const plazo = document.getElementById("plazo-pago");
+    const interes = document.getElementById("tasa-interes");
+
+    const cuotaInicialRes = document.getElementById("cuota-inicial-resultado");
+    const montoFinanciar = document.getElementById("monto-financiar");
+    const cuotaMensual = document.getElementById("cuota-mensual");
+    const interesTotal = document.getElementById("interes-total");
+    const totalPagar = document.getElementById("total-pagar");
+
+    if (!precioInput) return;
+
+    const formato = (num) =>
+        "S/ " + num.toLocaleString("es-PE", { minimumFractionDigits: 2 });
+
+    function calcular() {
+
+        const precio = parseFloat(precioInput.value) || 0;
+        const porcentaje = cuotaRange.value;
+        const años = plazo.value;
+        const tasa = interes.value;
+
+        if (precio <= 0) return;
+
+        // CUOTA INICIAL
+        const inicial = (precio * porcentaje) / 100;
+
+        //  COSTOS EXTRA (más realista)
+        const gastos = precio * 0.02; // 2%
+        const seguro = precio * 0.01; // 1%
+
+        //  MONTO TOTAL REAL
+        const monto = precio - inicial + gastos + seguro;
+
+        const meses = años * 12;
+        const tasaMensual = tasa / 100 / 12;
+
+        const cuota =
+            (monto * tasaMensual) /
+            (1 - Math.pow(1 + tasaMensual, -meses));
+
+        const total = cuota * meses;
+        const interesPagado = total - monto;
+
+        //  MOSTRAR
+        cuotaValor.textContent = formato(inicial);
+        cuotaInicialRes.textContent = formato(inicial);
+        montoFinanciar.textContent = formato(monto);
+        cuotaMensual.textContent = formato(cuota);
+        interesTotal.textContent = formato(interesPagado);
+        totalPagar.textContent = formato(total);
+    }
+
+    // AUTO UPDATE
+    precioInput.addEventListener("input", calcular);
+    cuotaRange.addEventListener("input", calcular);
+    plazo.addEventListener("change", calcular);
+    interes.addEventListener("change", calcular);
+
+    calcular();
+}

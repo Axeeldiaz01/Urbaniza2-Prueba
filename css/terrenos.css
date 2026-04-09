@@ -307,10 +307,11 @@ footer {
   margin: 0.6rem;
 }
 
-.card .card-actions {
-  padding: 0.9rem;
-  text-align: center;
-  margin-top: auto;
+.card-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .card .btn-comprar {
@@ -382,10 +383,16 @@ footer {
     0 20px 45px rgba(0, 0, 0, 0.12);
 }
 
-.cardd,
-.texto {
-  flex: 1 1 25rem;
-  max-width: 31.25rem;
+/* 🔥 LIMITAR EL TAMAÑO DEL CARD CONTENEDOR */
+.section {
+  max-width: 1110px;   /* mismo ancho que tus cards */
+  margin: 2rem auto;  /* centrar */
+
+}
+
+/* 🔥 ASEGURAR QUE EL CARD INTERNO NO EXPANDA */
+.cardd {
+  width: 100%;
 }
 
 
@@ -527,6 +534,7 @@ img {
 
   transform: scale(1.3);
 }
+
 /* --- MODAL PARA IMAGEN AMPLIADA --- */
 .modal {
   display: none;
@@ -707,7 +715,7 @@ footer p {
 }
 
 .modal-compra-header {
-  background: linear-gradient(135deg, #27ae60, #2ecc71);
+  background: linear-gradient(135deg, #f99109, #ffb347);
   color: white;
   padding: 20px 24px;
   position: relative;
@@ -761,12 +769,12 @@ footer p {
   background: #f8f9fa;
   border-radius: 12px;
   padding: 16px;
-  border-left: 4px solid #27ae60;
+  border-left: 4px solid #f99109;
 }
 
 .terreno-seleccionado h3 {
   margin: 0 0 12px 0;
-  color: #2c3e50;
+  color: #f99109;
   font-size: 16px;
   font-weight: 600;
 }
@@ -779,7 +787,7 @@ footer p {
 
 .datos-contacto-titulo h3 {
   margin: 8px 0 0;
-  color: #333;
+  color: #f99109;
   font-size: 1rem;
   text-align: center;
 }
@@ -819,7 +827,8 @@ footer p {
 .form-group select:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #27ae60;
+  border-color: #f99109;
+  box-shadow: 0 0 0 2px rgba(249, 145, 9, 0.2);
 }
 
 .form-group.full-width {
@@ -859,14 +868,14 @@ footer p {
 }
 
 .btn-enviar-compra {
-  background: #27ae60;
+  background: #25D366;
   color: white;
 }
 
 .btn-enviar-compra:hover {
-  background: #219a52;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(39, 174, 96, 0.3);
+  background: #1ebe5d;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(37,211,102,0.3);
 }
 
 /* --- MODALES ADICIONALES (detalles, comparación) --- */
@@ -1570,9 +1579,9 @@ transform:translateY(0);
 
 .botones {
   display: flex;
-  flex-direction: column;   /* CLAVE: vertical */
-  align-items: flex-start;  /* alineados a la izquierda */
-  gap: 10px;                /* espacio entre botones */
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
   margin-top: 15px;
 }
 
@@ -2054,16 +2063,15 @@ transform:translateY(0);
   }
 }
 
-/* ======================================== */
-/* BOTONES DEL CARRUSEL (AISLADOS DEL SISTEMA GLOBAL) */
-/* ======================================== */
+/* BOTONES DEL CARRUSEL (AISLADOS DEL SISTEMA GLOBAL)
+
 
 .botones {
   display: flex;
   flex-direction: column;
   gap: 12px;
   margin-top: 20px;
-  align-items: flex-start;
+  align-items: center;
 }
 
 /* BOTÓN PRINCIPAL - COTIZAR */
@@ -2103,34 +2111,26 @@ transform:translateY(0);
   box-shadow: 0 5px 15px rgba(249, 145, 9, 0.4);
 }
 
-/* BOTÓN UBICACIÓN */
+/* BOTÓN UBICACIÓN 
 
 .botones .btn-ubicacion {
-  display: inline-flex;
+  display: inline-flex !important;
+  width: auto !important;
   align-items: center;
   justify-content: center;
   gap: 8px;
-
   padding: 12px 22px;
   border-radius: 8px;
-
   background: transparent;
-  color: #f99109;
-
+  color:#f99109;
   border: 2px solid #f99109;
-
   font-weight: 600;
   font-size: 1rem;
-
   text-decoration: none;
   cursor: pointer;
-
   min-width: 220px;
   height: 48px;
-
   transition: all 0.3s ease;
-
-  /* rompe cualquier herencia */
   box-sizing: border-box;
 }
 
@@ -2141,26 +2141,64 @@ transform:translateY(0);
   box-shadow: 0 5px 15px rgba(249, 145, 9, 0.4);
 }
 
-/* ICONO */
+/* ICONO 
 
 .botones .icon {
   font-size: 16px;
 }
 
-/* RESPONSIVE */
+/* RESPONSIVE 
 
 @media (max-width: 768px) {
 
   .botones {
     width: 100%;
-    align-items: stretch;
+    align-items: center;
   }
 
   .botones .btn-principal,
   .botones .btn-ubicacion {
-    width: 100%;
-    min-width: 100%;
-    height: 46px;
+    width: auto;        
+    min-width: 200px;   
   }
 
+} */
+
+
+/* TEXTO GENERAL */
+.texto {
+  max-width: 520px;
+  margin: 0 auto;
 }
+
+/* DESCRIPCIÓN */
+.texto .descripcion {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 12px;
+}
+
+/* LISTA BONITA */
+.caracteristicas {
+  margin: 15px 0;
+  padding-left: 18px;
+}
+
+.caracteristicas li {
+  margin-bottom: 6px;
+  font-size: 1rem;
+  color: #333;
+  list-style: none;
+  position: relative;
+}
+
+/* ICONO PERSONALIZADO */
+.caracteristicas li::before {
+  content: "✔";
+  color: #f99109;
+  font-weight: bold;
+  position: absolute;
+  left: -18px;
+}
+
