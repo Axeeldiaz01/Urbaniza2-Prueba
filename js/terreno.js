@@ -1,5 +1,5 @@
-document.addEventListener('DOMContentLoaded', function() {
-  const toggle = document.querySelector('.menu-toggle'); 
+document.addEventListener('DOMContentLoaded', function () {
+  const toggle = document.querySelector('.menu-toggle');
   const menu = document.querySelector('nav');
 
   // Abrir o cerrar menú con el botón ☰
@@ -40,19 +40,19 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // Ampliar imagen al hacer click
-/*
-  window.ampliarImagen = function(img) {
-    const modal = document.getElementById("modal");
-    const modalImg = document.getElementById("img-ampliada");
-    const captionText = document.getElementById("caption");
-
-    if (modal && modalImg && captionText) {
-      modal.classList.add('modal-visible');
-      modalImg.src = img.src;
-      captionText.textContent = img.alt;
-    }
-  };
-*/
+  /*
+    window.ampliarImagen = function(img) {
+      const modal = document.getElementById("modal");
+      const modalImg = document.getElementById("img-ampliada");
+      const captionText = document.getElementById("caption");
+  
+      if (modal && modalImg && captionText) {
+        modal.classList.add('modal-visible');
+        modalImg.src = img.src;
+        captionText.textContent = img.alt;
+      }
+    };
+  */
 
   // Cerrar modal al hacer click en la "x"
   const cerrarBtn = document.querySelector(".cerrar");
@@ -82,21 +82,12 @@ document.addEventListener('DOMContentLoaded', function() {
   function realizarBusqueda() {
     const tipoElement = document.getElementById('tipo-inmueble');
     const textoElement = document.getElementById('texto-busqueda');
-    const monedaElement = document.getElementById('moneda');
-    const desdeElement = document.getElementById('precio-desde');
-    const hastaElement = document.getElementById('precio-hasta');
-    const retirarPrecioElement = document.getElementById('retirar-precio');
 
-    if (!tipoElement || !textoElement || !monedaElement || !desdeElement || !hastaElement || !retirarPrecioElement) {
+    if (!tipoElement || !textoElement) {
       return;
     }
-
     const tipo = tipoElement.value.toLowerCase();
     const texto = textoElement.value.toLowerCase().trim();
-    const moneda = monedaElement.value;
-    const desde = parseFloat(desdeElement.value) || 0;
-    const hasta = parseFloat(hastaElement.value) || Infinity;
-    const retirarPrecio = retirarPrecioElement.checked;
 
     let firstVisible = null;
     let totalVisible = 0;
@@ -104,21 +95,26 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.galeria .card').forEach(card => {
       const cardTipo = (card.getAttribute('data-tipo') || '').toLowerCase();
       const cardUbicacion = (card.getAttribute('data-ubicacion') || '').toLowerCase();
-      const cardPrecio = parseFloat(card.getAttribute('data-precio')) || 0;
-      const cardMoneda = card.getAttribute('data-moneda') || '';
 
       let visible = true;
 
       // Filtro por tipo
       if (tipo && cardTipo !== tipo) visible = false;
-      
-      // Filtro por texto (buscar en ubicación y nombre)
-      if (texto && !cardUbicacion.includes(texto)) visible = false;
-      
-      // Filtro por precio
-      if (!retirarPrecio && cardMoneda === moneda) {
-        if (cardPrecio < desde || cardPrecio > hasta) visible = false;
+
+      // FILTRO TEXTO
+      if (texto) {
+        const palabras = texto.split(" ");
+
+        const titulo = card.querySelector("h3")?.textContent.toLowerCase() || "";
+
+        const coincide = palabras.some(palabra =>
+          cardUbicacion.includes(palabra) || titulo.includes(palabra)
+        );
+
+        if (!coincide) visible = false;
       }
+
+
 
       card.style.display = visible ? '' : 'none';
 
@@ -128,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function() {
           firstVisible = card;
         }
       }
-      
+
       // Quitar resaltado anterior
       card.classList.remove('resaltado-busqueda');
     });
@@ -167,14 +163,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
   const formBuscador = document.getElementById('form-buscador');
   if (formBuscador) {
-    formBuscador.addEventListener('submit', function(e) {
+    formBuscador.addEventListener('submit', function (e) {
       e.preventDefault();
       realizarBusqueda();
     });
   }
 
   // Escuchar cuando se cargan los terrenos dinámicos
-  document.addEventListener('terrenosCargados', function() {
+  document.addEventListener('terrenosCargados', function () {
     console.log('Terrenos dinámicos cargados, buscador listo');
   });
 
@@ -182,7 +178,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const inputBusqueda = document.getElementById('texto-busqueda');
   if (inputBusqueda) {
     let timeoutBusqueda;
-    inputBusqueda.addEventListener('input', function() {
+    inputBusqueda.addEventListener('input', function () {
       clearTimeout(timeoutBusqueda);
       timeoutBusqueda = setTimeout(() => {
         if (this.value.length >= 2 || this.value.length === 0) {
@@ -194,7 +190,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Funcionalidad del carrusel - Soporte para múltiples carruseles
   const carruseles = document.querySelectorAll('.carrusel-chorrillos');
-  
+
   carruseles.forEach((carrusel, carruselIndex) => {
     let slideActualIndex = 0;
     const slides = carrusel.querySelectorAll('.carrusel-slide');
@@ -228,13 +224,13 @@ document.addEventListener('DOMContentLoaded', function() {
     // Función para cambiar slide específica de este carrusel
     function cambiarSlide(direccion) {
       slideActualIndex += direccion;
-      
+
       if (slideActualIndex >= slides.length) {
         slideActualIndex = 0;
       } else if (slideActualIndex < 0) {
         slideActualIndex = slides.length - 1;
       }
-      
+
       mostrarSlide(slideActualIndex);
     }
 
@@ -257,7 +253,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // Función global para compatibilidad con onclick en HTML
-  window.slideActual = function(index) {
+  window.slideActual = function (index) {
     // Esta función ahora es manejada por los event listeners individuales
     console.log('slideActual llamada con index:', index);
   };
@@ -265,19 +261,19 @@ document.addEventListener('DOMContentLoaded', function() {
   // Funcionalidades de compra
   function initializeComprarButtons() {
     const botonesComprar = document.querySelectorAll('.btn-comprar');
-    
+
     botonesComprar.forEach(boton => {
       // Evitar adjuntar múltiples listeners al mismo botón
       if (boton.dataset.compraInit) return;
-      
-      boton.addEventListener('click', function() {
+
+      boton.addEventListener('click', function () {
         const precio = this.getAttribute('data-precio');
         const ubicacion = this.getAttribute('data-ubicacion');
         const area = this.getAttribute('data-area');
-        
+
         mostrarModalCompra(precio, ubicacion, area);
       });
-      
+
       boton.dataset.compraInit = 'terreno';
     });
   }
@@ -287,14 +283,14 @@ document.addEventListener('DOMContentLoaded', function() {
       style: 'currency',
       currency: 'PEN'
     }).format(precio);
-    
+
     let areaFormateada;
     if (area >= 10000) {
       areaFormateada = (area / 10000).toFixed(1) + ' Hectáreas';
     } else {
       areaFormateada = area + ' m²';
     }
-    
+
     const modal = document.createElement('div');
     modal.className = 'modal-compra';
     modal.innerHTML = `
@@ -356,15 +352,15 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
       </div>
     `;
-    
+
     document.body.appendChild(modal);
-    
+
     // Cerrar modal
-    modal.querySelector('.close-compra').addEventListener('click', function() {
+    modal.querySelector('.close-compra').addEventListener('click', function () {
       modal.remove();
     });
-    
-    modal.addEventListener('click', function(e) {
+
+    modal.addEventListener('click', function (e) {
       if (e.target === modal) {
         modal.remove();
       }
@@ -377,24 +373,24 @@ document.addEventListener('DOMContentLoaded', function() {
     const telefono = document.getElementById('telefono').value;
     const tipoPago = document.getElementById('tipo_pago').value;
     const mensaje = document.getElementById('mensaje').value;
-    
+
     if (!nombre || !email || !telefono) {
       alert('Por favor complete todos los campos obligatorios');
       return;
     }
-    
+
     const precioFormateado = new Intl.NumberFormat('es-PE', {
       style: 'currency',
       currency: 'PEN'
     }).format(precio);
-    
+
     let areaFormateada;
     if (area >= 10000) {
       areaFormateada = (area / 10000).toFixed(1) + ' Hectáreas';
     } else {
       areaFormateada = area + ' m²';
     }
-    
+
     let mensajeWhatsApp = `🏞️ *SOLICITUD DE COMPRA DE TERRENO*\n\n`;
     mensajeWhatsApp += `📍 *Ubicación:* ${ubicacion}\n`;
     mensajeWhatsApp += `💰 *Precio:* ${precioFormateado}\n`;
@@ -403,37 +399,37 @@ document.addEventListener('DOMContentLoaded', function() {
     mensajeWhatsApp += `• Nombre: ${nombre}\n`;
     mensajeWhatsApp += `• Email: ${email}\n`;
     mensajeWhatsApp += `• Teléfono: ${telefono}\n`;
-    
+
     if (tipoPago) {
       mensajeWhatsApp += `• Tipo de pago: ${tipoPago}\n`;
     }
-    
+
     if (mensaje) {
       mensajeWhatsApp += `\n💬 *Mensaje adicional:*\n${mensaje}\n`;
     }
-    
+
     mensajeWhatsApp += `\n¡Gracias por su interés! 🙏`;
-    
+
     const numeroWhatsApp = '51987654321';
     const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensajeWhatsApp)}`;
-    
+
     window.open(urlWhatsApp, '_blank');
     document.querySelector('.modal-compra').remove();
   }
 
   // Inicializar botones de compra
   initializeComprarButtons();
-  
+
   // Reinicializar cuando se cargan terrenos dinámicos
-  document.addEventListener('terrenosCargados', function() {
+  document.addEventListener('terrenosCargados', function () {
     initializeComprarButtons();
   });
 
   // Hacer funciones globales para compatibilidad
-  window.iniciarCompra = function(precio, ubicacion, area) {
+  window.iniciarCompra = function (precio, ubicacion, area) {
     mostrarModalCompra(precio, ubicacion, area);
   };
-  
+
   window.procesarSolicitudCompra = procesarSolicitudCompra;
 });
 

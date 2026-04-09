@@ -1,417 +1,406 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Terrenos</title>
+    <link rel="icon" href="img/U2.png" type="image/png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/button-standardization.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/terrenos.css" />
+    <link rel="stylesheet" href="css/modal-imagen.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Terrenos</title>
-  <link rel="icon" href="img/U2.png" type="image/png" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="css/button-standardization.css" />
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/terrenos.css" />
-  <link rel="stylesheet" href="css/modal-imagen.css">
-</head>
-
-<body>
-  <div id="top"></div>
-  <header>
-    <div class="container">
-      <a href="index.html"><img src="img/logourbaniza2.png" alt="logo" class="logo" /></a>
-      <nav>
-        <ul>
-          <li><a href="index.html">Inicio</a></li>
-          <li><a href="servicios.html">Servicios</a></li>
-          <li><a href="terrenos.html">Terrenos</a></li>
-          <li><a href="nosotros.html">Nosotros</a></li>
-          <li><a href="contacto.html">Contáctanos</a></li>
-          <li><a href="blog.html">Blog</a></li>
-        </ul>
-      </nav>
-      <div class="menu-toggle" id="menuToggle">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
+  <body>
+    <div id="top"></div>
+    <header>
+      <div class="container">
+        <a href="index.html"
+          ><img src="img/logourbaniza2.png" alt="logo" class="logo"
+        /></a>
+        <nav>
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="servicios.html">Servicios</a></li>
+            <li><a href="terrenos.html">Terrenos</a></li>
+            <li><a href="nosotros.html">Nosotros</a></li>
+            <li><a href="contacto.html">Contáctanos</a></li>
+            <li><a href="blog.html">Blog</a></li>
+          </ul>
+        </nav>
+        <div class="menu-toggle" id="menuToggle">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <!-- BUSCADOR DE INMUEBLES -->
-  <section id="buscador" class="buscador-inmuebles reveal">
+    <!-- BUSCADOR DE INMUEBLES -->
+    <section id="buscador" class="buscador-inmuebles reveal">
+      <div class="container">
+        <h1 class="titulo">Venta de departamentos e inmuebles en Perú</h1>
+        <!-- TÍTULO ESTÁNDAR -->
+        <h2 class="section-title">Busca tu inmueble ideal</h2>
 
-    <div class="container"> 
-      <h1 class="titulo">Venta de departamentos e inmuebles en Perú</h1>
-      <!-- TÍTULO ESTÁNDAR -->
-      <h2 class="section-title">
-        Busca tu inmueble ideal
-      </h2>
+        <p class="section-subtitle">
+          Encuentra departamentos, casas o terrenos según tu presupuesto y
+          ubicación.
+        </p>
 
-      <p class="section-subtitle">
-        Encuentra departamentos, casas o terrenos según tu presupuesto y ubicación.
-      </p>
+        <form class="buscador-form" id="form-buscador">
+          <div class="buscador-row">
+            <select id="tipo-inmueble" title="Seleccionar tipo de inmueble">
+              <option value="">TODOS</option>
+              <option value="Departamento">Departamento</option>
+              <option value="Casa">Casa</option>
+              <option value="Terreno">Terreno</option>
+            </select>
 
-      <form class="buscador-form" id="form-buscador">
+            <input
+              type="text"
+              id="texto-busqueda"
+              placeholder="Ingresa Departamento, Provincia, Distrito o Urbanización"
+            />
+          </div>
 
-        <div class="buscador-row">
+          <button type="submit" class="btn-buscar">
+            <i class="fa fa-search"></i>
+            Buscar
+          </button>
+        </form>
+      </div>
+    </section>
 
-          <select id="tipo-inmueble" title="Seleccionar tipo de inmueble">
-            <option value="">TODOS</option>
-            <option value="Departamento">Departamento</option>
-            <option value="Casa">Casa</option>
-            <option value="Terreno">Terreno</option>
-          </select>
+    <!-- TERRENOS DISPONIBLES -->
+    <section id="terrenos-disponibles">
+      <div class="container">
+        <!-- CARD PRINCIPAL -->
+        <div class="terrenos-wrapper reveal">
+          <h2>Terrenos Disponibles</h2>
 
-          <input type="text" id="texto-busqueda"
-            placeholder="Ingresa Departamento, Provincia, Distrito o Urbanización" />
+          <p class="section-subtitle">
+            ¡No dejes pasar la oportunidad! Asegura el patrimonio de tu familia
+            con precios de preventa y ubicación privilegiada. 🔑
+          </p>
 
-        </div>
-
-        <div class="precio-group">
-
-          <select id="moneda" title="Seleccionar moneda">
-            <option value="S/">S/</option>
-            <option value="US$">US$</option>
-          </select>
-
-          <input type="text" id="precio-desde" placeholder="Precio desde" />
-          <input type="text" id="precio-hasta" placeholder="Precio hasta" />
-
-          <label>
-            <input type="checkbox" id="retirar-precio" />
-            Retirar precio
-          </label>
-
-        </div>
-
-        <button type="submit" class="btn-buscar">
-          <i class="fa fa-search"></i>
-          Buscar
-        </button>
-
-      </form>
-
-    </div>
-
-  </section>
-
-  
-  <!-- TERRENOS DISPONIBLES - TERRENOS -->
-      <section id="terrenos-disponibles">
-
-        <div class="container">
-
-          <!-- CARD PRINCIPAL -->
-          <div class="terrenos-wrapper reveal">
-
-            <h2>Terrenos Disponibles</h2>
-
-            <p class="section-subtitle">
-              ¡No dejes pasar la oportunidad! Asegura el patrimonio de tu familia
-              con precios de preventa y ubicación privilegiada. 🔑
-            </p>
-
-            <!-- GALERIA -->
-            <div class="galeria">
-
-              <!-- CARD 1 -->
-              <div class="card" data-tipo="Terreno" data-ubicacion="Chancay" data-precio="95000" data-moneda="S/">
-
-                <div class="img-container">
-                  <img src="img/chancay1.webp" alt="Terreno en Chancay" loading="lazy" decoding="async" width="400"
-                    height="220" />
-                </div>
-
-                <div class="linea-decorativa"></div>
-
-                <h3>Chancay</h3>
-
-                <p>180 m².</p>
-                <p>Excelente ubicación cerca del centro.</p>
-                <p>Documentos en regla.</p>
-
-                <p class="precio">Consultar</p>
-
-                <div class="card-actions">
-
-                  <button class="btn-comprar" data-ubicacion="Chancay" data-precio="95000" data-area="180 m²"
-                    data-terreno-id="6">
-
-                    <i class="fas fa-shopping-cart"></i>
-                    Comprar
-
-                  </button>
-
-                  <a href="https://www.google.com/maps/dir/?api=1&destination=-11.5717,-77.2670" target="_blank"
-                    class="btn-ubicacion">
-
-                    <i class="fas fa-map-marker-alt"></i>
-                    Ver ubicación
-
-                  </a>
-
-                </div>
-
+          <!-- GALERIA -->
+          <div class="galeria">
+            <!-- CARD 1 -->
+            <div
+              class="card"
+              data-tipo="Terreno"
+              data-ubicacion="Chancay Lima Peru"
+            >
+              <div class="img-container">
+                <img src="img/chancay1.webp" alt="Terreno en Chancay" />
               </div>
 
-              <!-- CARD 2 -->
-              <div class="card" data-tipo="Terreno" data-ubicacion="Végueta" data-precio="85000" data-moneda="S/">
+              <div class="linea-decorativa"></div>
 
-                <div class="img-container">
-                  <img src="img/vegueta.jpg" alt="Terreno en Végueta" loading="lazy" decoding="async" width="400"
-                    height="220" />
-                </div>
+              <h3>Chancay</h3>
+              <p>180 m².</p>
+              <p>Excelente ubicación cerca del centro.</p>
+              <p>Documentos en regla.</p>
 
-                <div class="linea-decorativa"></div>
+              <p class="precio">Consultar</p>
 
-                <h3>Végueta</h3>
+              <div class="card-actions">
+                <button
+                  class="btn-comprar"
+                  data-ubicacion="Chancay"
+                  data-area="180 m²"
+                >
+                  <i class="fas fa-shopping-cart"></i> Comprar
+                </button>
 
-                <p>220 m².</p>
-                <p>Zona tranquila y en crecimiento.</p>
-                <p>Perfecto para inversión.</p>
-
-                <p class="precio">Consultar</p>
-
-                <div class="card-actions">
-
-                  <button class="btn-comprar" data-ubicacion="Végueta" data-precio="85000" data-area="220 m²"
-                    data-terreno-id="7">
-
-                    <i class="fas fa-shopping-cart"></i>
-                    Comprar
-
-                  </button>
-
-                  <a href="https://www.google.com/maps/dir/?api=1&destination=-11.0283,-77.6465" target="_blank"
-                    class="btn-ubicacion">
-
-                    <i class="fas fa-map-marker-alt"></i>
-                    Ver ubicación
-
-                  </a>
-
-                </div>
-
+                <a
+                  href="#"
+                  class="btn-ubicacion"
+                  data-destino="-11.5552648,-77.2746358"
+                >
+                  <i class="fas fa-map-marker-alt"></i> Ver ubicación
+                </a>
               </div>
-
-              <!-- CARD 3 -->
-              <div class="card" data-tipo="Departamento" data-ubicacion="Vaya" data-precio="0" data-moneda="S/">
-
-                <div class="img-container">
-                  <img src="img/huacho.webp" alt="Departamento en Huacho" loading="lazy" decoding="async" width="400"
-                    height="220" />
-                </div>
-
-                <div class="linea-decorativa"></div>
-
-                <h3>Huacho</h3>
-
-                <p>120 m² – 3er piso.</p>
-                <p>Costado a parque infantil.</p>
-                <p>Cerca a Tottus y Poder Judicial.</p>
-
-                <p class="precio">Consultar</p>
-
-                <div class="card-actions">
-
-                  <button class="btn-comprar" data-ubicacion="Vaya" data-precio="0" data-area="120 m²"
-                    data-terreno-id="8">
-
-                    <i class="fas fa-shopping-cart"></i>
-                    Consultar
-
-                  </button>
-
-                  <a href="https://www.google.com/maps/dir/?api=1&origin=My+Location&destination=-11.1088904495936,-77.60287508220146&travelmode=driving"
-                    target="_blank" class="btn-ubicacion">
-
-                    <i class="fas fa-map-marker-alt"></i>
-                    Ver ubicación
-
-                  </a>
-
-                </div>
-
-              </div>
-
             </div>
 
+            <!-- CARD 2 -->
+            <div
+              class="card"
+              data-tipo="Terreno"
+              data-ubicacion="Vegueta Huaura Lima Peru"
+            >
+              <div class="img-container">
+                <img src="img/vegueta.jpg" alt="Terreno en Vegueta" />
+              </div>
+
+              <div class="linea-decorativa"></div>
+
+              <h3>Vegueta</h3>
+              <p>220 m².</p>
+              <p>Zona tranquila y en crecimiento.</p>
+              <p>Perfecto para inversión.</p>
+
+              <p class="precio">Consultar</p>
+
+              <div class="card-actions">
+                <button
+                  class="btn-comprar"
+                  data-ubicacion="Vegueta"
+                  data-area="220 m²"
+                >
+                  <i class="fas fa-shopping-cart"></i> Comprar
+                </button>
+
+                <a
+                  href="#"
+                  class="btn-ubicacion"
+                  data-destino="-10.994598,-77.6302965"
+                >
+                  <i class="fas fa-map-marker-alt"></i> Ver ubicación
+                </a>
+              </div>
+            </div>
+
+            <!-- CARD 3 -->
+            <div
+              class="card"
+              data-tipo="Departamento"
+              data-ubicacion="Huacho Lima Peru"
+            >
+              <div class="img-container">
+                <img src="img/huacho.webp" alt="Departamento en Huacho" />
+              </div>
+
+              <div class="linea-decorativa"></div>
+
+              <h3>Huacho</h3>
+              <p>120 m² – 3er piso.</p>
+              <p>Costado a parque infantil.</p>
+              <p>Cerca a Tottus y Poder Judicial.</p>
+
+              <p class="precio">Consultar</p>
+
+              <div class="card-actions">
+                <button
+                  class="btn-comprar"
+                  data-ubicacion="Huacho"
+                  data-area="120 m²"
+                >
+                  <i class="fas fa-shopping-cart"></i> Consultar
+                </button>
+
+                <a
+                  href="#"
+                  class="btn-ubicacion"
+                  data-destino="-11.1091326,-77.6029019"
+                >
+                  <i class="fas fa-map-marker-alt"></i> Ver ubicación
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- FIN GALERIA -->
+
+          <!--  CHORRILLOS  -->
+          <div id="chorrillos" class="section reveal">
+            <div
+              class="cardd"
+              data-tipo="Terreno"
+              data-ubicacion="Chorrillos Lima Peru"
+            >
+              <div class="carrusel-chorrillos">
+                <div class="carrusel-container">
+                  <div class="carrusel-slide active">
+                    <img src="img/chorrillos1.jpeg" />
+                  </div>
+                  <div class="carrusel-slide">
+                    <img src="img/chorrillos2.jpeg" />
+                  </div>
+                  <div class="carrusel-slide">
+                    <img src="img/chorrillos3.jpeg" />
+                  </div>
+                  <div class="carrusel-slide">
+                    <img src="img/chorrillos4.jpeg" />
+                  </div>
+                  <div class="carrusel-slide">
+                    <img src="img/chorrillos5.jpeg" />
+                  </div>
+                </div>
+
+                <div class="carrusel-indicadores">
+                  <span class="indicador active"></span>
+                  <span class="indicador"></span>
+                  <span class="indicador"></span>
+                  <span class="indicador"></span>
+                  <span class="indicador"></span>
+                </div>
+              </div>
+
+              <div class="texto">
+                <h2>CHORRILLOS</h2>
+                <p class="descripcion">
+                  Terreno de 120 m² en Chorrillos, ubicado en una zona
+                  residencial tranquila y en crecimiento.
+                </p>
+
+                <p class="descripcion">
+                  Ideal para construir tu hogar o como inversión. Cuenta con
+                  todos los servicios básicos: agua, luz y desagüe.
+                </p>
+
+                <p class="descripcion">
+                  Fácil acceso al transporte público y cerca de centros
+                  comerciales, colegios y hospitales. Documentación en regla y
+                  listo para escriturar.
+                </p>
+
+                <div class="card-actions">
+                  <button
+                    class="btn-comprar"
+                    data-ubicacion="Vegueta"
+                    data-area="220 m²"
+                  >
+                    <i class="fas fa-shopping-cart"></i> Comprar
+                  </button>
+
+                  <a
+                    href="#"
+                    class="btn-ubicacion"
+                    data-destino="-12.159719,-76.989647"
+                  >
+                    Ver ubicación
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
 
-        </div>
+          <!--  SURCO  -->
+          <div id="surco" class="section reveal">
+            <div
+              class="cardd"
+              data-tipo="Departamento"
+              data-ubicacion="Santiago de Surco Lima Peru"
+            >
+              <div class="carrusel-chorrillos">
+                <div class="carrusel-container">
+                  <div class="carrusel-slide active">
+                    <img src="img/alquila.jpeg" />
+                  </div>
+                  <div class="carrusel-slide">
+                    <img src="img/ubicada.jpeg" />
+                  </div>
+                  <div class="carrusel-slide">
+                    <img src="img/habitacion 2.jpeg" />
+                  </div>
+                  <div class="carrusel-slide">
+                    <img src="img/baño prin.jpeg" />
+                  </div>
+                </div>
 
-      </section>
+                <div class="carrusel-indicadores">
+                  <span class="indicador active"></span>
+                  <span class="indicador"></span>
+                  <span class="indicador"></span>
+                  <span class="indicador"></span>
+                </div>
+              </div>
 
-  <!-- CARRUSEL 1 -->
-  <div id="chorrillos" class="section reveal">
-    <div class="cardd">
-      <div class="carrusel-chorrillos">
-        <div class="carrusel-container">
-          <div class="carrusel-slide active">
-            <img src="img/chorrillos1.jpeg" alt="Chorrillos" class="imagen" />
-          </div>
-          <div class="carrusel-slide">
-            <img src="img/chorrillos2.jpeg" alt="Chorrillos 2" class="imagen" />
-          </div>
-          <div class="carrusel-slide">
-            <img src="img/chorrillos3.jpeg" alt="Chorrillos 3" class="imagen" />
-          </div>
-          <div class="carrusel-slide">
-            <img src="img/chorrillos4.jpeg" alt="Chorrillos 4" class="imagen" />
-          </div>
-          <div class="carrusel-slide">
-            <img src="img/chorrillos5.jpeg" alt="Chorrillos 5" class="imagen" />
-          </div>
-        </div>
+              <div class="texto">
+                <h2>SANTIAGO DE SURCO</h2>
 
-        <div class="carrusel-indicadores">
-          <span class="indicador active"></span>
-          <span class="indicador"></span>
-          <span class="indicador"></span>
-          <span class="indicador"></span>
-          <span class="indicador"></span>
+                <p class="descripcion">
+                  Ubicado a una cuadra de Tottus y entidades bancarias.
+                  Departamento en primer piso, ideal para vivir o invertir.
+                </p>
+
+                <ul class="caracteristicas">
+                  <li>Sala comedor con tragaluz</li>
+                  <li>Lavandería</li>
+                  <li>2 habitaciones con closet</li>
+                  <li>Baño principal</li>
+                  <li>Baño de visita</li>
+                </ul>
+
+                <div class="card-actions">
+                  <button class="btn-comprar">
+                    <i class="fas fa-shopping-cart"></i> Comprar
+                  </button>
+
+                  <a href="#" class="btn-ubicacion disabled"> Próximamente </a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+    </section>
+
+    <div id="modal" class="modal">
+      <span class="cerrar">&times;</span>
+      <img class="modal-contenido" id="img-ampliada" />
+      <div id="caption"></div>
     </div>
+    <a class="scrollToHome scroll-to-home-visible" href="#top">
+      <i class="fa fa-angle-up"></i>
+    </a>
 
-    <div class="texto">
-      <h2>CHORRILLOS</h2>
-      <p>
-        Terreno de 120 m2 en Chorrillos, ubicado en una zona residencial
-        tranquila y en crecimiento. Ideal para construir tu hogar o como
-        inversión. Cuenta con todos los servicios básicos: agua, luz y
-        desagüe. Fácil acceso al transporte público y cerca de centros
-        comerciales, colegios y hospitales. Documentación en regla y listo
-        para escriturar. ¡Una excelente oportunidad para hacer realidad tu
-        proyecto inmobiliario!
-      </p>
-      <!-- AUN NO ESTA L AUBI ORIGINAL -->
-      <div class="botones">
-        <a href="contacto.html" class="btn-principal">
-          Cotizar ahora
+    <footer>
+      <p>&copy; 2025 Urbaniza2 Inmobiliaria - Todos los derechos reservados</p>
+
+      <div class="redes-sociales">
+        <a
+          href="https://www.facebook.com/urbaniza2inmobiliaria?mibextid=ZbWKwL"
+          target="_blank"
+          title="Facebook"
+        >
+          <i class="fab fa-facebook-f"></i>
         </a>
-
-        <a href="https://www.google.com/maps/dir/?api=1&destination=-12.1785,-77.0196" target="_blank"
-          class="btn-ubicacion">
-
-          <span class="icon">📍</span>
-          Ver ubicación y tiempo de llegada
-
+        <a
+          href="https://www.tiktok.com/@urbaniza2inmobiliaria?_t=ZM-8y3GdIXEmca&_r=1"
+          target="_blank"
+          title="TikTok"
+        >
+          <i class="fab fa-tiktok"></i>
         </a>
-      </div>
-
-      <!--     -->
-    </div>
-
-  </div>
-  <!--                               -->
-
-  <!-- CARRUSEL 2 -->
-  <div id="surco" class="section reveal">
-    <div class="cardd">
-      <div class="carrusel-chorrillos">
-        <div class="carrusel-container">
-          <div class="carrusel-slide active">
-            <img src="img/alquila.jpeg" alt="Alquila" class="imagen" />
-          </div>
-          <div class="carrusel-slide">
-            <img src="img/ubicada.jpeg" alt="Ubicada" class="imagen" />
-          </div>
-          <div class="carrusel-slide">
-            <img src="img/habitacion 2.jpeg" alt="Habitación 2" class="imagen" />
-          </div>
-          <div class="carrusel-slide">
-            <img src="img/baño prin.jpeg" alt="Baño Principal" class="imagen" />
-          </div>
-          <div class="carrusel-slide">
-            <img src="img/baño de visita.jpeg" alt="Baño de Visita" class="imagen" />
-          </div>
-          <div class="carrusel-slide">
-            <img src="img/habitacion 1.jpeg" alt="Habitación 1" class="imagen" />
-          </div>
-          <div class="carrusel-slide">
-            <img src="img/lavanderia.jpeg" alt="Lavandería" class="imagen" />
-          </div>
-          <div class="carrusel-slide">
-            <img src="img/informes.jpeg" alt="Informes" class="imagen" />
-          </div>
-        </div>
-
-        <div class="carrusel-indicadores">
-          <span class="indicador active"></span>
-          <span class="indicador"></span>
-          <span class="indicador"></span>
-          <span class="indicador"></span>
-          <span class="indicador"></span>
-          <span class="indicador"></span>
-          <span class="indicador"></span>
-        </div>
-      </div>
-    </div>
-
-    <div class="texto" id="surco">
-      <h2>CALLE OCUCAJE SANTIAGO DE SURCO</h2>
-      <p>
-        Esta ubicado a una cuadra de Tottus y entidades bancarias<br />
-        Departamento en primer piso<br /><br />
-        Cuenta con:<br />
-        • Sala comedor y tragaluz<br />
-        • Lavandería<br />
-        • 2 Habitaciones con closet<br />
-        • Baño principal<br />
-        • Baño de visita
-      </p>
-      <!--UBICACION ORIGINAL-->
-      <div class="botones">
-        <a href="contacto.html" class="btn-principal">
-          Cotizar ahora
-        </a>
-
-        <a href="https://www.google.com/maps/dir/?api=1&destination=-12.159472528923171,-76.98963627116467"
-          target="_blank" class="btn-ubicacion">
-
-          <span class="icon">📍</span>
-          Ver ubicación y tiempo de llegada
-
+        <a
+          href="https://www.instagram.com/urbaniza2.inm?igsh=MWNrbHF0dG0yd2s1cg=="
+          target="_blank"
+          title="instagram"
+        >
+          <i class="fab fa-instagram"></i>
         </a>
       </div>
-    </div>
-  </div>
-
-  <!--           -->
-
-  <div id="modal" class="modal">
-    <span class="cerrar">&times;</span>
-    <img class="modal-contenido" id="img-ampliada" />
-    <div id="caption"></div>
-  </div>
-  <a class="scrollToHome scroll-to-home-visible" href="#top">
-    <i class="fa fa-angle-up"></i>
-  </a>
-
-  <footer>
-    <p>&copy; 2025 Urbaniza2 Inmobiliaria - Todos los derechos reservados</p>
-
-    <div class="redes-sociales">
-      <a href="https://www.facebook.com/urbaniza2inmobiliaria?mibextid=ZbWKwL" target="_blank" title="Facebook">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-      <a href="https://www.tiktok.com/@urbaniza2inmobiliaria?_t=ZM-8y3GdIXEmca&_r=1" target="_blank" title="TikTok">
-        <i class="fab fa-tiktok"></i>
-      </a>
-      <a href="https://www.instagram.com/urbaniza2.inm?igsh=MWNrbHF0dG0yd2s1cg==" target="_blank" title="instagram">
-        <i class="fab fa-instagram"></i>
-      </a>
-    </div>
-  </footer>
-  <a href="https://wa.me/51982664102" class="whatsapp-float" target="_blank" title="Chatea con nosotros por WhatsApp">
-    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#fff" viewBox="0 0 24 24">
-      <path
-        d="M12.004 2.002C6.475 2.002 2 6.477 2 12.007c0 1.994.522 3.853 1.516 5.513L2 22l4.605-1.505A9.944 9.944 0 0012.004 22c5.528 0 10.002-4.475 10.002-9.993 0-5.53-4.474-10.005-10.002-10.005zm.007 18.002c-1.612 0-3.185-.437-4.564-1.263l-.328-.195-2.733.893.9-2.66-.212-.34a7.935 7.935 0 01-1.2-4.177c0-4.415 3.59-8.006 8.004-8.006 4.415 0 8.004 3.59 8.004 8.006 0 4.413-3.59 7.992-8.004 7.992zm4.507-5.994c-.246-.123-1.457-.72-1.683-.8-.226-.08-.392-.123-.558.124-.165.246-.64.8-.785.965-.145.165-.29.185-.536.062-.246-.123-1.04-.383-1.98-1.22-.732-.652-1.226-1.46-1.37-1.705-.145-.247-.015-.38.109-.502.112-.111.246-.29.37-.435.124-.144.165-.247.248-.412.083-.165.042-.31-.02-.435-.062-.123-.558-1.35-.764-1.845-.202-.485-.407-.42-.558-.427-.145-.006-.31-.007-.476-.007-.165 0-.435.062-.663.31-.227.248-.866.845-.866 2.06 0 1.215.886 2.39 1.008 2.554.124.165 1.742 2.658 4.225 3.724.59.254 1.05.405 1.408.519.592.188 1.132.162 1.56.098.476-.07 1.457-.595 1.663-1.173.205-.577.205-1.07.145-1.173-.062-.104-.227-.165-.476-.288z" />
-    </svg>
-  </a>
-  <script src="js/main.js" defer></script>
-  <script src="js/terreno.js" defer></script>
-</body>
-
+    </footer>
+    <a
+      href="https://wa.me/51982664102"
+      class="whatsapp-float"
+      target="_blank"
+      title="Chatea con nosotros por WhatsApp"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="30"
+        height="30"
+        fill="#fff"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M12.004 2.002C6.475 2.002 2 6.477 2 12.007c0 1.994.522 3.853 1.516 5.513L2 22l4.605-1.505A9.944 9.944 0 0012.004 22c5.528 0 10.002-4.475 10.002-9.993 0-5.53-4.474-10.005-10.002-10.005zm.007 18.002c-1.612 0-3.185-.437-4.564-1.263l-.328-.195-2.733.893.9-2.66-.212-.34a7.935 7.935 0 01-1.2-4.177c0-4.415 3.59-8.006 8.004-8.006 4.415 0 8.004 3.59 8.004 8.006 0 4.413-3.59 7.992-8.004 7.992zm4.507-5.994c-.246-.123-1.457-.72-1.683-.8-.226-.08-.392-.123-.558.124-.165.246-.64.8-.785.965-.145.165-.29.185-.536.062-.246-.123-1.04-.383-1.98-1.22-.732-.652-1.226-1.46-1.37-1.705-.145-.247-.015-.38.109-.502.112-.111.246-.29.37-.435.124-.144.165-.247.248-.412.083-.165.042-.31-.02-.435-.062-.123-.558-1.35-.764-1.845-.202-.485-.407-.42-.558-.427-.145-.006-.31-.007-.476-.007-.165 0-.435.062-.663.31-.227.248-.866.845-.866 2.06 0 1.215.886 2.39 1.008 2.554.124.165 1.742 2.658 4.225 3.724.59.254 1.05.405 1.408.519.592.188 1.132.162 1.56.098.476-.07 1.457-.595 1.663-1.173.205-.577.205-1.07.145-1.173-.062-.104-.227-.165-.476-.288z"
+        />
+      </svg>
+    </a>
+    <script src="js/main.js" defer></script>
+    <script src="js/terreno.js" defer></script>
+    <script src="js/ubicacion.js"></script>
+  </body>
 </html>
