@@ -1,5 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-
+/* =============================================
+   VARIABLES GLOBALES Y RESET
+============================================= */
 :root {
   --primary: #fb9f2ee2;
   --primary-orange: rgba(249, 145, 9, 0.9);
@@ -34,7 +35,7 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-html{
+html {
   scroll-behavior: smooth;
 }
 
@@ -45,7 +46,207 @@ html{
 }
 
 
-/* SECCIÓN DE TESTIMONIOS */
+/* =============================================
+   HEADER — responsive
+============================================= */
+@media (max-width: 768px) {
+  header .container {
+    justify-content: space-between;
+  }
+}
+
+
+/* =============================================
+   SECCIÓN CONTACTO (wrapper principal)
+============================================= */
+@media (max-width: 768px) {
+  .contacto-section {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+}
+
+
+/* =============================================
+   CABECERA DE CONTACTO (título + subtítulo)
+============================================= */
+.contacto-header {
+  margin-top: 0;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.contacto-header h1 {
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.2;
+  color: rgba(240, 161, 58, 0.679);
+  margin: 0;
+}
+
+.contacto-subtitle {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  text-align: center;
+  color: #555;
+}
+
+
+/* =============================================
+   CARDS DE INFORMACIÓN DE CONTACTO
+============================================= */
+.contacto-info {
+  margin: 40px auto;
+  max-width: 1200px;
+  padding: 0 20px;
+}
+
+.contacto-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+}
+
+.contacto-card {
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border-top: 4px solid;
+}
+
+.contacto-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Colores por tipo de card */
+.whatsapp-card  { border-top-color: var(--whatsapp); }
+.whatsapp-card:hover { box-shadow: var(--shadow-green); }
+
+.email-card     { border-top-color: var(--email-blue); }
+.email-card:hover { box-shadow: var(--shadow-blue); }
+
+.ubicacion-card { border-top-color: var(--map-red); }
+.ubicacion-card:hover { box-shadow: var(--shadow-red); }
+
+/* Icono */
+.card-icon {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.whatsapp-card  .card-icon i { font-size: 3rem; color: var(--whatsapp); }
+.email-card     .card-icon i { font-size: 3rem; color: var(--email-blue); }
+.ubicacion-card .card-icon i { font-size: 3rem; color: var(--map-red); }
+
+/* Contenido */
+.card-content h3 {
+  font-size: clamp(1.3rem, 2.5vw, 1.6rem);
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.contact-detail {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--dark);
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.contact-status {
+  font-size: 0.9rem;
+  color: #6c757d;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Acciones (botones dentro de cada card) */
+.card-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.whatsapp-card .card-actions,
+.email-card    .card-actions {
+  margin-top: 50px;
+}
+
+.btn-contact-primary {
+  background: linear-gradient(135deg, var(--primary), var(--primary-orange));
+  color: white;
+  text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 999px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.whatsapp-card  .btn-contact-primary { background: linear-gradient(135deg, var(--whatsapp),    var(--whatsapp-dark)); }
+.email-card     .btn-contact-primary { background: linear-gradient(135deg, var(--email-blue),   var(--email-blue-dark)); }
+.ubicacion-card .btn-contact-primary { background: linear-gradient(135deg, var(--map-red),      var(--map-red-dark)); }
+
+.btn-contact-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-contact-secondary {
+  background: #f8f9fa;
+  color: var(--dark);
+  border: 2px solid #e9ecef;
+  padding: 12px 20px;
+  border-radius: 999px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-contact-secondary:hover {
+  background: white;
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+/* Cards — responsive */
+@media (max-width: 768px) {
+  .btn-contact-primary,
+  .btn-contact-secondary {
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-icon i {
+    font-size: 2.5rem !important;
+  }
+
+  .contact-detail {
+    font-size: 1.1rem;
+  }
+}
+
+
+/* =============================================
+   TESTIMONIOS
+============================================= */
 .testimonios-section {
   background: white;
   border-radius: 20px;
@@ -56,9 +257,9 @@ html{
 }
 
 .testimonios-section h3 {
-  text-align: center;
   font-size: clamp(1.3rem, 2.5vw, 1.6rem);
   font-weight: 600;
+  text-align: center;
   color: var(--dark);
   margin-bottom: 30px;
   display: flex;
@@ -119,165 +320,10 @@ html{
   margin-right: 2px;
 }
 
-/* INFORMACIÓN DE CONTACTO */
-.contacto-info {
-  margin: 40px auto;
-  max-width: 1200px;
-  padding: 0 20px;
-}
 
-.contacto-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 30px;
-}
-
-.contacto-card {
-  background: white;
-  border-radius: 20px;
-  padding: 30px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  border-top: 4px solid;
-}
-
-.contacto-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-}
-
-.whatsapp-card {
-  border-top-color: var(--whatsapp);
-}
-
-.whatsapp-card:hover {
-  box-shadow: var(--shadow-green);
-}
-
-.email-card {
-  border-top-color: var(--email-blue);
-}
-
-.email-card:hover {
-  box-shadow: var(--shadow-blue);
-}
-
-.ubicacion-card {
-  border-top-color: var(--map-red);
-}
-
-.ubicacion-card:hover {
-  box-shadow: var(--shadow-red);
-}
-
-.card-icon {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.whatsapp-card .card-icon i {
-  font-size: 3rem;
-  color: var(--whatsapp);
-}
-
-.email-card .card-icon i {
-  font-size: 3rem;
-  color: var(--email-blue);
-}
-
-.ubicacion-card .card-icon i {
-  font-size: 3rem;
-  color: var(--map-red);
-}
-
-.card-content h3 {
-  font-size: 1.5rem;
-  color: var(--dark);
-  margin-bottom: 15px;
-  text-align: center;
-  font-weight: 600;
-}
-
-.contact-detail {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: var(--dark);
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-.contact-status {
-  font-size: 0.9rem;
-  color: #6c757d;
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.card-actions {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.btn-contact-primary {
-  background: linear-gradient(135deg, var(--primary), var(--primary-orange));
-  color: white;
-  text-decoration: none;
-  padding: 12px 20px;
-  border-radius: 10px;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  transition: all 0.3s ease;
-  border: none;
-  cursor: pointer;
-  border-radius: 999px;
-}
-
-.whatsapp-card .btn-contact-primary {
-  background: linear-gradient(135deg, var(--whatsapp), var(--whatsapp-dark));
-}
-
-.email-card .btn-contact-primary {
-  background: linear-gradient(
-    135deg,
-    var(--email-blue),
-    var(--email-blue-dark)
-  );
-}
-
-.ubicacion-card .btn-contact-primary {
-  background: linear-gradient(135deg, var(--map-red), var(--map-red-dark));
-}
-
-.btn-contact-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-.btn-contact-secondary {
-  background: #f8f9fa;
-  color: var(--dark);
-  border: 2px solid #e9ecef;
-  padding: 12px 20px;
-  border-radius: 999px;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-.btn-contact-secondary:hover {
-  background: white;
-  border-color: var(--primary);
-  color: var(--primary);
-}
-
-/* FORMULARIO DE CONTACTO */
+/* =============================================
+   SECCIÓN FORMULARIO (CTA con imagen)
+============================================= */
 .formulario-contacto-section {
   background: #ffffff;
   border-radius: 30px;
@@ -286,25 +332,16 @@ html{
   max-width: 1000px;
   box-shadow: 0 35px 90px rgba(0, 0, 0, 0.15);
   text-align: center;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
   min-height: 300px;
   position: relative;
   overflow: hidden;
-
   animation: fadeUp 0.9s ease forwards;
   opacity: 0;
   transform: translateY(40px);
-}
-
-
-.formulario-contacto-section::before,
-.formulario-contacto-section::after {
-  display: none;
 }
 
 .formulario-contacto-section * {
@@ -312,34 +349,26 @@ html{
   z-index: 1;
 }
 
-/* IMAGEN MODERNA */
 .imagen-formulario {
   width: 420px;
   max-width: 100%;
   margin-bottom: 40px;
-
   border-radius: 20px;
   overflow: hidden;
-
   background: #fff;
   border: 1px solid rgba(0, 0, 0, 0.05);
-
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
-
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-/* SI USAS IMG DENTRO */
 .imagen-formulario img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-
   transition: transform 0.6s ease;
 }
 
-/* HOVER SUAVE */
 .imagen-formulario:hover {
   transform: translateY(-6px);
   box-shadow: 0 30px 70px rgba(0, 0, 0, 0.18);
@@ -348,16 +377,6 @@ html{
 .imagen-formulario:hover img {
   transform: scale(1.05);
 }
-
-/* ANIMACIÓN */
-@keyframes fadeUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* TITULO  */
 
 .formulario-contacto-section h3 {
   font-size: clamp(1.3rem, 2.5vw, 1.6rem);
@@ -374,17 +393,11 @@ html{
   color: var(--primary);
 }
 
-
-/* SUBTITULO */
-
 .form-subtitle {
   color: #555;
   margin-bottom: 40px;
   font-size: 1.15rem;
 }
-
-
-/* BOTÓN  */
 
 .boton-correo {
   background: linear-gradient(135deg, var(--primary), var(--primary-orange));
@@ -395,11 +408,9 @@ html{
   font-size: 1.15rem;
   font-weight: 700;
   cursor: pointer;
-
   display: inline-flex;
   align-items: center;
   gap: 12px;
-
   transition: all 0.3s ease;
   box-shadow: 0 15px 40px rgba(249, 145, 9, 0.35);
 }
@@ -409,7 +420,14 @@ html{
   box-shadow: 0 20px 55px rgba(249, 145, 9, 0.45);
 }
 
-/* RESPONSIVE */
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Formulario CTA — responsive */
 @media (max-width: 768px) {
   .formulario-contacto-section {
     padding: 60px 30px;
@@ -419,7 +437,11 @@ html{
     width: 300px;
   }
 }
-/* MODAL */
+
+
+/* =============================================
+   MODAL FORMULARIO MULTI-PASO
+============================================= */
 .modal-enhanced {
   display: none;
   position: fixed;
@@ -438,6 +460,10 @@ html{
 
 .modal-enhanced:not(.oculto) {
   display: flex;
+}
+
+.modal-visible {
+  display: flex !important;
 }
 
 .modal-content-enhanced {
@@ -481,7 +507,7 @@ html{
   color: #f8f9fa;
 }
 
-/* INDICADOR DE PROGRESO */
+/* Indicador de progreso */
 .progress-indicator {
   display: flex;
   justify-content: center;
@@ -546,7 +572,7 @@ html{
   font-weight: 600;
 }
 
-/* FORMULARIO PASOS */
+/* Pasos del formulario */
 .form-step {
   display: none;
   padding: 30px;
@@ -557,13 +583,14 @@ html{
 }
 
 .form-step h3 {
-  color: var(--dark);
-  margin-bottom: 25px;
   font-size: clamp(1.3rem, 2.5vw, 1.6rem);
   font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 25px;
   text-align: center;
 }
 
+/* Campos del formulario */
 .form-group {
   margin-bottom: 20px;
 }
@@ -611,228 +638,13 @@ html{
   margin-top: 5px;
 }
 
-/* NAVEGACIÓN DEL FORMULARIO */
-.form-navigation {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px 30px;
-  background: #f8f9fa;
-  border-radius: 0 0 20px 20px;
-}
+.validation-message.success { color: #27ae60; font-weight: 500; }
+.validation-message.error   { color: #e74c3c; font-weight: 500; }
 
-.btn-nav {
-  padding: 12px 25px;
-  border: none;
-  border-radius: 10px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
+input.valid,   select.valid,   textarea.valid   { border-color: #27ae60; box-shadow: 0 0 0 2px rgba(39, 174, 96, 0.1); }
+input.invalid, select.invalid, textarea.invalid { border-color: #e74c3c; box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.1); }
 
-.btn-nav-hidden {
-  visibility: hidden;
-}
-
-.btn-primary {
-  background: linear-gradient(135deg, var(--primary), var(--primary-orange));
-  color: white;
-}
-
-.btn-secondary {
-  background: #6c757d;
-  color: white;
-}
-
-.btn-success {
-  background: linear-gradient(135deg, #28a745, #20c997);
-  color: white;
-}
-
-.btn-nav:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-/* SCROLL TO HOME */
-.scrollToHome {
-  border-radius: 20px;
-  background: linear-gradient(135deg, #f49d32, #ff6b35);
-  bottom: 20px;
-  color: #ffffff;
-  display: none;
-  font-size: 20px;
-  height: 55px;
-  line-height: 55px;
-  padding: 0;
-  position: fixed;
-  right: 20px;
-  text-align: center;
-  width: 55px;
-  z-index: 99999;
-  box-shadow: 0 8px 25px rgba(244, 157, 50, 0.4);
-  border: none;
-  cursor: pointer;
-  font-family: "Poppins", sans-serif;
-  transition: all 0.3s ease-in-out;
-}
-
-.scrollToHome:hover {
-  transform: translateY(-3px) scale(1.05);
-  background: linear-gradient(135deg, #ff6b35, #e8890b);
-  box-shadow: 0 12px 35px rgba(244, 157, 50, 0.6);
-  color: #ffffff;
-}
-
-.scrollToHome:active {
-  transform: translateY(-1px) scale(1.02);
-  transition: all 0.1s ease;
-}
-
-/* WHATSAPP FLOAT */
-.whatsapp-float {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  z-index: 100;
-  width: 60px;
-  height: 60px;
-  background-color: #25d366;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease;
-  text-decoration: none;
-  color: white;
-  font-size: 24px;
-}
-
-.whatsapp-float:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
-}
-
-/* FOOTER */
-footer {
-  background: var(--dark);
-  color: white;
-  text-align: center;
-  padding: 20px 0;
-  margin-top: 40px;
-}
-
-footer p {
-  margin: 0 0 15px 0;
-  font-size: 1rem;
-  font-weight: 400;
-}
-
-.redes-sociales {
-  margin-top: 15px;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
-
-.redes-sociales a {
-  color: white;
-  font-size: 24px;
-  transition: all 0.3s ease;
-  text-decoration: none;
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.1);
-  border: 2px solid transparent;
-}
-
-.redes-sociales a:hover {
-  color: var(--primary);
-  background: rgba(251, 159, 46, 0.1);
-  border-color: var(--primary);
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(251, 159, 46, 0.3);
-}
-
-@media (max-width: 480px) {
-  .stat-number {
-    font-size: 2.2rem;
-  }
-
-  .stat-label {
-    font-size: 1rem;
-  }
-
-  .cert-item {
-    flex-direction: column;
-    text-align: center;
-    gap: 10px;
-  }
-
-  .card-icon i {
-    font-size: 2.5rem !important;
-  }
-
-  .contact-detail {
-    font-size: 1.1rem;
-  }
-
-  .scrollToHome {
-    width: 45px;
-    height: 45px;
-    font-size: 16px;
-    line-height: 45px;
-    border-radius: 15px;
-    bottom: 15px;
-    right: 15px;
-  }
-
-  /* Footer responsivo */
-  footer {
-    padding: 25px 15px;
-  }
-
-  footer p {
-    font-size: 0.9rem;
-    margin-bottom: 20px;
-  }
-
-  .redes-sociales {
-    gap: 15px;
-  }
-
-  .redes-sociales a {
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
-  }
-
-  .whatsapp-float {
-    width: 55px;
-    height: 55px;
-    font-size: 22px;
-    bottom: 15px;
-    left: 15px;
-  }
-
-  .progress-indicator {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .step:not(:last-child)::after {
-    display: none;
-  }
-}
-
-/* ESTILOS PARA NUEVOS ELEMENTOS DEL FORMULARIO */
+/* CAPTCHA */
 .captcha-container {
   display: flex;
   align-items: center;
@@ -856,7 +668,7 @@ footer p {
   font-size: 1.1rem;
 }
 
-/* CHECKBOX DE POLÍTICA */
+/* Checkbox política */
 .checkbox-group {
   display: flex;
   align-items: flex-start;
@@ -887,7 +699,77 @@ footer p {
   color: #d35400;
 }
 
-/* RESUMEN */
+/* Botones de navegación */
+.form-navigation {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 30px;
+  background: #f8f9fa;
+  border-radius: 0 0 20px 20px;
+}
+
+.btn-nav {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-nav-hidden { visibility: hidden; }
+
+.btn-primary  { background: linear-gradient(135deg, var(--primary), var(--primary-orange)); color: white; }
+.btn-secondary { background: #6c757d; color: white; }
+.btn-success  { background: linear-gradient(135deg, #28a745, #20c997); color: white; }
+
+.btn-nav:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Modal — responsive */
+@media (max-width: 768px) {
+  .captcha-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .checkbox-group {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .dato-label {
+    min-width: auto;
+    margin-bottom: 5px;
+  }
+
+  .dato-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .progress-indicator {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .step:not(:last-child)::after {
+    display: none;
+  }
+}
+
+
+/* =============================================
+   RESUMEN (paso 3 del formulario)
+============================================= */
 .resumen-contenido {
   background: #f8f9fa;
   padding: 0;
@@ -1001,7 +883,44 @@ footer p {
   font-size: 1.1rem;
 }
 
-/* MENSAJE DE CONFIRMACIÓN */
+.resumen-note {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px;
+  background: #e8f4f8;
+  border-radius: 8px;
+  border-left: 4px solid #3498db;
+}
+
+.resumen-note i {
+  color: #3498db;
+  font-size: 1.2rem;
+}
+
+.resumen-note p {
+  margin: 0;
+  color: #2c3e50;
+  font-size: 0.95rem;
+}
+
+/* Resumen — responsive */
+@media (max-width: 768px) {
+  .resumen-contenido {
+    padding: 20px;
+  }
+
+  .resumen-contenido strong {
+    min-width: auto;
+    display: block;
+    margin-bottom: 5px;
+  }
+}
+
+
+/* =============================================
+   CONFIRMACIÓN DE ENVÍO
+============================================= */
 .confirmacion-envio {
   text-align: center;
   padding: 0;
@@ -1011,7 +930,6 @@ footer p {
   background: linear-gradient(135deg, #27ae60, #2ecc71);
   color: white;
   padding: 30px 25px;
-  position: relative;
 }
 
 .check-animation {
@@ -1025,20 +943,9 @@ footer p {
 }
 
 @keyframes checkBounce {
-  0% {
-    transform: scale(0);
-    opacity: 0;
-  }
-
-  50% {
-    transform: scale(1.2);
-    opacity: 1;
-  }
-
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
+  0%   { transform: scale(0);   opacity: 0; }
+  50%  { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1);   opacity: 1; }
 }
 
 .confirmacion-header h3 {
@@ -1070,20 +977,9 @@ footer p {
   text-align: left;
 }
 
-.mensaje-principal {
-  background: #e8f4f8;
-  border-left: 4px solid #3498db;
-}
-
-.tiempo-respuesta {
-  background: #fff3cd;
-  border-left: 4px solid #ffc107;
-}
-
-.contacto-directo {
-  background: #d4edda;
-  border-left: 4px solid #25d366;
-}
+.mensaje-principal  { background: #e8f4f8; border-left: 4px solid #3498db; }
+.tiempo-respuesta   { background: #fff3cd; border-left: 4px solid #ffc107; }
+.contacto-directo   { background: #d4edda; border-left: 4px solid #25d366; }
 
 .mensaje-principal i,
 .tiempo-respuesta i,
@@ -1093,17 +989,9 @@ footer p {
   flex-shrink: 0;
 }
 
-.mensaje-principal i {
-  color: #3498db;
-}
-
-.tiempo-respuesta i {
-  color: #ffc107;
-}
-
-.contacto-directo i {
-  color: #25d366;
-}
+.mensaje-principal i { color: #3498db; }
+.tiempo-respuesta i  { color: #ffc107; }
+.contacto-directo i  { color: #25d366; }
 
 .mensaje-principal p,
 .tiempo-respuesta p,
@@ -1142,92 +1030,10 @@ footer p {
   font-size: 1.2rem;
 }
 
-.resumen-note {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 15px;
-  background: #e8f4f8;
-  border-radius: 8px;
-  border-left: 4px solid #3498db;
-}
-
-.resumen-note i {
-  color: #3498db;
-  font-size: 1.2rem;
-}
-
-.resumen-note p {
-  margin: 0;
-  color: #2c3e50;
-  font-size: 0.95rem;
-}
-
-/* VALIDACIONES MEJORADAS */
-.validation-message.success {
-  color: #27ae60;
-  font-weight: 500;
-}
-
-.validation-message.error {
-  color: #e74c3c;
-  font-weight: 500;
-}
-
-input.valid,
-select.valid,
-textarea.valid {
-  border-color: #27ae60;
-  box-shadow: 0 0 0 2px rgba(39, 174, 96, 0.1);
-}
-
-input.invalid,
-select.invalid,
-textarea.invalid {
-  border-color: #e74c3c;
-  box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.1);
-}
-
-/* RESPONSIVE PARA NUEVOS ELEMENTOS */
+/* Confirmación — responsive */
 @media (max-width: 768px) {
-  .captcha-container {
-    flex-direction: column;
-    text-align: center;
-    gap: 10px;
-  }
-
-  .checkbox-group {
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .resumen-contenido {
-    padding: 20px;
-  }
-
-  .resumen-contenido strong {
-    min-width: auto;
-    display: block;
-    margin-bottom: 5px;
-  }
-
-  .dato-label {
-    min-width: auto;
-    margin-bottom: 5px;
-  }
-
-  .dato-item {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
   .confirmacion-header {
     padding: 25px 20px;
-  }
-
-  .confirmacion-header h3 {
-    font-size: clamp(1.3rem, 2.5vw, 1.6rem);
-  font-weight: 600;
   }
 
   .check-animation i {
@@ -1247,27 +1053,166 @@ textarea.invalid {
   }
 }
 
-/* ANIMACIONES */
-@keyframes modalSlideIn {
-  from {
-    opacity: 0;
-    transform: translateY(-50px) scale(0.9);
-  }
 
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+/* =============================================
+   MODAL POLÍTICA DE PRIVACIDAD
+============================================= */
+.modal-body-enhanced {
+  padding: 30px;
+}
+
+.modal-body-enhanced h3,
+.modal-body-enhanced h4 {
+  color: var(--dark);
+}
+
+.modal-body-enhanced ul {
+  padding-left: 20px;
+  color: #555;
+  line-height: 1.8;
+}
+
+
+/* =============================================
+   SCROLL TO TOP
+============================================= */
+.scrollToHome {
+  border-radius: 20px;
+  background: linear-gradient(135deg, #f49d32, #ff6b35);
+  bottom: 20px;
+  color: #ffffff;
+  display: none;
+  font-size: 20px;
+  height: 55px;
+  line-height: 55px;
+  padding: 0;
+  position: fixed;
+  right: 20px;
+  text-align: center;
+  width: 55px;
+  z-index: 99999;
+  box-shadow: 0 8px 25px rgba(244, 157, 50, 0.4);
+  border: none;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  transition: all 0.3s ease-in-out;
+}
+
+.scrollToHome:hover {
+  transform: translateY(-3px) scale(1.05);
+  background: linear-gradient(135deg, #ff6b35, #e8890b);
+  box-shadow: 0 12px 35px rgba(244, 157, 50, 0.6);
+  color: #ffffff;
+}
+
+.scrollToHome:active {
+  transform: translateY(-1px) scale(1.02);
+  transition: all 0.1s ease;
 }
 
 .scroll-to-home-visible {
   display: block !important;
 }
 
-.modal-visible {
-  display: flex !important;
+@media (max-width: 480px) {
+  .scrollToHome {
+    width: 45px;
+    height: 45px;
+    font-size: 16px;
+    line-height: 45px;
+    border-radius: 15px;
+    bottom: 15px;
+    right: 15px;
+  }
 }
 
+
+/* =============================================
+   WHATSAPP FLOTANTE
+============================================= */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 100;
+  width: 60px;
+  height: 60px;
+  background-color: #25d366;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+  text-decoration: none;
+  color: white;
+  font-size: 24px;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 480px) {
+  .whatsapp-float {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    bottom: 12px;
+    left: 12px;
+  }
+}
+
+
+/* =============================================
+   FOOTER
+============================================= */
+footer {
+  background: var(--dark);
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 40px;
+}
+
+footer p {
+  margin: 0 0 15px 0;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.redes-sociales {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.redes-sociales a {
+  color: white;
+  font-size: 24px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid transparent;
+}
+
+.redes-sociales a:hover {
+  color: var(--primary);
+  background: rgba(251, 159, 46, 0.1);
+  border-color: var(--primary);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(251, 159, 46, 0.3);
+}
+
+/* Footer — responsive */
 @media (max-width: 480px) {
   footer {
     padding: 20px 10px;
@@ -1288,115 +1233,24 @@ textarea.invalid {
     height: 38px;
     font-size: 18px;
   }
-
-  .whatsapp-float {
-    width: 50px;
-    height: 50px;
-    font-size: 20px;
-    bottom: 12px;
-    left: 12px;
-  }
-}
-
-/*celulares pequeños */
-@media (max-width: 768px) {
-  header .container {
-    justify-content: space-between;
-  }
-}
-
-@media (max-width: 768px) {
-  .contacto-section {
-    padding-top: 0;
-  }
-}
-
-.confianza-section h3,
-.testimonios-section h3,
-.formulario-contacto-section h3 {
-  font-size: clamp(1.3rem, 2.5vw, 1.6rem);
-  font-weight: 600;
-  text-align: center;
-  color: var(--dark);
-
-}
-
-/* CONTENEDOR DEL TITULO */
-.contacto-header {
-  margin-top: 0px;   /* reduce este valor para subir */
-  margin-bottom: 10px;  /* opcional, espacio inferior */
-  text-align: center;   /* mantiene centrado */
-}
-
-/* TITULO */
-.contacto-header h1 {
-font-size: clamp(2.2rem, 5vw, 3.5rem);
-  font-weight: 800; 
-  line-height: 1.2;
-  color: rgba(240, 161, 58, 0.679);
-  margin: 100;           
 }
 
 
-/* SUBTÍTULOS INTERNOS */
-.card-content h3,
-.certificaciones h3,
-.form-step h3 {
-  font-size: clamp(1.3rem, 2.5vw, 1.6rem);
-  font-weight: 600;
-  text-align: center;
-  color: var(--dark);
+/* =============================================
+   ANIMACIONES
+============================================= */
+@keyframes modalSlideIn {
+  from { opacity: 0; transform: translateY(-50px) scale(0.9); }
+  to   { opacity: 1; transform: translateY(0)     scale(1);   }
 }
 
-/* TEXTOS GENERALES */
-.contacto-subtitle,
-.stat-label,
-.contact-detail,
-.contact-status,
-.testimonio-content p,
-.cert-item span,
-.form-subtitle {
-  font-size: 1.05rem;
-  line-height: 1.7;
-  text-align: center;
-  color: #555;
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
 }
 
-/* NÚMEROS DESTACADOS */
-.stat-number {
-  font-size: 2.6rem;
-  font-weight: 700;
-  text-align: center;
-}
-
-.reveal{
-  opacity:0;
-  transform:translateY(40px);
-  transition:all .8s ease;
-}
-
-.reveal.visible{
-  opacity:1;
-  transform:translateY(0);
-}
-
-/* =========================
-   CONTACTO - RESPONSIVE
-========================= */
-@media (max-width: 768px) {
-  .contacto-section {
-    padding-top: 20px;  
-    padding-bottom: 20px;
-  }
-}
-
-/* BAJAR BOTONES Y EMPAREJAR VISUALMENTE */
-.contacto-card .card-actions {
-  margin-top: 20px;
-}
-
-/* Opcional: empuja un poco más en las primeras cards */
-.whatsapp-card .card-actions,
-.email-card .card-actions {
-  margin-top: 50px;
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
 }

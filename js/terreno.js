@@ -3,38 +3,6 @@ document.addEventListener('DOMContentLoaded', function () {
   const toggle = document.querySelector('.menu-toggle');
   const menu = document.querySelector('nav');
 
-  if (toggle && menu) {
-    toggle.addEventListener('click', () => {
-      menu.classList.toggle('show');
-      toggle.classList.toggle('active');
-      document.body.classList.toggle('menu-abierto');
-
-      if (menu.classList.contains('show')) {
-        history.pushState({ menuOpen: true }, '', '');
-      }
-    });
-  }
-
-  document.addEventListener('click', (e) => {
-    if (
-      menu && menu.classList.contains('show') &&
-      !menu.contains(e.target) &&
-      toggle && !toggle.contains(e.target)
-    ) {
-      menu.classList.remove('show');
-      toggle.classList.remove('active');
-      document.body.classList.remove('menu-abierto');
-      history.back();
-    }
-  });
-
-  window.addEventListener('popstate', () => {
-    if (menu && menu.classList.contains('show')) {
-      menu.classList.remove('show');
-      toggle && toggle.classList.remove('active');
-      document.body.classList.remove('menu-abierto');
-    }
-  });
 
   /* ============================= */
   /* BUSCADOR CORREGIDO */

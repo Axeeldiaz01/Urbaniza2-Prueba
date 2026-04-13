@@ -87,7 +87,7 @@ header.shrink .logo {
 }
 
 /* Título secundario */
-.section-title {
+.section-title2 {
   font-size: clamp(1.6rem, 4vw, 2.2rem);
   font-weight: 800;
   text-align: center;
@@ -235,7 +235,7 @@ header.shrink .logo {
     font-size: 1.8rem;
   }
 
-  .section-title {
+  .section-title2 {
     font-size: 1.4rem;
   }
 
@@ -258,6 +258,7 @@ header.shrink .logo {
 }
 
 @media (max-width: 50rem) {
+
   .buscador-row,
   .precio-group {
     flex-direction: column;
@@ -735,7 +736,7 @@ header.shrink .logo {
   display: inline-block;
   padding: 0.65rem 1.4rem;
   background: linear-gradient(135deg, #f99109, #ff7a00);
-  color: white;
+  color: #666;
   text-decoration: none;
   border-radius: 10px;
   font-weight: 600;
@@ -757,7 +758,7 @@ header.shrink .logo {
 .caracteristicas li {
   margin-bottom: 6px;
   font-size: 1rem;
-  color: #333;
+  color: #666;
   position: relative;
 }
 
@@ -767,6 +768,23 @@ header.shrink .logo {
   font-weight: bold;
   position: absolute;
   left: -18px;
+}
+
+@media (max-width: 768px) {
+  .caracteristicas {
+    padding-left: 0;   
+    margin: 15px auto;    
+    max-width: 90%;      
+  }
+
+  .caracteristicas li {
+    padding-left: 22px;
+    text-align: left;     
+  }
+
+  .caracteristicas li::before {
+    left: 0;              
+  }
 }
 
 /* Responsivo — sección carrusel */
@@ -1307,28 +1325,59 @@ footer p {
    ============================================================ */
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes slideIn {
-  from { transform: translateY(-50px); opacity: 0; }
-  to   { transform: translateY(0);     opacity: 1; }
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 @keyframes modalFadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes modalFade {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0);    }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes zoomIn {
-  from { transform: scale(0.8); opacity: 0; }
-  to   { transform: scale(1);   opacity: 1; }
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 
