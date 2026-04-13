@@ -144,24 +144,28 @@ nav ul li a:focus-visible {
   width: 30px;
   background-color: white;
   border-radius: 2px;
-  transition: all 0.3s ease;
+  transition: transform 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6), 
+              opacity 0.2s ease;
   position: relative;
-  transform-origin: center;
-  margin: 3px 0;
+  margin: 4px 0; 
 }
 
+/* Estado Activo (La X) */
 .menu-toggle.active .bar:nth-child(1) {
-  transform: rotate(45deg);
+  /* Se mueve al centro y luego rota */
+  transform: translateY(11px) rotate(45deg);
 }
 
 .menu-toggle.active .bar:nth-child(2) {
+  /* Desvanece un poco más rápido para no estorbar */
   opacity: 0;
+  transform: translateX(-10px); /* Pequeño efecto de deslizamiento lateral */
 }
 
 .menu-toggle.active .bar:nth-child(3) {
-  transform: rotate(-45deg);
+  /* Se mueve al centro y luego rota en sentido opuesto */
+  transform: translateY(-11px) rotate(-45deg);
 }
-
 /* Responsive Header */
 @media (max-width: 1024px) {
   .menu-toggle {
@@ -202,18 +206,26 @@ nav ul li a:focus-visible {
   }
 
   nav {
-    margin: 0;
     position: fixed;
     top: 0;
-    right: -50%;
-    width: 50%;
+    right: -100%;
+    width: 100%;
     height: 100vh;
-    padding: 30px 20px;
-    transition: right 0.6s ease;
+
+    padding: 100px 30px 40px;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    background: rgba(0, 0, 0, 0.75);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+
     z-index: 1000;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    background-color: rgba(0, 0, 0, 0.7);
   }
 
   nav.show {
@@ -222,7 +234,36 @@ nav ul li a:focus-visible {
 
   nav ul {
     flex-direction: column;
-    gap: 20px;
+    gap: 22px;
+
+    width: 100%;
+    max-width: 320px;
+
+    text-align: center;
+  }
+
+  nav ul li a {
+    display: block;
+
+    padding: 14px 18px;
+
+    font-size: 18px;
+    font-weight: 600;
+
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, 0.06);
+
+    transition: all 0.25s ease;
+  }
+
+  nav ul li a:hover {
+    background: rgba(249, 145, 9, 0.9);
+    transform: translateY(-2px);
+  }
+
+  nav ul li a:active {
+    transform: scale(0.97);
   }
 
   .menu-abierto {
@@ -338,7 +379,6 @@ nav ul li a:focus-visible {
 }
 
 .hero-title {
-  font-size: clamp(2.2rem, 5vw, 3.5rem);
   font-weight: 700;
   margin-bottom: 1.5rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
@@ -350,7 +390,6 @@ nav ul li a:focus-visible {
 }
 
 .hero-description {
-  font-size: clamp(1rem, 2.5vw, 1.3rem);
   margin-bottom: 2.5rem;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
   line-height: 1.6;
@@ -469,13 +508,11 @@ nav ul li a:focus-visible {
   }
 
   .hero-title {
-    font-size: 1.8rem;
     line-height: 1.3;
     margin-bottom: 1rem;
   }
 
   .hero-description {
-    font-size: 1rem;
     line-height: 1.6;
     margin-bottom: 1.8rem;
     padding: 0 10px;
@@ -491,7 +528,6 @@ nav ul li a:focus-visible {
     width: 90%;
     max-width: 300px;
     padding: 14px 20px;
-    font-size: 1rem;
     border-radius: 12px;
   }
 
@@ -521,14 +557,6 @@ nav ul li a:focus-visible {
     min-height: unset;
   }
 
-  .hero-title {
-    font-size: 1.8rem;
-  }
-
-  .hero-description {
-    font-size: 1rem;
-  }
-
   .hero-content {
     padding: 0 15px;
   }
@@ -544,13 +572,6 @@ nav ul li a:focus-visible {
 }
 
 @media (max-width: 380px) {
-  .hero-title {
-    font-size: clamp(1.5rem, 5vw, 2.2rem);
-  }
-
-  .hero-description {
-    font-size: clamp(0.9rem, 3.5vw, 1.1rem);
-  }
 
   .hero-buttons .btn {
     padding: 10px 18px;
@@ -612,7 +633,6 @@ nav ul li a:focus-visible {
 
 .announcement-text {
   color: white;
-  font-size: 1.05rem;
   font-weight: 500;
   margin: 0;
   display: flex;
@@ -664,17 +684,13 @@ section {
   background: transparent;
 }
 
-section h2 {
-  color: rgba(240, 161, 58, 0.679);
-  font-size: 1.3rem;
-  margin-bottom: 10px;
-}
+
 
 /* Títulos unificados */
 .title,
 .section h2,
 h2 {
-  font-size: 42px;
+  font-size: 2.5rem;
   font-weight: 700;
   text-align: center;
   color: var(--dark);
@@ -694,15 +710,13 @@ h2::after {
 }
 
 .section-title {
-  font-size: clamp(2rem, 5vw, 2.8rem);
   font-weight: 800;
-  color: #1a1a1a;
+  color: #1a1a1a !important;
   margin-bottom: 1rem;
   text-align: center;
 }
 
 .section-subtitle {
-  font-size: clamp(1rem, 2vw, 1.1rem);
   color: #777;
   margin-bottom: 3rem;
   max-width: 700px;
@@ -734,12 +748,10 @@ h2::after {
   }
 
   .section-title {
-    font-size: 1.8rem;
     margin-bottom: 15px;
   }
 
   .section-subtitle {
-    font-size: 1rem;
     margin-bottom: 35px;
   }
 }
@@ -845,7 +857,6 @@ h2::after {
   padding: 0 25px;
   margin: 5px 0;
   color: #666;
-  font-size: 0.95rem;
   line-height: 1.4;
 }
 
@@ -1030,14 +1041,12 @@ h2::after {
 }
 
 .reel-title {
-  font-size: clamp(28px, 3vw, 40px);
   margin-bottom: 16px;
   color: #1a1a1a;
   line-height: 1.2;
 }
 
 .reel-desc {
-  font-size: clamp(15px, 1.8vw, 17px);
   line-height: 1.7;
   color: #555;
   margin-bottom: 20px;
@@ -1050,7 +1059,6 @@ h2::after {
 }
 
 .reel-benefits li {
-  font-size: 15px;
   margin-bottom: 10px;
   padding: 10px 14px;
   border-radius: 12px;
@@ -1121,7 +1129,6 @@ h2::after {
 
 /* TITULOS */
 .section-title {
-  font-size: clamp(2.2rem, 5vw, 3rem);
   font-weight: 900;
   text-align: center;
   background: linear-gradient(135deg, #f99109, #ffb347);
@@ -1134,7 +1141,6 @@ h2::after {
   max-width: 600px;
   margin: 15px auto 60px;
   color: #666;
-  font-size: 1.05rem;
 }
 
 /* GRID */
@@ -1179,8 +1185,8 @@ h2::after {
 /* FRONT */
 .service-card-front {
   background: #ffffff;
-  border: 1px solid rgba(0,0,0,0.05);
-  box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
   transition: all 0.3s ease;
 }
 
@@ -1198,7 +1204,7 @@ h2::after {
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
-  box-shadow: 0 10px 25px rgba(249,145,9,0.3);
+  box-shadow: 0 10px 25px rgba(249, 145, 9, 0.3);
 }
 
 .service-icon i {
@@ -1227,12 +1233,11 @@ h2::after {
   transform: rotateY(180deg);
   padding: 25px;
   text-align: center;
-  box-shadow: 0 20px 50px rgba(249,145,9,0.3);
+  box-shadow: 0 20px 50px rgba(249, 145, 9, 0.3);
 }
 
 /* TEXTO BACK */
 .service-card-back p {
-  font-size: 0.95rem;
   line-height: 1.6;
 }
 
@@ -1242,6 +1247,7 @@ h2::after {
     opacity: 0;
     transform: translateY(40px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -1252,9 +1258,17 @@ h2::after {
   animation: fadeUp 0.8s ease forwards;
 }
 
-.service-card:nth-child(1) { animation-delay: 0.1s; }
-.service-card:nth-child(2) { animation-delay: 0.2s; }
-.service-card:nth-child(3) { animation-delay: 0.3s; }
+.service-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.service-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.service-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
 
 /* ============================================================
    9. CALCULADORA DE FINANCIAMIENTO
@@ -1266,7 +1280,7 @@ h2::after {
 
 .calculadora-section h2 {
   text-align: center;
-  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-size: 2.5rem;
   margin-bottom: 10px;
   font-weight: 700;
 }
@@ -1378,7 +1392,6 @@ input[type="range"]::-webkit-slider-thumb:hover {
   justify-content: space-between;
   align-items: center;
   padding: 14px 0;
-  font-size: 1rem;
   border-bottom: 1px solid #f3f4f6;
 }
 
@@ -1492,12 +1505,10 @@ input[type="range"]::-webkit-slider-thumb:hover {
 }
 
 .guia-card h3 {
-  font-size: 20px;
   margin-bottom: 10px;
 }
 
 .guia-card p {
-  font-size: 14px;
   color: #666;
   line-height: 1.4;
 }
@@ -1555,7 +1566,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
 
 .modal-header h2 {
   margin: 0;
-  font-size: 1.5rem;
+  font-size: 2.5rem;
 }
 
 .close {
@@ -1614,7 +1625,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
 
 .modal-compra-header h2 {
   margin: 0;
-  font-size: 20px;
+  font-size: 2.5rem;
   font-weight: 600;
   text-align: center;
   color: #ffffff;
@@ -1818,7 +1829,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
 .btn-enviar-compra:hover {
   background: #1ebe5d;
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(37,211,102,0.3);
+  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
 }
 
 /* Favoritos */
@@ -2696,7 +2707,7 @@ a:hover .whatsapp-num {
   font-size: 0.9rem;
 }
 
-.btn-secondary{
+.btn-secondary {
   border-radius: 999px !important;
 }
 
@@ -2767,7 +2778,7 @@ a:hover .whatsapp-num {
 }
 
 .modal-compra-header h2 {
-  font-size: 1.4rem;
+  font-size: 2.5rem;
   margin: 0;
 }
 
@@ -2918,7 +2929,7 @@ a:hover .whatsapp-num {
 
   .modal-compra-header h2 {
 
-    font-size: 1.1rem;
+    font-size: 2.5rem;
 
   }
 
@@ -2953,6 +2964,6 @@ a:hover .whatsapp-num {
 
 }
 
-.btn-ver-mas{
+.btn-ver-mas {
   border-radius: 999px !important;
 }

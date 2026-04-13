@@ -1,0 +1,116 @@
+/* =========================================================
+   TIPOGRAFÍA GLOBAL DEL SITIO
+   ========================================================= */
+
+:root {
+
+  /* ===============================
+     TITULOS
+     =============================== */
+
+  /* Hero principal (Inicio) */
+  --title-hero: clamp(3rem, 6vw, 4rem);
+
+  /* Títulos de sección */
+  --title-section: clamp(2.2rem, 5vw, 3rem);
+
+  /* Subtítulos / títulos de cards */
+  --title-card: clamp(1.4rem, 3vw, 1.8rem);
+
+  /* ===============================
+     TEXTOS
+     =============================== */
+
+  /* Texto normal */
+  --text-base: clamp(1rem, 1.2vw, 1.1rem);
+
+  /* Texto pequeño */
+  --text-small: 0.9rem;
+
+  /* Texto botones */
+  --text-button: 1rem;
+
+  /* ===============================
+     LINE HEIGHT
+     =============================== */
+
+  --lh-title: 1.2;
+  --lh-text: 1.6;
+
+}
+
+/* =========================================================
+   TITULOS
+   ========================================================= */
+
+/* HERO */
+.hero-title {
+  font-size: var(--title-hero);
+  font-weight: 900;
+  line-height: var(--lh-title);
+}
+
+/* TITULOS DE SECCION */
+.section-title {
+  font-size: var(--title-section);
+  font-weight: 800;
+  line-height: var(--lh-title);
+  text-align: center;
+}
+
+/* SUBTITULOS */
+.section-subtitle {
+  font-size: var(--title-card);
+  font-weight: 600;
+}
+
+/* TITULOS DE CARDS */
+.card h3,
+.service-card h3,
+.guia-card h3,
+.galeria .card h3 {
+  font-size: var(--title-card);
+  font-weight: 600;
+}
+
+/* =========================================================
+   TEXTOS GENERALES
+   ========================================================= */
+
+p,
+li,
+span,
+a {
+  font-size: var(--text-base);
+  line-height: var(--lh-text);
+}
+
+/* TEXTO PEQUEÑO */
+
+small {
+  font-size: var(--text-small);
+}
+
+/* =========================================================
+   BOTONES
+   ========================================================= */
+
+button,
+.btn,
+a.btn,
+.hero-btn,
+.tiktok-btn {
+  font-size: var(--text-button);
+  font-weight: 600;
+}
+
+/* =========================================================
+   FORMULARIOS
+   ========================================================= */
+
+input,
+select,
+textarea,
+label {
+  font-size: var(--text-base);
+}
