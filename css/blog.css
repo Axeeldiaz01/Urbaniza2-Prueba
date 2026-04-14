@@ -1,36 +1,50 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-/* Variables */
+/* =============================================
+   VARIABLES GLOBALES
+   ============================================= */
 :root {
   --dark: #333;
   --font: 'Poppins', sans-serif;
+  --primary-orange: #f99109;
+  --text-dark: #2d3436;
+  --text-gray: #636e72;
+  --bg-white: #ffffff;
+  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.05);
+  --border-color: #f0f0f0;
 }
 
-h1 {
-  font-size: 32px;
-  font-weight: 700;
-}
-
-@media (max-width: 768px) {
-  h1 {
-    font-size: 26px;
-  }
-}
-
+/* =============================================
+   RESET & BASE
+   ============================================= */
 * {
   box-sizing: border-box;
 }
 
-html{
+html {
   scroll-behavior: smooth;
 }
 
 body {
-  font-family: 'Poppins', Arial, sans-serif;
+--font: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
   background: rgba(249, 145, 9, 0.06) !important;
   color: #222;
+}
+
+h1 {
+  font-weight: 700;
+}
+
+.blog-header h1::after {
+  content: "";
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(135deg, #f49d32, #ff6b35);
+  display: block;
+  margin: 15px auto 0;
+  border-radius: 10px;
 }
 
 .container {
@@ -39,6 +53,23 @@ body {
   margin: 0 auto;
 }
 
+/* =============================================
+   ANIMACIÓN REVEAL (scroll)
+   ============================================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 0.8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =============================================
+   SECCIÓN BLOG - HEADER
+   ============================================= */
 .blog-section {
   padding: 60px 20px;
   background-color: transparent;
@@ -50,10 +81,9 @@ body {
 }
 
 .blog-header h1 {
-  font-size: clamp(2.2rem, 5vw, 3.5rem);
   font-weight: 700;
   margin-bottom: 1.5rem;
-    line-height: 1.2;
+  line-height: 1.2;
 }
 
 .blog-header p {
@@ -63,13 +93,9 @@ body {
   margin: 0 auto;
 }
 
-.blog-section h2 {
-  font-size: 2.2rem;
-  margin-bottom: 40px;
-  color: #333;
-}
-
-/* Tarjetas del Blog */
+/* =============================================
+   BLOG - GRID DE TARJETAS
+   ============================================= */
 .blog-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -79,6 +105,20 @@ body {
   padding: 40px 20px;
 }
 
+/* Delays de animación por tarjeta */
+.blog-card:nth-child(1) { transition-delay: .1s; }
+.blog-card:nth-child(2) { transition-delay: .2s; }
+.blog-card:nth-child(3) { transition-delay: .3s; }
+.blog-card:nth-child(4) { transition-delay: .4s; }
+.blog-card:nth-child(5) { transition-delay: .5s; }
+.blog-card:nth-child(6) { transition-delay: .6s; }
+.blog-card:nth-child(7) { transition-delay: .7s; }
+.blog-card:nth-child(8) { transition-delay: .8s; }
+.blog-card:nth-child(9) { transition-delay: .9s; }
+
+/* =============================================
+   BLOG - TARJETA
+   ============================================= */
 .blog-card {
   background-color: white;
   border-radius: 20px;
@@ -93,7 +133,6 @@ body {
 
 .blog-card:hover {
   transform: translateY(-10px);
-
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
   border-color: #f97109;
 }
@@ -118,7 +157,6 @@ body {
 
 .card-meta .date {
   color: #888;
-  font-size: 0.85rem;
   display: flex;
   align-items: center;
   gap: 6px;
@@ -135,7 +173,6 @@ body {
 }
 
 .card-content h3 {
-  font-size: 1.4rem;
   margin-bottom: 12px;
   color: #0d1c2f;
   line-height: 1.3;
@@ -144,26 +181,13 @@ body {
 
 .card-content p {
   color: #666;
-  font-size: 0.95rem;
   line-height: 1.6;
   margin-bottom: 25px;
 }
-.btn-contact {
-  background-color: #25D366;
-  color: white;
-  padding: 12px;
-  border-radius: 12px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.9rem;
-  transition: 0.3s;
-  text-align: center;
-}
 
-.btn-contact:hover {
-  background-color: #128c7e;
-}
-
+/* =============================================
+   BLOG - BOTONES DE TARJETA
+   ============================================= */
 .card-actions {
   display: flex;
   gap: 12px;
@@ -176,23 +200,32 @@ body {
   min-width: 0;
 }
 
-@media (max-width: 480px) {
-  .blog-container {
-    padding: 20px;
-  }
-
-  .card-actions {
-    flex-direction: row;
-  }
+.btn-read,
+.btn-contact {
+  border-radius: 999px;
 }
 
-:root {
-  --primary-orange: #f99109;
-  --text-dark: #2d3436;
-  --text-gray: #636e72;
-  --bg-white: #ffffff;
-  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.05);
-  --border-color: #f0f0f0;
+.btn-contact {
+  background-color: #25D366;
+  color: white;
+  padding: 12px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+  text-align: center;
+}
+
+.btn-contact:hover {
+  background-color: #128c7e;
+}
+
+/* =============================================
+   SECCIÓN FAQ
+   ============================================= */
+.blog-section h2 {
+  margin-bottom: 40px;
+  color: #333;
 }
 
 .faq-section {
@@ -202,7 +235,6 @@ body {
 
 .faq-section h2 {
   text-align: center;
-  font-size: 2.2rem;
   font-weight: 800;
   color: var(--text-dark);
   margin-bottom: 50px;
@@ -223,7 +255,6 @@ body {
   box-shadow: var(--shadow-soft);
 }
 
-/* Botón de la Pregunta */
 .faq-question {
   width: 100%;
   display: flex;
@@ -234,7 +265,6 @@ body {
   border: none;
   cursor: pointer;
   text-align: left;
-  font-size: 1.15rem;
   font-weight: 700;
   color: var(--text-dark);
   transition: color 0.3s ease;
@@ -246,7 +276,6 @@ body {
   transition: transform 0.4s ease;
 }
 
-/* ESTADO ACTIVO */
 .faq-item.active {
   border: 2px solid var(--primary-orange);
   transform: translateY(-2px);
@@ -261,7 +290,6 @@ body {
   transform: rotate(180deg);
 }
 
-/* Panel de Respuesta */
 .faq-answer {
   max-height: 0;
   overflow: hidden;
@@ -303,20 +331,9 @@ body {
   background-color: rgba(249, 145, 9, 0.02);
 }
 
-/* Responsivo */
-@media (max-width: 768px) {
-  .faq-question {
-    padding: 20px;
-    font-size: 1rem;
-    gap: 15px;
-  }
-
-  .faq-section h2 {
-    font-size: 1.8rem;
-  }
-}
-
-/* Modales para Artículos */
+/* =============================================
+   MODAL DE ARTÍCULOS
+   ============================================= */
 .article-modal {
   display: none;
   position: fixed;
@@ -358,49 +375,55 @@ body {
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 @keyframes slideIn {
-  from {
-    transform: translateY(-50px);
-    opacity: 0;
-  }
-
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
+  from { transform: translateY(-50px); opacity: 0; }
+  to   { transform: translateY(0);     opacity: 1; }
 }
 
-@media (max-width: 768px) {
-  .blog-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .faq-question {
-    font-size: 1rem;
-  }
-
-  .scrollToHome {
-    width: 50px;
-    height: 50px;
-    font-size: 18px;
-    line-height: 50px;
-    border-radius: 18px;
-    bottom: 18px;
-    right: 18px;
-  }
+/* =============================================
+   BOTÓN SCROLL TO TOP
+   ============================================= */
+.scrollToHome {
+  border-radius: 20px;
+  background: linear-gradient(135deg, #f49d32, #ff6b35);
+  bottom: 20px;
+  color: #ffffff;
+  display: none;
+  font-size: 20px;
+  height: 55px;
+  line-height: 55px;
+  padding: 0;
+  position: fixed;
+  right: 20px;
+  text-align: center;
+  width: 55px;
+  z-index: 99999;
+  box-shadow: 0 8px 25px rgba(244, 157, 50, 0.4);
+  border: none;
+  cursor: pointer;
+  --font: 'Poppins', sans-serif;
+  transition: all 0.3s ease-in-out;
 }
 
-/* Footer */
+.scrollToHome:hover {
+  transform: translateY(-3px) scale(1.05);
+  background: linear-gradient(135deg, #ff6b35, #e8890b);
+  box-shadow: 0 12px 35px rgba(244, 157, 50, 0.6);
+  color: #ffffff;
+}
+
+.scrollToHome:active {
+  transform: translateY(-1px) scale(1.02);
+  transition: all 0.1s ease;
+}
+
+/* =============================================
+   FOOTER
+   ============================================= */
 footer {
   background: var(--dark);
   color: white;
@@ -411,7 +434,6 @@ footer {
 
 footer p {
   margin: 0 0 15px 0;
-  font-size: 1rem;
   font-weight: 400;
 }
 
@@ -438,14 +460,16 @@ footer p {
 }
 
 .redes-sociales a:hover {
-  color: var(--primary);
+  color: var(--primary-orange);
   background: rgba(251, 159, 46, 0.1);
-  border-color: var(--primary);
+  border-color: var(--primary-orange);
   transform: translateY(-3px);
   box-shadow: 0 5px 15px rgba(251, 159, 46, 0.3);
 }
 
-/* WhatsApp Float Button */
+/* =============================================
+   WHATSAPP FLOTANTE
+   ============================================= */
 .whatsapp-float {
   position: fixed;
   bottom: 20px;
@@ -470,44 +494,53 @@ footer p {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
 }
 
-.scrollToHome {
-  border-radius: 20px;
-  background: linear-gradient(135deg, #f49d32, #ff6b35);
-  bottom: 20px;
-  color: #ffffff;
-  display: none;
-  font-size: 20px;
-  height: 55px;
-  line-height: 55px;
-  padding: 0;
-  position: fixed;
-  right: 20px;
-  text-align: center;
-  width: 55px;
-  z-index: 99999;
-  box-shadow: 0 8px 25px rgba(244, 157, 50, 0.4);
-  border: none;
-  cursor: pointer;
-  font-family: 'Poppins', sans-serif;
-  -webkit-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+
+/* Tablet */
+@media (max-width: 1000px) {
+  .card-actions {
+    flex-direction: column;
+  }
+
+  .btn-read,
+  .btn-contact {
+    width: 100%;
+  }
 }
 
-.scrollToHome:hover {
-  transform: translateY(-3px) scale(1.05);
-  background: linear-gradient(135deg, #ff6b35, #e8890b);
-  box-shadow: 0 12px 35px rgba(244, 157, 50, 0.6);
-  color: #ffffff;
-}
-
-.scrollToHome:active {
-  transform: translateY(-1px) scale(1.02);
-  transition: all 0.1s ease;
-}
-
-/* Footer responsivo */
+/* Móvil */
 @media (max-width: 768px) {
+  .blog-section {
+    padding-top: 0;
+  }
+
+  .blog-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .faq-question {
+    padding: 20px;
+    gap: 15px;
+  }
+
+  .scrollToHome {
+    width: 50px;
+    height: 50px;
+    font-size: 18px;
+    line-height: 50px;
+    border-radius: 18px;
+    bottom: 18px;
+    right: 18px;
+  }
+
+  header .container {
+    justify-content: space-between;
+  }
+
   footer {
     padding: 25px 15px;
   }
@@ -536,8 +569,30 @@ footer p {
   }
 }
 
-/* Footer para móviles pequeños */
+/* Móvil pequeño */
 @media (max-width: 480px) {
+  .blog-container {
+    padding: 20px;
+  }
+
+  .card-actions {
+    flex-direction: row;
+  }
+
+  .scrollToHome {
+    width: 45px;
+    height: 45px;
+    font-size: 16px;
+    line-height: 45px;
+    border-radius: 15px;
+    bottom: 15px;
+    right: 15px;
+  }
+
+  .scrollToHome:hover {
+    transform: translateY(-2px) scale(1.03);
+  }
+
   footer {
     padding: 20px 10px;
   }
@@ -566,67 +621,3 @@ footer p {
     left: 12px;
   }
 }
-
-@media (max-width: 480px) {
-  .scrollToHome {
-    width: 45px;
-    height: 45px;
-    font-size: 16px;
-    line-height: 45px;
-    border-radius: 15px;
-    bottom: 15px;
-    right: 15px;
-  }
-
-  .scrollToHome:hover {
-    transform: translateY(-2px) scale(1.03);
-  }
-}
-
-/*celulares pequeños */
-@media (max-width: 768px) {
-  header .container {
-    justify-content: space-between;
-  }
-
-}
-
-@media (max-width: 768px) {
-  .blog-section {
-    padding-top: 0;
-  }
-}
-@media (max-width: 1000px) {
-  .card-actions {
-    flex-direction: column;
-  }
-
-  .btn-read,
-  .btn-contact {
-    width: 100%;
-  }
-}
-.reveal{
-opacity:0;
-transform:translateY(60px);
-transition:all .8s ease;
-}
-
-.reveal.visible{
-opacity:1;
-transform:translateY(0);
-}
-.blog-card:nth-child(1){transition-delay:.1s;}
-.blog-card:nth-child(2){transition-delay:.2s;}
-.blog-card:nth-child(3){transition-delay:.3s;}
-.blog-card:nth-child(4){transition-delay:.4s;}
-.blog-card:nth-child(5){transition-delay:.5s;}
-.blog-card:nth-child(6){transition-delay:.6s;}
-.blog-card:nth-child(7){transition-delay:.7s;}
-.blog-card:nth-child(8){transition-delay:.8s;}
-.blog-card:nth-child(9){transition-delay:.9s;}
-
-.btn-read, .btn-contact{
-  border-radius: 999px;
-}
-

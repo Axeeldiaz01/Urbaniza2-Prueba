@@ -78,7 +78,6 @@ header.shrink .logo {
 
 /* Título principal */
 .titulo {
-  font-size: clamp(2rem, 5vw, 3.2rem);
   font-weight: 800;
   line-height: 1.2;
   color: rgba(240, 161, 58, 0.9);
@@ -88,7 +87,6 @@ header.shrink .logo {
 
 /* Título secundario */
 .section-title2 {
-  font-size: clamp(1.6rem, 4vw, 2.2rem);
   font-weight: 800;
   text-align: center;
   color: #333;
@@ -100,7 +98,6 @@ header.shrink .logo {
 .section-subtitle {
   text-align: center;
   color: #666;
-  font-size: clamp(0.9rem, 2.5vw, 1rem);
   margin-bottom: 25px;
   max-width: 700px;
   margin-left: auto;
@@ -145,7 +142,6 @@ header.shrink .logo {
   padding: 0.75rem 1rem;
   border: 1px solid #e2e8f0;
   border-radius: 10px;
-  font-size: 0.95rem;
   background: #f9fafb;
   transition: all 0.25s ease;
 }
@@ -163,13 +159,11 @@ header.shrink .logo {
   padding: 0.6rem 0.9rem;
   border: 1px solid #e2e8f0;
   border-radius: 10px;
-  font-size: 0.9rem;
   background: #f9fafb;
   transition: all 0.25s ease;
 }
 
 .precio-group label {
-  font-size: 0.9rem;
   color: #555;
   display: flex;
   align-items: center;
@@ -199,7 +193,6 @@ header.shrink .logo {
   border: none;
   padding: 0.75rem 1.8rem;
   border-radius: 10px;
-  font-size: 0.95rem;
   cursor: pointer;
   font-weight: 600;
   display: inline-flex;
@@ -229,18 +222,6 @@ header.shrink .logo {
 @media (max-width: 768px) {
   .buscador-inmuebles {
     padding: 2rem 1rem;
-  }
-
-  .titulo {
-    font-size: 1.8rem;
-  }
-
-  .section-title2 {
-    font-size: 1.4rem;
-  }
-
-  .section-subtitle {
-    font-size: 0.9rem;
   }
 
   .buscador-row {
@@ -283,14 +264,12 @@ header.shrink .logo {
   }
 
   .titulo {
-    font-size: 1.1rem;
     margin-bottom: 0.5rem;
   }
 }
 
 @media (max-width: 30rem) {
   .titulo {
-    font-size: 1.2rem;
     margin-bottom: 0.6rem;
   }
 
@@ -300,14 +279,12 @@ header.shrink .logo {
 
   .btn-buscar {
     padding: 0.5rem 1rem;
-    font-size: 0.9rem;
   }
 
   .precio-group select,
   .precio-group input[type="text"] {
     min-width: 6.25rem;
     padding: 0.4rem 0.5rem;
-    font-size: 0.9rem;
   }
 }
 
@@ -334,7 +311,6 @@ header.shrink .logo {
 /* Título de la sección */
 #terrenos-disponibles h2 {
   text-align: center;
-  font-size: 2.5rem;
   margin-bottom: 15px;
   color: #1a1a1a;
   position: relative;
@@ -395,7 +371,6 @@ header.shrink .logo {
 /* Título de la card */
 .galeria .card h3 {
   padding: 20px 25px 5px;
-  font-size: 1.5rem;
   color: #1a1a1a;
   margin: 0;
   min-height: 40px;
@@ -415,13 +390,11 @@ header.shrink .logo {
   padding: 0 25px;
   margin: 5px 0;
   color: #666;
-  font-size: 0.95rem;
   line-height: 1.4;
 }
 
 /* Precio */
 .galeria .card .precio {
-  font-size: 1.4rem;
   font-weight: 800;
   color: #f3a530;
   padding: 15px 25px;
@@ -470,7 +443,6 @@ header.shrink .logo {
   border-radius: 999px !important;
   text-decoration: none;
   font-weight: 600;
-  font-size: 0.9rem;
   background: #ffffff !important;
   color: #333 !important;
   text-align: center;
@@ -587,12 +559,10 @@ header.shrink .logo {
   }
 
   .galeria .card p {
-    font-size: 0.85rem;
     margin: 0 0.5rem 0.75rem;
   }
 
   .galeria .card h3 {
-    font-size: 1rem;
     margin: 0.5rem;
   }
 }
@@ -718,14 +688,12 @@ header.shrink .logo {
 }
 
 .texto h2 {
-  font-size: 2rem;
   margin-bottom: 1rem;
   color: #fb9f2ee2;
 }
 
 .texto p,
 .texto .descripcion {
-  font-size: clamp(1rem, 4vw, 1.1rem);
   font-weight: 400;
   line-height: 1.6;
   color: #555;
@@ -757,7 +725,6 @@ header.shrink .logo {
 
 .caracteristicas li {
   margin-bottom: 6px;
-  font-size: 1rem;
   color: #666;
   position: relative;
 }
@@ -813,7 +780,6 @@ header.shrink .logo {
   }
 
   .texto h2 {
-    font-size: 1.5rem;
     margin-top: 5px;
     line-height: 1.2;
   }
@@ -834,13 +800,6 @@ header.shrink .logo {
     gap: 0.625rem !important;
   }
 
-  .texto h2 {
-    font-size: 1.3rem;
-  }
-
-  .texto p {
-    font-size: 0.9rem;
-  }
 }
 
 @media (max-width: 30rem) {
@@ -851,7 +810,6 @@ header.shrink .logo {
   }
 
   .texto h2 {
-    font-size: 1.5rem;
     margin-top: 0;
   }
 }
@@ -887,7 +845,6 @@ header.shrink .logo {
   text-align: center;
   color: white;
   padding: 0.6rem;
-  font-size: 1.1rem;
 }
 
 .cerrar {
@@ -957,7 +914,6 @@ header.shrink .logo {
 
 .modal-compra-header h2 {
   margin: 0;
-  font-size: 1.4rem;
   font-weight: 600;
 }
 
@@ -1009,14 +965,12 @@ header.shrink .logo {
 .terreno-seleccionado h3 {
   margin: 0 0 12px 0;
   color: #f99109;
-  font-size: 1.1rem;
   font-weight: 600;
 }
 
 .terreno-info p {
   margin: 6px 0;
   color: #555;
-  font-size: 14px;
 }
 
 /* Grid del formulario */
@@ -1041,7 +995,6 @@ header.shrink .logo {
 }
 
 .form-group label {
-  font-size: 0.9rem;
   font-weight: 600;
   color: #333;
   margin-bottom: 5px;
@@ -1054,7 +1007,6 @@ header.shrink .logo {
   padding: 10px 12px;
   border: 1px solid #ddd;
   border-radius: 8px;
-  font-size: 0.95rem;
 }
 
 .form-group input:focus,
@@ -1081,7 +1033,6 @@ header.shrink .logo {
   border: 1px solid #ddd;
   padding: 10px 20px;
   border-radius: 999px;
-  font-size: 14px;
   font-weight: 500;
   cursor: pointer;
   min-width: 100px;
@@ -1099,7 +1050,6 @@ header.shrink .logo {
   border: none;
   padding: 10px 20px;
   border-radius: 999px;
-  font-size: 14px;
   font-weight: 500;
   cursor: pointer;
   min-width: 100px;
@@ -1141,10 +1091,6 @@ header.shrink .logo {
     border-radius: 14px;
   }
 
-  .modal-compra-header h2 {
-    font-size: 1.1rem;
-  }
-
   .form-grid {
     grid-template-columns: 1fr;
   }
@@ -1178,7 +1124,6 @@ footer {
 
 footer p {
   margin: 0 0 15px 0;
-  font-size: 1rem;
   font-weight: 400;
 }
 
@@ -1220,7 +1165,6 @@ footer p {
   }
 
   footer p {
-    font-size: 0.9rem;
     margin-bottom: 20px;
   }
 
