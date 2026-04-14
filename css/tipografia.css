@@ -8,21 +8,21 @@
      TITULOS
      =============================== */
 
-  /* Hero principal (Inicio) */
-  --title-hero: clamp(3rem, 6vw, 4rem);
+  /* H1 */
+  --title-h1: clamp(2.2rem, 5vw, 3.5rem);
 
-  /* Títulos de sección */
-  --title-section: clamp(2.2rem, 5vw, 3rem);
+  /* H2 */
+  --title-h2: 2.5rem;
 
-  /* Subtítulos / títulos de cards */
-  --title-card: clamp(1.4rem, 3vw, 1.8rem);
+  /* H3 */
+  --title-h3: 1.5rem;
 
   /* ===============================
      TEXTOS
      =============================== */
 
-  /* Texto normal */
-  --text-base: clamp(1rem, 1.2vw, 1.1rem);
+  /* P */
+  --text-base: clamp(1rem, 2.5vw, 1.3rem);
 
   /* Texto pequeño */
   --text-small: 0.9rem;
@@ -30,46 +30,47 @@
   /* Texto botones */
   --text-button: 1rem;
 
+  /*Texto stat*/
+  --text-stat-number:55px;
+  --text-stat-label: 18px;
+
   /* ===============================
      LINE HEIGHT
      =============================== */
 
   --lh-title: 1.2;
   --lh-text: 1.6;
-
 }
 
 /* =========================================================
    TITULOS
    ========================================================= */
 
-/* HERO */
+/* H1 */
+h1,
 .hero-title {
-  font-size: var(--title-hero);
+  font-size: var(--title-h1);
   font-weight: 900;
   line-height: var(--lh-title);
 }
 
-/* TITULOS DE SECCION */
+/* H2 */
+h2,
 .section-title {
-  font-size: var(--title-section);
+  font-size: var(--title-h2);
   font-weight: 800;
   line-height: var(--lh-title);
   text-align: center;
 }
 
-/* SUBTITULOS */
-.section-subtitle {
-  font-size: var(--title-card);
-  font-weight: 600;
-}
-
-/* TITULOS DE CARDS */
+/* H3 */
+h3,
+.section-subtitle,
 .card h3,
 .service-card h3,
 .guia-card h3,
 .galeria .card h3 {
-  font-size: var(--title-card);
+  font-size: var(--title-h3);
   font-weight: 600;
 }
 
@@ -80,7 +81,8 @@
 p,
 li,
 span,
-a {
+a,
+.faq-question{
   font-size: var(--text-base);
   line-height: var(--lh-text);
 }
@@ -99,7 +101,13 @@ button,
 .btn,
 a.btn,
 .hero-btn,
-.tiktok-btn {
+.tiktok-btn,
+.btn-ver-todos,
+.btn-comprar,
+.btn-ubicacion,
+.btn-ver-mas,
+.btn-buscar,
+.boton-correo{
   font-size: var(--text-button);
   font-weight: 600;
 }
@@ -114,3 +122,4 @@ textarea,
 label {
   font-size: var(--text-base);
 }
+

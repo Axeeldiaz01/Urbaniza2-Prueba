@@ -77,7 +77,6 @@ html {
 }
 
 .contacto-header h1 {
-  font-size: clamp(2.2rem, 5vw, 3.5rem);
   font-weight: 800;
   line-height: 1.2;
   color: rgba(240, 161, 58, 0.679);
@@ -85,7 +84,6 @@ html {
 }
 
 .contacto-subtitle {
-  font-size: 1.05rem;
   line-height: 1.7;
   text-align: center;
   color: #555;
@@ -96,152 +94,264 @@ html {
    CARDS DE INFORMACIÓN DE CONTACTO
 ============================================= */
 .contacto-info {
-  margin: 40px auto;
+  margin: 50px auto;
   max-width: 1200px;
   padding: 0 20px;
 }
 
+/* GRID */
+
 .contacto-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 32px;
 }
+
+/* CARD BASE*/
 
 .contacto-card {
   background: white;
   border-radius: 20px;
-  padding: 30px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  border-top: 4px solid;
+  padding: 32px 30px 34px;
+
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  border-top: 5px solid;
+
+  /* Sombra más limpia y moderna */
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.08),
+    0 2px 6px rgba(0, 0, 0, 0.05);
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+  position: relative;
 }
+
+/* Elevación realista, no exagerada */
 
 .contacto-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  transform: translateY(-6px);
+
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.12),
+    0 4px 10px rgba(0, 0, 0, 0.06);
 }
 
-/* Colores por tipo de card */
-.whatsapp-card  { border-top-color: var(--whatsapp); }
-.whatsapp-card:hover { box-shadow: var(--shadow-green); }
+/* Colores EXACTOS por tipo */
 
-.email-card     { border-top-color: var(--email-blue); }
-.email-card:hover { box-shadow: var(--shadow-blue); }
+.whatsapp-card {
+  border-top-color: var(--whatsapp);
+}
 
-.ubicacion-card { border-top-color: var(--map-red); }
-.ubicacion-card:hover { box-shadow: var(--shadow-red); }
+.email-card {
+  border-top-color: var(--email-blue);
+}
 
-/* Icono */
+.ubicacion-card {
+  border-top-color: var(--map-red);
+}
+
+/* ICONO */
+
 .card-icon {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 22px;
 }
 
-.whatsapp-card  .card-icon i { font-size: 3rem; color: var(--whatsapp); }
-.email-card     .card-icon i { font-size: 3rem; color: var(--email-blue); }
-.ubicacion-card .card-icon i { font-size: 3rem; color: var(--map-red); }
+.card-icon i {
+  font-size: 3rem;
+}
 
-/* Contenido */
+.whatsapp-card .card-icon i {
+  color: var(--whatsapp);
+}
+
+.email-card .card-icon i {
+  color: var(--email-blue);
+}
+
+.ubicacion-card .card-icon i {
+  color: var(--map-red);
+}
+
+/* =============================================
+   CONTENIDO
+============================================= */
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 .card-content h3 {
-  font-size: clamp(1.3rem, 2.5vw, 1.6rem);
+  font-size: 1.5rem !important;
   font-weight: 600;
   color: var(--dark);
-  margin-bottom: 15px;
+  margin-bottom: 14px;
   text-align: center;
+
+  font-size: 1.25rem;
+  letter-spacing: 0.2px;
 }
 
 .contact-detail {
-  font-size: 1.2rem;
   font-weight: 600;
   color: var(--dark);
   text-align: center;
   margin-bottom: 10px;
+
+  font-size: 1.05rem;
 }
 
 .contact-status {
-  font-size: 0.9rem;
   color: #6c757d;
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 22px;
+
+  font-size: 18px;
 }
 
-/* Acciones (botones dentro de cada card) */
+/* =============================================
+   BOTONES — SIEMPRE ABAJO Y ALINEADOS
+============================================= */
+
 .card-actions {
+  margin-top: auto;
+
   display: flex;
-  gap: 10px;
+  gap: 12px;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: 20px;
 }
 
-.whatsapp-card .card-actions,
-.email-card    .card-actions {
-  margin-top: 50px;
-}
+/* BOTÓN PRINCIPAL */
 
 .btn-contact-primary {
-  background: linear-gradient(135deg, var(--primary), var(--primary-orange));
+  background: linear-gradient(
+    135deg,
+    var(--primary),
+    var(--primary-orange)
+  );
+
   color: white;
+
   text-decoration: none;
-  padding: 12px 20px;
+
+  padding: 13px 22px;
+
   border-radius: 999px;
+
   font-weight: 600;
+
   display: flex;
   align-items: center;
+  justify-content: center;
+
   gap: 8px;
-  transition: all 0.3s ease;
+
   border: none;
+
   cursor: pointer;
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.whatsapp-card  .btn-contact-primary { background: linear-gradient(135deg, var(--whatsapp),    var(--whatsapp-dark)); }
-.email-card     .btn-contact-primary { background: linear-gradient(135deg, var(--email-blue),   var(--email-blue-dark)); }
-.ubicacion-card .btn-contact-primary { background: linear-gradient(135deg, var(--map-red),      var(--map-red-dark)); }
+/* COLORES EXACTOS */
+
+.whatsapp-card .btn-contact-primary {
+  background: linear-gradient(
+    135deg,
+    var(--whatsapp),
+    var(--whatsapp-dark)
+  );
+}
+
+.email-card .btn-contact-primary {
+  background: linear-gradient(
+    135deg,
+    var(--email-blue),
+    var(--email-blue-dark)
+  );
+}
+
+.ubicacion-card .btn-contact-primary {
+  background: linear-gradient(
+    135deg,
+    var(--map-red),
+    var(--map-red-dark)
+  );
+}
+
+/* Hover profesional (sutil) */
 
 .btn-contact-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+
+  box-shadow:
+    0 10px 18px rgba(0, 0, 0, 0.18);
 }
+
+/* BOTÓN COPIAR */
 
 .btn-contact-secondary {
   background: #f8f9fa;
   color: var(--dark);
+
   border: 2px solid #e9ecef;
-  padding: 12px 20px;
+
+  padding: 13px 22px;
+
   border-radius: 999px;
+
   font-weight: 600;
+
   display: flex;
   align-items: center;
+  justify-content: center;
+
   gap: 8px;
-  transition: all 0.3s ease;
+
   cursor: pointer;
+
+
+  transition: border-color 0.2s ease, transform 0.2s ease;
 }
 
 .btn-contact-secondary:hover {
-  background: white;
   border-color: var(--primary);
-  color: var(--primary);
+
+  transform: translateY(-2px);
 }
 
-/* Cards — responsive */
+/* =============================================
+   RESPONSIVE
+============================================= */
+
 @media (max-width: 768px) {
+
+  .contacto-cards {
+    grid-template-columns: 1fr;
+  }
+
   .btn-contact-primary,
   .btn-contact-secondary {
-    justify-content: center;
-    text-align: center;
     width: 100%;
   }
+
 }
 
 @media (max-width: 480px) {
+
   .card-icon i {
-    font-size: 2.5rem !important;
+    font-size: 2.6rem;
   }
 
-  .contact-detail {
-    font-size: 1.1rem;
-  }
 }
+
 
 
 /* =============================================
@@ -257,7 +367,6 @@ html {
 }
 
 .testimonios-section h3 {
-  font-size: clamp(1.3rem, 2.5vw, 1.6rem);
   font-weight: 600;
   text-align: center;
   color: var(--dark);
@@ -308,7 +417,6 @@ html {
 
 .testimonio-autor span {
   color: #6c757d;
-  font-size: 0.9rem;
 }
 
 .testimonio-rating {
@@ -379,7 +487,6 @@ html {
 }
 
 .formulario-contacto-section h3 {
-  font-size: clamp(1.3rem, 2.5vw, 1.6rem);
   font-weight: 600;
   color: var(--dark);
   margin-bottom: 20px;
@@ -396,7 +503,6 @@ html {
 .form-subtitle {
   color: #555;
   margin-bottom: 40px;
-  font-size: 1.15rem;
 }
 
 .boton-correo {
@@ -405,7 +511,6 @@ html {
   border: none;
   padding: 18px 40px;
   border-radius: 999px;
-  font-size: 1.15rem;
   font-weight: 700;
   cursor: pointer;
   display: inline-flex;
@@ -490,7 +595,6 @@ html {
 
 .modal-header-enhanced h2 {
   margin: 0;
-  font-size: 1.5rem;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -561,7 +665,6 @@ html {
 }
 
 .step-label {
-  font-size: 0.9rem;
   color: #6c757d;
   text-align: center;
   font-weight: 500;
@@ -583,7 +686,6 @@ html {
 }
 
 .form-step h3 {
-  font-size: clamp(1.3rem, 2.5vw, 1.6rem);
   font-weight: 600;
   color: var(--dark);
   margin-bottom: 25px;
@@ -600,7 +702,6 @@ html {
   margin-bottom: 8px;
   color: var(--dark);
   font-weight: 600;
-  font-size: 0.95rem;
 }
 
 .form-group input,
@@ -611,7 +712,6 @@ html {
   border: 2px solid #e9ecef;
   border-radius: 10px;
   font-family: "Poppins", sans-serif;
-  font-size: 1rem;
   transition: all 0.3s ease;
   background: #f8f9fa;
 }
@@ -627,13 +727,11 @@ html {
 
 .char-counter {
   text-align: right;
-  font-size: 0.8rem;
   color: #6c757d;
   margin-top: 5px;
 }
 
 .validation-message {
-  font-size: 0.8rem;
   color: #dc3545;
   margin-top: 5px;
 }
@@ -658,14 +756,12 @@ input.invalid, select.invalid, textarea.invalid { border-color: #e74c3c; box-sha
 #captcha-question {
   font-weight: 600;
   color: #2c3e50;
-  font-size: 1.1rem;
 }
 
 #captcha-input {
   width: 80px;
   text-align: center;
   font-weight: bold;
-  font-size: 1.1rem;
 }
 
 /* Checkbox política */
@@ -683,7 +779,6 @@ input.invalid, select.invalid, textarea.invalid { border-color: #e74c3c; box-sha
 }
 
 .checkbox-group label {
-  font-size: 0.95rem;
   line-height: 1.5;
   color: #555;
   cursor: pointer;
@@ -788,7 +883,6 @@ input.invalid, select.invalid, textarea.invalid { border-color: #e74c3c; box-sha
 
 .resumen-header h4 {
   margin: 0 0 8px 0;
-  font-size: 1.3rem;
   font-weight: 600;
 }
 
@@ -798,7 +892,6 @@ input.invalid, select.invalid, textarea.invalid { border-color: #e74c3c; box-sha
 
 .resumen-subtitle {
   margin: 0;
-  font-size: 0.9rem;
   opacity: 0.9;
 }
 
@@ -828,7 +921,6 @@ input.invalid, select.invalid, textarea.invalid { border-color: #e74c3c; box-sha
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 0.95rem;
 }
 
 .dato-label i {
@@ -874,7 +966,6 @@ input.invalid, select.invalid, textarea.invalid { border-color: #e74c3c; box-sha
   align-items: center;
   gap: 10px;
   color: #2c3e50;
-  font-size: 0.9rem;
   justify-content: center;
 }
 
@@ -901,7 +992,6 @@ input.invalid, select.invalid, textarea.invalid { border-color: #e74c3c; box-sha
 .resumen-note p {
   margin: 0;
   color: #2c3e50;
-  font-size: 0.95rem;
 }
 
 /* Resumen — responsive */
@@ -950,13 +1040,11 @@ input.invalid, select.invalid, textarea.invalid { border-color: #e74c3c; box-sha
 
 .confirmacion-header h3 {
   margin: 0 0 8px 0;
-  font-size: clamp(1.3rem, 2.5vw, 1.6rem);
   font-weight: 600;
 }
 
 .confirmacion-subtitle {
   margin: 0;
-  font-size: 1rem;
   opacity: 0.9;
 }
 
@@ -1178,7 +1266,6 @@ footer {
 
 footer p {
   margin: 0 0 15px 0;
-  font-size: 1rem;
   font-weight: 400;
 }
 
@@ -1219,7 +1306,6 @@ footer p {
   }
 
   footer p {
-    font-size: 0.85rem;
     line-height: 1.4;
   }
 

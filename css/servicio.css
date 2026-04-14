@@ -37,14 +37,11 @@ body {
 }
 
 h1 {
-  font-size: 32px;
   font-weight: 700;
 }
 
 @media (max-width: 768px) {
-  h1 {
-    font-size: 26px;
-  }
+
 }
 
 .container {
@@ -355,7 +352,6 @@ nav ul li a:focus-visible {
 }
 
 .hero-title {
-  font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 800;
   margin-bottom: 1.5rem;
   line-height: 1.15;
@@ -401,10 +397,6 @@ nav ul li a:focus-visible {
     padding: 0 15px;
   }
 
-  .hero-title {
-    font-size: 2rem;
-  }
-
   .hero-description {
     font-size: 0.95rem;
   }
@@ -415,12 +407,10 @@ nav ul li a:focus-visible {
   }
 
   .banner-content h1 {
-    font-size: 2rem;
     margin-bottom: 0.8rem;
   }
 
   .banner-content p {
-    font-size: 1rem;
     margin-bottom: 1.5rem;
   }
 
@@ -469,7 +459,6 @@ nav ul li a:focus-visible {
 
 /* Título y descripción */
 .tiktok-title {
-  font-size: clamp(28px, 3vw, 38px);
   font-weight: 700;
   margin-bottom: 16px;
 }
@@ -477,7 +466,6 @@ nav ul li a:focus-visible {
 .tiktok-desc {
   max-width: 750px;
   margin: 0 auto 40px auto;
-  font-size: clamp(15px, 1.8vw, 17px);
   line-height: 1.7;
   color: #555;
 }
@@ -544,6 +532,10 @@ nav ul li a:focus-visible {
   transform: scale(1.05);
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
 }
+.tiktok-btn {
+    border-radius: 999px !important;
+   min-width: 300px;
+  }
 
 
 /* Responsivo — sección TikTok */
@@ -640,13 +632,11 @@ nav ul li a:focus-visible {
 }
 
 .texto h2 {
-  font-size: 1.5rem;
   margin-top: 5px;
   margin-bottom: 10px;
 }
 
 .texto p {
-  font-size: 1rem;
   margin-bottom: 1rem;
   line-height: 1.4;
 }
@@ -719,7 +709,6 @@ nav ul li a:focus-visible {
 }
 
 .asesoria-title {
-  font-size: clamp(28px, 3vw, 36px);
   text-align: center;
   margin-bottom: 40px;
 }
@@ -762,7 +751,6 @@ nav ul li a:focus-visible {
 
 .services-section h2 {
   text-align: center;
-  font-size: clamp(1.8rem, 4vw, 2.5rem);
   font-weight: 700;
   color: #222;
   margin-bottom: 50px;
@@ -808,14 +796,12 @@ nav ul li a:focus-visible {
 
 /* Título de la tarjeta */
 .service-card h3 {
-  font-size: 1.5rem;
   margin-bottom: 15px;
   color: #1a1a1a;
 }
 
 /* Descripción de la tarjeta */
 .service-card p {
-  font-size: 0.95rem;
   color: #666;
   margin-bottom: 20px;
   min-height: 60px;
@@ -834,7 +820,6 @@ nav ul li a:focus-visible {
   padding-left: 22px;
   margin-bottom: 10px;
   color: #555;
-  font-size: 0.9rem;
   text-align: left;
 }
 
@@ -882,10 +867,6 @@ nav ul li a:focus-visible {
     grid-template-columns: 1fr;
   }
 
-  .services-section h2 {
-    font-size: 2rem;
-  }
-
   .service-card {
     padding: 16px;
   }
@@ -916,7 +897,6 @@ nav ul li a:focus-visible {
 
 .section-title {
   text-align: center;
-  font-size: clamp(1.8rem, 4vw, 2.4rem);
   font-weight: 700;
   margin-bottom: 70px;
   color: #1f2937;
@@ -978,7 +958,6 @@ nav ul li a:focus-visible {
 
 /* Texto del paso */
 .process-item span {
-  font-size: clamp(1.1rem, 1.4vw, 1.4rem);
   font-weight: 600;
   color: #374151;
   display: block;
@@ -1083,7 +1062,6 @@ nav ul li a:focus-visible {
 
 .faq-section h2 {
   text-align: center;
-  font-size: 2.2rem;
   font-weight: 800;
   color: var(--text-dark);
   margin-bottom: 50px;
@@ -1121,7 +1099,6 @@ nav ul li a:focus-visible {
   border: none;
   cursor: pointer;
   text-align: left;
-  font-size: 1.15rem;
   font-weight: 700;
   color: var(--text-dark);
   transition: color 0.3s ease;
@@ -1169,20 +1146,12 @@ nav ul li a:focus-visible {
 @media (max-width: 768px) {
   .faq-question {
     padding: 20px;
-    font-size: 1rem;
-  }
-
-  .faq-section h2 {
-    font-size: 1.8rem;
   }
 
   .faq-item {
     padding: 15px;
   }
 
-  .faq-item span {
-    font-size: 0.98rem;
-  }
 }
 
 /* ============================================================
@@ -1199,7 +1168,6 @@ footer {
 
 footer p {
   margin: 0 0 15px 0;
-  font-size: 1rem;
   font-weight: 400;
 }
 
@@ -1241,7 +1209,6 @@ footer p {
   }
 
   footer p {
-    font-size: 0.9rem;
     margin-bottom: 20px;
   }
 
@@ -1262,7 +1229,6 @@ footer p {
   }
 
   footer p {
-    font-size: 0.85rem;
     line-height: 1.4;
   }
 
@@ -1405,6 +1371,7 @@ footer p {
 
 .btn-primary {
   border-radius: 999px;
+  white-space: nowrap;
 }
 
 /* =========================================
@@ -1420,6 +1387,7 @@ footer p {
   .section .texto .btn,
   .tiktok-btn {
     border-radius: 999px !important;
+   min-width: 260px;
   }
 
 }

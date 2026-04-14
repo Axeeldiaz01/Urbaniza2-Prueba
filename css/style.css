@@ -144,33 +144,42 @@ nav ul li a:focus-visible {
   width: 30px;
   background-color: white;
   border-radius: 2px;
-  transition: transform 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6), 
-              opacity 0.2s ease;
+  transition: transform 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6),
+    opacity 0.2s ease;
   position: relative;
-  margin: 4px 0; 
+  margin: 4px 0;
 }
 
-/* Estado Activo (La X) */
+/* Estado  X */
 .menu-toggle.active .bar:nth-child(1) {
-  /* Se mueve al centro y luego rota */
+
   transform: translateY(11px) rotate(45deg);
 }
 
 .menu-toggle.active .bar:nth-child(2) {
-  /* Desvanece un poco más rápido para no estorbar */
+
   opacity: 0;
-  transform: translateX(-10px); /* Pequeño efecto de deslizamiento lateral */
+  transform: translateX(-10px);
 }
 
 .menu-toggle.active .bar:nth-child(3) {
-  /* Se mueve al centro y luego rota en sentido opuesto */
   transform: translateY(-11px) rotate(-45deg);
 }
+
 /* Responsive Header */
 @media (max-width: 1024px) {
   .menu-toggle {
     display: flex;
   }
+
+  nav {
+    display: none;
+  }
+
+  nav.show {
+    display: flex;
+  }
+
 }
 
 @media (max-width: 768px) {
@@ -215,6 +224,8 @@ nav ul li a:focus-visible {
     padding: 100px 30px 40px;
 
     display: flex;
+    position: fixed;
+    right: -100%;
     justify-content: center;
     align-items: flex-start;
 
@@ -386,6 +397,7 @@ nav ul li a:focus-visible {
 }
 
 .hero-highlight {
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
   color: #f99109;
 }
 
@@ -1282,6 +1294,7 @@ h2::after {
   text-align: center;
   font-size: 2.5rem;
   margin-bottom: 10px;
+  color: rgba(240, 161, 58, 0.9);
   font-weight: 700;
 }
 
@@ -1321,7 +1334,7 @@ h2::after {
   padding: 12px 15px;
   border-radius: 12px;
   border: 1px solid #e5e7eb;
-  font-size: 1rem;
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
   transition: all 0.3s ease;
   background: #f9fafb;
 }
@@ -1466,33 +1479,34 @@ input[type="range"]::-webkit-slider-thumb:hover {
 /* ============================================================
    10. GUÍA PARA COMPRADORES
    ============================================================ */
+
 .info-section {
   padding: 80px 0;
 }
 
 .guia-scroll {
-  display: flex;
-  gap: 20px;
-  overflow-x: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
   padding: 20px 10px;
-  scroll-snap-type: x mandatory;
-  justify-content: center;
-  scrollbar-width: none;
-}
-
-.guia-scroll::-webkit-scrollbar {
-  display: none;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 .guia-card {
-  flex: 0 0 auto;
-  width: 300px;
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
   background: #fff;
   border-radius: 20px;
   padding: 20px;
   text-align: center;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-  scroll-snap-align: center;
+  transition: 0.3s ease;
+}
+
+.guia-card:hover {
+  transform: translateY(-5px);
 }
 
 .guia-card img {
@@ -1501,7 +1515,6 @@ input[type="range"]::-webkit-slider-thumb:hover {
   object-fit: contain;
   border-radius: 15px;
   margin-bottom: 15px;
-  background: transparent;
 }
 
 .guia-card h3 {
@@ -1511,11 +1524,6 @@ input[type="range"]::-webkit-slider-thumb:hover {
 .guia-card p {
   color: #666;
   line-height: 1.4;
-}
-
-.guia-card:hover {
-  transform: translateY(-5px);
-  transition: 0.3s ease;
 }
 
 @media (max-width: 768px) {
