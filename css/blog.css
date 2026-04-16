@@ -423,49 +423,197 @@ h1 {
 
 /* =============================================
    FOOTER
-   ============================================= */
-footer {
+   ============================================= */.footer {
+
   background: var(--dark);
   color: white;
-  text-align: center;
-  padding: 20px 0;
-  margin-top: 40px;
+
+  margin-top: 80px;
+
+  position: relative;
+
 }
 
-footer p {
-  margin: 0 0 15px 0;
-  font-weight: 400;
+/* Línea superior elegante */
+
+.footer::before {
+
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 140px;
+  height: 4px;
+
+  background: var(--primary);
+
+  border-radius: 10px;
+
 }
+
+/* Contenedor principal */
+
+.footer-container {
+
+  max-width: 1200px;
+
+  margin: auto;
+
+  padding: 55px 20px 40px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 40px;
+
+  flex-wrap: wrap;
+
+}
+
+/* Marca */
+
+.footer-brand {
+
+  max-width: 420px;
+
+}
+
+.footer-brand h3 {
+
+  font-size: 1.4rem;
+
+  font-weight: 700;
+
+  margin-bottom: 10px;
+
+}
+
+.footer-brand p {
+
+  color: #cfcfcf;
+
+  line-height: 1.5;
+
+  font-size: 0.95rem;
+
+}
+
+/* Redes */
+
+.footer-social {
+
+  text-align: center;
+
+}
+
+.footer-social span {
+
+  display: block;
+
+  margin-bottom: 15px;
+
+  font-weight: 600;
+
+  font-size: 0.95rem;
+
+  color: #dddddd;
+
+}
+
+/* Botones sociales */
 
 .redes-sociales {
-  margin-top: 15px;
+
   display: flex;
+
   justify-content: center;
-  gap: 20px;
+
+  align-items: center;
+
+  gap: 16px;
+
 }
+
+/* Iconos */
 
 .redes-sociales a {
-  color: white;
-  font-size: 24px;
-  transition: all 0.3s ease;
-  text-decoration: none;
-  width: 45px;
-  height: 45px;
+
+  width: 56px;
+  height: 56px;
+
   border-radius: 50%;
+
   display: flex;
+
   align-items: center;
+
   justify-content: center;
-  background: rgba(255, 255, 255, 0.1);
-  border: 2px solid transparent;
+
+  font-size: 1.3rem;
+
+  color: white;
+
+  text-decoration: none;
+
+  background: rgba(255, 255, 255, 0.06);
+
+  border: 2px solid rgba(255, 255, 255, 0.08);
+
+  transition: all 0.3s ease;
+
 }
 
+/* Hover premium */
+
 .redes-sociales a:hover {
-  color: var(--primary-orange);
-  background: rgba(251, 159, 46, 0.1);
-  border-color: var(--primary-orange);
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(251, 159, 46, 0.3);
+
+  background: var(--primary);
+
+  border-color: var(--primary);
+
+  transform: translateY(-4px);
+
+  box-shadow: 0 10px 22px rgba(251, 159, 46, 0.35);
+
 }
+
+/* Línea inferior */
+
+.footer-bottom {
+
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+  padding: 18px 10px;
+
+  text-align: center;
+
+}
+
+/* Copyright */
+
+.footer-bottom p {
+
+  margin: 0;
+
+  font-size: 1rem;
+
+  color: #bdbdbd;
+
+}
+.footer::before,
+.footer::after {
+  display: none !important;
+  content: none !important;
+}
+
 
 /* =============================================
    WHATSAPP FLOTANTE
@@ -591,26 +739,6 @@ footer p {
 
   .scrollToHome:hover {
     transform: translateY(-2px) scale(1.03);
-  }
-
-  footer {
-    padding: 20px 10px;
-  }
-
-  footer p {
-    font-size: 0.85rem;
-    line-height: 1.4;
-  }
-
-  .redes-sociales {
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-
-  .redes-sociales a {
-    width: 38px;
-    height: 38px;
-    font-size: 18px;
   }
 
   .whatsapp-float {

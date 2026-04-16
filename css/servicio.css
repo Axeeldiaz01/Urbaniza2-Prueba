@@ -40,9 +40,7 @@ h1 {
   font-weight: 700;
 }
 
-@media (max-width: 768px) {
-
-}
+@media (max-width: 768px) {}
 
 .container {
   width: 85%;
@@ -158,10 +156,10 @@ nav ul li a:focus-visible {
   width: 30px;
   background-color: white;
   border-radius: 2px;
-  transition: transform 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6), 
-              opacity 0.2s ease;
+  transition: transform 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6),
+    opacity 0.2s ease;
   position: relative;
-  margin: 4px 0; 
+  margin: 4px 0;
 }
 
 /* Estado Activo (La X) */
@@ -173,13 +171,15 @@ nav ul li a:focus-visible {
 .menu-toggle.active .bar:nth-child(2) {
   /* Desvanece un poco más rápido para no estorbar */
   opacity: 0;
-  transform: translateX(-10px); /* Pequeño efecto de deslizamiento lateral */
+  transform: translateX(-10px);
+  /* Pequeño efecto de deslizamiento lateral */
 }
 
 .menu-toggle.active .bar:nth-child(3) {
   /* Se mueve al centro y luego rota en sentido opuesto */
   transform: translateY(-11px) rotate(-45deg);
 }
+
 /* Responsive Header */
 @media (max-width: 1024px) {
   .menu-toggle {
@@ -533,10 +533,11 @@ nav ul li a:focus-visible {
   transform: scale(1.05);
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
 }
+
 .tiktok-btn {
-    border-radius: 999px !important;
-   min-width: 300px;
-  }
+  border-radius: 999px !important;
+  min-width: 300px;
+}
 
 
 /* Responsivo — sección TikTok */
@@ -567,137 +568,121 @@ nav ul li a:focus-visible {
 
 
 /* ============================================================
-   5. SECCIÓN COMPRA Y VENTA DE PROPIEDADES (#compra-venta)
-   ============================================================ */
+   SECCIÓN COMPRA Y VENTA DE PROPIEDADES
+============================================================ */
 
+/* CONTENEDOR GENERAL */
 .section {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 40px;
-  padding: 50px 40px;
+  gap: 50px;                 /* espacio entre imagen y texto */
+  padding: 60px 40px;
   flex-wrap: wrap;
   background: #ffffff;
-  max-width: 1100px;
+  max-width: 1100px;         /* ← ancho total de la sección en desktop */
   margin: 60px auto;
   border-radius: 24px;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease;
+  transition: 0.3s ease;
 }
 
+/* HOVER SUAVE */
 .section:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.12);
+  transform: translateY(-6px);
+  box-shadow: 0 28px 65px rgba(0, 0, 0, 0.12);
 }
 
-.section.reverse {
-  flex-direction: row-reverse;
-}
-
-/* Imagen dentro de la card */
+/* IMAGEN (CARD) */
 .section .card {
-  background: #ffffff;
   flex: 1 1 45%;
-  max-width: 500px;
+  max-width: 460px;     /* ← AQUI CAMBIAS EL ANCHO DEL CARD EN DESKTOP */
 }
 
-.imagen {
-  width: 100%;
-  max-width: 420px;
-  height: auto;
-  border-radius: 12px;
-}
-
+/* IMAGEN */
 .section .card img.imagen {
   width: 100%;
+  max-width: 420px;     /* ← AQUI CAMBIAS EL TAMAÑO DE LA IMAGEN EN DESKTOP */
   height: auto;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  display: block;
+  border-radius: 9px;
 }
 
-/* Texto de la card */
-.texto {
-  margin-top: -10px;
-  padding-top: 0;
-  text-align: center;
-}
-
+/* TEXTO */
 .section .texto {
   flex: 1 1 45%;
   max-width: 500px;
-  text-align: left;
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 15px;
+  text-align: left;
 }
 
+/* TITULO */
 .texto h2 {
-  margin-top: 5px;
-  margin-bottom: 10px;
+  font-size: 1.8rem;
+  margin-bottom: 8px;
 }
 
+/* PARRAFO */
 .texto p {
-  margin-bottom: 1rem;
-  line-height: 1.4;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 12px;
 }
 
-/* Responsivo — sección compra/venta */
+/* ============================================================
+   RESPONSIVE — MÓVIL
+============================================================ */
+
 @media (max-width: 768px) {
 
-  .section,
-  .section.reverse {
+  .section {
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
     text-align: center;
     gap: 20px;
     padding: 40px 20px;
     margin: 40px 20px;
-    border-radius: 16px;
   }
 
+  /* CARD */
   .section .card {
-    max-width: 80%;
+    width: 100%;
+    max-width: 300px;   /* ← AQUI CAMBIAS EL ANCHO DEL CARD EN MÓVIL */
+    margin: 0 auto;
+    flex: 0 1 auto;
+  }
+
+  /* IMAGEN */
+  .section .card img.imagen {
+    width: 100%;
+    max-width: 260px;   /* ← AQUI CAMBIAS EL TAMAÑO DE LA IMAGEN EN MÓVIL */
+    height: auto;
     margin: 0 auto;
   }
 
+  /* TEXTO */
   .section .texto {
-    max-width: 100%;
+    width: 100%;
+    max-width: 320px;   /* ← mantiene el contenido alineado con la imagen */
+    margin: 0 auto;
     text-align: center;
+    gap: 12px;
   }
 
-  /* Forzar centrado del botón en móvil */
-  .section .texto {
-    display: flex;
-    flex-direction: column;
-    align-items: center !important;
+  /* TITULO */
+  .texto h2 {
+    font-size: 1.4rem;
   }
 
-  .section .texto .btn,
-  .section .texto a {
-    display: inline-flex !important;
-    justify-content: center;
-    align-items: center;
-    margin: 15px auto 0 auto !important;
+  /* TEXTO */
+  .texto p {
+    font-size: 0.95rem;
+    line-height: 1.6;
   }
 
-  /* Layout flex general para secciones */
-  .card,
-  .texto {
-    flex: 1 1 auto;
-    max-width: 100%;
-    margin-bottom: 0;
-  }
-
-  .section,
-  .contenedor-flex {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-  }
 }
 
 /* ============================================================
@@ -918,14 +903,14 @@ nav ul li a:focus-visible {
   background: #fff;
   padding: 25px;
   border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   position: relative;
   transition: 0.3s ease;
 }
 
 .process-item:hover {
   transform: translateY(-6px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
 /* NUMERO */
@@ -952,7 +937,8 @@ nav ul li a:focus-visible {
 
 .process-img img {
   width: 100%;
-  height: auto; /* 🔥 CLAVE: NO RECORTA */
+  height: auto;
+  /* 🔥 CLAVE: NO RECORTA */
   display: block;
   border-radius: 12px;
 }
@@ -1094,90 +1080,196 @@ nav ul li a:focus-visible {
    10. FOOTER
    ============================================================ */
 
-footer {
+.footer {
+
   background: var(--dark);
   color: white;
-  text-align: center;
-  padding: 20px 0;
-  margin-top: 40px;
+
+  margin-top: 80px;
+
+  position: relative;
+
 }
 
-footer p {
-  margin: 0 0 15px 0;
-  font-weight: 400;
+/* Línea superior elegante */
+
+.footer::before {
+
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 140px;
+  height: 4px;
+
+  background: var(--primary);
+
+  border-radius: 10px;
+
 }
 
-/* Redes sociales */
-.redes-sociales {
-  margin-top: 15px;
+/* Contenedor principal */
+
+.footer-container {
+
+  max-width: 1200px;
+
+  margin: auto;
+
+  padding: 55px 20px 40px;
+
   display: flex;
-  justify-content: center;
-  gap: 20px;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 40px;
+
+  flex-wrap: wrap;
+
 }
+
+/* Marca */
+
+.footer-brand {
+
+  max-width: 420px;
+
+}
+
+.footer-brand h3 {
+
+  font-size: 1.4rem;
+
+  font-weight: 700;
+
+  margin-bottom: 10px;
+
+}
+
+.footer-brand p {
+
+  color: #cfcfcf;
+
+  line-height: 1.5;
+
+  font-size: 0.95rem;
+
+}
+
+/* Redes */
+
+.footer-social {
+
+  text-align: center;
+
+}
+
+.footer-social span {
+
+  display: block;
+
+  margin-bottom: 15px;
+
+  font-weight: 600;
+
+  font-size: 0.95rem;
+
+  color: #dddddd;
+
+}
+
+/* Botones sociales */
+
+.redes-sociales {
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 16px;
+
+}
+
+/* Iconos */
 
 .redes-sociales a {
-  color: white;
-  font-size: 24px;
-  transition: all 0.3s ease;
-  text-decoration: none;
-  width: 45px;
-  height: 45px;
+
+  width: 56px;
+  height: 56px;
+
   border-radius: 50%;
+
   display: flex;
+
   align-items: center;
+
   justify-content: center;
-  background: rgba(255, 255, 255, 0.1);
-  border: 2px solid transparent;
+
+  font-size: 1.3rem;
+
+  color: white;
+
+  text-decoration: none;
+
+  background: rgba(255, 255, 255, 0.06);
+
+  border: 2px solid rgba(255, 255, 255, 0.08);
+
+  transition: all 0.3s ease;
+
 }
+
+/* Hover premium */
 
 .redes-sociales a:hover {
-  color: var(--primary);
-  background: rgba(251, 159, 46, 0.1);
+
+  background: var(--primary);
+
   border-color: var(--primary);
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(251, 159, 46, 0.3);
+
+  transform: translateY(-4px);
+
+  box-shadow: 0 10px 22px rgba(251, 159, 46, 0.35);
+
 }
 
-/* Responsivo — footer */
-@media (max-width: 768px) {
-  footer {
-    padding: 25px 15px;
-  }
+/* Línea inferior */
 
-  footer p {
-    margin-bottom: 20px;
-  }
+.footer-bottom {
 
-  .redes-sociales {
-    gap: 15px;
-  }
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 
-  .redes-sociales a {
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
-  }
+  padding: 18px 10px;
+
+  text-align: center;
+
 }
 
-@media (max-width: 480px) {
-  footer {
-    padding: 20px 10px;
-  }
+/* Copyright */
 
-  footer p {
-    line-height: 1.4;
-  }
+.footer-bottom p {
 
-  .redes-sociales {
-    gap: 12px;
-    flex-wrap: wrap;
-  }
+  margin: 0;
 
-  .redes-sociales a {
-    width: 38px;
-    height: 38px;
-    font-size: 18px;
-  }
+  font-size: 1rem;
+
+  color: #bdbdbd;
+
+}
+
+.footer::before,
+.footer::after {
+  display: none !important;
+  content: none !important;
 }
 
 /* ============================================================
@@ -1323,7 +1415,7 @@ footer p {
   .section .texto .btn,
   .tiktok-btn {
     border-radius: 999px !important;
-   min-width: 260px;
+    min-width: 260px;
   }
 
 }

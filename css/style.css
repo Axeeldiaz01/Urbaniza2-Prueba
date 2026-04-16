@@ -325,15 +325,17 @@ nav ul li a:focus-visible {
 }
 
 .hero-title {
-  font-weight: 700;
+  color: #FFFFFF;
+  font-weight: 800;
   margin-bottom: 1.5rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
   line-height: 1.2;
 }
 
 .hero-highlight {
+ 
   font-size: clamp(2.2rem, 5vw, 3.5rem);
-  color: #f99109;
+  display: block; /* Para que baje a la siguiente línea si es necesario */
 }
 
 .hero-description {
@@ -343,6 +345,13 @@ nav ul li a:focus-visible {
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
+  color: #E5E7EB;
+}
+
+.hero-description strong,
+.banner-content strong {
+  color: #f99109;
+  font-weight: 700;
 }
 
 .hero-buttons {
@@ -920,7 +929,7 @@ h2::after {
   border-radius: 999px;
   background: #f3a530;
   color: white;
-  font-weight: 700;
+  font-weight: 700 !important;
   text-decoration: none;
   transition: all 0.3s ease;
 }
@@ -964,6 +973,12 @@ h2::after {
 
   .galeria {
     grid-template-columns: 1fr;
+    justify-items: center; /* centra la card */
+  }
+
+  .galeria .card {
+    max-width: 380px; /* tamaño similar a desktop */
+    width: 100%;
   }
 }
 
@@ -973,7 +988,7 @@ h2::after {
 .reel-clean {
   background: #ffffff;
   border-radius: 30px;
-  padding: 80px 50px;
+  padding: 80px 0;
   margin: 100px auto;
   max-width: 1000px;
   box-shadow: 0 35px 90px rgba(0, 0, 0, 0.15);
@@ -1067,6 +1082,14 @@ h2::after {
 @media (max-width: 600px) {
   .reel-video video {
     max-width: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .reel-clean {
+    max-width: 530px;   /* ← aquí ajustas el ancho */
+    padding: 40px 20px; /* opcional: reduce el espacio interno */
+    margin: 60px auto;
   }
 }
 
@@ -2181,95 +2204,193 @@ input[type="range"]::-webkit-slider-thumb:hover {
 }
 
 /* ============================================================
-   13. FOOTER
+   FOOTER 
    ============================================================ */
-footer {
+
+.footer {
+
   background: var(--dark);
   color: white;
-  text-align: center;
-  padding: 40px 0;
-  margin-top: 60px;
+
+  margin-top: 80px;
+
+  position: relative;
+
 }
 
-footer p {
-  margin: 0 0 20px 0;
-  font-size: 1rem;
-  font-weight: 400;
-  color: #cccccc;
+/* Línea superior elegante */
+
+.footer::before {
+
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 140px;
+  height: 4px;
+
+  background: var(--primary);
+
+  border-radius: 10px;
+
 }
+
+/* Contenedor principal */
+
+.footer-container {
+
+  max-width: 1200px;
+
+  margin: auto;
+
+  padding: 55px 20px 40px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 40px;
+
+  flex-wrap: wrap;
+
+}
+
+/* Marca */
+
+.footer-brand {
+
+  max-width: 420px;
+
+}
+
+.footer-brand h3 {
+
+  font-size: 1.4rem;
+
+  font-weight: 700;
+
+  margin-bottom: 10px;
+
+}
+
+.footer-brand p {
+
+  color: #cfcfcf;
+
+  line-height: 1.5;
+
+  font-size: 0.95rem;
+
+}
+
+/* Redes */
+
+.footer-social {
+
+  text-align: center;
+
+}
+
+.footer-social span {
+
+  display: block;
+
+  margin-bottom: 15px;
+
+  font-weight: 600;
+
+  font-size: 0.95rem;
+
+  color: #dddddd;
+
+}
+
+/* Botones sociales */
 
 .redes-sociales {
+
   display: flex;
+
   justify-content: center;
-  gap: 20px;
-  margin-top: 15px;
+
+  align-items: center;
+
+  gap: 16px;
+
 }
+
+/* Iconos */
 
 .redes-sociales a {
-  color: white;
-  font-size: 1.5rem;
-  transition: all 0.3s ease;
-  text-decoration: none;
-  width: 60px;
-  height: 60px;
+
+  width: 56px;
+  height: 56px;
+
   border-radius: 50%;
+
   display: flex;
+
   align-items: center;
+
   justify-content: center;
-  background: rgba(255, 255, 255, 0.1);
-  border: 2px solid transparent;
+
+  font-size: 1.3rem;
+
+  color: white;
+
+  text-decoration: none;
+
+  background: rgba(255, 255, 255, 0.06);
+
+  border: 2px solid rgba(255, 255, 255, 0.08);
+
+  transition: all 0.3s ease;
+
 }
+
+/* Hover premium */
 
 .redes-sociales a:hover {
-  color: var(--primary);
-  background: rgba(251, 159, 46, 0.1);
+
+  background: var(--primary);
+
   border-color: var(--primary);
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(251, 159, 46, 0.3);
+
+  transform: translateY(-4px);
+
+  box-shadow: 0 10px 22px rgba(251, 159, 46, 0.35);
+
 }
 
-/* Responsive footer */
-@media (max-width: 768px) {
-  footer {
-    padding: 30px 0;
-  }
+/* Línea inferior */
 
-  footer p {
-    font-size: 0.9rem;
-    margin-bottom: 20px;
-  }
+.footer-bottom {
 
-  .redes-sociales {
-    gap: 15px;
-  }
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 
-  .redes-sociales a {
-    width: 50px;
-    height: 50px;
-    font-size: 1.3rem;
-  }
+  padding: 18px 10px;
+
+  text-align: center;
+
 }
 
-@media (max-width: 480px) {
-  footer {
-    padding: 25px 0;
-  }
+/* Copyright */
 
-  footer p {
-    font-size: 0.85rem;
-    line-height: 1.4;
-  }
+.footer-bottom p {
 
-  .redes-sociales {
-    gap: 12px;
-    flex-wrap: wrap;
-  }
+  margin: 0;
 
-  .redes-sociales a {
-    width: 45px;
-    height: 45px;
-    font-size: 1.2rem;
-  }
+  font-size: 1rem;
+
+  color: #bdbdbd;
+
 }
 
 /* ============================================================
@@ -2900,3 +3021,4 @@ a:hover .whatsapp-num {
 .btn-ver-mas {
   border-radius: 999px !important;
 }
+
