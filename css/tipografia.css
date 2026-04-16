@@ -82,6 +82,7 @@ p,
 li,
 span,
 a,
+.hero-description,
 .faq-question{
   font-size: var(--text-base);
   line-height: var(--lh-text);
@@ -109,7 +110,7 @@ a.btn,
 .btn-buscar,
 .boton-correo{
   font-size: var(--text-button);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 /* =========================================================
