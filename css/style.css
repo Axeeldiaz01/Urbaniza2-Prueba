@@ -1093,6 +1093,23 @@ h2::after {
   }
 }
 
+@media (min-width: 769px) and (max-width: 1024px) {
+  .reel-clean {
+    max-width: 650px;     /* ← Mismo tamaño que el card de arriba */
+    padding: 60px 40px;
+    margin: 80px auto;
+  }
+}
+
+/* Tu responsive móvil actual (sin cambios) */
+@media (max-width: 768px) {
+  .reel-clean {
+    max-width: 500px;     /* ← Móvil */
+    padding: 40px 20px;
+    margin: 60px auto;
+  }
+}
+
 /* ============================================================
    8. SECCIÓN SERVICIOS (CARDS CON FLIP)
    ============================================================ */

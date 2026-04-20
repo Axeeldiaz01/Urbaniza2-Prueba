@@ -80,23 +80,38 @@ h2::after {
   }
 }
 
-
 /* =============================================
-   BANNER (hero section)
+   BANNER (hero section) — MODIFICADO
 ============================================= */
 .banner {
   position: relative;
   width: 100%;
-  height: 85vh;
+  height: 85vh;              /* ← Por defecto: altura relativa */
   min-height: 500px;
   display: flex;
-  align-items: flex-start;
+  align-items: flex-start;   /* ← Mantiene contenido arriba */
   justify-content: center;
   text-align: center;
   color: white;
   padding: 0 20px;
   overflow: hidden;
-  padding-top: 80px;
+  padding-top: 80px;         /* ← Mantiene espaciado superior */
+}
+
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .banner {
+    height: 500px;         /* ← Altura fija para evitar imagen excesiva */
+    min-height: auto;      /* ← Anula min-height */
+  }
+}
+
+/* === NUEVO: Pantallas grandes — altura fija === */
+@media (min-width: 1025px) {
+  .banner {
+    height: 520px;         /* ← Altura fija más compacta */
+    min-height: auto;      /* ← Anula min-height */
+  }
 }
 
 .banner img {
@@ -151,7 +166,7 @@ h2::after {
   border-radius: 999px !important;
 }
 
-/* Banner — responsive */
+/* Banner — responsive (sin cambios) */
 @media (max-width: 768px) {
   .banner {
     height: auto !important;
