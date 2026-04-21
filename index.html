@@ -391,53 +391,128 @@
       </section>
 
       <!-- CALCULADORA DE FINANCIAMIENTO -->
-      <section id="calculadora" class="calculadora-section">
+      <section id="calculadora" class="calculadora-section" aria-labelledby="calc-title">
         <div class="container">
-          <h2 class="reveal"><i class="fas fa-calculator"></i> Calculadora de Financiamiento</h2>
+          <h2 id="calc-title" class="reveal">
+            <i class="fas fa-calculator" aria-hidden="true"></i>
+            Calculadora de Financiamiento
+          </h2>
           <p class="reveal">Simula tu plan de pago y descubre cuánto puedes invertir</p>
+
           <div class="calculadora-container reveal">
-            <div class="calculadora-inputs">
+            <!-- Formulario de Entradas -->
+            <form class="calculadora-inputs" id="form-calculadora" novalidate>
+
               <div class="input-group">
-                <label for="precio-terreno">Precio del Terreno (S/)</label>
-                <input type="number" id="precio-terreno" placeholder="150000" min="0" />
+                <label for="precio-terreno">
+                  Precio del Terreno
+                  <span class="currency-tag">S/</span>
+                </label>
+                <input type="number" id="precio-terreno" placeholder="Ej: 150,000" min="1000" max="10000000" step="1000"
+                  required aria-describedby="precio-ayuda" />
+                <small id="precio-ayuda" class="input-help">Mínimo S/ 1,000</small>
               </div>
+
+              <div class="input-group slider-group">
+                <div class="slider-header">
+                  <label for="cuota-inicial">Cuota Inicial</label>
+                  <span class="badge" id="cuota-porcentaje">20%</span>
+                </div>
+                <input type="range" id="cuota-inicial" min="10" max="50" value="20" step="5" aria-valuemin="10"
+                  aria-valuemax="50" aria-valuenow="20" />
+                <div class="slider-values">
+                  <span class="slider-min">10%</span>
+                  <output for="cuota-inicial" id="cuota-inicial-valor" class="output-highlight">
+                    S/ 30,000
+                  </output>
+                  <span class="slider-max">50%</span>
+                </div>
+              </div>
+
               <div class="input-group">
-                <label for="cuota-inicial">Cuota Inicial (%)</label>
-                <input type="range" id="cuota-inicial" min="10" max="50" value="20" />
-                <span id="cuota-inicial-valor">S/ 30,000</span>
+                <label for="plazo-pago">Plazo de Pago</label>
+                <div class="select-wrapper">
+                  <select id="plazo-pago">
+                    <option value="3">3 años</option>
+                    <option value="4" selected>4 años</option>
+                    <option value="5">5 años</option>
+                    <option value="6">6 años</option>
+                    <option value="7">7 años</option>
+                    <option value="8">8 años</option>
+                    <option value="9">9 años</option>
+                    <option value="10">10 años</option>
+                  </select>
+                  <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                </div>
               </div>
+
               <div class="input-group">
-                <label for="plazo-pago">Plazo de Pago (años)</label>
-                <select id="plazo-pago">
-                  <option value="3">3 año</option>
-                  <option value="4" selected>4 años</option>
-                  <option value="5">5 años</option>
-                  <option value="6">6 años</option>
-                  <option value="7">7 años</option>
-                  <option value="8">8 años</option>
-                  <option value="9">9 años</option>
-                  <option value="10">10 años</option>
-                </select>
+                <label for="tasa-interes">Tasa de Interés Anual</label>
+                <div class="select-wrapper">
+                  <select id="tasa-interes">
+                    <option value="8">8% — Promocional</option>
+                    <option value="10" selected>10% — Estándar</option>
+                    <option value="12">12% — Premium</option>
+                    <option value="15">15% — Especial</option>
+                  </select>
+                  <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                </div>
               </div>
-              <div class="input-group">
-                <label for="tasa-interes">Tasa de Interés Anual (%)</label>
-                <select id="tasa-interes">
-                  <option value="8">8% - Promocional</option>
-                  <option value="10" selected>10% - Estándar</option>
-                  <option value="12">12% - Premium</option>
-                  <option value="15">15% - Especial</option>
-                </select>
-              </div>
-              <button id="btn-calcular" class="btn-ver-mas">Calcular</button>
-            </div>
-            <div class="calculadora-resultados">
+
+              <button type="submit" id="btn-calcular" class="btn-calcular">
+                <i class="fas fa-sync-alt" aria-hidden="true"></i>
+                Actualizar Cálculo
+              </button>
+            </form>
+
+            <!-- Resultados -->
+            <div class="calculadora-resultados" role="region" aria-live="polite"
+              aria-label="Resultados del financiamiento">
               <h3>Resultados del Financiamiento</h3>
-              <div class="resultado-item"><span>Cuota Inicial:</span><span id="cuota-inicial-resultado">S/ 0</span>
+
+              <div class="resultado-grid">
+                <div class="resultado-item">
+                  <span class="resultado-label">
+                    <i class="fas fa-hand-holding-usd" aria-hidden="true"></i>
+                    Cuota Inicial
+                  </span>
+                  <span id="cuota-inicial-resultado" class="resultado-valor">S/ 0</span>
+                </div>
+
+                <div class="resultado-item">
+                  <span class="resultado-label">
+                    <i class="fas fa-file-invoice-dollar" aria-hidden="true"></i>
+                    Monto a Financiar
+                  </span>
+                  <span id="monto-financiar" class="resultado-valor">S/ 0</span>
+                </div>
+
+                <div class="resultado-item destacado">
+                  <span class="resultado-label">
+                    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+                    Cuota Mensual
+                  </span>
+                  <span id="cuota-mensual" class="resultado-valor">S/ 0</span>
+                </div>
+
+                <div class="resultado-item">
+                  <span class="resultado-label">
+                    <i class="fas fa-percentage" aria-hidden="true"></i>
+                    Interés Total
+                  </span>
+                  <span id="interes-total" class="resultado-valor">S/ 0</span>
+                </div>
               </div>
-              <div class="resultado-item"><span>Monto a Financiar:</span><span id="monto-financiar">S/ 0</span></div>
-              <div class="resultado-item"><span>Cuota Mensual:</span><span id="cuota-mensual">S/ 0</span></div>
-              <div class="resultado-item"><span>Interés Total:</span><span id="interes-total">S/ 0</span></div>
-              <div class="resultado-item total"><span>Total a Pagar:</span><span id="total-pagar">S/ 0</span></div>
+
+              <div class="resultado-item total">
+                <span class="resultado-label">Total a Pagar</span>
+                <span id="total-pagar" class="resultado-valor">S/ 0</span>
+              </div>
+
+              <p class="resultado-nota">
+                <i class="fas fa-info-circle" aria-hidden="true"></i>
+                Los cálculos son referenciales. Solicita una cotización personalizada.
+              </p>
             </div>
           </div>
         </div>

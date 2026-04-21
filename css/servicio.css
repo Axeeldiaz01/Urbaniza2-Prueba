@@ -118,7 +118,7 @@ nav ul li a:hover {
   color: var(--dark);
 }
 
-/* Accesibilidad: foco visible */
+/*  foco visible */
 a:focus-visible {
   outline: 2px solid rgba(249, 145, 9, 0.85);
   outline-offset: 2px;
@@ -164,19 +164,16 @@ nav ul li a:focus-visible {
 
 /* Estado Activo (La X) */
 .menu-toggle.active .bar:nth-child(1) {
-  /* Se mueve al centro y luego rota */
+
   transform: translateY(11px) rotate(45deg);
 }
 
 .menu-toggle.active .bar:nth-child(2) {
-  /* Desvanece un poco más rápido para no estorbar */
   opacity: 0;
   transform: translateX(-10px);
-  /* Pequeño efecto de deslizamiento lateral */
 }
 
 .menu-toggle.active .bar:nth-child(3) {
-  /* Se mueve al centro y luego rota en sentido opuesto */
   transform: translateY(-11px) rotate(-45deg);
 }
 
@@ -317,14 +314,14 @@ nav ul li a:focus-visible {
 .banner {
   position: relative;
   width: 100%;
-  height: 85vh;              /* ← Mantiene altura actual por defecto */
+  height: 85vh;              
   min-height: 500px;
   overflow: hidden;
   display: flex;
-  align-items: flex-start;   /* ← Mantiene contenido arriba */
+  align-items: flex-start;   
   justify-content: center;
   text-align: center;
-  padding-top: 20px;         /* ← Mantiene espaciado superior */
+  padding-top: 20px;    
 }
 
 .banner img {
@@ -388,8 +385,8 @@ nav ul li a:focus-visible {
 
 @media (min-width: 1025px) {
   .banner {
-    height: 520px;         /* ← Altura fija más compacta en desktop */
-    min-height: auto;      /* ← Quita min-height para respetar los 520px */
+    height: 520px; 
+    min-height: auto;      
   }
 }
 
@@ -583,11 +580,11 @@ nav ul li a:focus-visible {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 50px;                 /* espacio entre imagen y texto */
+  gap: 50px;                 
   padding: 60px 40px;
   flex-wrap: wrap;
   background: #ffffff;
-  max-width: 1100px;         /* ← ancho total de la sección en desktop */
+  max-width: 1100px;         
   margin: 60px auto;
   border-radius: 24px;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
@@ -603,13 +600,13 @@ nav ul li a:focus-visible {
 /* IMAGEN (CARD) */
 .section .card {
   flex: 1 1 45%;
-  max-width: 460px;     /* ← AQUI CAMBIAS EL ANCHO DEL CARD EN DESKTOP */
+  max-width: 460px; 
 }
 
 /* IMAGEN */
 .section .card img.imagen {
   width: 100%;
-  max-width: 420px;     /* ← AQUI CAMBIAS EL TAMAÑO DE LA IMAGEN EN DESKTOP */
+  max-width: 420px;  
   height: auto;
   display: block;
   border-radius: 9px;
@@ -634,30 +631,30 @@ nav ul li a:focus-visible {
 
 /* PARRAFO */
 .texto p {
-  font-size: 1rem;
   line-height: 1.6;
   margin-bottom: 12px;
 }
 
-/* ============================================================
-   RESPONSIVE — MÓVIL
-============================================================ */
+/*  RESPONSIVE — MÓVIL */
 
 @media (max-width: 768px) {
 
   .section {
+
     flex-direction: column;
     align-items: center;
     text-align: center;
     gap: 20px;
     padding: 40px 20px;
-    margin: 40px 20px;
+    width: 85%;         
+    max-width: 500px; 
+    margin: 40px auto;  
   }
 
   /* CARD */
   .section .card {
     width: 100%;
-    max-width: 300px;   /* ← AQUI CAMBIAS EL ANCHO DEL CARD EN MÓVIL */
+    max-width: 300px;  
     margin: 0 auto;
     flex: 0 1 auto;
   }
@@ -665,7 +662,7 @@ nav ul li a:focus-visible {
   /* IMAGEN */
   .section .card img.imagen {
     width: 100%;
-    max-width: 260px;   /* ← AQUI CAMBIAS EL TAMAÑO DE LA IMAGEN EN MÓVIL */
+    max-width: 260px;   
     height: auto;
     margin: 0 auto;
   }
@@ -673,7 +670,7 @@ nav ul li a:focus-visible {
   /* TEXTO */
   .section .texto {
     width: 100%;
-    max-width: 320px;   /* ← mantiene el contenido alineado con la imagen */
+    max-width: 320px;   
     margin: 0 auto;
     text-align: center;
     gap: 12px;
@@ -693,7 +690,7 @@ nav ul li a:focus-visible {
 }
 
 /* ============================================================
-   6. SECCIÓN ASESORÍA LEGAL — PROCESO (#asesoria-legal)
+   6. SECCIÓN ASESORÍA LEGAL 
    ============================================================ */
 
 .asesoria-section {
@@ -730,7 +727,7 @@ nav ul li a:focus-visible {
 }
 
 /* ============================================================
-   7. SECCIÓN GRID DE SERVICIOS (#servicios-lista)
+   7. SECCIÓN GRID DE SERVICIOS 
    ============================================================ */
 
 .services-section {
@@ -824,14 +821,12 @@ nav ul li a:focus-visible {
   font-weight: bold;
 }
 
-/* Botón al fondo de la tarjeta */
 .service-card .btn {
   margin-top: auto;
   width: 100%;
   max-width: 220px;
 }
-
-/* Animación escalonada de tarjetas al aparecer */
+ */
 .service-card:nth-child(1) {
   transition-delay: 0.1s;
 }
@@ -844,7 +839,7 @@ nav ul li a:focus-visible {
   transition-delay: 0.5s;
 }
 
-/* Responsivo — grid de servicios */
+
 @media (max-width: 992px) {
   .services-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -876,7 +871,7 @@ nav ul li a:focus-visible {
 }
 
 /* ============================================================
-   8. SECCIÓN PROCESO DE TRABAJO (#proceso)
+   8. SECCIÓN PROCESO DE TRABAJO 
    ============================================================ */
 .process-section {
   padding: 100px 20px;
@@ -945,20 +940,17 @@ nav ul li a:focus-visible {
 .process-img img {
   width: 100%;
   height: auto;
-  /* 🔥 CLAVE: NO RECORTA */
   display: block;
   border-radius: 12px;
 }
 
 /* TEXTO */
 .process-item h3 {
-  font-size: 1.2rem;
   margin-bottom: 10px;
   color: #111827;
 }
 
 .process-item p {
-  font-size: 0.95rem;
   color: #6b7280;
   line-height: 1.5;
 }
@@ -1084,7 +1076,7 @@ nav ul li a:focus-visible {
 }
 
 /* ============================================================
-   10. FOOTER
+   FOOTER 
    ============================================================ */
 
 .footer {
@@ -1139,6 +1131,8 @@ nav ul li a:focus-visible {
   gap: 40px;
 
   flex-wrap: wrap;
+
+  text-align: left;
 
 }
 
@@ -1273,6 +1267,79 @@ nav ul li a:focus-visible {
 
 }
 
+/* ============================================================
+   RESPONSIVE FOOTER
+   ============================================================ */
+
+/* Tablet */
+
+@media (max-width: 900px) {
+
+  .footer-container {
+
+    justify-content: center;
+
+    text-align: center;
+
+    gap: 30px;
+
+  }
+
+  .footer-brand {
+
+    max-width: 100%;
+
+  }
+
+}
+
+/* Móvil */
+
+@media (max-width: 600px) {
+
+  .footer-container {
+
+    flex-direction: column;
+
+    text-align: center;
+
+    gap: 25px;
+
+    padding: 45px 18px 30px;
+
+  }
+
+  .footer-brand h3 {
+
+    font-size: 1.2rem;
+
+  }
+
+  .footer-brand p {
+
+    font-size: 0.9rem;
+
+  }
+
+  .redes-sociales a {
+
+    width: 50px;
+
+    height: 50px;
+
+    font-size: 1.2rem;
+
+  }
+
+  .footer-bottom p {
+
+    font-size: 0.9rem;
+
+  }
+
+}
+
+
 .footer::before,
 .footer::after {
   display: none !important;
@@ -1384,13 +1451,12 @@ nav ul li a:focus-visible {
   }
 }
 
-/* Clase visible para mostrar el botón via JS */
 .scroll-to-home-visible {
   display: block;
 }
 
 /* ============================================================
-   12. ANIMACIÓN REVEAL (scroll reveal global)
+   12. ANIMACIÓN REVEAL 
    ============================================================ */
 
 .reveal {

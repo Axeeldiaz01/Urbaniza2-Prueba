@@ -54,7 +54,7 @@ h1 {
 }
 
 /* =============================================
-   ANIMACIÓN REVEAL (scroll)
+   ANIMACIÓN REVEAL
    ============================================= */
 .reveal {
   opacity: 0;
@@ -230,7 +230,6 @@ h1 {
 
 .faq-section {
   padding: 60px 20px;
-  background: radial-gradient(circle at top right, rgba(249, 145, 9, 0.05), transparent), #fdfdfd;
 }
 
 .faq-section h2 {
@@ -420,10 +419,11 @@ h1 {
   transform: translateY(-1px) scale(1.02);
   transition: all 0.1s ease;
 }
+/* ============================================================
+   FOOTER 
+   ============================================================ */
 
-/* =============================================
-   FOOTER
-   ============================================= */.footer {
+.footer {
 
   background: var(--dark);
   color: white;
@@ -433,8 +433,6 @@ h1 {
   position: relative;
 
 }
-
-/* Línea superior elegante */
 
 .footer::before {
 
@@ -475,6 +473,8 @@ h1 {
   gap: 40px;
 
   flex-wrap: wrap;
+
+  text-align: left;
 
 }
 
@@ -608,6 +608,79 @@ h1 {
   color: #bdbdbd;
 
 }
+
+/* ============================================================
+   RESPONSIVE FOOTER
+   ============================================================ */
+
+/* Tablet */
+
+@media (max-width: 900px) {
+
+  .footer-container {
+
+    justify-content: center;
+
+    text-align: center;
+
+    gap: 30px;
+
+  }
+
+  .footer-brand {
+
+    max-width: 100%;
+
+  }
+
+}
+
+/* Móvil */
+
+@media (max-width: 600px) {
+
+  .footer-container {
+
+    flex-direction: column;
+
+    text-align: center;
+
+    gap: 25px;
+
+    padding: 45px 18px 30px;
+
+  }
+
+  .footer-brand h3 {
+
+    font-size: 1.2rem;
+
+  }
+
+  .footer-brand p {
+
+    font-size: 0.9rem;
+
+  }
+
+  .redes-sociales a {
+
+    width: 50px;
+
+    height: 50px;
+
+    font-size: 1.2rem;
+
+  }
+
+  .footer-bottom p {
+
+    font-size: 0.9rem;
+
+  }
+
+}
+
 .footer::before,
 .footer::after {
   display: none !important;
