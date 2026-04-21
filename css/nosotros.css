@@ -81,36 +81,35 @@ h2::after {
 }
 
 /* =============================================
-   BANNER (hero section) — MODIFICADO
+   BANNER (hero section) 
 ============================================= */
 .banner {
   position: relative;
   width: 100%;
-  height: 85vh;              /* ← Por defecto: altura relativa */
+  height: 85vh;              
   min-height: 500px;
   display: flex;
-  align-items: flex-start;   /* ← Mantiene contenido arriba */
+  align-items: flex-start;  
   justify-content: center;
   text-align: center;
   color: white;
   padding: 0 20px;
   overflow: hidden;
-  padding-top: 80px;         /* ← Mantiene espaciado superior */
+  padding-top: 80px;       
 }
 
 
 @media (min-width: 769px) and (max-width: 1024px) {
   .banner {
-    height: 500px;         /* ← Altura fija para evitar imagen excesiva */
-    min-height: auto;      /* ← Anula min-height */
+    height: 500px;    
+    min-height: auto;   
   }
 }
 
-/* === NUEVO: Pantallas grandes — altura fija === */
 @media (min-width: 1025px) {
   .banner {
-    height: 520px;         /* ← Altura fija más compacta */
-    min-height: auto;      /* ← Anula min-height */
+    height: 520px;     
+    min-height: auto;     
   }
 }
 
@@ -166,7 +165,7 @@ h2::after {
   border-radius: 999px !important;
 }
 
-/* Banner — responsive (sin cambios) */
+/* Banner — responsive */
 @media (max-width: 768px) {
   .banner {
     height: auto !important;
@@ -331,7 +330,7 @@ h2::after {
 
 
 /* =============================================
-   ESTADÍSTICAS (Nuestra Trayectoria)
+   ESTADÍSTICAS
 ============================================= */
 .confianza {
   padding: 80px 5%;
@@ -655,9 +654,9 @@ h2::after {
 }
 
 
-/* =============================================
-   FOOTER
-============================================= */
+/* ============================================================
+   FOOTER 
+   ============================================================ */
 
 .footer {
 
@@ -711,6 +710,8 @@ h2::after {
   gap: 40px;
 
   flex-wrap: wrap;
+
+  text-align: left;
 
 }
 
@@ -844,6 +845,79 @@ h2::after {
   color: #bdbdbd;
 
 }
+
+/* ============================================================
+   RESPONSIVE FOOTER
+   ============================================================ */
+
+/* Tablet */
+
+@media (max-width: 900px) {
+
+  .footer-container {
+
+    justify-content: center;
+
+    text-align: center;
+
+    gap: 30px;
+
+  }
+
+  .footer-brand {
+
+    max-width: 100%;
+
+  }
+
+}
+
+/* Móvil */
+
+@media (max-width: 600px) {
+
+  .footer-container {
+
+    flex-direction: column;
+
+    text-align: center;
+
+    gap: 25px;
+
+    padding: 45px 18px 30px;
+
+  }
+
+  .footer-brand h3 {
+
+    font-size: 1.2rem;
+
+  }
+
+  .footer-brand p {
+
+    font-size: 0.9rem;
+
+  }
+
+  .redes-sociales a {
+
+    width: 50px;
+
+    height: 50px;
+
+    font-size: 1.2rem;
+
+  }
+
+  .footer-bottom p {
+
+    font-size: 0.9rem;
+
+  }
+
+}
+
 .footer::before,
 .footer::after {
   display: none !important;

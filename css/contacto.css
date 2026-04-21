@@ -57,7 +57,7 @@ html {
 
 
 /* =============================================
-   SECCIÓN CONTACTO (wrapper principal)
+   SECCIÓN CONTACTO 
 ============================================= */
 @media (max-width: 768px) {
   .contacto-section {
@@ -68,7 +68,7 @@ html {
 
 
 /* =============================================
-   CABECERA DE CONTACTO (título + subtítulo)
+   CABECERA DE CONTACTO título - subtítulo
 ============================================= */
 .contacto-header {
   margin-top: 0;
@@ -90,7 +90,6 @@ html {
   color: #555;
 }
 
-
 /* =============================================
    CARDS DE INFORMACIÓN DE CONTACTO
 ============================================= */
@@ -103,12 +102,14 @@ html {
 /* GRID */
 
 .contacto-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 32px;
+  justify-content: center;
+  width: 100%;
 }
 
-/* CARD BASE*/
+/* CARD BASE */
 
 .contacto-card {
   background: white;
@@ -117,11 +118,12 @@ html {
 
   display: flex;
   flex-direction: column;
-  height: 100%;
+
+  flex: 1 1 280px;
+  max-width: 340px;
 
   border-top: 5px solid;
 
-  /* Sombra más limpia y moderna */
   box-shadow:
     0 12px 28px rgba(0, 0, 0, 0.08),
     0 2px 6px rgba(0, 0, 0, 0.05);
@@ -130,8 +132,6 @@ html {
 
   position: relative;
 }
-
-/* Elevación realista, no exagerada */
 
 .contacto-card:hover {
   transform: translateY(-6px);
@@ -178,6 +178,37 @@ html {
   color: var(--map-red);
 }
 
+/* TABLET*/
+
+@media (max-width: 1024px) {
+  .contacto-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contacto-card {
+    width: 100%;
+    max-width: 440px;
+    flex: 0 0 auto;
+  }
+}
+
+/* MÓVILES */
+
+@media (max-width: 480px) {
+  .contacto-info {
+    padding: 0 16px;
+  }
+
+  .contacto-cards {
+    gap: 22px;
+  }
+
+  .contacto-card {
+    max-width: 100%;
+  }
+}
+
 /* =============================================
    CONTENIDO
 ============================================= */
@@ -217,7 +248,7 @@ html {
 }
 
 /* =============================================
-   BOTONES — SIEMPRE ABAJO Y ALINEADOS
+   BOTONES
 ============================================= */
 
 .card-actions {
@@ -232,11 +263,9 @@ html {
 /* BOTÓN PRINCIPAL */
 
 .btn-contact-primary {
-  background: linear-gradient(
-    135deg,
-    var(--primary),
-    var(--primary-orange)
-  );
+  background: linear-gradient(135deg,
+      var(--primary),
+      var(--primary-orange));
 
   color: white;
 
@@ -264,30 +293,24 @@ html {
 /* COLORES EXACTOS */
 
 .whatsapp-card .btn-contact-primary {
-  background: linear-gradient(
-    135deg,
-    var(--whatsapp),
-    var(--whatsapp-dark)
-  );
+  background: linear-gradient(135deg,
+      var(--whatsapp),
+      var(--whatsapp-dark));
 }
 
 .email-card .btn-contact-primary {
-  background: linear-gradient(
-    135deg,
-    var(--email-blue),
-    var(--email-blue-dark)
-  );
+  background: linear-gradient(135deg,
+      var(--email-blue),
+      var(--email-blue-dark));
 }
 
 .ubicacion-card .btn-contact-primary {
-  background: linear-gradient(
-    135deg,
-    var(--map-red),
-    var(--map-red-dark)
-  );
+  background: linear-gradient(135deg,
+      var(--map-red),
+      var(--map-red-dark));
 }
 
-/* Hover profesional (sutil) */
+/* Hover profesional  */
 
 .btn-contact-primary:hover {
   transform: translateY(-2px);
@@ -352,8 +375,6 @@ html {
   }
 
 }
-
-
 
 /* =============================================
    TESTIMONIOS
@@ -431,7 +452,7 @@ html {
 
 
 /* =============================================
-   SECCIÓN FORMULARIO (CTA con imagen)
+   SECCIÓN FORMULARIO 
 ============================================= */
 .formulario-contacto-section {
   background: #ffffff;
@@ -439,7 +460,7 @@ html {
   padding: 90px 50px;
   margin: 100px auto;
   max-width: 800px;
-  box-shadow: 
+  box-shadow:
     0 4px 6px rgba(0, 0, 0, 0.02),
     0 12px 24px rgba(0, 0, 0, 0.04),
     0 24px 48px rgba(0, 0, 0, 0.06);
@@ -613,7 +634,7 @@ html {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
   transition: left 0.6s ease;
 }
 
@@ -645,6 +666,7 @@ html {
     opacity: 0;
     transform: translateY(50px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -903,11 +925,29 @@ html {
   margin-top: 5px;
 }
 
-.validation-message.success { color: #27ae60; font-weight: 500; }
-.validation-message.error   { color: #e74c3c; font-weight: 500; }
+.validation-message.success {
+  color: #27ae60;
+  font-weight: 500;
+}
 
-input.valid,   select.valid,   textarea.valid   { border-color: #27ae60; box-shadow: 0 0 0 2px rgba(39, 174, 96, 0.1); }
-input.invalid, select.invalid, textarea.invalid { border-color: #e74c3c; box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.1); }
+.validation-message.error {
+  color: #e74c3c;
+  font-weight: 500;
+}
+
+input.valid,
+select.valid,
+textarea.valid {
+  border-color: #27ae60;
+  box-shadow: 0 0 0 2px rgba(39, 174, 96, 0.1);
+}
+
+input.invalid,
+select.invalid,
+textarea.invalid {
+  border-color: #e74c3c;
+  box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.1);
+}
 
 /* CAPTCHA */
 .captcha-container {
@@ -982,11 +1022,24 @@ input.invalid, select.invalid, textarea.invalid { border-color: #e74c3c; box-sha
   gap: 8px;
 }
 
-.btn-nav-hidden { visibility: hidden; }
+.btn-nav-hidden {
+  visibility: hidden;
+}
 
-.btn-primary  { background: linear-gradient(135deg, var(--primary), var(--primary-orange)); color: white; }
-.btn-secondary { background: #6c757d; color: white; }
-.btn-success  { background: linear-gradient(135deg, #28a745, #20c997); color: white; }
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary), var(--primary-orange));
+  color: white;
+}
+
+.btn-secondary {
+  background: #6c757d;
+  color: white;
+}
+
+.btn-success {
+  background: linear-gradient(135deg, #28a745, #20c997);
+  color: white;
+}
 
 .btn-nav:hover {
   transform: translateY(-2px);
@@ -1027,7 +1080,6 @@ input.invalid, select.invalid, textarea.invalid { border-color: #e74c3c; box-sha
     display: none;
   }
 }
-
 
 /* =============================================
    RESUMEN (paso 3 del formulario)
@@ -1174,7 +1226,6 @@ input.invalid, select.invalid, textarea.invalid { border-color: #e74c3c; box-sha
   }
 }
 
-
 /* =============================================
    CONFIRMACIÓN DE ENVÍO
 ============================================= */
@@ -1200,9 +1251,20 @@ input.invalid, select.invalid, textarea.invalid { border-color: #e74c3c; box-sha
 }
 
 @keyframes checkBounce {
-  0%   { transform: scale(0);   opacity: 0; }
-  50%  { transform: scale(1.2); opacity: 1; }
-  100% { transform: scale(1);   opacity: 1; }
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .confirmacion-header h3 {
@@ -1232,9 +1294,20 @@ input.invalid, select.invalid, textarea.invalid { border-color: #e74c3c; box-sha
   text-align: left;
 }
 
-.mensaje-principal  { background: #e8f4f8; border-left: 4px solid #3498db; }
-.tiempo-respuesta   { background: #fff3cd; border-left: 4px solid #ffc107; }
-.contacto-directo   { background: #d4edda; border-left: 4px solid #25d366; }
+.mensaje-principal {
+  background: #e8f4f8;
+  border-left: 4px solid #3498db;
+}
+
+.tiempo-respuesta {
+  background: #fff3cd;
+  border-left: 4px solid #ffc107;
+}
+
+.contacto-directo {
+  background: #d4edda;
+  border-left: 4px solid #25d366;
+}
 
 .mensaje-principal i,
 .tiempo-respuesta i,
@@ -1244,9 +1317,17 @@ input.invalid, select.invalid, textarea.invalid { border-color: #e74c3c; box-sha
   flex-shrink: 0;
 }
 
-.mensaje-principal i { color: #3498db; }
-.tiempo-respuesta i  { color: #ffc107; }
-.contacto-directo i  { color: #25d366; }
+.mensaje-principal i {
+  color: #3498db;
+}
+
+.tiempo-respuesta i {
+  color: #ffc107;
+}
+
+.contacto-directo i {
+  color: #25d366;
+}
 
 .mensaje-principal p,
 .tiempo-respuesta p,
@@ -1285,7 +1366,7 @@ input.invalid, select.invalid, textarea.invalid { border-color: #e74c3c; box-sha
   font-size: 1.2rem;
 }
 
-/* Confirmación — responsive */
+/* responsive */
 @media (max-width: 768px) {
   .confirmacion-header {
     padding: 25px 20px;
@@ -1419,10 +1500,10 @@ input.invalid, select.invalid, textarea.invalid { border-color: #e74c3c; box-sha
   }
 }
 
+/* ============================================================
+   FOOTER 
+   ============================================================ */
 
-/* =============================================
-   FOOTER
-============================================= */
 .footer {
 
   background: var(--dark);
@@ -1475,6 +1556,8 @@ input.invalid, select.invalid, textarea.invalid { border-color: #e74c3c; box-sha
   gap: 40px;
 
   flex-wrap: wrap;
+
+  text-align: left;
 
 }
 
@@ -1609,6 +1692,79 @@ input.invalid, select.invalid, textarea.invalid { border-color: #e74c3c; box-sha
 
 }
 
+/* ============================================================
+   RESPONSIVE FOOTER
+   ============================================================ */
+
+/* Tablet */
+
+@media (max-width: 900px) {
+
+  .footer-container {
+
+    justify-content: center;
+
+    text-align: center;
+
+    gap: 30px;
+
+  }
+
+  .footer-brand {
+
+    max-width: 100%;
+
+  }
+
+}
+
+/* Móvil */
+
+@media (max-width: 600px) {
+
+  .footer-container {
+
+    flex-direction: column;
+
+    text-align: center;
+
+    gap: 25px;
+
+    padding: 45px 18px 30px;
+
+  }
+
+  .footer-brand h3 {
+
+    font-size: 1.2rem;
+
+  }
+
+  .footer-brand p {
+
+    font-size: 0.9rem;
+
+  }
+
+  .redes-sociales a {
+
+    width: 50px;
+
+    height: 50px;
+
+    font-size: 1.2rem;
+
+  }
+
+  .footer-bottom p {
+
+    font-size: 0.9rem;
+
+  }
+
+}
+
+
 .footer::before,
 .footer::after {
   display: none !important;
@@ -1620,8 +1776,15 @@ input.invalid, select.invalid, textarea.invalid { border-color: #e74c3c; box-sha
    ANIMACIONES
 ============================================= */
 @keyframes modalSlideIn {
-  from { opacity: 0; transform: translateY(-50px) scale(0.9); }
-  to   { opacity: 1; transform: translateY(0)     scale(1);   }
+  from {
+    opacity: 0;
+    transform: translateY(-50px) scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 .reveal {

@@ -25,15 +25,13 @@ body {
 
 }
 
-
-
-
 .container {
   width: 85%;
   max-width: 1100px;
   margin: 0 auto;
   overflow: hidden;
 }
+
 /* ===================================================== */
 /* BUSCADOR DE INMUEBLES */
 /* ===================================================== */
@@ -45,10 +43,8 @@ body {
   margin-bottom: 1.5rem;
 }
 
-/* ===================================================== */
-/* TITULO PRINCIPAL */
-/* ===================================================== */
 
+/* TITULO PRINCIPAL */
 .titulo {
   font-size: clamp(2rem, 5vw, 3.2rem);
   font-weight: 800;
@@ -58,10 +54,7 @@ body {
   padding: 0 10px;
 }
 
-/* ===================================================== */
 /* TITULO SECUNDARIO */
-/* ===================================================== */
-
 .section-title {
   font-size: clamp(1.6rem, 4vw, 2.2rem);
   font-weight: 800;
@@ -71,10 +64,7 @@ body {
   padding: 0 10px;
 }
 
-/* ===================================================== */
 /* SUBTITULO */
-/* ===================================================== */
-
 .section-subtitle {
   text-align: center;
   color: #666;
@@ -87,10 +77,7 @@ body {
   line-height: 1.4;
 }
 
-/* ===================================================== */
 /* LINEA DECORATIVA */
-/* ===================================================== */
-
 .linea-decorativa {
   width: 70px;
   height: 4px;
@@ -99,9 +86,7 @@ body {
   border-radius: 2px;
 }
 
-/* ===================================================== */
 /* FORMULARIO */
-/* ===================================================== */
 
 .buscador-form {
   background: #ffffff;
@@ -117,10 +102,7 @@ body {
   text-align: center;
 }
 
-/* ===================================================== */
 /* FILA PRINCIPAL */
-/* ===================================================== */
-
 .buscador-row {
   display: flex;
   gap: 1rem;
@@ -138,9 +120,7 @@ body {
   transition: all 0.25s ease;
 }
 
-/* ===================================================== */
 /* GRUPO DE PRECIO */
-/* ===================================================== */
 
 .precio-group {
   display: flex;
@@ -172,9 +152,8 @@ body {
   accent-color: #ff9800;
 }
 
-/* ===================================================== */
 /* FOCUS INPUTS */
-/* ===================================================== */
+
 
 .buscador-row select:focus,
 .buscador-row input[type="text"]:focus,
@@ -186,10 +165,7 @@ body {
   box-shadow: 0 0 0 3px rgba(255, 152, 0, 0.15);
 }
 
-/* ===================================================== */
 /* BOTON */
-/* ===================================================== */
-
 .btn-buscar {
   background: linear-gradient(135deg, #ff9800, #ff7a00);
   color: #fff;
@@ -211,9 +187,7 @@ body {
   box-shadow: 0 10px 25px rgba(255, 152, 0, 0.35);
 }
 
-/* ===================================================== */
 /* RESPONSIVE */
-/* ===================================================== */
 
 @media (max-width: 768px) {
 
@@ -247,6 +221,7 @@ body {
   }
 
 }
+
 
 /* --- GALERÍA DE TERRENOS --- */
 #terrenos-disponibles h2 {
@@ -332,14 +307,14 @@ body {
 .card img {
   width: 100%;
 
-  height: 220px;          /* altura estable */
-  object-fit: cover;      /* llena sin deformar */
+  height: 220px;        
+  object-fit: cover;     
 
   display: block;
 }
 
-/* Ajuste fino cuando la ventana se reduce */
-/* Cuando la ventana está a la mitad (pantallas intermedias) */
+
+/* (pantallas intermedias) */
 @media (max-width: 1200px) {
 
   .galeria {
@@ -377,14 +352,12 @@ body {
     0 20px 45px rgba(0, 0, 0, 0.12);
 }
 
-/* 🔥 LIMITAR EL TAMAÑO DEL CARD CONTENEDOR */
 .section {
-  max-width: 1110px;   /* mismo ancho que tus cards */
-  margin: 2rem auto;  /* centrar */
+  max-width: 1110px; 
+  margin: 2rem auto;  
 
 }
 
-/* 🔥 ASEGURAR QUE EL CARD INTERNO NO EXPANDA */
 .cardd {
   width: 100%;
 }
@@ -437,7 +410,6 @@ img {
 }
 
 /* CARRUSEL ESTABLE */
-
 .carrusel-chorrillos {
   position: relative;
   width: 100%;
@@ -467,7 +439,7 @@ img {
   justify-content: center;
 
   opacity: 0;
-  pointer-events: none; /* evita bloquear los puntos */
+  pointer-events: none; 
 
   transition: opacity 0.5s ease-in-out;
 }
@@ -505,7 +477,7 @@ img {
 
   margin-top: 12px;
 
-  z-index: 10; /* asegura que siempre funcionen */
+  z-index: 10; 
 }
 
 .indicador {
@@ -647,6 +619,28 @@ img {
 
 }
 
+/* Línea superior elegante */
+
+.footer::before {
+
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 140px;
+  height: 4px;
+
+  background: var(--primary);
+
+  border-radius: 10px;
+
+}
+
 /* Contenedor principal */
 
 .footer-container {
@@ -666,6 +660,8 @@ img {
   gap: 40px;
 
   flex-wrap: wrap;
+
+  text-align: left;
 
 }
 
@@ -780,12 +776,98 @@ img {
 
 .footer-bottom {
 
-  border-top: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 
   padding: 18px 10px;
 
   text-align: center;
+
 }
+
+/* Copyright */
+
+.footer-bottom p {
+
+  margin: 0;
+
+  font-size: 1rem;
+
+  color: #bdbdbd;
+
+}
+
+/* ============================================================
+   RESPONSIVE FOOTER
+   ============================================================ */
+
+/* Tablet */
+
+@media (max-width: 900px) {
+
+  .footer-container {
+
+    justify-content: center;
+
+    text-align: center;
+
+    gap: 30px;
+
+  }
+
+  .footer-brand {
+
+    max-width: 100%;
+
+  }
+
+}
+
+/* Móvil */
+
+@media (max-width: 600px) {
+
+  .footer-container {
+
+    flex-direction: column;
+
+    text-align: center;
+
+    gap: 25px;
+
+    padding: 45px 18px 30px;
+
+  }
+
+  .footer-brand h3 {
+
+    font-size: 1.2rem;
+
+  }
+
+  .footer-brand p {
+
+    font-size: 0.9rem;
+
+  }
+
+  .redes-sociales a {
+
+    width: 50px;
+
+    height: 50px;
+
+    font-size: 1.2rem;
+
+  }
+
+  .footer-bottom p {
+
+    font-size: 0.9rem;
+
+  }
+
+}
+
 
 .footer::before,
 .footer::after {
@@ -1107,8 +1189,8 @@ img {
   height: 250px;
   object-fit: contain;
   border-radius: 8px;
-  background-color: transparent; /* Fondo transparente */
-  border: 1px solid #ddd;        /* Borde gris */
+  background-color: transparent;
+  border: 1px solid #ddd;   
 }
 
 .detalle-info {
@@ -1280,7 +1362,7 @@ img {
     display: block;
   }
 }
-/* -------- PANTALLA MEDIA (ventana a la mitad) -------- */
+/* -------- PANTALLA MEDIA -------- */
 @media (max-width: 1200px) {
 
   .galeria {
@@ -1517,8 +1599,6 @@ opacity:1;
 transform:translateY(0);
 }
 
-
-
 #terrenos-disponibles h2 {
   text-align: center;
   font-size: 2.5rem;
@@ -1641,9 +1721,9 @@ transform:translateY(0);
   font-size: 0.9rem;
 }
 
-/* ============================= */
-/* RESPONSIVE */
-/* ============================= */
+/* ============================= 
+RESPONSIVE  
+============================= */
 
 @media (max-width: 1024px) {
 
@@ -1661,13 +1741,8 @@ transform:translateY(0);
 
 }
 
-/* ============================= */
-/* RESPONSIVE */
-/* ============================= */
 
-/* ============================= */
 /* RESPONSIVE */
-/* ============================= */
 
 @media (max-width: 768px) {
 
@@ -1799,20 +1874,14 @@ transform:translateY(0);
   color: #fff;
 }
 
-
-
 /* SECCIÓN TERRENOS */
-
-
 #terrenos-disponibles {
   padding: 80px 0;
   background-color: transparent;
 
 }
 
-
 /* CARD PRINCIPAL DE LA SECCIÓN */
-
 .terrenos-wrapper {
 
   background: #ffffff;
@@ -2161,16 +2230,6 @@ transform:translateY(0);
   }
 }
 
-/* BOTONES DEL CARRUSEL (AISLADOS DEL SISTEMA GLOBAL)
-
-
-.botones {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-top: 20px;
-  align-items: center;
-}
 
 /* BOTÓN PRINCIPAL - COTIZAR */
 
@@ -2208,60 +2267,6 @@ transform:translateY(0);
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(249, 145, 9, 0.4);
 }
-
-/* BOTÓN UBICACIÓN 
-
-.botones .btn-ubicacion {
-  display: inline-flex !important;
-  width: auto !important;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 12px 22px;
-  border-radius: 8px;
-  background: transparent;
-  color:#f99109;
-  border: 2px solid #f99109;
-  font-weight: 600;
-  font-size: 1rem;
-  text-decoration: none;
-  cursor: pointer;
-  min-width: 220px;
-  height: 48px;
-  transition: all 0.3s ease;
-  box-sizing: border-box;
-}
-
-.botones .btn-ubicacion:hover {
-  background: #f99109;
-  color: #ffffff;
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(249, 145, 9, 0.4);
-}
-
-/* ICONO 
-
-.botones .icon {
-  font-size: 16px;
-}
-
-/* RESPONSIVE 
-
-@media (max-width: 768px) {
-
-  .botones {
-    width: 100%;
-    align-items: center;
-  }
-
-  .botones .btn-principal,
-  .botones .btn-ubicacion {
-    width: auto;        
-    min-width: 200px;   
-  }
-
-} */
-
 
 /* TEXTO GENERAL */
 .texto {

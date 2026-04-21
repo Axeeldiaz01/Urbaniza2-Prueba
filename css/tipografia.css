@@ -9,20 +9,20 @@
      =============================== */
 
   /* H1 */
-  --title-h1: clamp(2.2rem, 5vw, 3.5rem);
+  --title-h1: clamp(2.2rem, 4.5vw, 3.5rem);
 
   /* H2 */
-  --title-h2: 2.5rem;
+  --title-h2: clamp(1.8rem, 3.5vw, 2.5rem);
 
   /* H3 */
-  --title-h3: 1.5rem;
+  --title-h3: clamp(1.2rem, 2vw, 1.5rem);
 
   /* ===============================
      TEXTOS
      =============================== */
 
   /* P */
-  --text-base: clamp(1rem, 2.5vw, 1.3rem);
+  --text-base: clamp(1rem, 2vw, 1.3rem);
 
   /* Texto pequeño */
   --text-small: 0.9rem;
@@ -30,9 +30,9 @@
   /* Texto botones */
   --text-button: 1rem;
 
-  /*Texto stat*/
-  --text-stat-number:55px;
-  --text-stat-label: 18px;
+  /* Texto stat */
+  --text-stat-number: clamp(2.2rem, 4.5vw, 55px);
+  --text-stat-label: clamp(0.9rem, 1.5vw, 18px);
 
   /* ===============================
      LINE HEIGHT
@@ -83,7 +83,7 @@ li,
 span,
 a,
 .hero-description,
-.faq-question{
+.faq-question {
   font-size: var(--text-base);
   line-height: var(--lh-text);
 }
@@ -108,7 +108,8 @@ a.btn,
 .btn-ubicacion,
 .btn-ver-mas,
 .btn-buscar,
-.boton-correo{
+.boton-correo,
+.btn-secondary {
   font-size: var(--text-button);
   font-weight: 700;
 }
@@ -124,3 +125,49 @@ label {
   font-size: var(--text-base);
 }
 
+/* =========================================================
+   RESPONSIVE — TABLET
+   ========================================================= */
+
+@media (max-width: 1024px) {
+  :root {
+    --title-h1: clamp(1.9rem, 4vw, 2.8rem);
+    --title-h2: clamp(1.5rem, 3.2vw, 2.2rem);
+    --title-h3: clamp(1.1rem, 2.2vw, 1.4rem);
+    --text-base: clamp(0.95rem, 2vw, 1.15rem);
+    --text-stat-number: clamp(2rem, 5vw, 2.8rem);
+    --text-stat-label: clamp(0.85rem, 1.5vw, 1rem);
+  }
+}
+
+/* =========================================================
+   RESPONSIVE — MÓVIL GRANDE 
+   ========================================================= */
+
+@media (max-width: 768px) {
+  :root {
+    --title-h1: clamp(1.7rem, 6vw, 2.4rem);
+    --title-h2: clamp(1.4rem, 5vw, 2rem);
+    --title-h3: 1.25rem;
+    --text-base: 1rem;
+    --text-button: 0.95rem;
+    --text-stat-number: clamp(1.8rem, 8vw, 2.5rem);
+    --text-stat-label: 0.9rem;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE — MÓVIL 
+   ========================================================= */
+
+@media (max-width: 480px) {
+  :root {
+    --title-h1: clamp(1.5rem, 7vw, 2rem);
+    --title-h2: clamp(1.3rem, 6vw, 1.75rem);
+    --title-h3: 1.15rem;
+    --text-base: 0.95rem;
+    --text-button: 0.9rem;
+    --text-stat-number: clamp(1.6rem, 10vw, 2.2rem);
+    --text-stat-label: 0.85rem;
+  }
+}

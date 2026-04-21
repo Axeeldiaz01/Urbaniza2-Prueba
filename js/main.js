@@ -1,7 +1,4 @@
-/**
-
- * Maneja: Animaciones de Scroll, Modal de Imágenes y Menú Responsive
- */
+/* Maneja: Animaciones de Scroll, Modal de Imágenes y Menú Responsive */
 
 // =============================
 // 1. SCROLL ANIMACIONES (REVEAL)
@@ -26,7 +23,7 @@ function initScrollAnimaciones() {
 
 
 // =============================
-// 2. MODAL IMAGEN (ZOOM)
+// 2. MODAL IMAGEN 
 // =============================
 function initModalImagen() {
     const images = document.querySelectorAll(".img-container img, .galeria img");
@@ -192,7 +189,7 @@ function initCalculadora() {
         // CUOTA INICIAL
         const inicial = (precio * porcentaje) / 100;
 
-        //  COSTOS EXTRA (más realista)
+        //  COSTOS EXTRA 
         const gastos = precio * 0.02; // 2%
         const seguro = precio * 0.01; // 1%
 
