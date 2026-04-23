@@ -2,7 +2,7 @@
    1. VARIABLES GLOBALES Y RESET BASE
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 :root {
   --primary: #fb9f2ee2;
@@ -17,7 +17,7 @@
   --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.05);
   --border-color: #f0f0f0;
   --round: 12px;
-  --font: 'Poppins', sans-serif;
+  --font: "Poppins", sans-serif;
 }
 
 html {
@@ -40,7 +40,8 @@ h1 {
   font-weight: 700;
 }
 
-@media (max-width: 768px) {}
+@media (max-width: 768px) {
+}
 
 .container {
   width: 85%;
@@ -48,7 +49,6 @@ h1 {
   margin: 0 auto;
   padding: 0 20px;
 }
-
 
 /* ============================================================
    2. HEADER Y NAVEGACIÓN
@@ -85,7 +85,9 @@ header .logo {
   object-fit: contain;
   display: block;
   margin-top: -8px;
-  transition: height 0.3s ease, margin-top 0.3s ease;
+  transition:
+    height 0.3s ease,
+    margin-top 0.3s ease;
 }
 
 header.shrink .logo {
@@ -156,7 +158,8 @@ nav ul li a:focus-visible {
   width: 30px;
   background-color: white;
   border-radius: 2px;
-  transition: transform 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6),
+  transition:
+    transform 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6),
     opacity 0.2s ease;
   position: relative;
   margin: 4px 0;
@@ -164,7 +167,6 @@ nav ul li a:focus-visible {
 
 /* Estado Activo (La X) */
 .menu-toggle.active .bar:nth-child(1) {
-
   transform: translateY(11px) rotate(45deg);
 }
 
@@ -306,7 +308,6 @@ nav ul li a:focus-visible {
   }
 }
 
-
 /* ============================================================
    3. BANNER / HERO
    ============================================================ */
@@ -314,14 +315,14 @@ nav ul li a:focus-visible {
 .banner {
   position: relative;
   width: 100%;
-  height: 85vh;              
+  height: 85vh;
   min-height: 500px;
   overflow: hidden;
   display: flex;
-  align-items: flex-start;   
+  align-items: flex-start;
   justify-content: center;
   text-align: center;
-  padding-top: 20px;    
+  padding-top: 20px;
 }
 
 .banner img {
@@ -385,8 +386,8 @@ nav ul li a:focus-visible {
 
 @media (min-width: 1025px) {
   .banner {
-    height: 520px; 
-    min-height: auto;      
+    height: 520px;
+    min-height: auto;
   }
 }
 
@@ -427,7 +428,6 @@ nav ul li a:focus-visible {
   }
 }
 
-
 /* ============================================================
    4. SECCIÓN TIKTOK — CASA DE CAMPO LAS REINAS
    ============================================================ */
@@ -447,11 +447,6 @@ nav ul li a:focus-visible {
   margin: 0 auto;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
-}
-
-.service-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.12);
 }
 
 /* Grid interno de la card */
@@ -543,7 +538,6 @@ nav ul li a:focus-visible {
   min-width: 300px;
 }
 
-
 /* Responsivo — sección TikTok */
 @media (max-width: 992px) {
   .service-card {
@@ -570,7 +564,6 @@ nav ul li a:focus-visible {
   }
 }
 
-
 /* ============================================================
    SECCIÓN COMPRA Y VENTA DE PROPIEDADES
 ============================================================ */
@@ -580,33 +573,27 @@ nav ul li a:focus-visible {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 50px;                 
+  gap: 50px;
   padding: 60px 40px;
   flex-wrap: wrap;
   background: #ffffff;
-  max-width: 1100px;         
+  max-width: 1100px;
   margin: 60px auto;
   border-radius: 24px;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
   transition: 0.3s ease;
 }
 
-/* HOVER SUAVE */
-.section:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 28px 65px rgba(0, 0, 0, 0.12);
-}
-
 /* IMAGEN (CARD) */
 .section .card {
   flex: 1 1 45%;
-  max-width: 460px; 
+  max-width: 460px;
 }
 
 /* IMAGEN */
 .section .card img.imagen {
   width: 100%;
-  max-width: 420px;  
+  max-width: 420px;
   height: auto;
   display: block;
   border-radius: 9px;
@@ -638,23 +625,21 @@ nav ul li a:focus-visible {
 /*  RESPONSIVE — MÓVIL */
 
 @media (max-width: 768px) {
-
   .section {
-
     flex-direction: column;
     align-items: center;
     text-align: center;
     gap: 20px;
     padding: 40px 20px;
-    width: 85%;         
-    max-width: 500px; 
-    margin: 40px auto;  
+    width: 85%;
+    max-width: 500px;
+    margin: 40px auto;
   }
 
   /* CARD */
   .section .card {
     width: 100%;
-    max-width: 300px;  
+    max-width: 300px;
     margin: 0 auto;
     flex: 0 1 auto;
   }
@@ -662,7 +647,7 @@ nav ul li a:focus-visible {
   /* IMAGEN */
   .section .card img.imagen {
     width: 100%;
-    max-width: 260px;   
+    max-width: 260px;
     height: auto;
     margin: 0 auto;
   }
@@ -670,7 +655,7 @@ nav ul li a:focus-visible {
   /* TEXTO */
   .section .texto {
     width: 100%;
-    max-width: 320px;   
+    max-width: 320px;
     margin: 0 auto;
     text-align: center;
     gap: 12px;
@@ -686,7 +671,6 @@ nav ul li a:focus-visible {
     font-size: 0.95rem;
     line-height: 1.6;
   }
-
 }
 
 /* ============================================================
@@ -772,11 +756,6 @@ nav ul li a:focus-visible {
   margin: 0;
 }
 
-.services-grid .service-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-}
-
 /* Icono */
 .service-card i {
   font-size: 36px;
@@ -826,8 +805,8 @@ nav ul li a:focus-visible {
   width: 100%;
   max-width: 220px;
 }
- */
-.service-card:nth-child(1) {
+
+*/ .service-card:nth-child(1) {
   transition-delay: 0.1s;
 }
 
@@ -838,7 +817,6 @@ nav ul li a:focus-visible {
 .service-card:nth-child(3) {
   transition-delay: 0.5s;
 }
-
 
 @media (max-width: 992px) {
   .services-grid {
@@ -908,11 +886,6 @@ nav ul li a:focus-visible {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   position: relative;
   transition: 0.3s ease;
-}
-
-.process-item:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
 /* NUMERO */
@@ -1072,7 +1045,6 @@ nav ul li a:focus-visible {
   .faq-item {
     padding: 15px;
   }
-
 }
 
 /* ============================================================
@@ -1080,20 +1052,17 @@ nav ul li a:focus-visible {
    ============================================================ */
 
 .footer {
-
   background: var(--dark);
   color: white;
 
   margin-top: 80px;
 
   position: relative;
-
 }
 
 /* Línea superior elegante */
 
 .footer::before {
-
   content: "";
 
   position: absolute;
@@ -1109,13 +1078,11 @@ nav ul li a:focus-visible {
   background: var(--primary);
 
   border-radius: 10px;
-
 }
 
 /* Contenedor principal */
 
 .footer-container {
-
   max-width: 1200px;
 
   margin: auto;
@@ -1133,47 +1100,37 @@ nav ul li a:focus-visible {
   flex-wrap: wrap;
 
   text-align: left;
-
 }
 
 /* Marca */
 
 .footer-brand {
-
   max-width: 420px;
-
 }
 
 .footer-brand h3 {
-
   font-size: 1.4rem;
 
   font-weight: 700;
 
   margin-bottom: 10px;
-
 }
 
 .footer-brand p {
-
   color: #cfcfcf;
 
   line-height: 1.5;
 
   font-size: 0.95rem;
-
 }
 
 /* Redes */
 
 .footer-social {
-
   text-align: center;
-
 }
 
 .footer-social span {
-
   display: block;
 
   margin-bottom: 15px;
@@ -1183,13 +1140,11 @@ nav ul li a:focus-visible {
   font-size: 0.95rem;
 
   color: #dddddd;
-
 }
 
 /* Botones sociales */
 
 .redes-sociales {
-
   display: flex;
 
   justify-content: center;
@@ -1197,13 +1152,11 @@ nav ul li a:focus-visible {
   align-items: center;
 
   gap: 16px;
-
 }
 
 /* Iconos */
 
 .redes-sociales a {
-
   width: 56px;
   height: 56px;
 
@@ -1226,13 +1179,11 @@ nav ul li a:focus-visible {
   border: 2px solid rgba(255, 255, 255, 0.08);
 
   transition: all 0.3s ease;
-
 }
 
 /* Hover premium */
 
 .redes-sociales a:hover {
-
   background: var(--primary);
 
   border-color: var(--primary);
@@ -1240,31 +1191,26 @@ nav ul li a:focus-visible {
   transform: translateY(-4px);
 
   box-shadow: 0 10px 22px rgba(251, 159, 46, 0.35);
-
 }
 
 /* Línea inferior */
 
 .footer-bottom {
-
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 
   padding: 18px 10px;
 
   text-align: center;
-
 }
 
 /* Copyright */
 
 .footer-bottom p {
-
   margin: 0;
 
   font-size: 1rem;
 
   color: #bdbdbd;
-
 }
 
 /* ============================================================
@@ -1274,31 +1220,23 @@ nav ul li a:focus-visible {
 /* Tablet */
 
 @media (max-width: 900px) {
-
   .footer-container {
-
     justify-content: center;
 
     text-align: center;
 
     gap: 30px;
-
   }
 
   .footer-brand {
-
     max-width: 100%;
-
   }
-
 }
 
 /* Móvil */
 
 @media (max-width: 600px) {
-
   .footer-container {
-
     flex-direction: column;
 
     text-align: center;
@@ -1306,39 +1244,28 @@ nav ul li a:focus-visible {
     gap: 25px;
 
     padding: 45px 18px 30px;
-
   }
 
   .footer-brand h3 {
-
     font-size: 1.2rem;
-
   }
 
   .footer-brand p {
-
     font-size: 0.9rem;
-
   }
 
   .redes-sociales a {
-
     width: 50px;
 
     height: 50px;
 
     font-size: 1.2rem;
-
   }
 
   .footer-bottom p {
-
     font-size: 0.9rem;
-
   }
-
 }
-
 
 .footer::before,
 .footer::after {
@@ -1358,7 +1285,7 @@ nav ul li a:focus-visible {
   z-index: 100;
   width: 60px;
   height: 60px;
-  background-color: #25D366;
+  background-color: #25d366;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -1390,7 +1317,7 @@ nav ul li a:focus-visible {
   box-shadow: 0 8px 25px rgba(244, 157, 50, 0.4);
   border: none;
   cursor: pointer;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   transition: all 0.3s ease-in-out;
 }
 
@@ -1462,7 +1389,7 @@ nav ul li a:focus-visible {
 .reveal {
   opacity: 0;
   transform: translateY(60px);
-  transition: all .8s ease;
+  transition: all 0.8s ease;
 }
 
 .reveal.visible {
@@ -1480,7 +1407,6 @@ nav ul li a:focus-visible {
    ========================================= */
 
 @media (max-width: 768px) {
-
   .btn,
   .btn-primary,
   .btn-secondary,
@@ -1490,5 +1416,13 @@ nav ul li a:focus-visible {
     border-radius: 999px !important;
     min-width: 260px;
   }
+}
 
+/* HOVER UNIFICADO */
+.service-card:hover,
+.section:hover,
+.services-grid .service-card:hover,
+.process-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }

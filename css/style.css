@@ -637,8 +637,6 @@ section {
   background: transparent;
 }
 
-
-
 /* Títulos unificados */
 .title,
 .section h2,
@@ -715,189 +713,136 @@ h2::after {
 #terrenos-disponibles {
   padding: 80px 0;
   background-color: transparent;
-  margin-top: -20px;
-}
-
-/* Card principal de la sección */
-.terrenos-wrapper {
-  background: #ffffff;
-  border-radius: 28px;
-  padding: 10px 40px 50px;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.05);
-  border: 1px solid rgba(0, 0, 0, 0.04);
 }
 
 #terrenos-disponibles h2 {
   text-align: center;
-  font-size: 2.5rem;
   margin-bottom: 15px;
   color: #1a1a1a;
-  position: relative;
 }
 
-/* Galería */
-.galeria {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 30px;
-  width: 100%;
+.section-subtitle {
+  text-align: center;
+  color: #666;
+  margin-bottom: 50px;
+}
+
+/* ===== CARD INDIVIDUAL ===== */
+.terreno-card {
+  display: flex;
+  flex-direction: row;
   align-items: stretch;
-}
-
-/* Cards */
-.galeria .card {
   background: #fff;
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
   border: 1px solid #f0f0f0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
+  margin-bottom: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.galeria .card:hover {
+.terreno-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
-/* Imagen */
-.img-container {
-  width: 100%;
-  height: 220px;
-  position: relative;
+/* ===== IMAGEN - MISMA ALTURA QUE EL CONTENIDO ===== */
+.terreno-img {
+  flex: 0 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
-  padding: 2px;
+  background: none;
+  padding: 0;
+  width: 400px;
+  min-width: 400px;
+  align-self: stretch;
 }
 
-.galeria .card img {
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: auto;
+.terreno-img img {
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   display: block;
-  transition: transform 0.3s ease;
+  border-radius: 0;
 }
 
-.galeria .card:hover img {
-  transform: scale(1.03);
+/* ===== INFO / DESCRIPCIONES ===== */
+.terreno-info {
+  flex: 1 1 auto;
+  padding: 25px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-/* Contenido de la card */
-.galeria .card h3 {
-  padding: 20px 25px 5px;
-  font-size: 1.5rem;
+.terreno-info h3 {
   color: #1a1a1a;
-  margin: 0;
-  min-height: 40px;
+  margin: 0 0 10px 0;
 }
 
-.galeria .card .linea-decorativa {
+.linea-decorativa {
   width: 40px;
   height: 3px;
   background: #f3a530;
-  margin: 10px 25px;
   border-radius: 2px;
+  margin-bottom: 15px;
 }
 
-.galeria .card p {
-  padding: 0 25px;
-  margin: 5px 0;
+.terreno-info p {
+  margin: 6px 0;
   color: #666;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
-/* Precio */
-.galeria .card .precio {
-  font-size: 1.4rem;
+.precio {
+  font-size: 1.3rem !important;
   font-weight: 800;
-  color: #f3a530;
-  padding: 15px 25px;
-  justify-content: center !important;
-  text-align: center !important;
-  margin-top: auto;
-}
-/* Ajuste SOLO para la 3era card */
-.galeria .card:nth-child(3) .precio {
-  transform: translateY(-10px);
+  color: #f3a530 !important;
+  margin: 15px 0 !important;
 }
 
-/* Acciones de la card */
+/* ===== BOTONES ===== */
 .card-actions {
-  padding: 0 20px 20px 20px;
-  margin-top: auto;
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  gap: 12px;
+  margin-top: 15px;
+  flex-wrap: wrap;
 }
 
-.card-actions .btn {
-  width: 100%;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  text-decoration: none;
-}
-
-/* Botón Comprar */
 .btn-comprar {
-  background: #2ea65c !important;
-  color: #fff !important;
-  border: 2px solid #e5e5e5 !important;
-  border-radius: 999px !important;
-  padding: 12px 20px;
+  background: #2ea65c;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 12px 24px;
   font-weight: 600;
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 8px;
   transition: all 0.3s ease;
-  width: 100%;
-  height: 48px;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .btn-comprar:hover {
-  background: #279653 !important;
+  background: #279653;
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(39, 174, 96, 0.4);
 }
 
-.btn-comprar:active {
-  transform: translateY(0);
-}
-
-.btn-comprar i {
-  font-size: 1.1rem;
-}
-
-/* Botón Ubicación */
 .btn-ubicacion {
-  width: 100%;
-  height: 48px;
-  gap: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 20px;
-  border-radius: 999px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.9rem;
   background: #ffffff;
   color: #333;
-  text-align: center;
-  transition: all 0.3s ease;
   border: 1px solid #eee;
-  margin-top: 0;
+  border-radius: 999px;
+  padding: 12px 24px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  text-decoration: none;
 }
 
 .btn-ubicacion:hover {
@@ -906,28 +851,43 @@ h2::after {
   transform: translateY(-2px);
 }
 
-/* Footer de la sección */
+/* ===== FOOTER BOTONES ===== */
 .terrenos-footer {
   margin-top: 40px;
-  padding-top: 25px;
-  border-top: 1px solid #eee;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
-/* Botón Ver Todos */
-.btn-ver-todos {
-  display: inline-flex;
+.btn-wsp {
+  background: #25D366;
+  color: white;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+  display: flex;
   align-items: center;
   gap: 10px;
-  padding: 12px 22px;
-  border-radius: 999px;
+  transition: all 0.3s ease;
+}
+
+.btn-wsp:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+}
+
+.btn-ver-todos {
   background: #f3a530;
   color: white;
-  font-weight: 700 !important;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-weight: 700;
   text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
   transition: all 0.3s ease;
 }
 
@@ -936,46 +896,62 @@ h2::after {
   box-shadow: 0 8px 20px rgba(243, 165, 48, 0.3);
 }
 
-/* Botón Ver más */
-.btn-ver-mas {
-  margin-top: 20px;
-  padding: 14px;
-  border: none;
-  border-radius: 14px;
-  font-weight: 600;
-  font-size: 1rem;
-  cursor: pointer;
-  background: linear-gradient(135deg, #f99109, #ff7a00);
-  color: white;
-  transition: all 0.3s ease;
-  width: 100%;
-}
-
-.btn-ver-mas:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(249, 145, 9, 0.3);
-}
-
-/* Responsive Terrenos */
-@media (max-width: 1024px) {
-  .galeria {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
+/* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
-  .terrenos-wrapper {
-    padding: 40px 25px;
+  .terreno-card {
+    flex-direction: column;
   }
-
-  .galeria {
-    grid-template-columns: 1fr;
-    justify-items: center; /* centra la card */
-  }
-
-  .galeria .card {
-    max-width: 380px; /* tamaño similar a desktop */
+  
+  .terreno-img {
     width: 100%;
+    min-width: 100%;
+    height: 240px;
+    align-self: auto;
+  }
+  
+  .terreno-info {
+    padding: 20px 25px;
+    text-align: center;
+  }
+  
+  .linea-decorativa {
+    margin: 0 auto 15px auto;
+  }
+  
+  .card-actions {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  #terrenos-disponibles {
+    padding: 50px 15px;
+  }
+  
+  .terreno-img {
+    height: 200px;
+  }
+  
+  .card-actions {
+    flex-direction: column;
+  }
+  
+  .btn-comprar,
+  .btn-ubicacion {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .terrenos-footer {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .btn-wsp,
+  .btn-ver-todos {
+    width: 100%;
+    max-width: 320px;
+    justify-content: center;
   }
 }
 
@@ -984,12 +960,19 @@ h2::after {
    ============================================================ */
 .reel-clean {
   background: #ffffff;
-  border-radius: 30px;
+  border-radius: 20px;
   padding: 80px 0;
   margin: 100px auto;
   max-width: 1000px;
-  box-shadow: 0 35px 90px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid #f0f0f0;
   text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.reel-clean:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
 .reel-grid {
@@ -1260,7 +1243,6 @@ h2::after {
 
 .calculadora-section h2 {
   text-align: center;
-  font-size: clamp(1.8rem, 4vw, 2.5rem);
   margin-bottom: 10px;
   color: #e07b1f;
   font-weight: 700;
@@ -1307,7 +1289,6 @@ h2::after {
 .calculadora-inputs label {
   font-weight: 600;
   color: #374151;
-  font-size: 0.95rem;
   display: flex;
   align-items: center;
   gap: 6px;
@@ -1324,7 +1305,6 @@ h2::after {
 
 .input-help {
   color: #9ca3af;
-  font-size: 0.8rem;
   margin-top: 2px;
 }
 
@@ -1334,7 +1314,6 @@ h2::after {
   padding: 14px 16px;
   border-radius: 12px;
   border: 2px solid #e5e7eb;
-  font-size: 1rem;
   transition: all 0.25s ease;
   background: #f9fafb;
   width: 100%;
@@ -1394,7 +1373,6 @@ h2::after {
   color: white;
   padding: 4px 12px;
   border-radius: 20px;
-  font-size: 0.85rem;
   font-weight: 700;
 }
 
@@ -1440,7 +1418,6 @@ input[type="range"]::-moz-range-thumb {
   justify-content: space-between;
   align-items: center;
   margin-top: 8px;
-  font-size: 0.85rem;
 }
 
 .slider-min, .slider-max {
@@ -1451,7 +1428,6 @@ input[type="range"]::-moz-range-thumb {
 .output-highlight {
   color: #f99109;
   font-weight: 700;
-  font-size: 1.1rem;
   background: #fff7ed;
   padding: 4px 12px;
   border-radius: 8px;
@@ -1465,7 +1441,6 @@ input[type="range"]::-moz-range-thumb {
   color: #ffffff;
   border: none;
   border-radius: 14px;
-  font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -1521,7 +1496,6 @@ input[type="range"]::-moz-range-thumb {
 .calculadora-resultados h3 {
   margin: 0 0 30px 0;
   text-align: center;
-  font-size: 1.25rem;
   font-weight: 700;
   color: #e07b1f;
 }
@@ -1555,7 +1529,6 @@ input[type="range"]::-moz-range-thumb {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 0.95rem;
 }
 
 .resultado-label i {
@@ -1567,7 +1540,6 @@ input[type="range"]::-moz-range-thumb {
 .resultado-valor {
   font-weight: 700;
   color: #111827;
-  font-size: 1.05rem;
   font-variant-numeric: tabular-nums;
 }
 
@@ -1592,7 +1564,6 @@ input[type="range"]::-moz-range-thumb {
   padding: 22px;
   background: linear-gradient(135deg, #f99109 0%, #ffb347 100%);
   border-radius: 16px;
-  font-size: 1.2rem;
   box-shadow: 0 8px 24px rgba(249, 145, 9, 0.25);
   border: none;
   color: #ffffff;
@@ -1601,12 +1572,10 @@ input[type="range"]::-moz-range-thumb {
 .resultado-item.total .resultado-label {
   color: rgba(255, 255, 255, 0.95);
   font-weight: 600;
-  font-size: 1rem;
 }
 
 .resultado-item.total .resultado-valor {
   color: #ffffff;
-  font-size: 1.4rem;
   font-weight: 800;
 }
 
@@ -1614,7 +1583,6 @@ input[type="range"]::-moz-range-thumb {
   margin-top: 20px;
   text-align: center;
   color: #9ca3af;
-  font-size: 0.8rem;
   line-height: 1.4;
 }
 
@@ -1676,7 +1644,6 @@ input[type="range"]::-moz-range-thumb {
   
   .resultado-item.total {
     padding: 18px;
-    font-size: 1.1rem;
   }
   
   .resultado-item.total .resultado-valor {
@@ -1686,7 +1653,6 @@ input[type="range"]::-moz-range-thumb {
 
 @media (max-width: 480px) {
   .calculadora-section h2 {
-    font-size: 1.5rem;
   }
   
   .calculadora-container {
@@ -1699,7 +1665,6 @@ input[type="range"]::-moz-range-thumb {
   }
   
   .resultado-label {
-    font-size: 0.85rem;
     gap: 6px;
   }
   
@@ -1909,7 +1874,6 @@ input[type="range"]::-moz-range-thumb {
 .terreno-info p {
   margin: 6px 0;
   color: #555;
-  font-size: 14px;
   display: flex;
   justify-content: space-between;
 }
