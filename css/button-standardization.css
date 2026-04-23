@@ -1,10 +1,5 @@
 /* ============================================================
-   BOTONES UNIVERSALES — v2.1
-   Cambios vs v2:
-     - border-radius: 999px (píldora) en todos los botones de texto
-     - Altura flexible: min-height en lugar de height fija,
-       con padding vertical generoso para que 2 líneas respiren
-       sin deformar botones de 1 línea.
+   BOTONES UNIVERSALES
    ============================================================ */
 
 @layer botones {
@@ -15,7 +10,6 @@
     --btn-padding-large:    14px 30px;
     --btn-padding-small:    8px 16px;
     --btn-border-radius:    999px;
-    --btn-font-size:        1rem;
     --btn-font-weight:      600;
     --btn-transition:       all 0.3s ease;
     --btn-min-width:        180px;
