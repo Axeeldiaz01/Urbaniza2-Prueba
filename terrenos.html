@@ -72,161 +72,136 @@
     </div>
   </section>
 
-  <!-- TERRENOS DISPONIBLES -->
-  <section id="terrenos-disponibles">
-    <div class="container">
-      <!-- CARD PRINCIPAL -->
-      <div class="terrenos-wrapper reveal">
-        <h2>Terrenos Disponibles</h2>
+<!-- TERRENOS DISPONIBLES -->
+<section id="terrenos-disponibles">
+  <div class="container">
 
-        <p class="section-subtitle">
-          ¡No dejes pasar la oportunidad! Asegura el patrimonio de tu familia
-          con precios de preventa y ubicación privilegiada. 🔑
-        </p>
+    <h2>Terrenos Disponibles</h2>
+    <p class="section-subtitle">
+      ¡No dejes pasar la oportunidad! Asegura el patrimonio de tu familia
+      con precios de preventa y ubicación privilegiada. 🔑
+    </p>
 
-        <!-- GALERIA -->
-        <div class="galeria">
-          <!-- CARD 1 -->
-          <div class="card" data-tipo="Terreno" data-ubicacion="Chancay Lima Peru">
-            <div class="img-container">
-              <img src="img/chancay1.webp" alt="Terreno en Chancay" />
-            </div>
-
-            <div class="linea-decorativa"></div>
-
-            <h3>Chancay</h3>
-            <p>180 m².</p>
-            <p>Excelente ubicación cerca del centro.</p>
-            <p>Documentos en regla.</p>
-
-            <p class="precio">Consultar</p>
-
-            <div class="card-actions">
-              <button class="btn-comprar" data-ubicacion="Chancay" data-area="180 m²">
-                <i class="fas fa-shopping-cart"></i> Comprar
-              </button>
-
-              <a href="#" class="btn-ubicacion" data-destino="-11.5552648,-77.2746358">
-                <i class="fas fa-map-marker-alt"></i> Ver ubicación
-              </a>
-            </div>
-          </div>
-
-          <!-- CARD 2 -->
-          <div class="card" data-tipo="Terreno" data-ubicacion="Vegueta Huaura Lima Peru">
-            <div class="img-container">
-              <img src="img/vegueta.jpg" alt="Terreno en Vegueta" />
-            </div>
-
-            <div class="linea-decorativa"></div>
-
-            <h3>Végueta</h3>
-            <p>220 m².</p>
-            <p>Zona tranquila y en crecimiento.</p>
-            <p>Perfecto para inversión.</p>
-
-            <p class="precio">Consultar</p>
-
-            <div class="card-actions">
-              <button class="btn-comprar" data-ubicacion="Vegueta" data-area="220 m²">
-                <i class="fas fa-shopping-cart"></i> Comprar
-              </button>
-
-              <a href="#" class="btn-ubicacion" data-destino="-10.994598,-77.6302965">
-                <i class="fas fa-map-marker-alt"></i> Ver ubicación
-              </a>
-            </div>
-          </div>
-
-          <!-- CARD 3 -->
-          <div class="card" data-tipo="Departamento" data-ubicacion="Huacho Lima Peru">
-            <div class="img-container">
-              <img src="img/huacho.webp" alt="Departamento en Huacho" />
-            </div>
-
-            <div class="linea-decorativa"></div>
-
-            <h3>Huacho</h3>
-            <p>120 m² – 3er piso.</p>
-            <p>Costado a parque infantil.</p>
-            <p>Cerca a Tottus y Poder Judicial.</p>
-
-            <p class="precio">Consultar</p>
-
-            <div class="card-actions">
-              <button class="btn-comprar" data-ubicacion="Huacho" data-area="120 m²">
-                <i class="fas fa-shopping-cart"></i> Consultar
-              </button>
-
-              <a href="#" class="btn-ubicacion" data-destino="-11.1091326,-77.6029019">
-                <i class="fas fa-map-marker-alt"></i> Ver ubicación
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- FIN GALERIA -->
-
-        <!--  SURCO  -->
-        <div id="surco" class="section reveal">
-          <div class="cardd" data-tipo="Departamento" data-ubicacion="Santiago de Surco Lima Peru">
-            <div class="carrusel-chorrillos">
-              <div class="carrusel-container">
-                <div class="carrusel-slide active">
-                  <img src="img/alquila.jpeg" />
-                </div>
-                <div class="carrusel-slide">
-                  <img src="img/ubicada.jpeg" />
-                </div>
-                <div class="carrusel-slide">
-                  <img src="img/habitacion 2.jpeg" />
-                </div>
-                <div class="carrusel-slide">
-                  <img src="img/baño prin.jpeg" />
-                </div>
-              </div>
-
-              <div class="carrusel-indicadores">
-                <span class="indicador active"></span>
-                <span class="indicador"></span>
-                <span class="indicador"></span>
-                <span class="indicador"></span>
-              </div>
-            </div>
-
-            <div class="texto">
-              <h2>SANTIAGO DE SURCO</h2>
-
-              <p class="descripcion">
-                Ubicado a una cuadra de Tottus y entidades bancarias.
-                Departamento en primer piso, ideal para vivir o invertir.
-              </p>
-
-              <ul class="caracteristicas">
-                <li>Sala comedor con tragaluz</li>
-                <li>Lavandería</li>
-                <li>2 habitaciones con closet</li>
-                <li>Baño principal</li>
-                <li>Baño de visita</li>
-              </ul>
-
-              <div class="card-actions">
-                <button class="btn-comprar"
-                  data-ubicacion="Surco"
-                  data-area="120 m²">
-                  <i class="fas fa-shopping-cart"></i> Comprar
-                </button>
-
-                <a href="#" class="btn-ubicacion" data-destino="-12.159719,-76.989647">
-                  <i class="fas fa-map-marker-alt"></i> Ver ubicación
-                </a>
-                
-              </div>
-            </div>
-          </div>
+    <!-- CARD 1 - CHANCAY -->
+    <div class="terreno-card" data-tipo="Terreno" data-ubicacion="Chancay Lima Peru">
+      <div class="terreno-img">
+        <img src="img/chancay1.webp" alt="Terreno en Chancay" />
+      </div>
+      <div class="terreno-info">
+        <h3>Chancay</h3>
+        <div class="linea-decorativa"></div>
+        <p>180 m².</p>
+        <p>Excelente ubicación cerca del centro.</p>
+        <p>Documentos en regla.</p>
+        <p class="precio">Consultar</p>
+        <div class="card-actions">
+          <button class="btn-comprar" data-ubicacion="Chancay" data-area="180 m²">
+            <i class="fas fa-shopping-cart"></i> Comprar
+          </button>
+          <a href="#" class="btn-ubicacion" data-destino="-11.5552648,-77.2746358">
+            <i class="fas fa-map-marker-alt"></i> Ver ubicación
+          </a>
         </div>
       </div>
     </div>
-  </section>
+
+    <!-- CARD 2 - VEGUETA -->
+    <div class="terreno-card" data-tipo="Terreno" data-ubicacion="Vegueta Huaura Lima Peru">
+      <div class="terreno-img">
+        <img src="img/vegueta.jpg" alt="Terreno en Vegueta" />
+      </div>
+      <div class="terreno-info">
+        <h3>Végueta</h3>
+        <div class="linea-decorativa"></div>
+        <p>220 m².</p>
+        <p>Zona tranquila y en crecimiento.</p>
+        <p>Perfecto para inversión.</p>
+        <p class="precio">Consultar</p>
+        <div class="card-actions">
+          <button class="btn-comprar" data-ubicacion="Vegueta" data-area="220 m²">
+            <i class="fas fa-shopping-cart"></i> Comprar
+          </button>
+          <a href="#" class="btn-ubicacion" data-destino="-10.994598,-77.6302965">
+            <i class="fas fa-map-marker-alt"></i> Ver ubicación
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 3 - HUACHO -->
+    <div class="terreno-card" data-tipo="Departamento" data-ubicacion="Huacho Lima Peru">
+      <div class="terreno-img">
+        <img src="img/huacho.webp" alt="Departamento en Huacho" />
+      </div>
+      <div class="terreno-info">
+        <h3>Huacho</h3>
+        <div class="linea-decorativa"></div>
+        <p>120 m² – 3er piso.</p>
+        <p>Costado a parque infantil.</p>
+        <p>Cerca a Tottus y Poder Judicial.</p>
+        <p class="precio">Consultar</p>
+        <div class="card-actions">
+          <button class="btn-comprar" data-ubicacion="Huacho" data-area="120 m²">
+            <i class="fas fa-shopping-cart"></i> Consultar
+          </button>
+          <a href="#" class="btn-ubicacion" data-destino="-11.1091326,-77.6029019">
+            <i class="fas fa-map-marker-alt"></i> Ver ubicación
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 4 - SANTIAGO DE SURCO -->
+    <div class="terreno-card" data-tipo="Departamento" data-ubicacion="Santiago de Surco Lima Peru">
+      <div class="terreno-img">
+        <div class="carrusel-chorrillos">
+          <div class="carrusel-container">
+            <div class="carrusel-slide active">
+              <img src="img/alquila.jpeg" alt="Santiago de Surco 1" />
+            </div>
+            <div class="carrusel-slide">
+              <img src="img/ubicada.jpeg" alt="Santiago de Surco 2" />
+            </div>
+            <div class="carrusel-slide">
+              <img src="img/habitacion 2.jpeg" alt="Santiago de Surco 3" />
+            </div>
+            <div class="carrusel-slide">
+              <img src="img/baño prin.jpeg" alt="Santiago de Surco 4" />
+            </div>
+          </div>
+          <div class="carrusel-indicadores">
+            <span class="indicador active"></span>
+            <span class="indicador"></span>
+            <span class="indicador"></span>
+            <span class="indicador"></span>
+          </div>
+        </div>
+      </div>
+      <div class="terreno-info">
+        <h3>Santiago de Surco</h3>
+        <div class="linea-decorativa"></div>
+        <p>Departamento en primer piso.</p>
+        <p>A una cuadra de Tottus y bancos.</p>
+        <ul class="caracteristicas">
+          <li>Sala comedor con tragaluz</li>
+          <li>Lavandería</li>
+          <li>2 habitaciones con closet</li>
+          <li>Baño principal y de visita</li>
+        </ul>
+        <p class="precio">Consultar</p>
+        <div class="card-actions">
+          <button class="btn-comprar" data-ubicacion="Surco" data-area="120 m²">
+            <i class="fas fa-shopping-cart"></i> Comprar
+          </button>
+          <a href="#" class="btn-ubicacion" data-destino="-12.159719,-76.989647">
+            <i class="fas fa-map-marker-alt"></i> Ver ubicación
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
 
   <div id="modal" class="modal">
     <span class="cerrar">&times;</span>

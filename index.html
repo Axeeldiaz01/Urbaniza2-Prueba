@@ -125,153 +125,97 @@
 
       <!-- TERRENOS DISPONIBLES - INDEX -->
       <section id="terrenos-disponibles">
-
         <div class="container">
 
-          <!-- CARD PRINCIPAL -->
-          <div class="terrenos-wrapper reveal">
+          <h2>Terrenos Disponibles</h2>
+          <p class="section-subtitle">
+            ¡No dejes pasar la oportunidad! Asegura el patrimonio de tu familia
+            con precios de preventa y ubicación privilegiada. 🔑
+          </p>
 
-            <h2>Terrenos Disponibles</h2>
-
-            <p class="section-subtitle">
-              ¡No dejes pasar la oportunidad! Asegura el patrimonio de tu familia
-              con precios de preventa y ubicación privilegiada. 🔑
-            </p>
-
-            <!-- GALERIA -->
-            <div class="galeria">
-
-              <!-- CARD 1 -->
-              <div class="card" data-tipo="Terreno" data-ubicacion="Chancay" data-precio="95000" data-moneda="S/">
-
-                <div class="img-container">
-                  <img src="img/chancay1.webp" alt="Terreno en Chancay" loading="lazy" decoding="async" width="400"
-                    height="220" />
-                </div>
-
-                <div class="linea-decorativa"></div>
-
-                <h3>Chancay</h3>
-
-                <p>180 m².</p>
-                <p>Excelente ubicación cerca del centro.</p>
-                <p>Documentos en regla.</p>
-
-                <p class="precio">Consultar</p>
-
-                <div class="card-actions">
-
-                  <button class="btn-comprar" data-ubicacion="Chancay" data-precio="95000" data-area="180 m²"
-                    data-terreno-id="6">
-
-                    <i class="fas fa-shopping-cart"></i>
-                    Comprar
-                  </button>
-                  <a href="#" class="btn-ubicacion" data-destino="-11.5552648,-77.2746358">
-                    <i class="fas fa-map-marker-alt"></i> Ver Ubicacion
-                  </a>
-
-                </div>
-
-              </div>
-
-              <!-- CARD 2 -->
-              <div class="card" data-tipo="Terreno" data-ubicacion="Végueta" data-precio="85000" data-moneda="S/">
-
-                <div class="img-container">
-                  <img src="img/vegueta.jpg" alt="Terreno en Végueta" loading="lazy" decoding="async" width="400"
-                    height="220" />
-                </div>
-
-                <div class="linea-decorativa"></div>
-
-                <h3>Végueta</h3>
-
-                <p>220 m².</p>
-                <p>Zona tranquila y en crecimiento.</p>
-                <p>Perfecto para inversión.</p>
-
-                <p class="precio">Consultar</p>
-
-                <div class="card-actions">
-
-                  <button class="btn-comprar" data-ubicacion="Vegueta" data-precio="85000" data-area="220 m²"
-                    data-terreno-id="7">
-
-                    <i class="fas fa-shopping-cart"></i>
-                    Comprar
-
-                  </button>
-
-                  <a href="#" class="btn-ubicacion" data-destino="-10.994598,-77.6302965">
-                    <i class="fas fa-map-marker-alt"></i> Ver Ubicacion
-                  </a>
-
-                </div>
-
-              </div>
-
-              <!-- CARD 3 -->
-              <div class="card" data-tipo="Departamento" data-ubicacion="Huacho" data-precio="0" data-moneda="S/">
-
-                <div class="img-container">
-                  <img src="img/huacho.webp" alt="Departamento en Huacho" loading="lazy" decoding="async" width="400"
-                    height="220" />
-                </div>
-
-                <div class="linea-decorativa"></div>
-
-                <h3>Huacho</h3>
-
-                <p>120 m² – 3er piso.</p>
-                <p>Costado a parque infantil.</p>
-                <p>Cerca a Tottus y Poder Judicial.</p>
-
-                <p class="precio">Consultar</p>
-
-                <div class="card-actions">
-
-                  <button class="btn-comprar" data-ubicacion="Huacho" data-precio="0" data-area="120 m²"
-                    data-terreno-id="8">
-
-                    <i class="fas fa-shopping-cart"></i>
-                    Consultar
-
-                  </button>
-
-                  <a href="#" class="btn-ubicacion" data-destino="-11.1091326,-77.6029019">
-                    <i class="fas fa-map-marker-alt"></i> Ver Ubicacion
-                  </a>
-
-                </div>
-
-              </div>
-
+          <!-- CARD 1 -->
+          <div class="terreno-card" data-tipo="Terreno" data-ubicacion="Chancay" data-precio="95000" data-moneda="S/">
+            <div class="terreno-img">
+              <img src="img/chancay1.webp" alt="Terreno en Chancay" loading="lazy" decoding="async" />
             </div>
-
-            <!-- FOOTER DEL CARD -->
-            <div class="terrenos-footer">
-
-              <a href="https://wa.me/51982664102?text=Hola,%20quiero%20información." class="btn btn-secondary"
-                target="_blank">
-
-                Consultar por WhatsApp
-
-              </a>
-
-              <a href="terrenos.html" class="btn-ver-todos">
-                Ver todos los terrenos disponibles
-                <i class="fas fa-arrow-right"></i>
-              </a>
-
-
-
+            <div class="terreno-info">
+              <h3>Chancay</h3>
+              <div class="linea-decorativa"></div>
+              <p>180 m².</p>
+              <p>Excelente ubicación cerca del centro.</p>
+              <p>Documentos en regla.</p>
+              <p class="precio">Consultar</p>
+              <div class="card-actions">
+                <button class="btn-comprar" data-ubicacion="Chancay" data-precio="95000" data-area="180 m²"
+                  data-terreno-id="6">
+                  <i class="fas fa-shopping-cart"></i> Comprar
+                </button>
+                <a href="#" class="btn-ubicacion" data-destino="-11.5552648,-77.2746358">
+                  <i class="fas fa-map-marker-alt"></i> Ver Ubicación
+                </a>
+              </div>
             </div>
+          </div>
 
+          <!-- CARD 2 -->
+          <div class="terreno-card" data-tipo="Terreno" data-ubicacion="Végueta" data-precio="85000" data-moneda="S/">
+            <div class="terreno-img">
+              <img src="img/vegueta.jpg" alt="Terreno en Végueta" loading="lazy" decoding="async" />
+            </div>
+            <div class="terreno-info">
+              <h3>Végueta</h3>
+              <div class="linea-decorativa"></div>
+              <p>220 m².</p>
+              <p>Zona tranquila y en crecimiento.</p>
+              <p>Perfecto para inversión.</p>
+              <p class="precio">Consultar</p>
+              <div class="card-actions">
+                <button class="btn-comprar" data-ubicacion="Vegueta" data-precio="85000" data-area="220 m²"
+                  data-terreno-id="7">
+                  <i class="fas fa-shopping-cart"></i> Comprar
+                </button>
+                <a href="#" class="btn-ubicacion" data-destino="-10.994598,-77.6302965">
+                  <i class="fas fa-map-marker-alt"></i> Ver Ubicación
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- CARD 3 -->
+          <div class="terreno-card" data-tipo="Departamento" data-ubicacion="Huacho" data-precio="0" data-moneda="S/">
+            <div class="terreno-img">
+              <img src="img/huacho.webp" alt="Departamento en Huacho" loading="lazy" decoding="async" />
+            </div>
+            <div class="terreno-info">
+              <h3>Huacho</h3>
+              <div class="linea-decorativa"></div>
+              <p>120 m² – 3er piso.</p>
+              <p>Costado a parque infantil.</p>
+              <p>Cerca a Tottus y Poder Judicial.</p>
+              <p class="precio">Consultar</p>
+              <div class="card-actions">
+                <button class="btn-comprar" data-ubicacion="Huacho" data-precio="0" data-area="120 m²"
+                  data-terreno-id="8">
+                  <i class="fas fa-shopping-cart"></i> Consultar
+                </button>
+                <a href="#" class="btn-ubicacion" data-destino="-11.1091326,-77.6029019">
+                  <i class="fas fa-map-marker-alt"></i> Ver Ubicación
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- BOTONES FOOTER -->
+          <div class="terrenos-footer">
+            <a href="https://wa.me/51982664102?text=Hola,%20quiero%20información." class="btn-wsp" target="_blank">
+              <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+            </a>
+            <a href="terrenos.html" class="btn-ver-todos">
+              Ver todos los terrenos disponibles <i class="fas fa-arrow-right"></i>
+            </a>
           </div>
 
         </div>
-
       </section>
 
 

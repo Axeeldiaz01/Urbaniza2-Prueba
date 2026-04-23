@@ -249,11 +249,6 @@ h2::after {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.quienes-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.12);
-}
-
 .quienes-img {
   flex: 0 0 260px;
   display: flex;
@@ -373,9 +368,6 @@ h2::after {
   transition: all 0.3s ease;
 }
 
-.stat-item:hover {
-  transform: translateY(-12px);
-}
 
 .stat-number {
   font-size: 4rem;
@@ -501,11 +493,7 @@ h2::after {
   transition: opacity 0.3s ease;
 }
 
-/* Hover   */
-.valor-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.12);
-}
+
 
 .valor-card:hover::before {
   opacity: 1;
@@ -938,3 +926,10 @@ h2::after {
   transform: translateY(-30px);
 }
 
+/* HOVER UNIFICADO  */
+.quienes-card:hover,
+.stat-item:hover,
+.valor-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}

@@ -222,329 +222,301 @@ body {
 
 }
 
+/* ============================================================
+   TERRENOS DISPONIBLES - CARDS HORIZONTALES
+   ============================================================ */
 
-/* --- GALERÍA DE TERRENOS --- */
+#terrenos-disponibles {
+  padding: 80px 0;
+  background-color: transparent;
+}
+
 #terrenos-disponibles h2 {
   text-align: center;
-  font-size: clamp(1.8rem, 4vw, 2.5rem);
-  font-weight: 700;
-  margin: 30px 0;
+  margin-bottom: 15px;
+  color: #1a1a1a;
 }
 
-.galeria {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.8rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.card {
-  background: #fff;
-  border-radius: 0.6rem;
-  overflow: hidden;
-  box-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-  display: flex;
-  flex-direction: column;
-}
-
-.card:hover {
-  transform: translateY(-0.3rem);
-  box-shadow: 0 0.8rem 1.5rem rgba(0, 0, 0, 0.15);
-}
-
-.card h3 {
-  margin: 0.6rem;
-  font-size: 1.2rem;
-  color: #333;
+#terrenos-disponibles .section-subtitle {
   text-align: center;
-}
-
-.card p {
-  margin: 0 0.6rem 0.9rem;
-  font-size: 0.95rem;
   color: #666;
+  margin-bottom: 50px;
 }
 
-.card .precio {
-  font-weight: bold;
-  font-size: 1.1rem;
-  color: #27ae60;
-  text-align: center;
-  margin: 0.6rem;
-}
-
-.card-actions {
+/* ===== CARD HORIZONTAL ===== */
+#terrenos-disponibles .terreno-card {
   display: flex;
-  gap: 10px;
-  justify-content: center;
-  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: stretch;
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid #f0f0f0;
+  margin-bottom: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.card .btn-comprar {
-  width: 100%;
-  padding: 0.75rem;
-  background: #27ae60;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  font-size: 1rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
+#terrenos-disponibles .terreno-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
-.card .btn-comprar:hover {
-  background: #229954;
-  transform: translateY(-0.1rem);
-  box-shadow: 0 0.25rem 0.75rem rgba(39, 174, 96, 0.3);
-}
-
-/* Imágenes de tarjetas adaptadas a tus tamaños reales */
-/* Contenedor de imagen estable */
-.card img {
-  width: 100%;
-
-  height: 220px;        
-  object-fit: cover;     
-
-  display: block;
-}
-
-
-/* (pantallas intermedias) */
-@media (max-width: 1200px) {
-
-  .galeria {
-    grid-template-columns: repeat(2, 1fr);
-    max-width: 900px;
-  }
-
-  .card img {
-    height: 210px;
-  }
-
-}
-
-/* --- SECCIÓN CARUUSEL  --- */
-.section {
+/* ===== IMAGEN ===== */
+#terrenos-disponibles .terreno-img {
+  flex: 0 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 2.5rem;
-  padding: 3.1rem 1.25rem;
-  flex-wrap: wrap;
-  background-color: #ffffff;
-  border-radius: 18px;
-  margin: 1.9rem 1.25rem;
-  box-shadow:
-    0 12px 35px rgba(0, 0, 0, 0.08);
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+  background: none;
+  padding: 0;
+  width: 400px;
+  min-width: 400px;
+  align-self: stretch;
 }
 
-.section:hover {
-  transform: translateY(-4px);
-  box-shadow:
-    0 20px 45px rgba(0, 0, 0, 0.12);
-}
-
-.section {
-  max-width: 1110px; 
-  margin: 2rem auto;  
-
-}
-
-.cardd {
+#terrenos-disponibles .terreno-img img {
   width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  border-radius: 0;
 }
 
-
-img {     
-  border-radius: 4px;      
-  outline: none;
-}
-
-.imagen {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;     
-  box-shadow: none;             
-}
-
-.texto h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: #fb9f2ee2;
-}
-
-.texto p {
-  font-size: clamp(1rem, 4vw, 1.2rem);
-  font-weight: 400;
-  margin-bottom: 1.5rem;
-  color: #333;
-}
-
-.texto a {
-  display: inline-block;
-  padding: 0.65rem 1.4rem;
-  background:
-    linear-gradient(135deg, #f99109, #ff7a00);
-  color: white;
-  text-decoration: none;
-  border-radius: 10px;
-  font-weight: 600;
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease,
-    background 0.2s ease;
-}
-
-.texto a:hover {
-  transform: translateY(-2px);
-  box-shadow:
-    0 10px 20px rgba(0,0,0,0.15);
-}
-
-/* CARRUSEL ESTABLE */
-.carrusel-chorrillos {
+/* ===== CARRUSEL DENTRO DE TERRENO-IMG ===== */
+#terrenos-disponibles .terreno-img .carrusel-chorrillos {
   position: relative;
   width: 100%;
-  max-width: 500px;
-  margin: 0 auto;
+  height: 100%;
 }
 
-.carrusel-container {
+#terrenos-disponibles .terreno-img .carrusel-container {
   position: relative;
   width: 100%;
-  min-height: 380px;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  border-radius: 14px;
   background: #fafafa;
 }
 
-/* Slides */
-.carrusel-slide {
+#terrenos-disponibles .terreno-img .carrusel-slide {
   position: absolute;
   inset: 0;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   opacity: 0;
-  pointer-events: none; 
-
+  pointer-events: none;
   transition: opacity 0.5s ease-in-out;
 }
 
-.carrusel-slide.active {
+#terrenos-disponibles .terreno-img .carrusel-slide.active {
   opacity: 1;
   pointer-events: auto;
 }
 
-/* Imagen completa con borde */
-.carrusel-slide img {
+#terrenos-disponibles .terreno-img .carrusel-slide img {
   max-width: 100%;
   max-height: 100%;
   width: auto;
   height: auto;
   object-fit: contain;
   display: block;
-  border: none;
-  border-radius: 8px;
-  background: transparent;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
 }
 
-.section:hover .carrusel-slide img {
-  transform: scale(1.03);
-}
-
-/* INDICADORES */
-.carrusel-indicadores {
-  position: relative;
-
+#terrenos-disponibles .terreno-img .carrusel-indicadores {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
-  justify-content: center;
   gap: 8px;
-
-  margin-top: 12px;
-
-  z-index: 10; 
+  z-index: 10;
 }
 
-.indicador {
+#terrenos-disponibles .terreno-img .indicador {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: #d0d0d0;
+  background: rgba(255,255,255,0.6);
   cursor: pointer;
-  transition:
-    transform 0.3s ease,
-    background 0.3s ease;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0,0,0,0.2);
 }
 
-.indicador:hover {
+#terrenos-disponibles .terreno-img .indicador:hover {
   transform: scale(1.2);
 }
 
-.indicador.active {
+#terrenos-disponibles .terreno-img .indicador.active {
   background: #f99109;
-
   transform: scale(1.3);
 }
 
-/* --- MODAL PARA IMAGEN AMPLIADA --- */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 999;
-  padding-top: 3.75rem;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.8);
+/* ===== INFO ===== */
+#terrenos-disponibles .terreno-info {
+  flex: 1 1 auto;
+  padding: 25px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.modal-contenido {
-  margin: auto;
-  display: block;
-  max-width: 90%;
-  max-height: 80%;
-  border-radius: 0.6rem;
-  animation: zoomIn 0.3s ease;
+#terrenos-disponibles .terreno-info h3 {
+  color: #1a1a1a;
+  margin: 0 0 10px 0;
 }
 
-@keyframes zoomIn {
-  from { transform: scale(0.8); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
+#terrenos-disponibles .terreno-info .linea-decorativa {
+  width: 40px;
+  height: 3px;
+  background: #f3a530;
+  border-radius: 2px;
+
 }
 
-#caption {
-  text-align: center;
-  color: white;
-  padding: 0.6rem;
-  font-size: 1.1rem;
+#terrenos-disponibles .terreno-info p {
+  margin: 6px 0;
+  color: #666;
+  line-height: 1.5;
 }
 
-.cerrar {
-  position: absolute;
-  top: 1.25rem;
-  right: 2.2rem;
-  color: white;
-  font-size: 2.5rem;
+#terrenos-disponibles .terreno-info .precio {
+  font-weight: 800;
+  color: #f3a530;
+  margin: 15px 0;
+}
+
+/* ===== CARACTERISTICAS LISTA ===== */
+#terrenos-disponibles .terreno-info .caracteristicas {
+  margin: 10px 0;
+  padding-left: 18px;
+  list-style: none;
+}
+
+#terrenos-disponibles .terreno-info .caracteristicas li {
+  margin-bottom: 4px;
+  color: #666;
+  position: relative;
+}
+
+#terrenos-disponibles .terreno-info .caracteristicas li::before {
+  content: "✔";
+  color: #f3a530;
   font-weight: bold;
-  cursor: pointer;
+  position: absolute;
+  left: -18px;
 }
+
+/* ===== BOTONES - VERDE ===== */
+#terrenos-disponibles .terreno-card .card-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+
+#terrenos-disponibles .terreno-card .card-actions .btn-comprar {
+  background: #2ea65c;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 12px 24px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+#terrenos-disponibles .terreno-card .card-actions .btn-comprar:hover {
+  background: #279653;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(39, 174, 96, 0.4);
+}
+
+#terrenos-disponibles .terreno-card .card-actions .btn-ubicacion {
+  background: #ffffff;
+  color: #333;
+  border: 1px solid #eee;
+  border-radius: 999px;
+  padding: 12px 24px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+#terrenos-disponibles .terreno-card .card-actions .btn-ubicacion:hover {
+  background: #f49d32;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  #terrenos-disponibles .terreno-card {
+    flex-direction: column;
+  }
+  
+  #terrenos-disponibles .terreno-img {
+    width: 100%;
+    min-width: 100%;
+    height: 240px;
+    align-self: auto;
+  }
+  
+  #terrenos-disponibles .terreno-info {
+    padding: 20px 25px;
+    text-align: center;
+  }
+
+
+  #terrenos-disponibles .terreno-card .card-actions {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  #terrenos-disponibles {
+    padding: 50px 15px;
+  }
+  
+  #terrenos-disponibles .terreno-img {
+    height: 200px;
+  }
+  
+  #terrenos-disponibles .terreno-card .card-actions {
+    flex-direction: column;
+  }
+  
+  #terrenos-disponibles .terreno-card .card-actions .btn-comprar,
+  #terrenos-disponibles .terreno-card .card-actions .btn-ubicacion {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+
+/* ===== LÍNEA DECORATIVA A LA IZQUIERDA EN LAS 4 CARDS ===== */
+#terrenos-disponibles .terreno-card .terreno-info .linea-decorativa {
+  width: 40px;
+  height: 3px;
+  background: #f3a530;
+  border-radius: 2px;
+  margin: 0 0 15px 0;
+}
+
+
+
 
 /* --- BOTONES FLOTANTES --- */
 .scrollToHome {
@@ -991,7 +963,6 @@ img {
 .terreno-info p {
   margin: 6px 0;
   color: #555;
-  font-size: 14px;
 }
 
 .datos-contacto-titulo h3 {
@@ -1698,7 +1669,7 @@ transform:translateY(0);
 }
 
 .btn-comprar {
-  background-color: #1a1a1a;
+  background-color: #27ae60;;
   color: #fff;
   border: none;
   padding: 12px 18px;
