@@ -12,7 +12,7 @@
   --title-h1: clamp(2.2rem, 4.5vw, 3.5rem);
 
   /* H2 */
-  --title-h2: clamp(1.8rem, 3.5vw, 2.5rem);
+  --title-h2: clamp(1.8rem, 3.5vw, 2.5rem);  
 
   /* H3 */
   --title-h3: clamp(1.2rem, 2vw, 1.5rem);
@@ -28,7 +28,7 @@
   --text-small: 0.9rem;
 
   /* Texto botones */
-  --text-button: 1rem;
+  --text-button: 1.1rem;
 
   /* Texto stat */
   --text-stat-number: clamp(2.2rem, 4.5vw, 55px);
@@ -81,8 +81,10 @@ h3,
 p,
 li,
 span,
+ul,
 a,
 .hero-description,
+.caracteristicas,
 .faq-question {
   font-size: var(--text-base);
   line-height: var(--lh-text);
@@ -109,6 +111,7 @@ a.btn,
 .btn-ver-mas,
 .btn-buscar,
 .boton-correo,
+.btn-read,
 .btn-secondary {
   font-size: var(--text-button);
   font-weight: 700;
